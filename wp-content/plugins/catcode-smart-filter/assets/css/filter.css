@@ -1,0 +1,385 @@
+/*
+ * CatCode Smart Filter — storefront styles (WooCommerce).
+ *
+ * Written to sit inside any WooCommerce theme sidebar without fighting it:
+ * no !important, no resets, no font or colour declarations beyond what the
+ * widget itself draws. Sizes are in rem so a theme's own scale carries through.
+ */
+
+.ccf { position: relative; }
+
+.ccf__heading { font-weight: 600; }
+.ccf__total { font-size: .8125rem; opacity: .7; }
+
+.ccf.is-busy .ccf__panel { opacity: .55; pointer-events: none; }
+.ccf-loading { opacity: .5; transition: opacity .15s ease; }
+
+/* --- chips ------------------------------------------------------------- */
+
+.ccf__chips {
+	display: flex;
+	flex-wrap: wrap;
+	gap: .375rem;
+	padding: .75rem 1rem 0;
+}
+
+.ccf__chip {
+	display: inline-flex;
+	align-items: center;
+	gap: .375rem;
+	padding: .1875rem .5rem;
+	border: 1px solid rgba(0, 0, 0, .15);
+	border-radius: 1rem;
+	font-size: .8125rem;
+	line-height: 1.4;
+	text-decoration: none;
+}
+
+.ccf__chip:hover { border-color: rgba(0, 0, 0, .35); }
+.ccf__chip-x { font-style: normal; opacity: .55; }
+.ccf__chip--clear { border-style: dashed; }
+
+/* --- facets ------------------------------------------------------------ */
+
+.ccf__facet + .ccf__facet {
+	margin-top: .875rem;
+	border-top: 1px solid rgba(0, 0, 0, .08);
+	padding-top: .875rem;
+}
+
+.ccf__facet-head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	padding: 0;
+	border: 0;
+	background: none;
+	font: inherit;
+	font-weight: 600;
+	text-align: left;
+	cursor: pointer;
+}
+
+.ccf__caret {
+	width: .5rem;
+	height: .5rem;
+	border-right: 2px solid currentColor;
+	border-bottom: 2px solid currentColor;
+	transform: rotate(45deg);
+	opacity: .5;
+	transition: transform .15s ease;
+}
+
+.ccf__facet.is-collapsed .ccf__caret { transform: rotate(-45deg); }
+.ccf__facet.is-collapsed .ccf__facet-body,
+.ccf__facet.is-collapsed .ccf__hint { display: none; }
+
+.ccf__hint { margin-top: .25rem; font-size: .75rem; opacity: .65; }
+.ccf__facet-body { margin-top: .5rem; }
+.ccf__search { margin-bottom: .5rem; }
+
+/* --- value lists -------------------------------------------------------- */
+
+.ccf__values {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	max-height: 22rem;
+	overflow-y: auto;
+}
+
+.ccf__value--extra { display: none; }
+.ccf__facet.is-expanded .ccf__value--extra { display: block; }
+
+.ccf__value-link {
+	display: flex;
+	align-items: center;
+	gap: .5rem;
+	padding: .1875rem 0;
+	text-decoration: none;
+	color: inherit;
+}
+
+.ccf__box {
+	flex: 0 0 auto;
+	width: 1rem;
+	height: 1rem;
+	border: 1px solid rgba(0, 0, 0, .3);
+	border-radius: .1875rem;
+	position: relative;
+}
+
+.ccf__box--radio { border-radius: 50%; }
+
+.ccf__value.is-selected .ccf__box {
+	border-color: currentColor;
+	background: currentColor;
+}
+
+.ccf__value.is-selected .ccf__box::after {
+	content: '';
+	position: absolute;
+	left: .1875rem;
+	top: .0625rem;
+	width: .3125rem;
+	height: .5625rem;
+	border-right: 2px solid #fff;
+	border-bottom: 2px solid #fff;
+	transform: rotate(40deg);
+}
+
+.ccf__label { flex: 1 1 auto; }
+.ccf__count { font-size: .75rem; opacity: .55; }
+
+/* A zero-count value stays clickable-looking but reads as unavailable: hiding it
+   outright is the other supported mode, chosen in the settings. */
+.ccf__value.is-disabled { opacity: .4; }
+.ccf__value.is-disabled .ccf__value-link { pointer-events: none; }
+
+.ccf__more { padding-left: 0; }
+
+/* --- swatches ----------------------------------------------------------- */
+
+.ccf__swatches { display: flex; flex-wrap: wrap; gap: .375rem; }
+
+.ccf__swatch {
+	display: inline-flex;
+	align-items: center;
+	gap: .25rem;
+	padding: .1875rem;
+	border: 1px solid rgba(0, 0, 0, .15);
+	border-radius: .25rem;
+	text-decoration: none;
+	color: inherit;
+	font-size: .8125rem;
+}
+
+.ccf__swatch.is-selected { border-color: currentColor; box-shadow: inset 0 0 0 1px currentColor; }
+.ccf__swatch.is-disabled { opacity: .35; pointer-events: none; }
+.ccf__swatch img { width: 1.5rem; height: 1.5rem; object-fit: cover; border-radius: .1875rem; }
+
+.ccf__swatch-color {
+	width: 1.5rem;
+	height: 1.5rem;
+	border-radius: .1875rem;
+	display: inline-block;
+}
+
+/* --- range -------------------------------------------------------------- */
+
+.ccf__range-inputs { display: flex; gap: .5rem; }
+
+.ccf__range-field { flex: 1 1 0; font-size: .75rem; opacity: .8; }
+
+.ccf__range-field input {
+	display: block;
+	width: 100%;
+	padding: .25rem .5rem;
+	border: 1px solid rgba(0, 0, 0, .2);
+	border-radius: .25rem;
+	font-size: .875rem;
+}
+
+.ccf__slider { position: relative; height: 1.75rem; margin-top: .5rem; }
+
+.ccf__slider-track {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: .75rem;
+	height: .25rem;
+	border-radius: .125rem;
+	background: rgba(0, 0, 0, .12);
+}
+
+.ccf__slider-fill {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	background: currentColor;
+	opacity: .55;
+	border-radius: .125rem;
+}
+
+/* Two native range inputs stacked: no slider library, so nothing to conflict
+   with the theme's own JS and nothing to load from a CDN. */
+.ccf__slider input[type='range'] {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	margin: 0;
+	background: none;
+	pointer-events: none;
+	-webkit-appearance: none;
+	appearance: none;
+}
+
+.ccf__slider input[type='range']::-webkit-slider-thumb {
+	pointer-events: auto;
+	-webkit-appearance: none;
+	width: 1rem;
+	height: 1rem;
+	border-radius: 50%;
+	background: #fff;
+	border: 2px solid currentColor;
+	cursor: pointer;
+}
+
+.ccf__slider input[type='range']::-moz-range-thumb {
+	pointer-events: auto;
+	width: 1rem;
+	height: 1rem;
+	border-radius: 50%;
+	background: #fff;
+	border: 2px solid currentColor;
+	cursor: pointer;
+}
+
+/* --- mobile drawer ------------------------------------------------------- */
+
+.ccf__toggle { margin-bottom: .5rem; }
+.ccf__badge { margin-left: .375rem; }
+
+@media (max-width: 991.98px) {
+	.ccf--drawer .ccf__panel { display: none; }
+	.ccf--drawer.is-open .ccf__panel { display: block; }
+}
+
+@media (min-width: 992px) {
+	.ccf__toggle { display: none; }
+}
+
+
+/* Pilloway price range */
+.ccf .ccf__range-inputs {
+	gap: .625rem;
+}
+
+.ccf .ccf__range-field {
+	color: var(--pilloway-muted, #657477);
+	font-size: .78rem;
+	font-weight: 600;
+}
+
+.ccf .ccf__range-field input {
+	box-sizing: border-box;
+	min-height: 2.65rem;
+	margin-top: .3rem;
+	padding: .55rem .75rem;
+	border: 1px solid var(--pilloway-line, #dce7e5);
+	border-radius: .75rem;
+	background: #fff;
+	color: var(--pilloway-ink, #173236);
+	font: inherit;
+	font-weight: 500;
+	transition: border-color .16s ease, box-shadow .16s ease;
+}
+
+.ccf .ccf__range-field input:focus-visible {
+	border-color: var(--pilloway-teal, #117e80);
+	outline: 3px solid rgba(17, 126, 128, .16);
+	outline-offset: 1px;
+}
+
+.ccf .ccf__slider {
+	--ccf-thumb-size: 22px;
+	box-sizing: border-box;
+	height: 2.5rem;
+	margin: .65rem .25rem .35rem;
+	color: var(--pilloway-teal, #117e80);
+	touch-action: pan-y;
+}
+
+.ccf .ccf__slider-track {
+	left: calc(var(--ccf-thumb-size) / 2);
+	right: calc(var(--ccf-thumb-size) / 2);
+	top: 50%;
+	height: 6px;
+	transform: translateY(-50%);
+	border-radius: 999px;
+	background: #e5eeec;
+}
+
+.ccf .ccf__slider-fill {
+	border-radius: 999px;
+	background: linear-gradient(90deg, #168d8e, #0d686b);
+	opacity: 1;
+}
+
+.ccf .ccf__slider input[type='range'] {
+	top: 50%;
+	left: 0;
+	width: 100%;
+	height: var(--ccf-thumb-size);
+	padding: 0;
+	border: 0;
+	transform: translateY(-50%);
+	color: var(--pilloway-teal, #117e80);
+	cursor: pointer;
+	touch-action: pan-y;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.ccf .ccf__slider input[data-ccf-slider-from] { z-index: 2; }
+.ccf .ccf__slider input[data-ccf-slider-to] { z-index: 3; }
+
+.ccf .ccf__slider input[type='range']::-webkit-slider-runnable-track {
+	height: 6px;
+	border: 0;
+	border-radius: 999px;
+	background: transparent;
+}
+
+.ccf .ccf__slider input[type='range']::-moz-range-track {
+	height: 6px;
+	border: 0;
+	border-radius: 999px;
+	background: transparent;
+}
+
+.ccf .ccf__slider input[type='range']::-webkit-slider-thumb {
+	width: var(--ccf-thumb-size);
+	height: var(--ccf-thumb-size);
+	margin-top: -8px;
+	border: 2px solid var(--pilloway-teal, #117e80);
+	border-radius: 50%;
+	background: #fff;
+	box-shadow: 0 2px 7px rgba(23, 50, 54, .18);
+	transition: box-shadow .16s ease, transform .16s ease;
+}
+
+.ccf .ccf__slider input[type='range']::-moz-range-thumb {
+	width: var(--ccf-thumb-size);
+	height: var(--ccf-thumb-size);
+	border: 2px solid var(--pilloway-teal, #117e80);
+	border-radius: 50%;
+	background: #fff;
+	box-shadow: 0 2px 7px rgba(23, 50, 54, .18);
+	transition: box-shadow .16s ease, transform .16s ease;
+}
+
+.ccf .ccf__slider input[type='range']:hover,
+.ccf .ccf__slider input[type='range']:focus-visible,
+.ccf .ccf__slider input[type='range']:active {
+	z-index: 4;
+}
+
+.ccf .ccf__slider input[type='range']:focus-visible {
+	outline: 0;
+}
+
+.ccf .ccf__slider input[type='range']:focus-visible::-webkit-slider-thumb {
+	box-shadow: 0 0 0 4px rgba(17, 126, 128, .16), 0 2px 7px rgba(23, 50, 54, .18);
+}
+
+.ccf .ccf__slider input[type='range']:focus-visible::-moz-range-thumb {
+	box-shadow: 0 0 0 4px rgba(17, 126, 128, .16), 0 2px 7px rgba(23, 50, 54, .18);
+}
+
+@media (hover: hover) {
+	.ccf .ccf__slider input[type='range']:hover::-webkit-slider-thumb,
+	.ccf .ccf__slider input[type='range']:hover::-moz-range-thumb {
+		transform: scale(1.08);
+	}
+}

@@ -1,0 +1,4 @@
+html { scroll-behavior: smooth; font-family: "Montserrat", sans-serif; }
+body.bb-landing { margin: 0; padding: 0; overflow-x: hidden; background: #fff; }
+body.bb-landing main { width: 100%; max-width: none; margin: 0; padding: 0; }
+body.bb-landing img { max-width: 100%; }

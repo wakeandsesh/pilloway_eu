@@ -1,0 +1,72 @@
+.nova-post-pickup-days-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.nova-post-pickup-day-card {
+  width: 155px;
+  border: 1px solid #ccc;
+  opacity: 1;
+  text-align: center;
+}
+
+.nova-post-pickup-selected-day {
+  border: 1px solid #2271b1;
+}
+
+.nova-post-pickup-day-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.nova-post-pickup-day-date {
+  font-weight: bold;
+}
+
+.nova-post-pickup-day-week {
+  text-transform: capitalize;
+  font-size: 12px;
+  color: #666;
+}
+
+.nova-post-pickup-intervals-list {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.nova-post-pickup-interval {
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: transparent;
+  border: 1px solid #2271b1;
+  font-weight: 400;
+
+  &:hover {
+    background: #f3f3f3;
+  }
+}
+
+.nova-post-pickup-selected-interval {
+  background: #2271b1;
+  border: 1px solid #2271b1;
+  font-weight: 600;
+  color: #fff;
+
+  &:hover {
+    background: #2271b1;
+  }
+}
+
+.nova-post-pickup-day-off {
+  color: #999;
+}
+
+.nova-post-pickup-order-to {
+  font-size: 11px;
+  color: '#888';
+  margin-top: 2 px;
+}

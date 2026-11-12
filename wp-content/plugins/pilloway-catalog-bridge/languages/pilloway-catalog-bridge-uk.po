@@ -1,0 +1,38 @@
+msgid ""
+msgstr "Project-Id-Version: Pilloway Catalog Bridge 1.0.9\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nLanguage: uk\nPlural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+msgid "Pilloway selection"
+msgstr "Вибір Pilloway"
+
+msgid "Pilloway favourites"
+msgstr "Фаворити Pilloway"
+
+msgid "Comfort picks for rest, study and professional work."
+msgstr "Добірка для відпочинку, навчання та роботи майстрів."
+
+msgid "Comfort when resting on your stomach."
+msgstr "Комфорт для відпочинку на животі."
+
+msgid "A comfortable seat for studying at a desk."
+msgstr "Зручно сидіти за партою під час навчання."
+
+msgid "Everyday comfort for adult sleep."
+msgstr "Комфорт для щоденного сну дорослих."
+
+msgid "Three pillows for lash professionals."
+msgstr "Три подушки для lash-майстрів."
+
+msgid "View product"
+msgstr "Переглянути товар"
+
+msgid "Pilloway offers"
+msgstr "Акції Pilloway"
+
+msgid "Up to 30% off"
+msgstr "Знижки до 30%"
+
+msgid "on selected Pilloway orthopedic pillows"
+msgstr "на вибрані ортопедичні подушки Pilloway"
+
+msgid "Explore offers"
+msgstr "Переглянути акції"

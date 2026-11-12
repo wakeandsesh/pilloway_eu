@@ -1,0 +1,36 @@
+.catcode-tgnotify-wrap{max-width:1040px}
+.catcode-tgnotify-wrap .catcode-tgnotify-lead{font-size:14px;color:#50575e;margin:.2em 0 1.2em;max-width:70ch}
+
+.catcode-tgnotify-card{background:#fff;border:1px solid #dcdcde;border-radius:8px;padding:4px 24px 20px;margin:18px 0;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.catcode-tgnotify-card>h2{font-size:14px;text-transform:uppercase;letter-spacing:.04em;color:#1d2327;margin:18px 0 6px;padding:0 0 10px;border-bottom:1px solid #f0f0f1}
+
+/* Label column stays narrow so fields do not float in the middle of nowhere. */
+.catcode-tgnotify-card .form-table{margin-top:4px}
+.catcode-tgnotify-card .form-table th{width:200px;padding:18px 10px 18px 0;font-weight:600;vertical-align:top;line-height:1.5}
+.catcode-tgnotify-card .form-table td{padding:14px 0;max-width:660px}
+.catcode-tgnotify-card .form-table input[type=text],
+.catcode-tgnotify-card .form-table input[type=password],
+.catcode-tgnotify-card .form-table textarea{width:100%;max-width:520px}
+.catcode-tgnotify-card .form-table textarea.code{font-size:12px;line-height:1.6}
+.catcode-tgnotify-card .description{margin:6px 0 0;max-width:60ch}
+.catcode-tgnotify-card .catcode-tgnotify-saved{color:#1a7f37;font-weight:600}
+
+/* Status pickers: fixed columns instead of a ragged wrap. */
+.catcode-tgnotify-statuses{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:6px 20px;margin:10px 0 2px;padding:12px 14px;border:1px solid #f0f0f1;border-radius:6px;background:#fbfbfc}
+.catcode-tgnotify-statuses label{display:flex;align-items:center;gap:6px;margin:0;white-space:nowrap}
+.catcode-tgnotify-toggle-row label{font-weight:600}
+
+/* Tag reference reads as a legend, not a wall of chips. */
+.catcode-tgnotify-tags{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:4px 18px;margin:10px 0 4px;padding:12px 14px;border:1px solid #f0f0f1;border-radius:6px;background:#fbfbfc}
+.catcode-tgnotify-tags code{background:transparent;padding:0;font-size:12px;color:#2271b1}
+.catcode-tgnotify-tags span{color:#646970;font-size:12px}
+
+.catcode-tgnotify-actions{position:sticky;bottom:0;background:#f0f0f1;padding:12px 0 16px;margin-top:4px}
+.catcode-tgnotify-actions .button-large{padding:6px 28px;height:auto;font-size:14px}
+.catcode-tgnotify-tools{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;margin:0 0 24px}
+.catcode-tgnotify-tools form{display:flex;align-items:center;gap:10px}
+.catcode-tgnotify-tools .description{margin:0}
+@media (max-width:782px){
+	.catcode-tgnotify-card .form-table th{width:auto;padding-bottom:4px}
+	.catcode-tgnotify-actions{position:static}
+}

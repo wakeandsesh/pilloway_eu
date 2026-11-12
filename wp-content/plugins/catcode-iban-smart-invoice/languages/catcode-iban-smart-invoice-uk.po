@@ -1,0 +1,316 @@
+# Copyright (C) 2026 CatCode
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: CatCode IBAN Smart Invoice 0.2.3\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/catcode-iban-smart-invoice\n"
+"POT-Creation-Date: 2026-07-17T09:49:57+00:00\n"
+"PO-Revision-Date: 2026-07-17 12:00+0300\n"
+"Last-Translator: CatCode\n"
+"Language-Team: Ukrainian\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Domain: catcode-iban-smart-invoice\n"
+"X-Generator: WP-CLI 2.12.0\n"
+
+#. Plugin Name of the plugin
+#: catcode-iban-smart-invoice.php
+msgid "CatCode IBAN Smart Invoice"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: catcode-iban-smart-invoice.php
+msgid "https://catcode.com.ua/modules/iban-smart-invoice"
+msgstr ""
+
+#. Description of the plugin
+#: catcode-iban-smart-invoice.php
+msgid "QR code (NBU v002) + Monobank/Privat24 deep-link buttons on the WooCommerce Thank You page. Optional Pro add-on adds automatic payment detection via Monobank Personal API webhook."
+msgstr "QR-код (NBU v002) + кнопки-переходи в Monobank/Privat24 на сторінці подяки WooCommerce. Окреме доповнення Pro додає автоматичне визначення оплати через вебхук Monobank Personal API."
+
+#. Author of the plugin
+#: catcode-iban-smart-invoice.php
+msgid "CatCode"
+msgstr ""
+
+#. Author URI of the plugin
+#: catcode-iban-smart-invoice.php
+msgid "https://catcode.com.ua"
+msgstr ""
+
+#: catcode-iban-smart-invoice.php:78
+msgid "Settings"
+msgstr "Налаштування"
+
+#: catcode-iban-smart-invoice.php:90
+msgid "IBAN Smart Invoice requires WooCommerce to be active."
+msgstr "IBAN Smart Invoice потребує активного WooCommerce."
+
+#: includes/Blocks/IsiBlockSupport.php:62 includes/Gateway.php:77
+msgid "Bank transfer to IBAN / card (Monobank / Privat24)"
+msgstr "Оплата на IBAN/картку (Monobank / Privat24)"
+
+#: includes/Gateway.php:44
+msgid "IBAN Smart Invoice"
+msgstr ""
+
+#: includes/Gateway.php:45
+msgid "Pay to IBAN with a QR code and Monobank/Privat24 deep links. Automatic payment detection is available via the IBAN Smart Invoice — Pro add-on."
+msgstr "Оплата на IBAN з QR і deep-links Monobank/Privat24. Автоматична детекція оплати — через add-on IBAN Smart Invoice — Pro."
+
+#: includes/Gateway.php:68
+msgid "Enable"
+msgstr "Активувати"
+
+#: includes/Gateway.php:70
+msgid "Show on the checkout page"
+msgstr "Показувати на сторінці оформлення замовлення"
+
+#: includes/Gateway.php:74
+msgid "Payment method title"
+msgstr "Назва способу оплати"
+
+#: includes/Gateway.php:76
+msgid "What the customer sees in the list of payment methods."
+msgstr "Те, що бачить покупець у списку способів оплати."
+
+#: includes/Gateway.php:81
+msgid "Description under the title"
+msgstr "Опис під назвою"
+
+#: includes/Gateway.php:83
+msgid "Shown to the customer after they choose this payment method."
+msgstr "Показується покупцеві після того, як він обрав цей спосіб оплати."
+
+#: includes/Gateway.php:84
+msgid "A QR code and Monobank/Privat24 buttons are on the next page. We will confirm your payment manually as soon as it arrives."
+msgstr "QR-код і кнопки для Monobank та Privat24 — на наступній сторінці. Підтверджу зарахування оплати вручну, як тільки вона надійде."
+
+#: includes/Gateway.php:89
+msgid "Beneficiary details"
+msgstr "Реквізити отримувача"
+
+#: includes/Gateway.php:91
+msgid "Your sole trader / company details. They are used in the QR code and the email instructions."
+msgstr "Дані ФОП / юр. особи. Підставляються в QR і email-інструкції."
+
+#: includes/Gateway.php:94 templates/thankyou-payment.php:96
+msgid "IBAN"
+msgstr ""
+
+#: includes/Gateway.php:98
+msgid "29 characters, starts with UA. The checksum is validated per ISO 13616."
+msgstr "29 символів, починається з UA. Контрольна сума за ISO 13616."
+
+#: includes/Gateway.php:103 includes/Gateway.php:481 includes/Gateway.php:496 templates/thankyou-payment.php:106
+msgid "Beneficiary"
+msgstr "Отримувач"
+
+#: includes/Gateway.php:106
+msgid "Sole trader / company name exactly as registered with your bank."
+msgstr "Назва ФОП / юр. особи як у банку."
+
+#: includes/Gateway.php:111 includes/Gateway.php:484 includes/Gateway.php:499 templates/thankyou-payment.php:111
+msgid "EDRPOU / tax number"
+msgstr "ЄДРПОУ / ІПН"
+
+#: includes/Gateway.php:114
+msgid "Optional. Some banks require it in the payment reference."
+msgstr "Необов'язково. Деякі банки вимагають у призначенні платежу."
+
+#: includes/Gateway.php:118 includes/Gateway.php:487 includes/Gateway.php:502 templates/thankyou-payment.php:124
+msgid "Payment reference"
+msgstr "Призначення платежу"
+
+#: includes/Gateway.php:124
+msgid "What the customer sees in the \"Payment reference\" field of their bank. <code>{order_id}</code> is replaced with the order number (for example \"Payment for order #42\"). Keep this token — the Pro add-on looks for it in the Monobank statement to match a payment against an order."
+msgstr "Що клієнт побачить у полі «Призначення платежу» свого банку. <code>{order_id}</code> підставляється на номер замовлення (наприклад \"Оплата за замовлення #42\"). Залиште цей токен — Pro add-on шукає його у виписці Monobank, щоб зіставити з замовленням."
+
+#: includes/Gateway.php:128
+msgid "What to show the customer on the Thank You page"
+msgstr "Що показувати покупцю на сторінці «Дякуємо»"
+
+#: includes/Gateway.php:132
+msgid "QR code"
+msgstr "QR-код"
+
+#: includes/Gateway.php:134
+msgid "Show the QR code (the customer scans it in their banking app and the amount and details are filled in automatically)"
+msgstr "Показувати QR-код (клієнт сканує у своєму банку → сума і реквізити заповнюються автоматично)"
+
+#: includes/Gateway.php:138
+msgid "\"Open in Monobank\" button"
+msgstr "Кнопка «Відкрити в Monobank»"
+
+#: includes/Gateway.php:140
+msgid "Show the quick transfer button for the Monobank app"
+msgstr "Показувати кнопку швидкого переказу в додатку Monobank"
+
+#: includes/Gateway.php:144
+msgid "Link to your Monobank jar"
+msgstr "Посилання на вашу банку Monobank"
+
+#: includes/Gateway.php:148
+msgid "If you have a <strong>Monobank jar</strong> (savings account), paste its link here, for example <code>https://send.monobank.ua/jar/abc123</code>. The button opens Monobank with the amount and reference already filled in. Leave the field empty to hide the button."
+msgstr "Якщо у вас є <strong>банка Monobank</strong> (накопичувальний рахунок) — вставте сюди її посилання вигляду <code>https://send.monobank.ua/jar/abc123</code>. Кнопка відкриє Mono з уже заповненою сумою і призначенням. Залиште порожнім — кнопка не показуватиметься."
+
+#: includes/Gateway.php:152
+msgid "\"Open in Privat24\" button"
+msgstr "Кнопка «Відкрити в Privat24»"
+
+#: includes/Gateway.php:154
+msgid "Show the quick transfer button for Privat24"
+msgstr "Показувати кнопку швидкого переказу в Privat24"
+
+#: includes/Gateway.php:158
+msgid "Link to your Privat24 template"
+msgstr "Посилання на ваш шаблон Privat24"
+
+#: includes/Gateway.php:162
+msgid "If you have a <strong>Privat24 transfer template</strong>, paste its link here. Leave the field empty to hide the button."
+msgstr "Якщо у вас налаштований <strong>шаблон переказу в Privat24</strong> — вставте сюди його посилання. Залиште порожнім, якщо немає — кнопка не показуватиметься."
+
+#: includes/Gateway.php:177
+msgid "Automatic payment detection — Pro add-on"
+msgstr "Автоматична детекція оплати — Pro add-on"
+
+#: includes/Gateway.php:179
+msgid "In the free version the customer pays with the QR code and you confirm the payment manually in WooCommerce → Orders. A separate add-on adds a Monobank Personal API webhook, so an order moves to \"Processing\" automatically about 3 seconds after payment. See the developer website for details."
+msgstr "У безкоштовній версії клієнт оплачує за QR-кодом, а ви підтверджуєте надходження вручну через WooCommerce → Замовлення. Окремий add-on додає Monobank Personal API webhook → замовлення автоматично переходить у «В обробці» за ~3 секунди після оплати. Деталі — на сайті розробника."
+
+#: includes/Gateway.php:243
+msgid "The IBAN failed the checksum check. The other settings were saved, the IBAN was not."
+msgstr "IBAN не пройшов перевірку контрольної суми. Решта налаштувань збережена, IBAN — ні."
+
+#. translators: %s: payment reference
+#: includes/Gateway.php:303
+#, php-format
+msgid "Awaiting payment to IBAN. Payment reference: %s"
+msgstr "Очікуємо оплату на IBAN. Призначення платежу: %s"
+
+#: includes/Gateway.php:401
+msgid "Order paid. Thank you!"
+msgstr "Замовлення оплачено. Дякуємо!"
+
+#. translators: %s: overpayment amount
+#: includes/Gateway.php:407
+#, php-format
+msgid "You overpaid by %s — we will contact you to refund the difference or credit it towards your next order."
+msgstr "Ви переплатили %s — ми звʼяжемось з вами для повернення різниці або зарахування на наступне замовлення."
+
+#: includes/Gateway.php:440
+msgid "Copied"
+msgstr "Скопійовано"
+
+#: includes/Gateway.php:441
+msgid "Copy failed"
+msgstr "Не вдалося скопіювати"
+
+#: includes/Gateway.php:442
+msgid "Payment received — refreshing the page…"
+msgstr "Платіж отримано — оновлюємо сторінку…"
+
+#: includes/Gateway.php:443
+msgid "Received {received} ₴ of {expected} ₴. Pay the remaining {remaining} ₴ to complete the order."
+msgstr "Отримано {received} ₴ з {expected} ₴. Доплатіть ще {remaining} ₴ щоб завершити замовлення."
+
+#: includes/Gateway.php:478
+msgid "Payment details:"
+msgstr "Реквізити для оплати:"
+
+#: includes/Gateway.php:486 includes/Gateway.php:501 templates/thankyou-payment.php:115
+msgid "Amount"
+msgstr "Сума"
+
+#: includes/Gateway.php:492
+msgid "Payment details"
+msgstr "Реквізити для оплати"
+
+#: includes/Gateway.php:504
+msgid "The shop will confirm your order once the funds arrive."
+msgstr "Після зарахування коштів магазин підтвердить замовлення."
+
+#: includes/Memo.php:25
+msgid "Payment for order #{order_id}"
+msgstr "Оплата за замовлення #{order_id}"
+
+#. translators: %s: link to the settings page
+#: includes/Plugin.php:65
+#, php-format
+msgid "IBAN Smart Invoice is enabled but no IBAN is set. The payment method stays hidden from customers until %s."
+msgstr "IBAN Smart Invoice увімкнено, але не задано IBAN. Метод оплати приховано від покупців доки %s."
+
+#: includes/Plugin.php:66
+msgid "the settings are filled in"
+msgstr "налаштування не заповнено"
+
+#: templates/thankyou-payment.php:41
+msgid "Pay to IBAN"
+msgstr "Оплата на IBAN"
+
+#. translators: 1: received, 2: expected
+#: templates/thankyou-payment.php:50
+#, php-format
+msgid "Received %1$s of %2$s."
+msgstr "Отримано %1$s з %2$s."
+
+#. translators: %s: remaining amount
+#: templates/thankyou-payment.php:60
+#, php-format
+msgid "Pay the remaining %s — the QR code and the details below already contain the outstanding amount."
+msgstr "Доплатіть ще %s — QR і реквізити нижче вже містять суму, що лишилась."
+
+#: templates/thankyou-payment.php:68
+msgid "Scan the QR code in your banking app — the IBAN, amount and reference are filled in automatically. As soon as the payment arrives, the order updates without reloading the page."
+msgstr "Відскануйте QR-код у вашому банк-додатку — IBAN, сума та призначення заповняться автоматично. Як тільки платіж надійде, замовлення оновиться без перезавантаження."
+
+#: templates/thankyou-payment.php:77
+msgid "QR code for the IBAN payment"
+msgstr "QR-код для оплати на IBAN"
+
+#: templates/thankyou-payment.php:80
+msgid "Scan the QR code in your banking app and the details are filled in automatically"
+msgstr "Скануй QR у банк-додатку — реквізити заповняться автоматично"
+
+#: templates/thankyou-payment.php:85
+msgid "Or open in your banking app"
+msgstr "Або відкрити в банк-додатку"
+
+#: templates/thankyou-payment.php:88
+msgid "Handy when buying on a phone: your bank opens with the details already filled in"
+msgstr "Зручно якщо купуєш з телефону: банк відкриється з заповненими реквізитами"
+
+#: templates/thankyou-payment.php:100
+msgid "Copy IBAN"
+msgstr "Скопіювати IBAN"
+
+#: templates/thankyou-payment.php:101 templates/thankyou-payment.php:120 templates/thankyou-payment.php:129
+msgid "Copy"
+msgstr "Скопіювати"
+
+#: templates/thankyou-payment.php:119
+msgid "Copy amount"
+msgstr "Скопіювати суму"
+
+#: templates/thankyou-payment.php:128
+msgid "Copy reference"
+msgstr "Скопіювати призначення"
+
+#: templates/thankyou-payment.php:139
+msgid "Open in Monobank (jar)"
+msgstr "Відкрити в Monobank (банка)"
+
+#: templates/thankyou-payment.php:145
+msgid "Open in Privat24"
+msgstr "Відкрити в Privat24"
+
+#: templates/thankyou-payment.php:156
+msgid "Waiting for the payment…"
+msgstr "Очікуємо надходження платежу…"
+
+#: catcode-iban-smart-invoice.php
+msgid "The full version of this plugin from catcode.com.ua is active, so this copy is switched off and the full version runs on the same settings. You can deactivate or delete \"CatCode IBAN Smart Invoice\": its settings and data stay while the full version is installed."
+msgstr "Активна повна версія цього плагіна з catcode.com.ua, тому ця копія вимкнена, а повна версія працює на тих самих налаштуваннях. «CatCode IBAN Smart Invoice» можна деактивувати або видалити: її налаштування й дані лишаються, поки встановлена повна версія."

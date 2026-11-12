@@ -1,0 +1,286 @@
+# Translation of Plugins - CatCode Shipping with Ukrposhta for WooCommerce - Stable (latest release) in Ukrainian
+# This file is distributed under the same license as the Plugins - CatCode Shipping with Ukrposhta for WooCommerce - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2026-09-25 08:42:45+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : ((n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14)) ? 1 : 2);\n"
+"X-Generator: GlotPress/4.1.0\n"
+"Language: uk_UA\n"
+"Project-Id-Version: Plugins - CatCode Shipping with Ukrposhta for WooCommerce - Stable (latest release)\n"
+
+#: catcode-shipping-with-ukrposhta-for-woocommerce.php:53
+msgid "The full version of this plugin from catcode.com.ua is active, so this copy is switched off and the full version runs on the same settings. You can deactivate or delete \"CatCode Shipping with Ukrposhta for WooCommerce\": its settings and data stay while the full version is installed."
+msgstr "Активна повна версія цього плагіна з catcode.com.ua, тому ця копія вимкнена, а повна версія працює на тих самих налаштуваннях. «CatCode Shipping with Ukrposhta for WooCommerce» можна деактивувати або видалити: її налаштування й дані лишаються, поки встановлена повна версія."
+
+#: catcode-shipping-with-ukrposhta-for-woocommerce.php:110
+msgid "CatCode Shipping with Ukrposhta for WooCommerce requires an active WooCommerce installation."
+msgstr "Для роботи CatCode Shipping with Ukrposhta for WooCommerce потрібен активний WooCommerce."
+
+#: includes/Admin/OrderMetaBox.php:34 includes/Checkout/Picker.php:118
+#: includes/Shipping/Method.php:22 includes/Shipping/Method.php:33
+msgid "Ukrposhta"
+msgstr "Укрпошта"
+
+#: includes/Shipping/Method.php:23
+msgid "Ukrposhta delivery: the customer picks a post office at checkout (region -> city -> office) and the tariff is quoted live."
+msgstr "Доставка Укрпоштою: вибір відділення в чекауті (область→місто→відділення) та розрахунок тарифу."
+
+#: includes/Shipping/Method.php:42
+msgid "Enable"
+msgstr "Увімкнути"
+
+#: includes/Shipping/Method.php:44
+msgid "Show Ukrposhta at checkout"
+msgstr "Показувати «Укрпошта» в чекауті"
+
+#: includes/Shipping/Method.php:48
+msgid "Method title"
+msgstr "Назва методу"
+
+#: includes/Shipping/Method.php:50
+msgid "Ukrposhta - delivery to a post office"
+msgstr "Укрпошта — доставка у відділення"
+
+#: includes/Shipping/Method.php:53
+msgid "Test environment"
+msgstr "Тестове середовище"
+
+#: includes/Shipping/Method.php:55
+msgid "Sandbox (dev.ukrposhta.ua)"
+msgstr "Sandbox (dev.ukrposhta.ua)"
+
+#: includes/Shipping/Method.php:59
+msgid "Bearer eCom"
+msgstr "Bearer eCom"
+
+#: includes/Shipping/Method.php:61
+msgid "Issued by Ukrposhta once your eCom contract is signed. Needed for both the address classifier and the tariff. Stored encrypted. Leave empty to keep the current key."
+msgstr "Видається Укрпоштою після договору. Потрібен для класифікатора адрес і тарифу. Зберігається зашифровано. Залиште порожнім, щоб не змінювати."
+
+#: includes/Shipping/Method.php:65
+msgid "Sender post index"
+msgstr "Індекс відправника"
+
+#: includes/Shipping/Method.php:67
+msgid "Post index the parcels are sent from. Required for the tariff."
+msgstr "Поштовий індекс складу відправлення — потрібен для тарифу."
+
+#: includes/Shipping/Method.php:71
+msgid "Service type"
+msgstr "Тип послуги"
+
+#: includes/Shipping/Method.php:74
+msgid "Ukrposhta Standard"
+msgstr "Укрпошта Стандарт"
+
+#: includes/Shipping/Method.php:75
+msgid "Ukrposhta Express"
+msgstr "Укрпошта Express"
+
+#: includes/Shipping/Method.php:80
+msgid "Fallback rate, UAH"
+msgstr "Тариф за замовчуванням, грн"
+
+#: includes/Shipping/Method.php:82
+msgid "Used when the API is unreachable or no recipient index has been chosen yet."
+msgstr "Використовується, коли API недоступний або немає індексу отримувача."
+
+#: includes/Shipping/Method.php:86
+msgid "Free shipping from, UAH"
+msgstr "Безкоштовно від суми, грн"
+
+#: includes/Shipping/Method.php:88
+msgid "0 disables it."
+msgstr "0 — вимкнено."
+
+#: includes/Shipping/Method.php:92
+msgid "Declared value"
+msgstr "Оголошена цінність"
+
+#: includes/Shipping/Method.php:94
+msgid "Send the order total as the declared value"
+msgstr "Передавати суму замовлення як оголошену цінність"
+
+#: includes/Shipping/Method.php:95
+msgid "Ukrposhta charges a percentage for this: the quote gets higher, but the parcel is insured."
+msgstr "Укрпошта бере за це відсоток — тариф у чекауті буде вищим, зате посилка застрахована."
+
+#: includes/Shipping/Method.php:99
+msgid "Cash-on-delivery payment methods"
+msgstr "Способи оплати = післяплата"
+
+#: includes/Shipping/Method.php:101
+msgid "Comma-separated payment method IDs. For these the Ukrposhta cash-on-delivery commission is added to the tariff. The standard WooCommerce method is <code>cod</code>."
+msgstr "ID платіжних методів через кому. Для них у тариф додається комісія Укрпошти за післяплату. Стандартний метод WooCommerce — <code>cod</code>."
+
+#: includes/Shipping/Method.php:165
+msgid "Widget accent colour"
+msgstr "Акцентний колір віджета"
+
+#: includes/Checkout/Picker.php:248 includes/Checkout/Picker.php:268
+msgid "Please choose a region, a city and an Ukrposhta post office."
+msgstr "Оберіть область, місто і відділення Укрпошти."
+
+#: includes/Checkout/Picker.php:358
+msgid "Ukrposhta post office:"
+msgstr "Відділення Укрпошти:"
+
+#: includes/Admin/OrderMetaBox.php:58
+msgid "Ukrposhta was not chosen for this order."
+msgstr "Для цього замовлення Укрпошту не обирали."
+
+#: includes/Admin/OrderMetaBox.php:63
+msgid "City:"
+msgstr "Місто:"
+
+#: includes/Admin/OrderMetaBox.php:65
+msgid "Post office:"
+msgstr "Відділення:"
+
+#: includes/Admin/OrderMetaBox.php:67
+msgid "Post index:"
+msgstr "Індекс:"
+
+#: includes/Checkout/Picker.php:102
+msgid "Ukrposhta delivery"
+msgstr "Доставка Укрпоштою"
+
+#: includes/Checkout/Picker.php:103
+msgid "Region"
+msgstr "Область"
+
+#: includes/Checkout/Picker.php:104
+msgid "Choose a region…"
+msgstr "Оберіть область…"
+
+#: includes/Checkout/Picker.php:105
+msgid "City"
+msgstr "Місто"
+
+#: includes/Checkout/Picker.php:106
+msgid "Choose a region first"
+msgstr "Спочатку оберіть область"
+
+#: includes/Checkout/Picker.php:107
+msgid "Start typing the name…"
+msgstr "Почніть вводити назву…"
+
+#: includes/Checkout/Picker.php:108
+msgid "Post office"
+msgstr "Відділення"
+
+#: includes/Checkout/Picker.php:109
+msgid "Choose a city first"
+msgstr "Спочатку оберіть місто"
+
+#: includes/Checkout/Picker.php:110
+msgid "Pick a post office or an index…"
+msgstr "Оберіть відділення або індекс…"
+
+#: includes/Checkout/Picker.php:111
+msgid "Searching…"
+msgstr "Пошук…"
+
+#: includes/Checkout/Picker.php:112
+msgid "Loading…"
+msgstr "Завантаження…"
+
+#: includes/Checkout/Picker.php:113
+msgid "Loading regions…"
+msgstr "Завантаження областей…"
+
+#: includes/Checkout/Picker.php:114
+msgid "Regions are unavailable. Check the connection to Ukrposhta."
+msgstr "Області недоступні. Перевірте підключення до Укрпошти."
+
+#: includes/Checkout/Picker.php:115 includes/Checkout/Picker.php:116
+msgid "Nothing found"
+msgstr "Нічого не знайдено"
+
+#: includes/Checkout/Picker.php:117
+msgid "No post offices here"
+msgstr "Відділень немає"
+
+#: includes/Shipping/Method.php:370
+msgid "international"
+msgstr "міжнародна"
+
+#: includes/Shipping/Method.php:161
+msgid "Leave empty so a failed quote hides the method instead of inventing a price. The reason is written to WooCommerce - Status - Logs."
+msgstr "Залиште порожнім, щоб при невдалому розрахунку метод ховався, а не показував вигадану ціну. Причина пишеться в WooCommerce - Статус - Журнали."
+
+#: includes/Shipping/Method.php:159
+msgid "International fallback rate, UAH"
+msgstr "Запасна міжнародна ставка, грн"
+
+#: includes/Shipping/Method.php:155
+msgid "Some destinations (the US among them) are only quoted in USD."
+msgstr "Для деяких країн (зокрема США) тариф розраховується лише в доларах."
+
+#: includes/Shipping/Method.php:149
+msgid "Tariff currency"
+msgstr "Валюта тарифу"
+
+#: includes/Shipping/Method.php:136
+msgid "Content category"
+msgstr "Категорія вкладення"
+
+#: includes/Shipping/Method.php:132
+msgid "Not every type is available for every country: an unavailable combination is reported by Ukrposhta and the method is then not offered."
+msgstr "Не кожен тип доступний для кожної країни: про недоступне поєднання повідомляє Укрпошта, і тоді метод не пропонується."
+
+#: includes/Shipping/Method.php:121
+msgid "Package type"
+msgstr "Тип пакування"
+
+#: includes/Shipping/Method.php:116
+msgid "Ground"
+msgstr "Наземний"
+
+#: includes/Shipping/Method.php:115
+msgid "Air"
+msgstr "Авіа"
+
+#: includes/Shipping/Method.php:112
+msgid "Transport type"
+msgstr "Тип транспорту"
+
+#: includes/Shipping/Method.php:108
+msgid "The rate is keyed by destination country and weight, no post office is picked. Add this method to a zone that contains the countries you ship to."
+msgstr "Тариф залежить від країни призначення і ваги, відділення не вибирається. Додайте цей метод до зони з країнами, куди ви відправляєте."
+
+#: includes/Shipping/Method.php:107
+msgid "Quote deliveries outside Ukraine"
+msgstr "Розраховувати доставку за межі України"
+
+#: includes/Shipping/Method.php:105
+msgid "International shipments"
+msgstr "Міжнародні відправлення"
+
+#. Author URI of the plugin
+#: catcode-shipping-with-ukrposhta-for-woocommerce.php
+msgid "https://catcode.com.ua"
+msgstr "https://catcode.com.ua"
+
+#. Author of the plugin
+#: catcode-shipping-with-ukrposhta-for-woocommerce.php
+msgid "CatCode"
+msgstr "CatCode"
+
+#. Description of the plugin
+#: catcode-shipping-with-ukrposhta-for-woocommerce.php
+msgid "Ukrposhta delivery for WooCommerce: the customer picks region, city and post office at checkout from the official Address Classifier, and the delivery price is quoted live. Shipment (barcode) creation and sticker printing come in a later update."
+msgstr "Доставка Укрпоштою для WooCommerce: покупець обирає область, місто і відділення при оформленні з офіційного Адресного класифікатора, а вартість доставки рахується наживо. Створення відправлення (штрихкоду) і друк наліпок — у наступному оновленні."
+
+#. Plugin URI of the plugin
+#: catcode-shipping-with-ukrposhta-for-woocommerce.php
+msgid "https://catcode.com.ua/modules/ukrposhta-shipping-for-woocommerce/"
+msgstr "https://catcode.com.ua/modules/ukrposhta-shipping-for-woocommerce/"
+
+#. Plugin Name of the plugin
+#: catcode-shipping-with-ukrposhta-for-woocommerce.php
+msgid "CatCode Shipping with Ukrposhta for WooCommerce"
+msgstr "CatCode Доставка Укрпоштою для WooCommerce"

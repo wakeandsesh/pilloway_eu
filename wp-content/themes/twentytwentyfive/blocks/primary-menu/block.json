@@ -1,0 +1,16 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "pilloway/primary-menu",
+	"title": "Pilloway primary menu",
+	"category": "theme",
+	"parent": ["core/navigation"],
+	"description": "Renders the classic menu assigned to the current language in Polylang.",
+	"textdomain": "twentytwentyfive",
+	"supports": {
+		"html": false,
+		"customClassName": false,
+		"inserter": false
+	},
+	"render": "file:./render.php"
+}

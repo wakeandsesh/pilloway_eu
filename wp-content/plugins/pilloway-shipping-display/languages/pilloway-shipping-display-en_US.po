@@ -1,0 +1,12 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Pilloway Shipping Display 1.1.0\n"
+"Language: en_US\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "%1$s — %2$s"
+msgstr "%1$s — %2$s"
+
+msgid "At the carrier's rates"
+msgstr "At the carrier's rates"

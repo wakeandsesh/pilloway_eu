@@ -1,0 +1,38 @@
+{
+    "name": "nova-post/nova-post-for-woocommerce",
+    "description": "Nova Post shipping for WooCommerce",
+    "require": {
+        "php": "^8.0",
+        "automattic/jetpack-autoloader": "^5.0",
+        "setasign/fpdf": "^1.8",
+        "setasign/fpdi": "^2.6",
+        "novadigital/novapost-api-sdk": "^1.0",
+        "dvdoug/boxpacker": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "NovaPostForWoocommerce\\": "includes/",
+            "NovaPostForWoocommerce\\Rakit\\Validation\\": "lib/validator"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "NovaPostForWoocommerceDev\\": "includes_dev/",
+            "NovaPostForWoocommerceTest\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0",
+        "woocommerce/woocommerce-sniffs": "^1.0",
+        "mockery/mockery": "^1.6"
+    },
+    "config": {
+        "allow-plugins": {
+            "automattic/jetpack-autoloader": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        },
+        "platform": {
+            "php": "8.0.30"
+        }
+    }
+}

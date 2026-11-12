@@ -1,0 +1,37 @@
+<?php
+/**
+ * Uppercase Rule File
+ *
+ * @package NovaPostForWoocommerce\Rakit\Validation\Rules
+ */
+
+namespace NovaPostForWoocommerce\Rakit\Validation\Rules;
+
+use NovaPostForWoocommerce\Rakit\Validation\MB;
+use NovaPostForWoocommerce\Rakit\Validation\Rule;
+
+/**
+ * Uppercase Rule Class
+ *
+ * @package NovaPostForWoocommerce\Rakit\Validation\Rules
+ */
+class Uppercase extends Rule {
+
+
+    /**
+     * The rule error message
+     *
+     * @var string
+     */
+    protected $message = 'The :attribute must be uppercase';
+
+    /**
+     * Check the $value is valid
+     *
+     * @param mixed $value The value to check.
+     * @return bool
+     */
+    public function check( $value ): bool {
+        return MB::strtoupper( $value ) === $value;
+    }
+}

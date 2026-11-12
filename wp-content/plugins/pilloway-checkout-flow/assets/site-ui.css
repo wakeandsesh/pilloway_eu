@@ -1,0 +1,193 @@
+/* Shared Pilloway refinements for catalog, product pages, and responsive navigation. */
+body .woocommerce nav.woocommerce-pagination,
+body nav.woocommerce-pagination,
+body .wp-block-query-pagination,
+body nav.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: clamp(26px, 4vw, 42px) auto;
+}
+body .woocommerce-pagination ul.page-numbers,
+body nav.pagination ul.page-numbers {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+}
+body .woocommerce-pagination .page-numbers,
+body nav.pagination .page-numbers,
+body .wp-block-query-pagination .page-numbers,
+body .wp-block-query-pagination-previous,
+body .wp-block-query-pagination-next {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 38px;
+  min-height: 38px;
+  margin: 0;
+  padding: 0 10px;
+  border: 1px solid #dce6e5;
+  border-radius: 10px;
+  background: #fff;
+  color: #23383b;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  transition: border-color 150ms ease, background-color 150ms ease, color 150ms ease;
+}
+body .woocommerce-pagination .page-numbers.current,
+body nav.pagination .page-numbers.current,
+body .wp-block-query-pagination .page-numbers.current,
+body .wp-block-query-pagination .current {
+  border-color: #087f80;
+  background: #087f80;
+  color: #fff;
+}
+body .woocommerce-pagination a.page-numbers:hover,
+body nav.pagination a.page-numbers:hover,
+body .wp-block-query-pagination a.page-numbers:hover,
+body .wp-block-query-pagination-previous:hover,
+body .wp-block-query-pagination-next:hover {
+  border-color: #087f80;
+  color: #087f80;
+}
+body .woocommerce-pagination a.page-numbers:focus-visible,
+body nav.pagination a.page-numbers:focus-visible,
+body .wp-block-query-pagination a.page-numbers:focus-visible,
+body .wp-block-query-pagination-previous:focus-visible,
+body .wp-block-query-pagination-next:focus-visible {
+  outline: 3px solid rgb(8 127 128 / 22%);
+  outline-offset: 2px;
+}
+body .wp-block-query-pagination-numbers {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+}
+body .wp-block-navigation__responsive-container-close {
+  box-sizing: border-box;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: #087f80 !important;
+}
+body .wp-block-navigation__responsive-container-close:hover,
+body .wp-block-navigation__responsive-container-close:focus,
+body .wp-block-navigation__responsive-container-close:focus-visible {
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: #066c6d !important;
+}
+body .wp-block-navigation__responsive-container-close svg {
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+/* Product detail tabs use a quiet underline instead of filled pill buttons. */
+body.single-product .woocommerce-tabs ul.tabs {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+  margin: 0 0 24px;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid #dce6e5;
+  background: transparent;
+  list-style: none;
+}
+body.single-product .woocommerce-tabs ul.tabs::before,
+body.single-product .woocommerce-tabs ul.tabs li::before,
+body.single-product .woocommerce-tabs ul.tabs li::after {
+  display: none !important;
+  content: none !important;
+}
+body.single-product .woocommerce-tabs ul.tabs li {
+  float: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+body.single-product .woocommerce-tabs ul.tabs li > a {
+  display: block;
+  padding: 12px 0 10px;
+  border: 0 !important;
+  border-bottom: 2px solid transparent !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  color: #44585a;
+  font-weight: 600;
+  text-decoration: none;
+}
+body.single-product .woocommerce-tabs ul.tabs li.active > a,
+body.single-product .woocommerce-tabs ul.tabs li > a[aria-selected="true"] {
+  border-bottom-color: #087f80 !important;
+  background: transparent !important;
+  color: #172c30;
+}
+body.single-product .woocommerce-tabs ul.tabs li > a:hover {
+  border-bottom-color: #9fc9c7 !important;
+  background: transparent !important;
+  color: #087f80;
+}
+body.single-product .woocommerce-tabs .panel,
+body.single-product .woocommerce-tabs .panel *,
+body.single-product .b-user-content,
+body.single-product .b-user-content * {
+  font-style: normal !important;
+}
+body.single-product .wp-block-woocommerce-product-price,
+body.single-product .wp-block-woocommerce-product-price .wc-block-components-product-price {
+  text-align: left !important;
+}
+@media (max-width: 560px) {
+  body .woocommerce-pagination .page-numbers,
+  body nav.pagination .page-numbers,
+  body .wp-block-query-pagination .page-numbers,
+  body .wp-block-query-pagination-previous,
+  body .wp-block-query-pagination-next {
+    min-width: 36px;
+    min-height: 36px;
+    padding-inline: 9px;
+    font-size: 13px;
+  }
+  body.single-product .woocommerce-tabs ul.tabs {
+    gap: 6px 18px;
+  }
+}
+/* Cart summary uses flat rows rather than nested rounded cards. */
+body.woocommerce-cart .wc-block-cart__sidebar,
+body.woocommerce-cart .wc-block-cart__sidebar .wp-block-woocommerce-cart-order-summary-block,
+body.woocommerce-cart .wc-block-cart__sidebar .wp-block-woocommerce-cart-order-summary-coupon-form-block,
+body.woocommerce-cart .wc-block-cart__sidebar .wp-block-woocommerce-cart-order-summary-shipping-block,
+body.woocommerce-cart .wc-block-cart__sidebar .wp-block-woocommerce-cart-order-summary-totals-block,
+body.woocommerce-cart .wc-block-cart__sidebar .wc-block-components-totals-wrapper,
+body.woocommerce-cart .wc-block-cart__sidebar .wc-block-components-totals-coupon,
+body.woocommerce-cart .wc-block-cart__sidebar .wc-block-components-totals-shipping,
+body.woocommerce-cart .wc-block-cart__sidebar .wc-block-components-totals-footer-item,
+body.woocommerce-cart .wc-block-cart__sidebar .wc-block-cart__submit-container {
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}

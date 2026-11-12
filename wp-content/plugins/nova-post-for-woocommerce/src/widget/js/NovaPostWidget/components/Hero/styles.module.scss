@@ -1,0 +1,30 @@
+.hero {
+  &__container {
+    position: relative;
+    margin-bottom: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    width: 182px;
+    height: 48px;
+  }
+
+  &__slogan {
+    background-color: #DA291C;
+    color: white;
+    border-radius: 20px;
+    font-weight: 500;
+    padding: 4px 8px;
+    font-size: 0.875rem;
+  }
+
+  &__text {
+    width: 100%;
+    color: #475569;
+    margin: 0;
+  }
+}

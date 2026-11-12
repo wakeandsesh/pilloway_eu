@@ -1,0 +1,23 @@
+.np-settings-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 15px;
+}
+
+.np-settings-page__sender-data {
+  grid-row: span 3;
+}
+
+.np-settings-page__footer {
+  position: fixed;
+  left: 161px;
+  width: calc(100% - 161px);
+  bottom: 0;
+  padding: 16px 42px;
+  background: #fff;
+  z-index: 1;
+  text-align: right;
+  box-shadow: 8px 0px 4px 0px rgba(85, 93, 102, .3);
+
+}

@@ -1,0 +1,187 @@
+/**
+ * ShipmentPreviewModal Styles (CSS Module)
+ *
+ * Encapsulated styles for the shipment preview modal component using BEM naming.
+ */
+
+.shipment-preview-modal {
+  max-width: 70vw;
+  :global(.components-modal__content) {
+    padding: 0;
+  }
+}
+
+.shipment-preview-modal__content {
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.shipment-preview-modal__footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 16px 20px;
+  border-top: 1px solid #ddd;
+  background-color: #f9f9f9;
+}
+
+.shipment-preview-modal__validation-error {
+  margin-bottom: 16px;
+}
+
+.shipment-preview-modal__delivery-type {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.shipment-preview-modal__delivery-type-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.shipment-preview-modal__delivery-type-badge--local {
+  background-color: #e3f2fd;
+  color: #1976d2;
+  border: 1px solid #1976d2;
+}
+
+.shipment-preview-modal__delivery-type-badge--eu {
+  background-color: #f3e5f5;
+  color: #7b1fa2;
+  border: 1px solid #7b1fa2;
+}
+
+.shipment-preview-modal__delivery-type-badge--international {
+  background-color: #fff3e0;
+  color: #e65100;
+  border: 1px solid #e65100;
+}
+
+.shipment-preview-modal__section {
+  margin-bottom: 24px;
+  padding: 16px;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+.shipment-preview-modal__section-title {
+  margin: 0 0 16px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 2px solid #007cba;
+  padding-bottom: 8px;
+}
+
+.shipment-preview-modal__section-content {
+  display: grid;
+  gap: 12px;
+}
+
+.shipment-preview-modal__field {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.shipment-preview-modal__field-label {
+  font-weight: 600;
+  color: #555;
+  min-width: 140px;
+}
+
+.shipment-preview-modal__field-value {
+  color: #333;
+}
+
+.shipment-preview-modal__parcel {
+  padding: 12px;
+  background-color: #f9f9f9;
+  border-left: 3px solid #007cba;
+  margin-bottom: 12px;
+}
+
+.shipment-preview-modal__parcel:last-child {
+  margin-bottom: 0;
+}
+
+.shipment-preview-modal__parcel-title {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #007cba;
+}
+
+.shipment-preview-modal__invoice-items,
+.shipment-preview-modal__invoice-totals {
+  margin-top: 16px;
+}
+
+.shipment-preview-modal__subsection-title {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+}
+
+.shipment-preview-modal__invoice-item {
+  padding: 12px;
+  background-color: #f5f5f5;
+  border-left: 3px solid #4caf50;
+  margin-bottom: 12px;
+}
+
+.shipment-preview-modal__invoice-item:last-child {
+  margin-bottom: 0;
+}
+
+.shipment-preview-modal__invoice-item-title {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #4caf50;
+}
+
+.shipment-preview-modal__invoice-totals {
+  padding: 12px;
+  background-color: #e8f5e9;
+  border: 1px solid #4caf50;
+  border-radius: 4px;
+}
+
+.shipment-preview-modal__service {
+  padding: 12px;
+  background-color: #fff3e0;
+  border-left: 3px solid #ff9800;
+  margin-bottom: 12px;
+}
+
+.shipment-preview-modal__service:last-child {
+  margin-bottom: 0;
+}
+
+.shipment-preview-modal__service-title {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ff9800;
+}
+
+@media (max-width: 782px) {
+  .shipment-preview-modal__content {
+  }
+
+  .shipment-preview-modal__field {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .shipment-preview-modal__field-label {
+    min-width: auto;
+  }
+}

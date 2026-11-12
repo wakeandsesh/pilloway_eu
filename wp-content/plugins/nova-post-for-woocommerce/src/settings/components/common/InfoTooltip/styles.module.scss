@@ -1,0 +1,62 @@
+.componentTooltip {
+  padding: 0 !important;
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+
+.tooltipContent {
+  padding: 16px;
+  max-width: 300px;
+  min-width: 250px;
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.information {
+  margin-bottom: 16px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.example {
+  border-top: 1px solid #e0e0e0;
+  padding-top: 16px;
+}
+
+.title {
+  margin: 0 0 8px 0;
+  font-size: 1em;
+  font-weight: 600;
+  color: #1e1e1e;
+  line-height: 1.4;
+}
+
+.text {
+  margin: 0;
+  font-size: 1em;
+  color: #50575e;
+  line-height: 1.5;
+}
+
+.exampleContent {
+  background: #f6f7f7;
+  border: 1px solid #dcdcde;
+  border-radius: 4px;
+  padding: 12px;
+  font-size: 1em;
+  color: #1e1e1e;
+  line-height: 1.5;
+  font-family: monospace;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.icon {
+  color: #8c8f94;
+  cursor: help;
+  margin-left: 4px;
+  vertical-align: middle;
+}

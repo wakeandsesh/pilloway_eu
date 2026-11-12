@@ -1,0 +1,9 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Pilloway Checkout Flow 1.2.0\n"
+"Language: de_DE\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "I agree to the %s"
+msgstr "Ich stimme den %s zu"

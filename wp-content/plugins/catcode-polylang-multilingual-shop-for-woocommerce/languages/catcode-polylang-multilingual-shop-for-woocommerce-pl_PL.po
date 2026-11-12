@@ -1,0 +1,825 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Polylang Multilingual Shop\n"
+"Language: pl_PL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>=14) ? 1 : 2);\n"
+"X-Domain: catcode-polylang-multilingual-shop-for-woocommerce\n"
+
+#: includes/Pro/Bulk.php
+msgid "%d item without a language was put in the default language."
+msgid_plural "%d items without a language were put in the default language."
+msgstr[0] "%d element bez języka przypisano do języka domyślnego."
+msgstr[1] "%d elementy bez języka przypisano do języka domyślnego."
+msgstr[2] "%d elementów bez języka przypisano do języka domyślnego."
+
+#: includes/Admin/SettingsPage.php
+msgid "%d page translation created."
+msgid_plural "%d page translations created."
+msgstr[0] "Utworzono %d tłumaczenie strony."
+msgstr[1] "Utworzono %d tłumaczenia stron."
+msgstr[2] "Utworzono %d tłumaczeń stron."
+
+#: includes/Admin/SettingsPage.php
+msgid ""
+"%d product has no language yet — Polylang offers to put such content in the "
+"default language on its Languages screen."
+msgid_plural ""
+"%d products have no language yet — Polylang offers to put such content in "
+"the default language on its Languages screen."
+msgstr[0] ""
+"%d produkt nie ma jeszcze języka — Polylang proponuje przypisać takie treści"
+" do języka domyślnego na swoim ekranie Języki."
+msgstr[1] ""
+"%d produkty nie mają jeszcze języka — Polylang proponuje przypisać takie "
+"treści do języka domyślnego na swoim ekranie Języki."
+msgstr[2] ""
+"%d produktów nie ma jeszcze języka — Polylang proponuje przypisać takie "
+"treści do języka domyślnego na swoim ekranie Języki."
+
+#: includes/Admin/SettingsPage.php
+msgid "A coupon limited to a product or category covers it in every language."
+msgstr ""
+"Kupon ograniczony do produktu lub kategorii działa na nie w każdym języku."
+
+#: includes/Pro/License.php
+msgid "A trial has already been issued for this e-mail address."
+msgstr "Dla tego adresu e-mail wersja próbna została już wydana."
+
+#: includes/Pro/License.php
+msgid "A trial has already been issued for this site."
+msgstr "Dla tej witryny wersja próbna została już wydana."
+
+#: includes/Admin/SettingsPage.php
+msgid "Activate key"
+msgstr "Aktywuj klucz"
+
+#: includes/Admin/SettingsPage.php
+msgid "Add your languages"
+msgstr "Dodaj języki"
+
+#: includes/Admin/SettingsPage.php
+msgid ""
+"Attribute names and the e-mail subjects, headings and texts you typed in "
+"WooCommerce are translated in Languages → Translations."
+msgstr ""
+"Nazwy atrybutów oraz tematy, nagłówki i treści e-maili wpisane w WooCommerce"
+" tłumaczy się w Języki → Tłumaczenia."
+
+#: includes/Admin/SettingsPage.php
+msgid "Buy a licence"
+msgstr "Kup licencję"
+
+#: includes/Admin/SettingsPage.php
+msgid "Cancel"
+msgstr "Anuluj"
+
+#: includes/Admin/PagesTool.php
+msgid "Cart"
+msgstr "Koszyk"
+
+#: catcode-polylang-multilingual-shop-for-woocommerce.php
+msgid "CatCode"
+msgstr "CatCode"
+
+#: includes/Pro/Bulk.php
+msgid "Categories, tags and attribute terms: %1$d of %2$d checked."
+msgstr "Kategorie, tagi i wartości atrybutów: sprawdzono %1$d z %2$d."
+
+#: includes/Product/Fields.php
+msgid "Categories, tags, attributes and default variation"
+msgstr "Kategorie, tagi, atrybuty i domyślny wariant"
+
+#: includes/Admin/PagesTool.php
+msgid "Checkout"
+msgstr "Zamówienie"
+
+#: includes/Admin/Ajax.php
+msgid "Choose a language other than the default one."
+msgstr "Wybierz język inny niż domyślny."
+
+#: includes/Admin/SettingsPage.php
+msgid ""
+"Copies of the original pages (with the cart / checkout / account block or "
+"shortcode) are published in each missing language. Translate their titles "
+"and slugs afterwards."
+msgstr ""
+"W każdym brakującym języku publikowane są kopie oryginalnych stron (z "
+"blokiem lub shortcode’em koszyka / zamówienia / konta). Potem przetłumacz "
+"ich tytuły i slugi."
+
+#: includes/Pro/License.php
+msgid ""
+"Could not reach our licence server. We will retry automatically in a few "
+"hours."
+msgstr ""
+"Nie udało się połączyć z serwerem licencji. Spróbujemy ponownie "
+"automatycznie za kilka godzin."
+
+#: includes/Admin/SettingsPage.php
+msgid "Could not reach the server. Try again in a moment."
+msgstr "Nie udało się połączyć z serwerem. Spróbuj ponownie za chwilę."
+
+#: includes/Admin/SettingsPage.php
+msgid "Create missing translations"
+msgstr "Utwórz brakujące tłumaczenia"
+
+#: includes/Admin/SettingsPage.php
+msgid "Create the missing page translations"
+msgstr "Utwórz brakujące tłumaczenia stron"
+
+#: includes/Admin/SettingsPage.php
+msgid ""
+"Create the missing translations of all categories, tags, attribute terms and"
+" products in this language? Existing translations are not touched."
+msgstr ""
+"Utworzyć w tym języku brakujące tłumaczenia wszystkich kategorii, tagów, "
+"wartości atrybutów i produktów? Istniejące tłumaczenia pozostaną bez zmian."
+
+#: includes/Admin/SettingsPage.php
+msgid ""
+"Creates, in one run, the missing translations of every category, tag, "
+"attribute term and product of the default language — full copies, the same "
+"as the \"+\" button. Existing translations are not touched; the run can be "
+"stopped and started again. Pro feature."
+msgstr ""
+"W jednym przebiegu tworzy brakujące tłumaczenia każdej kategorii, tagu, "
+"wartości atrybutu i produktu języka domyślnego — pełne kopie, jak przycisk "
+"„+”. Istniejące tłumaczenia pozostają bez zmian; przebieg można przerwać i "
+"uruchomić ponownie. Funkcja Pro."
+
+#: includes/Admin/SettingsPage.php
+msgid "Delete data on uninstall"
+msgstr "Usuń dane przy odinstalowaniu"
+
+#: includes/Admin/SettingsPage.php
+msgid "Done. Translations created: %d."
+msgstr "Gotowe. Utworzone tłumaczenia: %d."
+
+#: includes/Admin/SettingsPage.php
+msgid "Draft"
+msgstr "Szkic"
+
+#: includes/Admin/SettingsPage.php
+msgid "Draft — publish it after translating the texts"
+msgstr "Szkic — opublikuj po przetłumaczeniu tekstów"
+
+#: includes/Admin/SettingsPage.php
+msgid ""
+"Each language needs its own shop, cart, checkout and account page. They are "
+"found automatically once they are translations of the pages set in "
+"WooCommerce → Settings → Advanced."
+msgstr ""
+"Każdy język potrzebuje własnych stron sklepu, koszyka, zamówienia i konta. "
+"Są wykrywane automatycznie, gdy są tłumaczeniami stron ustawionych w "
+"WooCommerce → Ustawienia → Zaawansowane."
+
+#: includes/Pro/License.php
+msgid "Enter a licence key."
+msgstr "Wpisz klucz licencyjny."
+
+#: includes/Pro/License.php
+msgid "Enter a valid e-mail address — the key will be sent there."
+msgstr "Podaj prawidłowy adres e-mail — klucz zostanie tam wysłany."
+
+#: includes/Admin/SettingsPage.php
+msgid "Free version."
+msgstr "Wersja bezpłatna."
+
+#: includes/Admin/SettingsPage.php
+msgid "Get the key"
+msgstr "Otrzymaj klucz"
+
+#: includes/Core/Environment.php
+msgid ""
+"Hyyan WooCommerce Polylang Integration is active. Deactivate it: both "
+"plugins would translate the cart and synchronise stock at the same time."
+msgstr ""
+"Hyyan WooCommerce Polylang Integration jest aktywny. Wyłącz go: obie wtyczki"
+" jednocześnie tłumaczyłyby koszyk i synchronizowały stany magazynowe."
+
+#: includes/Admin/Ajax.php includes/Admin/PagesTool.php
+#: includes/Admin/ProductAdmin.php includes/Admin/SettingsPage.php
+msgid "Insufficient permissions."
+msgstr "Niewystarczające uprawnienia."
+
+#: includes/Pro/License.php
+msgid "Key not found. Check that you copied it in full, with no stray spaces."
+msgstr ""
+"Nie znaleziono klucza. Sprawdź, czy skopiowano go w całości, bez zbędnych "
+"spacji."
+
+#: includes/Admin/SettingsPage.php includes/Order/OrderLanguage.php
+#: includes/Pro/Csv.php
+msgid "Language"
+msgstr "Język"
+
+#: includes/Pro/Csv.php
+msgid "Language (Polylang)"
+msgstr "Język (Polylang)"
+
+#: includes/Admin/SettingsPage.php
+msgid "Languages and products"
+msgstr "Języki i produkty"
+
+#: includes/Admin/Ajax.php
+msgid "Licence active — the Pro features are unlocked."
+msgstr "Licencja aktywna — funkcje Pro są odblokowane."
+
+#: includes/Admin/SettingsPage.php
+msgid "Licence key"
+msgstr "Klucz licencyjny"
+
+#: includes/Admin/Ajax.php
+msgid ""
+"Licence released from this site — the key can now be used on another store."
+msgstr ""
+"Licencja odłączona od tej witryny — klucza można teraz użyć w innym sklepie."
+
+#: includes/Admin/SettingsPage.php
+msgid "Missing categories and attribute values"
+msgstr "Brakujące kategorie i wartości atrybutów"
+
+#: includes/Admin/PagesTool.php
+msgid "My account"
+msgstr "Moje konto"
+
+#: includes/Admin/SettingsPage.php
+msgid "New product translation"
+msgstr "Nowe tłumaczenie produktu"
+
+#: includes/Pro/License.php
+msgid "No licence key is stored yet."
+msgstr "Nie zapisano jeszcze klucza licencyjnego."
+
+#: includes/Admin/SettingsPage.php
+msgid "No licence yet?"
+msgstr "Nie masz jeszcze licencji?"
+
+#: includes/Admin/SettingsPage.php
+msgid "Not active yet"
+msgstr "Jeszcze nie działa"
+
+#: includes/Order/OrderLanguage.php
+msgid "Not set — store default"
+msgstr "Nie ustawiono — domyślny sklepu"
+
+#: includes/Admin/SettingsPage.php
+msgid "Not translated yet"
+msgstr "Jeszcze nie przetłumaczono"
+
+#: includes/Admin/SettingsPage.php
+msgid "Open Languages"
+msgstr "Otwórz Języki"
+
+#: includes/Order/OrderLanguage.php
+msgid "Order language (customer e-mails):"
+msgstr "Język zamówienia (e-maile do klienta):"
+
+#: includes/Admin/SettingsPage.php
+msgid "Page"
+msgstr "Strona"
+
+#: includes/Admin/SettingsPage.php
+msgid "Payment and shipping texts"
+msgstr "Teksty płatności i wysyłki"
+
+#: includes/Core/Environment.php
+msgid "Polylang %1$s or newer is required, %2$s is installed."
+msgstr "Wymagany jest Polylang %1$s lub nowszy, zainstalowano %2$s."
+
+#: includes/Admin/SettingsPage.php
+msgid "Polylang Multilingual Shop"
+msgstr "Polylang Multilingual Shop"
+
+#: catcode-polylang-multilingual-shop-for-woocommerce.php
+msgid "Polylang Multilingual Shop for WooCommerce"
+msgstr "Polylang Multilingual Shop dla WooCommerce"
+
+#: includes/Core/Plugin.php
+msgid "Polylang Multilingual Shop is paused:"
+msgstr "Polylang Multilingual Shop jest wstrzymany:"
+
+#: includes/Admin/SettingsPage.php
+msgid "Polylang Shop"
+msgstr "Polylang Shop"
+
+#: includes/Core/Environment.php
+msgid ""
+"Polylang for WooCommerce is active. It already connects WooCommerce with "
+"Polylang — keep only one of the two plugins."
+msgstr ""
+"Polylang for WooCommerce jest aktywny. Już łączy WooCommerce z Polylang — "
+"zostaw tylko jedną z dwóch wtyczek."
+
+#: includes/Admin/SettingsPage.php
+msgid ""
+"Polylang has no languages yet. Add the store languages in Languages → "
+"Languages, then come back here."
+msgstr ""
+"Polylang nie ma jeszcze języków. Dodaj języki sklepu w Języki → Języki i "
+"wróć tutaj."
+
+#: includes/Product/Translator.php
+msgid "Polylang is not active or has no languages."
+msgstr "Polylang nie jest aktywny lub nie ma języków."
+
+#: includes/Core/Environment.php
+msgid ""
+"Polylang is not active. Install and activate the free Polylang plugin from "
+"wordpress.org."
+msgstr ""
+"Polylang nie jest aktywny. Zainstaluj i włącz bezpłatną wtyczkę Polylang z "
+"wordpress.org."
+
+#: includes/Product/Fields.php
+msgid "Prices and sale dates"
+msgstr "Ceny i daty promocji"
+
+#: includes/Admin/SettingsPage.php
+msgid ""
+"Prices, stock, SKU and the other shared data stay the same in every "
+"translation — edit any language, the others follow. An order in one language"
+" takes the stock of all."
+msgstr ""
+"Ceny, stany magazynowe, SKU i pozostałe wspólne dane są takie same w każdym "
+"tłumaczeniu — edytuj dowolny język, pozostałe się dostosują. Zamówienie w "
+"jednym języku zmniejsza stan wszystkich."
+
+#: includes/Admin/SettingsPage.php
+msgid "Pro is on — licence active."
+msgstr "Pro włączony — licencja aktywna."
+
+#: includes/Admin/SettingsPage.php
+msgid "Pro is on — licence purchased, the features stay on for good."
+msgstr "Pro włączony — licencja kupiona, funkcje pozostają na stałe."
+
+#: includes/Admin/SettingsPage.php
+msgid "Pro is on — trial."
+msgstr "Pro włączony — wersja próbna."
+
+#: includes/Admin/SettingsPage.php
+msgid "Pro licence"
+msgstr "Licencja Pro"
+
+#: includes/Product/Fields.php
+msgid "Product image and gallery"
+msgstr "Zdjęcie i galeria produktu"
+
+#: includes/Product/Translator.php
+msgid "Product not found."
+msgstr "Nie znaleziono produktu."
+
+#: includes/Admin/SettingsPage.php
+msgid "Products"
+msgstr "Produkty"
+
+#: includes/Admin/SettingsPage.php
+msgid ""
+"Products, categories, tags and attribute terms have a language; each "
+"language shows its own."
+msgstr ""
+"Produkty, kategorie, tagi i wartości atrybutów mają język; każdy język "
+"pokazuje własne."
+
+#: includes/Pro/Bulk.php
+msgid "Products: %1$d of %2$d checked."
+msgstr "Produkty: sprawdzono %1$d z %2$d."
+
+#: includes/Admin/SettingsPage.php
+msgid "Release licence"
+msgstr "Odłącz licencję"
+
+#: includes/Admin/SettingsPage.php
+msgid ""
+"Release the licence from this site? The Pro features switch off here and the"
+" key becomes free for another store."
+msgstr ""
+"Odłączyć licencję od tej witryny? Funkcje Pro zostaną tu wyłączone, a klucz "
+"będzie wolny dla innego sklepu."
+
+#: includes/Admin/SettingsPage.php
+msgid "Renew the licence"
+msgstr "Przedłuż licencję"
+
+#: catcode-polylang-multilingual-shop-for-woocommerce.php
+msgid ""
+"Runs a multilingual WooCommerce store on the free Polylang: translatable "
+"products, variations, categories, tags and attributes, one-click product "
+"translation, shared price / stock / SKU across languages, shop, cart, "
+"checkout and account pages per language, the cart follows the language "
+"switch, the order keeps its language and customer e-mails go out in it. "
+"Classic and block checkout, HPOS compatible."
+msgstr ""
+"Wielojęzyczny sklep WooCommerce na bezpłatnym Polylang: tłumaczalne "
+"produkty, warianty, kategorie, tagi i atrybuty, tłumaczenie produktu jednym "
+"kliknięciem, wspólna cena / stan / SKU dla wszystkich języków, strony "
+"sklepu, koszyka, zamówienia i konta dla każdego języka, koszyk podąża za "
+"zmianą języka, zamówienie zachowuje swój język, a e-maile do klienta "
+"wychodzą w nim. Klasyczne i blokowe zamówienie, zgodność z HPOS."
+
+#: includes/Product/Fields.php
+msgid "SKU and GTIN"
+msgstr "SKU i GTIN"
+
+#: includes/Admin/SettingsPage.php
+msgid "Same as the original"
+msgstr "Jak w oryginale"
+
+#: includes/Admin/SettingsPage.php
+msgid "Same status as the original"
+msgstr "Ten sam status co oryginał"
+
+#: includes/Admin/SettingsPage.php
+msgid "Save settings"
+msgstr "Zapisz ustawienia"
+
+#: includes/Admin/SettingsPage.php includes/Core/Plugin.php
+msgid "Settings"
+msgstr "Ustawienia"
+
+#: includes/Admin/SettingsPage.php
+msgid "Settings saved."
+msgstr "Ustawienia zapisane."
+
+#: includes/Admin/SettingsPage.php
+msgid "Shared by all translations"
+msgstr "Wspólne dla wszystkich tłumaczeń"
+
+#: includes/Admin/PagesTool.php
+msgid "Shop"
+msgstr "Sklep"
+
+#: includes/Admin/SettingsPage.php
+msgid "Status of new products"
+msgstr "Status nowych produktów"
+
+#: includes/Admin/SettingsPage.php
+msgid "Status: %s."
+msgstr "Status: %s."
+
+#: includes/Product/Fields.php
+msgid "Stock quantity, stock status and backorders"
+msgstr "Stan magazynowy, dostępność i zamówienia oczekujące"
+
+#: includes/Product/Fields.php
+msgid "Tax status and tax class"
+msgstr "Status i klasa podatkowa"
+
+#: includes/Admin/PagesTool.php
+msgid "Terms and conditions"
+msgstr "Regulamin"
+
+#: includes/Pro/License.php
+msgid ""
+"The 7-day trial is over. Buy a licence on catcode.com.ua to switch the Pro "
+"features back on."
+msgstr ""
+"7-dniowa wersja próbna dobiegła końca. Kup licencję na catcode.com.ua, aby "
+"ponownie włączyć funkcje Pro."
+
+#: includes/Admin/SettingsPage.php
+msgid ""
+"The key arrives by e-mail after purchase and is checked against "
+"catcode.com.ua. Once a purchased key is confirmed, Pro stays on for good — "
+"the licence term covers updates and support. A trial key switches Pro off "
+"when its 7 days are over."
+msgstr ""
+"Klucz przychodzi e-mailem po zakupie i jest sprawdzany w catcode.com.ua. Po "
+"potwierdzeniu kupionego klucza Pro pozostaje na stałe — okres licencji "
+"obejmuje aktualizacje i wsparcie. Klucz próbny wyłącza Pro po 7 dniach."
+
+#: includes/Product/Translator.php
+msgid "The product is already in this language."
+msgstr "Produkt jest już w tym języku."
+
+#: includes/Pro/License.php
+msgid ""
+"The server answered with something we could not read. Try again in a few "
+"minutes."
+msgstr ""
+"Serwer odpowiedział czymś nieczytelnym. Spróbuj ponownie za kilka minut."
+
+#: includes/Admin/SettingsPage.php
+msgid ""
+"The step failed. Reload the page and start again — finished items are "
+"skipped."
+msgstr ""
+"Krok się nie powiódł. Odśwież stronę i uruchom ponownie — gotowe elementy "
+"zostaną pominięte."
+
+#: includes/Product/Translator.php
+msgid "The translation could not be saved."
+msgstr "Nie udało się zapisać tłumaczenia."
+
+#: includes/Admin/SettingsPage.php
+msgid "The trial has already been used on this site — one per install."
+msgstr ""
+"Wersja próbna została już wykorzystana w tej witrynie — jedna na instalację."
+
+#: includes/Admin/SettingsPage.php
+msgid ""
+"The trial issues a real 7-day key to your e-mail. No card, nothing is "
+"charged, and it never starts by itself."
+msgstr ""
+"Wersja próbna wysyła prawdziwy 7-dniowy klucz na Twój e-mail. Bez karty, nic"
+" nie jest pobierane i nigdy nie uruchamia się sama."
+
+#: includes/Admin/SettingsPage.php
+msgid ""
+"The updates and support term ended on %s. Renew the licence to keep "
+"receiving new versions — the Pro features keep working either way."
+msgstr ""
+"Okres aktualizacji i wsparcia zakończył się %s. Przedłuż licencję, aby nadal"
+" otrzymywać nowe wersje — funkcje Pro działają tak czy inaczej."
+
+#: includes/Pro/License.php
+msgid ""
+"This key belongs to a different CatCode product, not to Polylang "
+"Multilingual Shop."
+msgstr ""
+"Ten klucz należy do innego produktu CatCode, a nie do Polylang Multilingual "
+"Shop."
+
+#: includes/Pro/License.php
+msgid "This key does not fit."
+msgstr "Ten klucz nie pasuje."
+
+#: includes/Pro/License.php
+msgid ""
+"This key is already in use on another store. Deactivate it there first."
+msgstr "Ten klucz jest już używany w innym sklepie. Najpierw odłącz go tam."
+
+#: includes/Pro/License.php
+msgid "This key is no longer valid. Contact support if that is a mistake."
+msgstr ""
+"Ten klucz nie jest już ważny. Skontaktuj się z pomocą, jeśli to pomyłka."
+
+#: includes/Admin/ProductAdmin.php
+msgid ""
+"This product is also sold in: %1$s. Shared with those translations (a change"
+" here updates them too): %2$s. Texts stay per language."
+msgstr ""
+"Ten produkt jest też sprzedawany w językach: %1$s. Wspólne z tymi "
+"tłumaczeniami (zmiana tutaj zaktualizuje także je): %2$s. Teksty są osobne "
+"dla każdego języka."
+
+#: includes/Admin/SettingsPage.php
+msgid ""
+"To translate a product, open Products and click \"+\" in the column of the "
+"language: a full copy is created in that language, you translate the texts."
+msgstr ""
+"Aby przetłumaczyć produkt, otwórz Produkty i kliknij „+” w kolumnie języka: "
+"powstanie pełna kopia w tym języku, a Ty tłumaczysz teksty."
+
+#: includes/Pro/License.php
+msgid "Too many attempts. Try again in an hour."
+msgstr "Zbyt wiele prób. Spróbuj za godzinę."
+
+#: includes/Admin/SettingsPage.php
+msgid ""
+"Translatable products, categories and attributes, one-click translation, "
+"shared price / stock / SKU, pages per language, the cart following the "
+"language and e-mails in the order language work without a licence. Pro adds "
+"translating the whole catalogue in one run, choosing what each language "
+"keeps separately, payment / shipping / checkout texts per language and CSV "
+"export / import with languages."
+msgstr ""
+"Tłumaczalne produkty, kategorie i atrybuty, tłumaczenie jednym kliknięciem, "
+"wspólna cena / stan / SKU, strony dla każdego języka, koszyk podążający za "
+"językiem i e-maile w języku zamówienia działają bez licencji. Pro dodaje "
+"tłumaczenie całego katalogu w jednym przebiegu, wybór, co każdy język trzyma"
+" osobno, teksty płatności / wysyłki / zamówienia dla każdego języka oraz "
+"eksport / import CSV z językami."
+
+#: includes/Admin/SettingsPage.php
+msgid ""
+"Translate payment method titles, descriptions and instructions, shipping "
+"method titles, the store notice and the checkout privacy / terms texts in "
+"Languages → Translations. Pro feature."
+msgstr ""
+"Tłumacz w Języki → Tłumaczenia tytuły, opisy i instrukcje metod płatności, "
+"tytuły metod wysyłki, komunikat sklepu oraz teksty prywatności / regulaminu "
+"w zamówieniu. Funkcja Pro."
+
+#: includes/Admin/SettingsPage.php
+msgid "Translate the whole catalogue"
+msgstr "Przetłumacz cały katalog"
+
+#: includes/Admin/Ajax.php
+msgid "Translating the whole catalogue needs an active licence or trial."
+msgstr ""
+"Tłumaczenie całego katalogu wymaga aktywnej licencji lub wersji próbnej."
+
+#: includes/Admin/ProductAdmin.php
+msgid ""
+"Translation created as a copy of the original: prices, stock, SKU, images, "
+"categories, attributes and variations are already in place. Translate the "
+"name, descriptions and custom attribute values, then publish."
+msgstr ""
+"Tłumaczenie utworzono jako kopię oryginału: ceny, stany, SKU, zdjęcia, "
+"kategorie, atrybuty i warianty są już na miejscu. Przetłumacz nazwę, opisy i"
+" własne wartości atrybutów, a potem opublikuj."
+
+#: includes/Pro/Csv.php
+msgid "Translation group"
+msgstr "Grupa tłumaczeń"
+
+#: includes/Pro/Csv.php
+msgid "Translation group (Polylang)"
+msgstr "Grupa tłumaczeń (Polylang)"
+
+#: includes/Admin/Ajax.php
+msgid ""
+"Trial started — Pro works until %s. The key has also been e-mailed to you."
+msgstr ""
+"Wersja próbna uruchomiona — Pro działa do %s. Klucz wysłano też na Twój "
+"e-mail."
+
+#: includes/Admin/Ajax.php
+msgid "Trial started. The key has also been e-mailed to you."
+msgstr "Wersja próbna uruchomiona. Klucz wysłano też na Twój e-mail."
+
+#: includes/Admin/SettingsPage.php
+msgid "Try Pro for 7 days"
+msgstr "Wypróbuj Pro przez 7 dni"
+
+#: catcode-polylang-multilingual-shop-for-woocommerce.php
+msgid ""
+"Two copies of Polylang Multilingual Shop are active. The copy in \"%1$s\" is"
+" used; the copy in \"%2$s\" is paused — deactivate and delete the one you do"
+" not need."
+msgstr ""
+"Aktywne są dwie kopie Polylang Multilingual Shop. Używana jest kopia w "
+"„%1$s”; kopia w „%2$s” jest wstrzymana — wyłącz i usuń niepotrzebną."
+
+#: includes/Product/Translator.php
+msgid "Unknown language."
+msgstr "Nieznany język."
+
+#: includes/Admin/SettingsPage.php
+msgid ""
+"Untick what each language should keep separately — e.g. its own images, its "
+"own price or its own stock. Pro feature; without a licence everything in "
+"this list is shared."
+msgstr ""
+"Odznacz to, co każdy język ma trzymać osobno — np. własne zdjęcia, własną "
+"cenę lub własny stan. Funkcja Pro; bez licencji wszystko z tej listy jest "
+"wspólne."
+
+#: includes/Admin/SettingsPage.php
+msgid "Updates and support until %s."
+msgstr "Aktualizacje i wsparcie do %s."
+
+#: includes/Product/Fields.php
+msgid "Upsells, cross-sells and grouped products"
+msgstr "Up-sell, cross-sell i produkty grupowe"
+
+#: includes/Admin/SettingsPage.php
+msgid "Valid until %s."
+msgstr "Ważna do %s."
+
+#: includes/Product/Fields.php
+msgid ""
+"Virtual / downloadable, files, featured, catalogue visibility, menu order, "
+"reviews, external URL"
+msgstr ""
+"Wirtualny / do pobrania, pliki, polecany, widoczność w katalogu, kolejność, "
+"opinie, zewnętrzny URL"
+
+#: includes/Product/Fields.php
+msgid "Weight, dimensions and shipping class"
+msgstr "Waga, wymiary i klasa wysyłki"
+
+#: includes/Admin/SettingsPage.php
+msgid "What happens in the shop"
+msgstr "Co dzieje się w sklepie"
+
+#: includes/Admin/SettingsPage.php
+msgid ""
+"When a product is translated, create its categories, tags and attribute "
+"values in the target language as copies if they are not translated yet "
+"(rename them later in Products → Categories / Attributes)."
+msgstr ""
+"Przy tłumaczeniu produktu twórz jego kategorie, tagi i wartości atrybutów w "
+"języku docelowym jako kopie, jeśli nie są jeszcze przetłumaczone (zmień ich "
+"nazwy później w Produkty → Kategorie / Atrybuty)."
+
+#: includes/Admin/SettingsPage.php
+msgid ""
+"When a shopper switches language, the cart switches with them. The order "
+"keeps its language (see the Language column in Orders) and customer e-mails "
+"are sent in it."
+msgstr ""
+"Gdy klient zmienia język, koszyk zmienia się razem z nim. Zamówienie "
+"zachowuje swój język (kolumna „Język” w Zamówieniach), a e-maile do klienta "
+"są w nim wysyłane."
+
+#: includes/Admin/SettingsPage.php
+msgid ""
+"When the plugin is deleted, also remove its settings, the links between "
+"variations and the language saved in orders. Products, translations and "
+"pages stay."
+msgstr ""
+"Przy usuwaniu wtyczki usuń też jej ustawienia, powiązania między wariantami "
+"i język zapisany w zamówieniach. Produkty, tłumaczenia i strony pozostają."
+
+#: includes/Admin/SettingsPage.php
+msgid ""
+"Whole-catalogue translation, per-language data, payment / shipping / "
+"checkout texts per language and CSV with languages — free for 7 days. We "
+"e-mail you the key and switch Pro on right away."
+msgstr ""
+"Tłumaczenie całego katalogu, dane osobne dla języków, teksty płatności / "
+"wysyłki / zamówienia dla każdego języka i CSV z językami — bezpłatnie przez "
+"7 dni. Wyślemy klucz e-mailem i od razu włączymy Pro."
+
+#: includes/Admin/SettingsPage.php
+msgid ""
+"WooCommerce has no shop, cart, checkout or account page set (WooCommerce → "
+"Settings → Advanced)."
+msgstr ""
+"W WooCommerce nie ustawiono strony sklepu, koszyka, zamówienia ani konta "
+"(WooCommerce → Ustawienia → Zaawansowane)."
+
+#: includes/Core/Environment.php
+msgid "WooCommerce is not active."
+msgstr "WooCommerce nie jest aktywny."
+
+#: includes/Admin/SettingsPage.php
+msgid "WooCommerce pages"
+msgstr "Strony WooCommerce"
+
+#: includes/Admin/SettingsPage.php
+msgid "Your e-mail"
+msgstr "Twój e-mail"
+
+#: includes/Admin/SettingsPage.php
+msgid "Your key:"
+msgstr "Twój klucz:"
+
+#: includes/Admin/SettingsPage.php
+msgid "default"
+msgstr "domyślny"
+
+#: catcode-polylang-multilingual-shop-for-woocommerce.php
+msgid "https://catcode.com.ua"
+msgstr "https://catcode.com.ua"
+
+#: catcode-polylang-multilingual-shop-for-woocommerce.php
+msgid ""
+"https://catcode.com.ua/modules/catcode-polylang-multilingual-shop-for-"
+"woocommerce/"
+msgstr ""
+"https://catcode.com.ua/modules/catcode-polylang-multilingual-shop-for-"
+"woocommerce/"
+
+#: includes/Pro/License.php
+msgid "invalid (last checked %s)"
+msgstr "nieważna (ostatnie sprawdzenie %s)"
+
+#: includes/Admin/SettingsPage.php
+msgid "missing"
+msgstr "brak"
+
+#: includes/Pro/License.php
+msgid "not checked"
+msgstr "nie sprawdzono"
+
+#: includes/Pro/License.php
+msgid "purchased — the Pro features are yours for good"
+msgstr "kupiona — funkcje Pro są Twoje na stałe"
+
+#: includes/Pro/License.php
+msgid ""
+"purchased — the Pro features are yours for good; the updates and support "
+"term has ended"
+msgstr ""
+"kupiona — funkcje Pro są Twoje na stałe; okres aktualizacji i wsparcia się "
+"zakończył"
+
+#: includes/Pro/License.php
+msgid "trial active"
+msgstr "wersja próbna aktywna"
+
+#: includes/Pro/License.php
+msgid "trial — %d day left"
+msgid_plural "trial — %d days left"
+msgstr[0] "wersja próbna — został %d dzień"
+msgstr[1] "wersja próbna — zostały %d dni"
+msgstr[2] "wersja próbna — zostało %d dni"
+
+#: includes/Pro/License.php
+msgid "valid (checked %1$d days ago, %2$d days of grace left)"
+msgstr "ważna (sprawdzono %1$d dni temu, pozostało dni karencji: %2$d)"
+
+#: includes/Pro/License.php
+msgid "valid (grace period over — waiting for a re-check)"
+msgstr "ważna (okres karencji minął — czekamy na ponowne sprawdzenie)"
+
+#: includes/Pro/License.php
+msgid "valid (not re-checked yet)"
+msgstr "ważna (jeszcze nie sprawdzono ponownie)"

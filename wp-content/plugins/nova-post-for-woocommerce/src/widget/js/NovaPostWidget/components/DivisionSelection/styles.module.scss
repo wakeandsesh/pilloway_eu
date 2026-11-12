@@ -1,0 +1,137 @@
+.division-autocomplete {
+  position: relative;
+  overflow: visible;
+}
+
+.division-input {
+  $this: &;
+  width: 100%;
+  box-sizing: border-box;
+  height: 3em;
+  border: 1px solid #CBD5E1;
+  border-radius: 8px;
+  padding: 1.5em 1rem 0.5em !important;
+  caret-color: #DA291C;
+  font-size: 1em;
+  margin: 0 auto;
+
+  &__wrapper {
+    position: relative;
+  }
+
+  &__label {
+    position: absolute;
+    top: 50%;
+    left: calc(1rem + 1px);
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #475569;
+    pointer-events: none;
+    transition: all 0.2s ease;
+    text-wrap: nowrap;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: calc(100% - 2em);
+  }
+
+  &:focus {
+    & + label {
+      top: 12px;
+      font-size: 0.75rem;
+    }
+  }
+
+  &:not(:placeholder-shown) {
+    & + label {
+      top: 12px;
+      font-size: 0.75rem;
+    }
+  }
+
+  &__clear {
+    position: absolute;
+    display: flex;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #475569;
+    font-size: 1rem;
+    line-height: 1;
+    padding: 0;
+    margin: 0;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--color-accent);
+    }
+  }
+
+  &__loader {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: calc(1rem - 2px);
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    border: 2px solid var(--color-accent);
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+
+    @keyframes spin {
+      to {
+        transform: translateY(-50%) rotate(360deg);
+      }
+    }
+  }
+}
+
+.autocomplete-list {
+  max-height: 0;
+  opacity: 0;
+  overflow-y: auto;
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+  border-radius: 8px;
+  box-shadow: 0 6px 32px 0 #1A263829;
+  scrollbar-width: thin;
+  scrollbar-color: #CBD5E1 transparent;
+
+  &--open {
+    max-height: 250px;
+    opacity: 1;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+  }
+}
+
+.autocomplete-item {
+  padding: 10px 16px;
+  cursor: pointer;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid #eee;
+  }
+
+  &:hover,
+  &[aria-selected=true] {
+    background: #F6F6F9;
+  }
+
+  &:focus {
+    outline: 1px solid var(--outline-color);
+    outline-offset: -1px;
+  }
+
+  &__name {
+    color: black;
+  }
+
+  &__address {
+    color: #475569;
+  }
+}

@@ -1,0 +1,6 @@
+/* Hide only the zero/Free indicator for a below-threshold Nova Post rate. */
+.pilloway-nova-post-carrier-rate .wc-block-components-radio-control__secondary-label,
+.pilloway-nova-post-carrier-rate .wc-block-components-shipping-rates-control__package__description--free,
+.wc-block-components-totals-shipping.pilloway-nova-post-carrier-rate .wc-block-components-totals-item__value {
+	display: none !important;
+}

@@ -1,0 +1,2226 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WOO\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: Ukrainian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-11-20 14:31+0000\n"
+"PO-Revision-Date: 2026-07-13 12:00+0000\n"
+"Language: uk\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Domain: nova-post-for-woocommerce\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#. Plugin Name of the plugin
+msgid "Nova Post for WooCommerce"
+msgstr "Nova Post для WooCommerce"
+
+#. Description of the plugin
+msgid "Nova Post shipping integration for WooCommerce"
+msgstr "Інтеграція доставки Nova Post для WooCommerce"
+
+#. Author of the plugin
+#: includes/Admin/OrderSidebarMetaBox.php:54
+#: includes/Admin/OrderSidebarMetaBox.php:82
+#: build/admin.js:7
+msgid "Nova Post"
+msgstr "Nova Post"
+
+#. Author URI of the plugin
+msgid "https://novapost.com/"
+msgstr "https://novapost.com/"
+
+#: data/validator-messages.php:5
+msgid "The :attribute field must be accepted."
+msgstr "Поле :attribute має бути прийняте."
+
+#: data/validator-messages.php:6
+msgid "The :attribute field must be a date after :date."
+msgstr "Поле :attribute має бути датою після :date."
+
+#: data/validator-messages.php:7
+msgid "The :attribute field must be a date after or equal to :date."
+msgstr "Поле :attribute має бути датою після або рівною :date."
+
+#: data/validator-messages.php:8
+msgid "The :attribute field must only contain letters."
+msgstr "Поле :attribute має містити лише літери."
+
+#: data/validator-messages.php:9
+msgid "The :attribute field must only contain letters, numbers, dashes, and underscores."
+msgstr "Поле :attribute має містити лише літери, цифри, дефіси та підкреслення."
+
+#: data/validator-messages.php:10
+msgid "The :attribute field must only contain letters and numbers."
+msgstr "Поле :attribute має містити лише літери та цифри."
+
+#: data/validator-messages.php:11
+msgid "The :attribute may only allows alphabet and spaces"
+msgstr "Поле :attribute може містити лише літери та пробіли"
+
+#: data/validator-messages.php:12
+msgid "The :attribute field must be a date before :date."
+msgstr "Поле :attribute має бути датою до :date."
+
+#: data/validator-messages.php:13
+msgid "The :attribute field must be between :min and :max."
+msgstr "Поле :attribute має бути між :min і :max."
+
+#: data/validator-messages.php:14
+msgid "The :attribute field must be true or false."
+msgstr "Поле :attribute має бути true або false."
+
+#: data/validator-messages.php:15
+msgid "The :attribute is not valid"
+msgstr "Поле :attribute недійсне"
+
+#: data/validator-messages.php:16
+msgid "The :attribute field must be a valid date."
+msgstr "Поле :attribute має бути коректною датою."
+
+#: data/validator-messages.php:17
+msgid "The :attribute default is :default"
+msgstr "Значення :attribute за замовчуванням — :default"
+
+#: data/validator-messages.php:18
+msgid "The :attribute and :other must be different."
+msgstr "Поля :attribute та :other мають відрізнятися."
+
+#: data/validator-messages.php:19
+msgid "The :attribute field must be :digits digits."
+msgstr "Поле :attribute має містити :digits цифр."
+
+#: data/validator-messages.php:20
+msgid "The :attribute field must be between :min and :max digits."
+msgstr "Поле :attribute має містити від :min до :max цифр."
+
+#: data/validator-messages.php:21
+msgid "The :attribute field must be a valid email address."
+msgstr "Поле :attribute має бути коректною електронною адресою."
+
+#: data/validator-messages.php:22
+msgid "The :attribute must be a :allowed_extensions file"
+msgstr "Поле :attribute має бути файлом типу :allowed_extensions"
+
+#: data/validator-messages.php:23
+msgid "The :attribute field must have a value."
+msgstr "Поле :attribute має мати значення."
+
+#: data/validator-messages.php:24
+#: data/validator-messages.php:34
+msgid "The selected :attribute is invalid."
+msgstr "Обране значення :attribute недійсне."
+
+#: data/validator-messages.php:25
+msgid "The :attribute field must be an integer."
+msgstr "Поле :attribute має бути цілим числом."
+
+#: data/validator-messages.php:26
+msgid "The :attribute field must be a valid IP address."
+msgstr "Поле :attribute має бути коректною IP-адресою."
+
+#: data/validator-messages.php:27
+msgid "The :attribute field must be a valid IPv4 address."
+msgstr "Поле :attribute має бути коректною IPv4-адресою."
+
+#: data/validator-messages.php:28
+msgid "The :attribute field must be a valid IPv6 address."
+msgstr "Поле :attribute має бути коректною IPv6-адресою."
+
+#: data/validator-messages.php:29
+msgid "The :attribute field must be a valid JSON string."
+msgstr "Поле :attribute має бути коректним JSON-рядком."
+
+#: data/validator-messages.php:30
+msgid "The :attribute field must be lowercase."
+msgstr "Поле :attribute має бути в нижньому регістрі."
+
+#: data/validator-messages.php:31
+msgid "The :attribute field must not be greater than :max."
+msgstr "Поле :attribute не має перевищувати :max."
+
+#: data/validator-messages.php:32
+msgid "The :attribute field must be a file of type: :values."
+msgstr "Поле :attribute має бути файлом типу: :values."
+
+#: data/validator-messages.php:33
+msgid "The :attribute field must be at least :min."
+msgstr "Поле :attribute має бути щонайменше :min."
+
+#: data/validator-messages.php:35
+msgid "The :attribute field must be a number."
+msgstr "Поле :attribute має бути числом."
+
+#: data/validator-messages.php:36
+msgid "The :attribute field must be present."
+msgstr "Поле :attribute має бути присутнє."
+
+#: data/validator-messages.php:37
+msgid "The :attribute field format is invalid."
+msgstr "Формат поля :attribute недійсний."
+
+#: data/validator-messages.php:38
+msgid "The :attribute field is required."
+msgstr "Поле :attribute обов'язкове."
+
+#: data/validator-messages.php:39
+msgid "The :attribute field is required when :other is :value."
+msgstr "Поле :attribute обов'язкове, коли :other дорівнює :value."
+
+#: data/validator-messages.php:40
+msgid "The :attribute is required"
+msgstr "Поле :attribute обов'язкове"
+
+#: data/validator-messages.php:41
+msgid "The :attribute field is required unless :other is in :values."
+msgstr "Поле :attribute обов'язкове, якщо :other не входить у :values."
+
+#: data/validator-messages.php:42
+msgid "The :attribute field is required when :values is present."
+msgstr "Поле :attribute обов'язкове, коли :values присутнє."
+
+#: data/validator-messages.php:43
+msgid "The :attribute field is required when :values are present."
+msgstr "Поле :attribute обов'язкове, коли :values присутні."
+
+#: data/validator-messages.php:44
+msgid "The :attribute field is required when :values is not present."
+msgstr "Поле :attribute обов'язкове, коли :values відсутнє."
+
+#: data/validator-messages.php:45
+msgid "The :attribute field is required when none of :values are present."
+msgstr "Поле :attribute обов'язкове, коли жодне з :values не присутнє."
+
+#: data/validator-messages.php:46
+msgid "The :attribute and :other must match."
+msgstr "Поля :attribute та :other мають збігатися."
+
+#: data/validator-messages.php:47
+msgid "The :attribute field must be :size."
+msgstr "Поле :attribute має дорівнювати :size."
+
+#: data/validator-messages.php:48
+msgid "The :attribute field must be an array."
+msgstr "Поле :attribute має бути масивом."
+
+#: data/validator-messages.php:49
+msgid "The :attribute field must be a string."
+msgstr "Поле :attribute має бути рядком."
+
+#: data/validator-messages.php:50
+msgid "The :attribute failed to upload."
+msgstr "Не вдалося завантажити :attribute."
+
+#: data/validator-messages.php:51
+msgid "The :attribute field must be uppercase."
+msgstr "Поле :attribute має бути у верхньому регістрі."
+
+#: data/validator-messages.php:52
+msgid "The :attribute field must be a valid URL."
+msgstr "Поле :attribute має бути коректним URL."
+
+#. translators: %s: list of supported currencies.
+#: includes/Admin/AdminAlerts.php:83
+msgid "Supported currencies: "
+msgstr "Підтримувані валюти: "
+
+#. translators: 1: currency symbol, 2: tooltip with supported currencies, 3: link to WooCommerce settings
+#: includes/Admin/AdminAlerts.php:89
+#, php-format
+msgid "Attention! The current currency of your store (%1$s) is not supported by the Nova Post API. Please change it for the plugin to work correctly. <a href=\"%3$s\">Set up currency</a>. %2$s"
+msgstr "Увага! Поточна валюта вашого магазину (%1$s) не підтримується API Nova Post. Змініть її, щоб плагін працював коректно. <a href=\"%3$s\">Налаштувати валюту</a>. %2$s"
+
+#. translators: %s: link to WooCommerce shipping settings
+#: includes/Admin/AdminAlerts.php:102
+#, php-format
+msgid "Please note: None of the Nova Post shipping methods have been added to your shipping zones. The plugin will not appear on the Checkout page until you configure the region. <a href=\"%s\">Set up shipping zone</a>."
+msgstr "Зверніть увагу: жоден метод доставки Nova Post не додано до ваших зон доставки. Плагін не з'явиться на сторінці оформлення замовлення, доки ви не налаштуєте регіон. <a href=\"%s\">Налаштувати зону доставки</a>."
+
+#. translators: %s: link to checkout page editor
+#: includes/Admin/AdminAlerts.php:116
+#, php-format
+msgid "To work correctly with the NovaPost API please set the \"Phone\" field as required on the checkout page for shipping address block. <a href=\"%s\">Edit checkout page</a>."
+msgstr "Для коректної роботи з API NovaPost зробіть поле \"Телефон\" обов'язковим на сторінці оформлення замовлення в блоці адреси доставки. <a href=\"%s\">Редагувати сторінку оформлення</a>."
+
+#. translators: %s: link to Help Center
+#: includes/Admin/AdminAlerts.php:130
+#, php-format
+msgid "You can get the Nova Post API key according to the  <a href=\"%s\" target=\"_blank\">instruction.</a>"
+msgstr "Ви можете отримати API-ключ Nova Post за <a href=\"%s\" target=\"_blank\">інструкцією.</a>"
+
+#: includes/Admin/AdminAlerts.php:142
+msgid "Nova Post shipping methods cannot be added until at least one API key is configured"
+msgstr "Методи доставки Nova Post не можна додати, доки не налаштовано хоча б один API-ключ"
+
+#: includes/Admin/AdminSetup.php:48
+#: build/admin.js:7
+msgid "Nova Post Settings"
+msgstr "Налаштування Nova Post"
+
+#: includes/Admin/OrderBulkActions.php:76
+msgid "Nova Post: Create Shipments"
+msgstr "Nova Post: Створити відправлення"
+
+#: includes/Admin/OrderBulkActions.php:77
+msgid "Nova Post: Create Pickup"
+msgstr "Nova Post: Створити виклик кур'єра"
+
+#: includes/Admin/OrderBulkActions.php:78
+msgid "Nova Post: Print Markings (100х100)"
+msgstr "Nova Post: Друк маркування (100х100)"
+
+#: includes/Admin/OrderBulkActions.php:79
+msgid "Nova Post: Print Commercial Invoice"
+msgstr "Nova Post: Друк комерційного інвойсу"
+
+#: includes/Admin/OrderBulkActions.php:80
+msgid "Nova Post: Print Customs Declaration"
+msgstr "Nova Post: Друк митної декларації"
+
+#. translators: %d is the number of shipments.
+#: includes/Admin/OrderBulkActions.php:97
+#, php-format
+msgid "%d shipment added to pickup"
+msgid_plural "%d shipments added to pickup"
+msgstr[0] "%d відправлення додано до виклику кур'єра"
+msgstr[1] "%d відправлення додано до виклику кур'єра"
+msgstr[2] "%d відправлень додано до виклику кур'єра"
+
+#: includes/Admin/OrderListColumn.php:49
+#: includes/Admin/OrderListColumn.php:64
+msgid "Shipping Status"
+msgstr "Статус доставки"
+
+#: includes/Admin/OrderListColumn.php:55
+#: includes/Admin/OrderListColumn.php:60
+msgid "Nova Post Shipment"
+msgstr "Відправлення Nova Post"
+
+#. translators: %s: error message
+#. translators: %s: Error message text.
+#: includes/Api/Controllers/BulkPrintController.php:103
+#: includes/Api/Controllers/ShipmentController.php:221
+#, php-format
+msgid "An unexpected error occurred: %s"
+msgstr "Сталася непередбачена помилка: %s"
+
+#: includes/Api/Controllers/BulkShipmentController.php:92
+#: includes/Services/BulkPrintService.php:529
+msgid "Order IDs must be a non-empty array"
+msgstr "Ідентифікатори замовлень мають бути непорожнім масивом"
+
+#. translators: %d: maximum number of orders allowed
+#: includes/Api/Controllers/BulkShipmentController.php:102
+#, php-format
+msgid "Maximum %d orders can be processed at once"
+msgstr "За один раз можна обробити щонайбільше %d замовлень"
+
+#: includes/Api/Controllers/OrderController.php:63
+#: includes/Api/Controllers/OrderController.php:93
+msgid "Order not found."
+msgstr "Замовлення не знайдено."
+
+#: includes/Api/Controllers/OrderController.php:74
+msgid "An error occurred while updating the order division."
+msgstr "Сталася помилка під час оновлення відділення замовлення."
+
+#: includes/Api/Controllers/ShipmentController.php:121
+msgid "No order IDs provided"
+msgstr "Не передано ідентифікаторів замовлень"
+
+#: includes/Api/Controllers/ShipmentController.php:169
+#: build/orderPageApp.js:14
+#: build/shipment.js:7
+#: build/widget-order-edit.js:10
+msgid "Order ID is required"
+msgstr "Ідентифікатор замовлення обов'язковий"
+
+#: includes/Api/Controllers/ShipmentController.php:173
+msgid "Document type is required"
+msgstr "Тип документа обов'язковий"
+
+#: includes/Api/Controllers/ShipmentController.php:180
+#: includes/Api/Controllers/ShipmentController.php:199
+msgid "No shipment found for this order"
+msgstr "Для цього замовлення відправлення не знайдено"
+
+#: includes/Database/Repositories/OrderRepository.php:49
+#: includes/Services/AsyncShipmentApiService.php:77
+msgid "Order not found"
+msgstr "Замовлення не знайдено"
+
+#: includes/Exceptions/ShipmentException.php:23
+msgid "Shipment not found for the order"
+msgstr "Відправлення для замовлення не знайдено"
+
+#: includes/Helpers/ShipmentStatusHelper.php:44
+msgid "Not yet shipped"
+msgstr "Ще не відправлено"
+
+#: includes/Helpers/ShipmentStatusHelper.php:45
+msgid "In transit to recipient"
+msgstr "Прямує до отримувача"
+
+#: includes/Helpers/ShipmentStatusHelper.php:46
+msgid "Delivered successfully"
+msgstr "Успішно доставлено"
+
+#: includes/Helpers/ShipmentStatusHelper.php:47
+msgid "Received by recipient"
+msgstr "Отримано отримувачем"
+
+#: includes/Helpers/ShipmentStatusHelper.php:48
+msgid "Delivery failed - action required"
+msgstr "Доставка не вдалася — потрібні дії"
+
+#: includes/Helpers/ShipmentStatusHelper.php:49
+msgid "Refused by recipient"
+msgstr "Відмова отримувача"
+
+#: includes/Helpers/ShipmentStatusHelper.php:50
+msgid "Returning to sender"
+msgstr "Повертається відправнику"
+
+#: includes/Helpers/ShipmentStatusHelper.php:51
+msgid "Shipment deleted"
+msgstr "Відправлення видалено"
+
+#: includes/Helpers/ShipmentStatusHelper.php:66
+msgid "Unknown status"
+msgstr "Невідомий статус"
+
+#: includes/Plugin/NovaPostForWoocommerce.php:148
+msgid "Cloning is forbidden."
+msgstr "Клонування заборонено."
+
+#: includes/Plugin/NovaPostForWoocommerce.php:155
+msgid "Unserializing instances of this class is forbidden."
+msgstr "Десеріалізація екземплярів цього класу заборонена."
+
+#. translators: %s: HTML link to woocommerce.com.
+#: includes/Plugin/NovaPostForWoocommercePlugin.php:51
+#, php-format
+msgid "Nova Post Woocommerce requires WooCommerce to be installed and active. You can download %s here."
+msgstr "Nova Post Woocommerce потребує встановленого й активного WooCommerce. Ви можете завантажити %s тут."
+
+#: includes/Services/AsyncShipmentApiService.php:208
+msgid "Shipment already exists"
+msgstr "Відправлення вже існує"
+
+#: includes/Services/AsyncShipmentApiService.php:217
+msgid "Not a Nova Post shipping method"
+msgstr "Це не метод доставки Nova Post"
+
+#: includes/Services/BulkPrintService.php:73
+msgid "No shipments found for selected orders"
+msgstr "Для обраних замовлень відправлень не знайдено"
+
+#: includes/Services/BulkPrintService.php:84
+msgid "Failed to generate any documents. All tracking numbers are invalid."
+msgstr "Не вдалося сформувати жодного документа. Усі номери відправлень недійсні."
+
+#: includes/Services/BulkPrintService.php:300
+msgid "Shipment not found in Nova Post"
+msgstr "Відправлення не знайдено в Nova Post"
+
+#: includes/Services/BulkPrintService.php:313
+msgid "Validation failed: "
+msgstr "Помилка валідації: "
+
+#: includes/Services/BulkPrintService.php:455
+msgid "Unknown error"
+msgstr "Невідома помилка"
+
+#. translators: %d: maximum number of orders
+#: includes/Services/BulkPrintService.php:538
+#: build/orderPageApp.js:24
+#, php-format,js-format
+msgid "Maximum %d orders allowed for bulk printing"
+msgstr "Для масового друку дозволено щонайбільше %d замовлень"
+
+#. translators: %s: allowed types
+#: includes/Services/BulkPrintService.php:551
+#, php-format
+msgid "Invalid document type. Allowed types: %s"
+msgstr "Недійсний тип документа. Дозволені типи: %s"
+
+#: includes/Services/EmailsService.php:32
+#: includes/Services/EmailsService.php:36
+msgid "Nova Post Tracking Number:"
+msgstr "Номер відправлення Nova Post:"
+
+#: includes/Services/EmailsService.php:33
+#: includes/Services/EmailsService.php:37
+msgid "Tracking Link:"
+msgstr "Посилання для відстеження:"
+
+#. translators: %s: pickup request number.
+#: includes/Services/NovaPostStatusBlock.php:52
+#, php-format
+msgid "Shipment added to pickup request #%s"
+msgstr "Відправлення додано до заявки на виклик кур'єра #%s"
+
+#: includes/Services/NovaPostStatusBlock.php:60
+msgid "Shipment is waiting to be added to a pickup."
+msgstr "Відправлення очікує додавання до виклику кур'єра."
+
+#: includes/Services/NovaPostStatusBlock.php:64
+msgid "Pickup"
+msgstr "Виклик кур'єра"
+
+#: includes/Services/NovaPostStatusBlock.php:78
+msgid "Delivery"
+msgstr "Доставка"
+
+#: includes/Services/PickupApiService.php:35
+#: includes/Services/PickupApiService.php:61
+#: includes/Services/PickupApiService.php:88
+#: includes/Services/PickupApiService.php:114
+msgid "Validation error"
+msgstr "Помилка валідації"
+
+#: includes/Services/PickupErrorFormatter.php:94
+msgid "The sender's city specified in Nova Post settings is not recognized. Try entering the city name in the local language."
+msgstr "Місто відправника, вказане в налаштуваннях Nova Post, не розпізнано. Спробуйте ввести назву міста місцевою мовою."
+
+#: includes/Services/PickupService.php:158
+msgid "Failed to save pickup to database"
+msgstr "Не вдалося зберегти виклик кур'єра до бази даних"
+
+#: includes/Services/PickupService.php:279
+msgid "Wrong pickup status. Must be in `Draft` to add shipments"
+msgstr "Невірний статус виклику кур'єра. Для додавання відправлень має бути `Draft`"
+
+#. translators: %d: maximum shipments per pickup.
+#: includes/Services/PickupService.php:291
+#, php-format
+msgid "Cannot exceed %d shipments per pickup"
+msgstr "Не можна перевищувати %d відправлень на один виклик кур'єра"
+
+#. translators: %d: order ID, %s: error message
+#. translators: 1: order ID, 2: error message
+#. translators: 1: order ID, 2: reason
+#: includes/Services/PickupService.php:335
+#: build/orderPageApp.js:21
+#: build/orderPageApp.js:22
+#, php-format,js-format
+msgid "Order #%1$d: %2$s"
+msgstr "Замовлення #%1$d: %2$s"
+
+#: includes/Services/PickupService.php:342
+msgid "Some orders are not eligible for pickup"
+msgstr "Деякі замовлення не підходять для виклику кур'єра"
+
+#: includes/Services/PickupService.php:374
+msgid "Already assigned to another pickup"
+msgstr "Вже призначено до іншого виклику кур'єра"
+
+#: includes/Services/PickupService.php:381
+msgid "Division delivery not supported. Use a full address for pickup"
+msgstr "Доставка у відділення не підтримується. Використайте повну адресу для виклику кур'єра"
+
+#: includes/Services/PickupService.php:385
+msgid "Sender details don't match current settings"
+msgstr "Дані відправника не збігаються з поточними налаштуваннями"
+
+#: includes/Services/PickupService.php:392
+msgid "Status must be: "
+msgstr "Статус має бути: "
+
+#: includes/Services/PickupService.php:400
+msgid "Payment status must be one of: "
+msgstr "Статус оплати має бути одним із: "
+
+#: includes/Services/PickupService.php:480
+msgid "Pickup has no shipments"
+msgstr "Виклик кур'єра не містить відправлень"
+
+#: includes/Services/ProductPageService.php:44
+msgid "Product Title in English"
+msgstr "Назва товару англійською"
+
+#: includes/Services/ProductPageService.php:45
+msgid "Enter product title in English"
+msgstr "Введіть назву товару англійською"
+
+#: includes/Services/ProductPageService.php:47
+msgid "Enter the name of the product in English. This field is required for correct completion of customs declarations. Example: Cotton T-shirt"
+msgstr "Введіть назву товару англійською. Це поле потрібне для коректного заповнення митних декларацій. Приклад: Cotton T-shirt"
+
+#: includes/Services/ProductPageService.php:53
+#: build/shipment.js:7
+msgid "HS Code"
+msgstr "HS-код"
+
+#: includes/Services/ProductPageService.php:54
+msgid "Enter HS code of the product"
+msgstr "Введіть HS-код товару"
+
+#: includes/Services/ProductPageService.php:56
+msgid "Enter the individual customs code (Harmonized System code) for this product. It is required for international shipments. Example: 8517120000"
+msgstr "Введіть індивідуальний митний код (HS-код) для цього товару. Він потрібен для міжнародних відправлень. Приклад: 8517120000"
+
+#: includes/Services/ProductPageService.php:103
+msgid "HS Code is invalid. It must be a numeric value with 8-10 digits."
+msgstr "HS-код недійсний. Це має бути число з 8–10 цифр."
+
+#: includes/Services/ShipmentApiService.php:54
+msgid "Shipment already exists for the order"
+msgstr "Для цього замовлення відправлення вже існує"
+
+#: includes/Services/ShipmentApiService.php:94
+msgid "Shipment creation failed"
+msgstr "Не вдалося створити відправлення"
+
+#: includes/Services/ShipmentApiService.php:279
+msgid "Failed to get shipments statuses via API"
+msgstr "Не вдалося отримати статуси відправлень через API"
+
+#: includes/Services/ShipmentApiService.php:314
+#: includes/Services/ShipmentApiService.php:315
+#: includes/Services/ShipmentApiService.php:325
+#: includes/Services/ShipmentApiService.php:326
+#: includes/Services/ShipmentApiService.php:330
+#: includes/Services/ShipmentApiService.php:331
+msgid "Unknown"
+msgstr "Невідомо"
+
+#: includes/Services/ShipmentApiService.php:420
+msgid "Sender phone is required"
+msgstr "Телефон відправника обов'язковий"
+
+#: includes/Services/ShipmentApiService.php:424
+msgid "Sender email is required"
+msgstr "Email відправника обов'язковий"
+
+#: includes/Services/ShipmentApiService.php:428
+msgid "Sender name is required"
+msgstr "Ім'я відправника обов'язкове"
+
+#: includes/Services/ShipmentApiService.php:432
+msgid "Recipient phone is required"
+msgstr "Телефон отримувача обов'язковий"
+
+#: includes/Services/ShipmentApiService.php:436
+msgid "Recipient email is required"
+msgstr "Email отримувача обов'язковий"
+
+#: includes/Services/ShipmentApiService.php:440
+msgid "Recipient name is required"
+msgstr "Ім'я отримувача обов'язкове"
+
+#: includes/Services/ShipmentApiService.php:444
+msgid "Either division or address must be specified for recipient"
+msgstr "Для отримувача потрібно вказати відділення або адресу"
+
+#: includes/Services/ShipmentApiService.php:448
+msgid "At least one parcel is required"
+msgstr "Потрібна щонайменше одна посилка"
+
+#: includes/Services/ShipmentApiService.php:481
+msgid "Failed to delete waybill"
+msgstr "Не вдалося видалити накладну"
+
+#: includes/Services/ShipmentApiService.php:531
+#: includes/Services/ShipmentApiService.php:534
+msgid "Failed to get printable documents."
+msgstr "Не вдалося отримати документи для друку."
+
+#: includes/Services/ShipmentService.php:231
+msgid "Order completed automatically after shipment creation."
+msgstr "Замовлення автоматично виконано після створення відправлення."
+
+#: includes/Shipping/NovaPostShippingMethodAbstract.php:119
+msgid "Title"
+msgstr "Назва"
+
+#: includes/Shipping/NovaPostShippingMethodAbstract.php:121
+msgid "This controls the title which the user sees during checkout."
+msgstr "Визначає назву, яку користувач бачить під час оформлення замовлення."
+
+#: includes/Shipping/NovaPostShippingMethodAbstract.php:191
+msgid "Exchange rate unavailable."
+msgstr "Курс валют недоступний."
+
+#: includes/Shipping/NovaPostShippingMethodAddress.php:26
+msgid "Nova Post Address"
+msgstr "Nova Post — на адресу"
+
+#: includes/Shipping/NovaPostShippingMethodAddress.php:27
+msgid "Adds a Nova Post shipping method (Address)"
+msgstr "Додає метод доставки Nova Post (на адресу)"
+
+#: includes/Shipping/NovaPostShippingMethodDivision.php:25
+msgid "Nova Post Division"
+msgstr "Nova Post — у відділення"
+
+#: includes/Shipping/NovaPostShippingMethodDivision.php:26
+msgid "Adds a Nova Post shipping method (Division/Branch)"
+msgstr "Додає метод доставки Nova Post (у відділення)"
+
+#: includes/Validation/CheckoutPageValidator.php:47
+msgid "Please ensure your phone number is filled."
+msgstr "Переконайтеся, що номер телефону заповнено."
+
+#: includes/Validation/CheckoutPageValidator.php:48
+msgid "Please ensure your division is selected."
+msgstr "Переконайтеся, що відділення обрано."
+
+#: includes/Validation/Requests/PickupStatusValidator.php:39
+msgid "Status must be `Created`"
+msgstr "Статус має бути `Created`"
+
+#: includes/Validation/Requests/PickupStatusValidator.php:40
+msgid "Please provide the reason for the status update."
+msgstr "Вкажіть причину оновлення статусу."
+
+#: includes/Validation/Requests/PickupTimeIntervalsValidator.php:72
+msgid "Type must be `PickupNextDay`"
+msgstr "Тип має бути `PickupNextDay`"
+
+#: includes/Validation/Requests/PickupTimeIntervalsValidator.php:73
+msgid "Latitude is required when departure method is division"
+msgstr "Широта обов'язкова, коли спосіб відправлення — відділення"
+
+#: includes/Validation/Requests/PickupTimeIntervalsValidator.php:74
+msgid "Longitude is required when departure method is division"
+msgstr "Довгота обов'язкова, коли спосіб відправлення — відділення"
+
+#: includes/Validation/Requests/PickupTimeIntervalsValidator.php:75
+msgid "addressParts is required when departure method is address"
+msgstr "addressParts обов'язкове, коли спосіб відправлення — адреса"
+
+#. translators: %s: comma-separated order IDs
+#: includes/Validation/Requests/PickupTimeIntervalsValidator.php:103
+#, php-format
+msgid "Orders #%s do not have shipments created. Please create shipments first"
+msgstr "Для замовлень #%s не створено відправлень. Спершу створіть відправлення"
+
+#: includes/Validation/Rules/ApiKeyValidationRule.php:78
+#: includes/Validation/SettingsPageApiKeysValidator.php:51
+#: includes/Validation/SettingsPageValidator.php:104
+msgid "The provided API key is invalid or failed to authenticate."
+msgstr "Наданий API-ключ недійсний або не пройшов автентифікацію."
+
+#: includes/Validation/Rules/AtLeastOneDivisionFilterRule.php:55
+#: includes/Validation/SettingsPageValidator.php:238
+msgid "At least one division type must be enabled."
+msgstr "Має бути увімкнено щонайменше один тип відділення."
+
+#: includes/Validation/Rules/ExistingWooOrderRule.php:37
+msgid "The selected WC order does not exist."
+msgstr "Обране замовлення WooCommerce не існує."
+
+#. translators: 1: column name, 2: table name
+#: includes/Validation/Rules/ExistsInCustomTableRule.php:63
+#, php-format
+msgid "The selected %1$s does not exist in the %2$s table."
+msgstr "Обране значення %1$s не існує в таблиці %2$s."
+
+#: includes/Validation/SettingsPageApiKeysValidator.php:50
+#: includes/Validation/SettingsPageValidator.php:103
+msgid "API key is required"
+msgstr "API-ключ обов'язковий"
+
+#: includes/Validation/SettingsPageApiKeysValidator.php:53
+#: includes/Validation/SettingsPageValidator.php:106
+msgid "Stage API key is required"
+msgstr "Тестовий API-ключ обов'язковий"
+
+#: includes/Validation/SettingsPageApiKeysValidator.php:54
+#: includes/Validation/SettingsPageValidator.php:107
+msgid "The provided stage API key is invalid or failed to authenticate."
+msgstr "Наданий тестовий API-ключ недійсний або не пройшов автентифікацію."
+
+#: includes/Validation/SettingsPageValidator.php:109
+#: includes/Validation/SettingsPageValidator.php:110
+msgid "Default height is required"
+msgstr "Типова висота обов'язкова"
+
+#: includes/Validation/SettingsPageValidator.php:111
+msgid "Default height must be a number"
+msgstr "Типова висота має бути числом"
+
+#: includes/Validation/SettingsPageValidator.php:112
+msgid "Default height must be at least :min"
+msgstr "Типова висота має бути щонайменше :min"
+
+#: includes/Validation/SettingsPageValidator.php:113
+msgid "Default height must be at most :max"
+msgstr "Типова висота має бути щонайбільше :max"
+
+#: includes/Validation/SettingsPageValidator.php:115
+#: includes/Validation/SettingsPageValidator.php:116
+msgid "Default width is required"
+msgstr "Типова ширина обов'язкова"
+
+#: includes/Validation/SettingsPageValidator.php:117
+msgid "Default width must be a number"
+msgstr "Типова ширина має бути числом"
+
+#: includes/Validation/SettingsPageValidator.php:118
+msgid "Default width must be at least :min"
+msgstr "Типова ширина має бути щонайменше :min"
+
+#: includes/Validation/SettingsPageValidator.php:119
+msgid "Default width must be at most :max"
+msgstr "Типова ширина має бути щонайбільше :max"
+
+#: includes/Validation/SettingsPageValidator.php:121
+#: includes/Validation/SettingsPageValidator.php:122
+msgid "Default length is required"
+msgstr "Типова довжина обов'язкова"
+
+#: includes/Validation/SettingsPageValidator.php:123
+msgid "Default length must be a number"
+msgstr "Типова довжина має бути числом"
+
+#: includes/Validation/SettingsPageValidator.php:124
+msgid "Default length must be at least :min"
+msgstr "Типова довжина має бути щонайменше :min"
+
+#: includes/Validation/SettingsPageValidator.php:125
+msgid "Default length must be at most :max"
+msgstr "Типова довжина має бути щонайбільше :max"
+
+#: includes/Validation/SettingsPageValidator.php:127
+msgid "Custom boxes must be an array"
+msgstr "Власні коробки мають бути масивом"
+
+#: includes/Validation/SettingsPageValidator.php:128
+#: includes/Validation/SettingsPageValidator.php:129
+#: build/admin.js:7
+msgid "All dimensions are required for each box and must be positive numbers."
+msgstr "Для кожної коробки обов'язкові всі розміри, і вони мають бути додатними числами."
+
+#: includes/Validation/SettingsPageValidator.php:131
+#: includes/Validation/SettingsPageValidator.php:132
+msgid "Custom box #{0} width is required."
+msgstr "Ширина власної коробки #{0} обов'язкова."
+
+#: includes/Validation/SettingsPageValidator.php:133
+msgid "Custom box #{0} width field must not be lower than :min."
+msgstr "Ширина власної коробки #{0} не може бути меншою за :min."
+
+#: includes/Validation/SettingsPageValidator.php:134
+msgid "Custom box #{0} width field must not be greater than :max."
+msgstr "Ширина власної коробки #{0} не може бути більшою за :max."
+
+#: includes/Validation/SettingsPageValidator.php:136
+#: includes/Validation/SettingsPageValidator.php:137
+msgid "Custom box #{0} length is required."
+msgstr "Довжина власної коробки #{0} обов'язкова."
+
+#: includes/Validation/SettingsPageValidator.php:138
+msgid "Custom box #{0} length field must not be lower than :min."
+msgstr "Довжина власної коробки #{0} не може бути меншою за :min."
+
+#: includes/Validation/SettingsPageValidator.php:139
+msgid "Custom box #{0} length field must not be greater than :max."
+msgstr "Довжина власної коробки #{0} не може бути більшою за :max."
+
+#: includes/Validation/SettingsPageValidator.php:141
+#: includes/Validation/SettingsPageValidator.php:142
+msgid "Custom box #{0} height is required."
+msgstr "Висота власної коробки #{0} обов'язкова."
+
+#: includes/Validation/SettingsPageValidator.php:143
+msgid "Custom box #{0} height field must not be lower than :min."
+msgstr "Висота власної коробки #{0} не може бути меншою за :min."
+
+#: includes/Validation/SettingsPageValidator.php:144
+msgid "Custom box #{0} height field must not be greater than :max."
+msgstr "Висота власної коробки #{0} не може бути більшою за :max."
+
+#: includes/Validation/SettingsPageValidator.php:146
+msgid "Default product height is required"
+msgstr "Типова висота товару обов'язкова"
+
+#: includes/Validation/SettingsPageValidator.php:147
+msgid "Default product height must be a number"
+msgstr "Типова висота товару має бути числом"
+
+#: includes/Validation/SettingsPageValidator.php:148
+msgid "Default product height must be at least :min"
+msgstr "Типова висота товару має бути щонайменше :min"
+
+#: includes/Validation/SettingsPageValidator.php:149
+msgid "Default product height must be at most :max"
+msgstr "Типова висота товару має бути щонайбільше :max"
+
+#: includes/Validation/SettingsPageValidator.php:151
+msgid "Default product width is required"
+msgstr "Типова ширина товару обов'язкова"
+
+#: includes/Validation/SettingsPageValidator.php:152
+msgid "Default product width must be a number"
+msgstr "Типова ширина товару має бути числом"
+
+#: includes/Validation/SettingsPageValidator.php:153
+msgid "Default product width must be at least :min"
+msgstr "Типова ширина товару має бути щонайменше :min"
+
+#: includes/Validation/SettingsPageValidator.php:154
+msgid "Default product width must be at most :max"
+msgstr "Типова ширина товару має бути щонайбільше :max"
+
+#: includes/Validation/SettingsPageValidator.php:156
+msgid "Default product length is required"
+msgstr "Типова довжина товару обов'язкова"
+
+#: includes/Validation/SettingsPageValidator.php:157
+msgid "Default product length must be a number"
+msgstr "Типова довжина товару має бути числом"
+
+#: includes/Validation/SettingsPageValidator.php:158
+msgid "Default product length must be at least :min"
+msgstr "Типова довжина товару має бути щонайменше :min"
+
+#: includes/Validation/SettingsPageValidator.php:159
+msgid "Default product length must be at most :max"
+msgstr "Типова довжина товару має бути щонайбільше :max"
+
+#: includes/Validation/SettingsPageValidator.php:161
+msgid "Default product weight is required"
+msgstr "Типова вага товару обов'язкова"
+
+#: includes/Validation/SettingsPageValidator.php:162
+msgid "Default product weight must be a number"
+msgstr "Типова вага товару має бути числом"
+
+#: includes/Validation/SettingsPageValidator.php:163
+msgid "Default product weight must be at least :min"
+msgstr "Типова вага товару має бути щонайменше :min"
+
+#: includes/Validation/SettingsPageValidator.php:164
+msgid "Default product weight must be at most :max"
+msgstr "Типова вага товару має бути щонайбільше :max"
+
+#: includes/Validation/SettingsPageValidator.php:166
+msgid "Sender's first name is required"
+msgstr "Ім'я відправника обов'язкове"
+
+#: includes/Validation/SettingsPageValidator.php:167
+msgid "Sender's first name must be at least :min character"
+msgstr "Ім'я відправника має містити щонайменше :min символ"
+
+#: includes/Validation/SettingsPageValidator.php:168
+msgid "Sender's first name must not exceed :max characters"
+msgstr "Ім'я відправника не має перевищувати :max символів"
+
+#: includes/Validation/SettingsPageValidator.php:170
+msgid "Sender's last name is required"
+msgstr "Прізвище відправника обов'язкове"
+
+#: includes/Validation/SettingsPageValidator.php:171
+msgid "Sender's last name must be at least :min character"
+msgstr "Прізвище відправника має містити щонайменше :min символ"
+
+#: includes/Validation/SettingsPageValidator.php:172
+msgid "Sender's last name must not exceed :max characters"
+msgstr "Прізвище відправника не має перевищувати :max символів"
+
+#: includes/Validation/SettingsPageValidator.php:174
+msgid "Sender's phone is required"
+msgstr "Телефон відправника обов'язковий"
+
+#: includes/Validation/SettingsPageValidator.php:175
+msgid "Sender's phone must be at least :min character"
+msgstr "Телефон відправника має містити щонайменше :min символ"
+
+#: includes/Validation/SettingsPageValidator.php:176
+msgid "Sender's phone must not exceed :max characters"
+msgstr "Телефон відправника не має перевищувати :max символів"
+
+#: includes/Validation/SettingsPageValidator.php:178
+msgid "Sender's email is required"
+msgstr "Email відправника обов'язковий"
+
+#: includes/Validation/SettingsPageValidator.php:179
+msgid "Sender's email must be a valid email address"
+msgstr "Email відправника має бути коректною електронною адресою"
+
+#: includes/Validation/SettingsPageValidator.php:181
+msgid "Sender's city is required when address type is address"
+msgstr "Місто відправника обов'язкове, коли тип відправлення — адреса"
+
+#: includes/Validation/SettingsPageValidator.php:182
+msgid "Sender's city must be at least :min character"
+msgstr "Місто відправника має містити щонайменше :min символ"
+
+#: includes/Validation/SettingsPageValidator.php:183
+msgid "Sender's city must not exceed :max characters"
+msgstr "Місто відправника не має перевищувати :max символів"
+
+#: includes/Validation/SettingsPageValidator.php:185
+msgid "Sender's country is required"
+msgstr "Країна відправника обов'язкова"
+
+#: includes/Validation/SettingsPageValidator.php:186
+msgid "Sender's country must be :size characters long"
+msgstr "Країна відправника має містити :size символи"
+
+#: includes/Validation/SettingsPageValidator.php:188
+msgid "Sender's postal code is required when address type is address"
+msgstr "Поштовий індекс відправника обов'язковий, коли тип відправлення — адреса"
+
+#: includes/Validation/SettingsPageValidator.php:189
+msgid "Sender's postal code must be at least :min character"
+msgstr "Поштовий індекс відправника має містити щонайменше :min символ"
+
+#: includes/Validation/SettingsPageValidator.php:190
+msgid "Sender's postal code must not exceed :max characters"
+msgstr "Поштовий індекс відправника не має перевищувати :max символів"
+
+#: includes/Validation/SettingsPageValidator.php:192
+msgid "Sender's street is required when address type is address"
+msgstr "Вулиця відправника обов'язкова, коли тип відправлення — адреса"
+
+#: includes/Validation/SettingsPageValidator.php:193
+msgid "Sender's street must be at least :min character"
+msgstr "Вулиця відправника має містити щонайменше :min символ"
+
+#: includes/Validation/SettingsPageValidator.php:194
+msgid "Sender's street must not exceed :max characters"
+msgstr "Вулиця відправника не має перевищувати :max символів"
+
+#: includes/Validation/SettingsPageValidator.php:196
+msgid "Sender's building is required when address type is address"
+msgstr "Будинок відправника обов'язковий, коли тип відправлення — адреса"
+
+#: includes/Validation/SettingsPageValidator.php:197
+msgid "Sender's building must be at least :min character"
+msgstr "Будинок відправника має містити щонайменше :min символ"
+
+#: includes/Validation/SettingsPageValidator.php:198
+msgid "Sender's building must not exceed :max characters"
+msgstr "Будинок відправника не має перевищувати :max символів"
+
+#: includes/Validation/SettingsPageValidator.php:199
+msgid "Building number must contain only letters, numbers, spaces, dots, slashes and hyphens"
+msgstr "Номер будинку може містити лише літери, цифри, пробіли, крапки, слеші та дефіси"
+
+#: includes/Validation/SettingsPageValidator.php:201
+msgid "Sender's division ID is required when address type is division"
+msgstr "Ідентифікатор відділення відправника обов'язковий, коли тип відправлення — відділення"
+
+#: includes/Validation/SettingsPageValidator.php:202
+msgid "Sender's division ID must be a number"
+msgstr "Ідентифікатор відділення відправника має бути числом"
+
+#: includes/Validation/SettingsPageValidator.php:203
+msgid "Sender's division ID must be at least :min"
+msgstr "Ідентифікатор відділення відправника має бути щонайменше :min"
+
+#: includes/Validation/SettingsPageValidator.php:205
+msgid "Sender's division latitude is required when address type is division"
+msgstr "Широта відділення відправника обов'язкова, коли тип відправлення — відділення"
+
+#: includes/Validation/SettingsPageValidator.php:206
+msgid "Sender's division latitude must be a number"
+msgstr "Широта відділення відправника має бути числом"
+
+#: includes/Validation/SettingsPageValidator.php:207
+msgid "Sender's division latitude must be between :min and :max"
+msgstr "Широта відділення відправника має бути між :min і :max"
+
+#: includes/Validation/SettingsPageValidator.php:209
+msgid "Sender's division longitude is required when address type is division"
+msgstr "Довгота відділення відправника обов'язкова, коли тип відправлення — відділення"
+
+#: includes/Validation/SettingsPageValidator.php:210
+msgid "Sender's division longitude must be a number"
+msgstr "Довгота відділення відправника має бути числом"
+
+#: includes/Validation/SettingsPageValidator.php:211
+msgid "Sender's division longitude must be between :min and :max"
+msgstr "Довгота відділення відправника має бути між :min і :max"
+
+#: includes/Validation/SettingsPageValidator.php:213
+msgid "Customs fee payer is required"
+msgstr "Платник митних зборів обов'язковий"
+
+#: includes/Validation/SettingsPageValidator.php:214
+msgid "Customs fee payer must be Sender or Recipient"
+msgstr "Платником митних зборів має бути Sender або Recipient"
+
+#: includes/Validation/SettingsPageValidator.php:216
+msgid "Delivery tariff is required"
+msgstr "Тариф доставки обов'язковий"
+
+#: includes/Validation/SettingsPageValidator.php:217
+msgid "Delivery tariff must be standard or express"
+msgstr "Тариф доставки має бути standard або express"
+
+#: includes/Validation/SettingsPageValidator.php:219
+msgid "Shipping flat rate is required when free delivery for this division is enabled"
+msgstr "Фіксована вартість доставки обов'язкова, коли увімкнено безкоштовну доставку для цього відділення"
+
+#: includes/Validation/SettingsPageValidator.php:220
+#: includes/Validation/SettingsPageValidator.php:228
+msgid "Shipping flat rate must be a positive number with up to 2 decimal places"
+msgstr "Фіксована вартість доставки має бути додатним числом з максимум 2 знаками після коми"
+
+#: includes/Validation/SettingsPageValidator.php:221
+#: includes/Validation/SettingsPageValidator.php:229
+msgid "Shipping flat rate must be :min or higher"
+msgstr "Фіксована вартість доставки має бути :min або більше"
+
+#: includes/Validation/SettingsPageValidator.php:223
+msgid "Free delivery amount is required when free delivery for this division is enabled"
+msgstr "Сума безкоштовної доставки обов'язкова, коли увімкнено безкоштовну доставку для цього відділення"
+
+#: includes/Validation/SettingsPageValidator.php:224
+msgid "Free delivery amount must be a positive number with maximum 2 decimal places"
+msgstr "Сума безкоштовної доставки має бути додатним числом з максимум 2 знаками після коми"
+
+#: includes/Validation/SettingsPageValidator.php:225
+#: includes/Validation/SettingsPageValidator.php:233
+msgid "Free delivery amount must be :min or higher"
+msgstr "Сума безкоштовної доставки має бути :min або більше"
+
+#: includes/Validation/SettingsPageValidator.php:227
+msgid "Shipping flat rate is required when free delivery for this address is enabled"
+msgstr "Фіксована вартість доставки обов'язкова, коли увімкнено безкоштовну доставку для цієї адреси"
+
+#: includes/Validation/SettingsPageValidator.php:231
+msgid "Free delivery amount is required when free delivery for this address is enabled"
+msgstr "Сума безкоштовної доставки обов'язкова, коли увімкнено безкоштовну доставку для цієї адреси"
+
+#: includes/Validation/SettingsPageValidator.php:232
+msgid "Free delivery amount must be a positive number with up to 2 decimal places"
+msgstr "Сума безкоштовної доставки має бути додатним числом з максимум 2 знаками після коми"
+
+#: includes/Validation/SettingsPageValidator.php:235
+msgid "Default HS tariff code must be a number"
+msgstr "Типовий HS-код має бути числом"
+
+#: includes/Validation/SettingsPageValidator.php:236
+msgid "Default HS tariff code must be between :min and :max digits"
+msgstr "Типовий HS-код має містити від :min до :max цифр"
+
+#: includes_dev/Debug/OrderDuplicator.php:41
+msgid "Dev: Duplicate Orders"
+msgstr "Dev: Дублювати замовлення"
+
+#: views/order/division-info.php:24
+#: build/admin.js:4
+#: build/shipment.js:7
+msgid "Division"
+msgstr "Відділення"
+
+#: views/order/division-info.php:25
+msgid "Edit division"
+msgstr "Редагувати відділення"
+
+#: views/order/division-info.php:40
+#: build/widget-order-edit.js:10
+msgid "No division selected"
+msgstr "Відділення не обрано"
+
+#: views/order/division-info.php:46
+#: build/admin.js:4
+msgid "Address"
+msgstr "Адреса"
+
+#: views/order/division-info.php:55
+msgid "Warning"
+msgstr "Попередження"
+
+#: views/order/division-info.php:56
+msgid "Changing the division will not affect the already created shipment. You need to delete the shipment."
+msgstr "Зміна відділення не вплине на вже створене відправлення. Потрібно видалити відправлення."
+
+#: views/shipment/button-create-waybill.php:20
+msgid "Create waybill"
+msgstr "Створити накладну"
+
+#: views/shipment/button-delete-shipment.php:23
+#: build/shipment.js:7
+msgid "Delete waybill"
+msgstr "Видалити накладну"
+
+#: views/shipment/button-delete-shipment.php:27
+msgid "This will delete the waybill for this order. This action cannot be undone."
+msgstr "Це видалить накладну для цього замовлення. Дію не можна скасувати."
+
+#: views/shipment/button-print-customs.php:23
+msgid "Customs declaration printing"
+msgstr "Друк митної декларації"
+
+#: views/shipment/button-print-invoice.php:23
+msgid "Invoice printing"
+msgstr "Друк інвойсу"
+
+#: views/shipment/button-print-label.php:15
+msgid "Label printing"
+msgstr "Друк маркування"
+
+#: views/shipment/shipment-errors.php:19
+msgid "Errors"
+msgstr "Помилки"
+
+#: views/shipment/status-badge-icon.php:17
+msgid "Not available"
+msgstr "Недоступно"
+
+#: build/admin.js:1
+#: build/shipment.js:7
+msgid "Confirm Action"
+msgstr "Підтвердьте дію"
+
+#: build/admin.js:1
+#: build/shipment.js:7
+msgid "Do you want to continue?"
+msgstr "Продовжити?"
+
+#: build/admin.js:1
+msgid "Settings saved successfully!"
+msgstr "Налаштування успішно збережено!"
+
+#: build/admin.js:1
+msgid "API configuration saved successfully!"
+msgstr "Конфігурацію API успішно збережено!"
+
+#: build/admin.js:1
+#: build/admin.js:7
+msgid "Save"
+msgstr "Зберегти"
+
+#: build/admin.js:1
+msgid "Information"
+msgstr "Інформація"
+
+#: build/admin.js:1
+msgid "Example"
+msgstr "Приклад"
+
+#: build/admin.js:1
+msgid "More information"
+msgstr "Докладніше"
+
+#: build/admin.js:1
+msgid "API Configuration"
+msgstr "Конфігурація API"
+
+#: build/admin.js:1
+msgid "Production API Key"
+msgstr "Робочий API-ключ"
+
+#: build/admin.js:1
+msgid "Enter your live API key obtained from your NovaPost account. This key is used for creating actual shipments."
+msgstr "Введіть робочий API-ключ, отриманий у вашому акаунті NovaPost. Цей ключ використовується для створення реальних відправлень."
+
+#: build/admin.js:1
+msgid "Enter your Nova Post API key"
+msgstr "Введіть свій API-ключ Nova Post"
+
+#: build/admin.js:1
+msgid "Testing API"
+msgstr "Тестовий API"
+
+#: build/admin.js:1
+msgid "Enable to use the NovaPost testing environment. This allows you to test the plugin's functionality without creating real shipments. Remember to disable this mode before launching your store for actual sales."
+msgstr "Увімкніть, щоб використовувати тестове середовище NovaPost. Це дозволяє перевірити роботу плагіна без створення реальних відправлень. Не забудьте вимкнути цей режим перед запуском магазину для реальних продажів."
+
+#: build/admin.js:1
+msgid "Enable testing mode to use stage API key"
+msgstr "Увімкніть тестовий режим, щоб використовувати тестовий API-ключ"
+
+#: build/admin.js:1
+msgid "Stage API Key"
+msgstr "Тестовий API-ключ"
+
+#: build/admin.js:1
+msgid "Enter your test API key obtained from the NovaPost Sandbox environment. Use it with the 'Testing API' option to safely test the plugin's functionality."
+msgstr "Введіть тестовий API-ключ, отриманий у середовищі NovaPost Sandbox. Використовуйте його разом з опцією «Тестовий API», щоб безпечно перевірити роботу плагіна."
+
+#: build/admin.js:1
+msgid "Enter your Stage Nova Post API key"
+msgstr "Введіть свій тестовий API-ключ Nova Post"
+
+#: build/admin.js:1
+msgid "Contract Numbers"
+msgstr "Номери договорів"
+
+#: build/admin.js:1
+msgid "Domestic Contract Number"
+msgstr "Номер внутрішнього договору"
+
+#: build/admin.js:1
+msgid "Enter your contract number for shipments within one country."
+msgstr "Введіть номер договору для відправлень у межах однієї країни."
+
+#: build/admin.js:1
+msgid "Enter domestic contract number"
+msgstr "Введіть номер внутрішнього договору"
+
+#: build/admin.js:1
+msgid "International Contract Number"
+msgstr "Номер міжнародного договору"
+
+#: build/admin.js:1
+msgid "Enter your contract number for international shipments outside the country of departure and the EU."
+msgstr "Введіть номер договору для міжнародних відправлень за межі країни відправлення та ЄС."
+
+#: build/admin.js:1
+msgid "Enter international contract number"
+msgstr "Введіть номер міжнародного договору"
+
+#: build/admin.js:1
+msgid "Failed to load countries"
+msgstr "Не вдалося завантажити країни"
+
+#: build/admin.js:1
+#: build/shipment.js:7
+msgid "Postal Code"
+msgstr "Поштовий індекс"
+
+#: build/admin.js:1
+#: build/shipment.js:7
+msgid "Street"
+msgstr "Вулиця"
+
+#: build/admin.js:1
+#: build/shipment.js:7
+msgid "Building"
+msgstr "Будинок"
+
+#. translators: %s: error message
+#: build/admin.js:4
+#: build/widget-order-edit.js:4
+#, js-format
+msgid "Failed to search divisions: %s"
+msgstr "Не вдалося знайти відділення: %s"
+
+#: build/admin.js:4
+#: build/widget-order-edit.js:4
+msgid "Country code is required"
+msgstr "Код країни обов'язковий"
+
+#: build/admin.js:4
+#: build/widget-order-edit.js:4
+msgid "City is required"
+msgstr "Місто обов'язкове"
+
+#: build/admin.js:4
+#: build/widget-order-edit.js:4
+msgid "Search query is required"
+msgstr "Пошуковий запит обов'язковий"
+
+#: build/admin.js:4
+#: build/widget-order-edit.js:4
+msgid "Type must be either \"branch\" or \"postomat\""
+msgstr "Тип має бути \"branch\" або \"postomat\""
+
+#: build/admin.js:4
+#: build/widget-order-edit.js:4
+#: build/widget-order-edit.js:10
+msgid "Enter division name"
+msgstr "Введіть назву відділення"
+
+#: build/admin.js:4
+#: build/widget-order-edit.js:4
+msgid "No divisions found"
+msgstr "Відділень не знайдено"
+
+#: build/admin.js:4
+#: build/widget-order-edit.js:4
+msgid "Error loading divisions"
+msgstr "Помилка завантаження відділень"
+
+#: build/admin.js:4
+msgid "Sender Data"
+msgstr "Дані відправника"
+
+#: build/admin.js:4
+msgid "First Name"
+msgstr "Ім'я"
+
+#: build/admin.js:4
+msgid "Enter first name"
+msgstr "Введіть ім'я"
+
+#: build/admin.js:4
+msgid "Last Name"
+msgstr "Прізвище"
+
+#: build/admin.js:4
+msgid "Enter last name"
+msgstr "Введіть прізвище"
+
+#: build/admin.js:4
+#: build/shipment.js:7
+msgid "Email"
+msgstr "Email"
+
+#: build/admin.js:4
+msgid "Enter email address"
+msgstr "Введіть електронну адресу"
+
+#: build/admin.js:4
+#: build/shipment.js:7
+msgid "Phone"
+msgstr "Телефон"
+
+#: build/admin.js:4
+msgid "Enter phone number"
+msgstr "Введіть номер телефону"
+
+#: build/admin.js:4
+msgid "Company TIN"
+msgstr "ІПН компанії"
+
+#: build/admin.js:4
+msgid "Enter your company's Taxpayer Identification Number."
+msgstr "Введіть ідентифікаційний номер платника податків вашої компанії."
+
+#: build/admin.js:4
+msgid "Enter company TIN"
+msgstr "Введіть ІПН компанії"
+
+#: build/admin.js:4
+msgid "Company Name"
+msgstr "Назва компанії"
+
+#: build/admin.js:4
+msgid "Enter the full legal name of your company as specified in the registration documents."
+msgstr "Введіть повну юридичну назву компанії, як зазначено в реєстраційних документах."
+
+#: build/admin.js:4
+msgid "Enter company name"
+msgstr "Введіть назву компанії"
+
+#: build/admin.js:4
+msgid "EORI Code"
+msgstr "EORI-код"
+
+#: build/admin.js:4
+msgid "Enter your EORI (Economic Operators Registration and Identification) number. It is mandatory for all companies engaged in importing or exporting goods within the European Union."
+msgstr "Введіть свій номер EORI (Economic Operators Registration and Identification). Він обов'язковий для всіх компаній, які імпортують або експортують товари в межах Європейського Союзу."
+
+#: build/admin.js:4
+msgid "Enter EORI code"
+msgstr "Введіть EORI-код"
+
+#: build/admin.js:4
+msgid "IOSS"
+msgstr "IOSS"
+
+#: build/admin.js:4
+msgid "Enter your IOSS (Import One-Stop Shop) number if you are registered in this system. It is used to simplify VAT payments on sales of goods up to 150 EUR to buyers in the EU."
+msgstr "Введіть свій номер IOSS (Import One-Stop Shop), якщо ви зареєстровані в цій системі. Він використовується для спрощення сплати ПДВ під час продажу товарів вартістю до 150 EUR покупцям у ЄС."
+
+#: build/admin.js:4
+msgid "Enter IOSS"
+msgstr "Введіть IOSS"
+
+#: build/admin.js:4
+msgid "Shipment Departure Method"
+msgstr "Спосіб відправлення"
+
+#: build/admin.js:4
+msgid "Configure your shipment departure method. Fill in the address fields if you want a courier to pick up shipments from your address (Pickup service). Select a division in the widget if you will bring the parcels yourself."
+msgstr "Налаштуйте спосіб відправлення. Заповніть поля адреси, якщо хочете, щоб кур'єр забирав відправлення з вашої адреси (послуга виклику кур'єра). Оберіть відділення у віджеті, якщо привозитимете посилки самостійно."
+
+#: build/admin.js:4
+msgid "International Shipment Settings"
+msgstr "Налаштування міжнародних відправлень"
+
+#: build/admin.js:4
+msgid "Configure customs fee payer and delivery tariff for shipments from Ukraine."
+msgstr "Налаштуйте платника митних зборів і тариф доставки для відправлень з України."
+
+#: build/admin.js:4
+msgid "Customs Fee Payer"
+msgstr "Платник митних зборів"
+
+#: build/admin.js:4
+msgid "Who pays customs fees for shipments. The sender may be automatically switched to the recipient as the customs fee payer if the declared parcel value exceeds the limit set for the recipient's country. If the value is below that country's minimum threshold, customs fees do not apply at all."
+msgstr "Хто сплачує митні збори за відправлення. Відправника може бути автоматично змінено на отримувача як платника митних зборів, якщо оголошена вартість посилки перевищує ліміт, встановлений для країни отримувача. Якщо вартість нижча за мінімальний поріг цієї країни, митні збори взагалі не застосовуються."
+
+#: build/admin.js:4
+msgid "Delivery Tariff"
+msgstr "Тариф доставки"
+
+#: build/admin.js:4
+msgid "Field for selecting the type of delivery. Available values: \"Standard\" - regular delivery for all countries, and \"Express\" - fast international delivery available only for shipments to the USA. For other countries, \"Standard\" will be applied automatically. For shipments to the USA, when the recipient pays customs fees, only \"Express\" is applied."
+msgstr "Поле для вибору типу доставки. Доступні значення: \"Standard\" - звичайна доставка для всіх країн, і \"Express\" - швидка міжнародна доставка, доступна лише для відправлень до США. Для інших країн автоматично застосовується \"Standard\". Для відправлень до США, коли митні збори сплачує отримувач, застосовується лише \"Express\"."
+
+#: build/admin.js:4
+msgid "Standard"
+msgstr "Стандарт"
+
+#: build/admin.js:4
+msgid "Express"
+msgstr "Експрес"
+
+#: build/admin.js:4
+#: build/shipment.js:7
+msgid "Country"
+msgstr "Країна"
+
+#: build/admin.js:4
+msgid "Error loading countries"
+msgstr "Помилка завантаження країн"
+
+#: build/admin.js:4
+msgid "Enter Country"
+msgstr "Введіть країну"
+
+#: build/admin.js:4
+#: build/shipment.js:7
+msgid "City"
+msgstr "Місто"
+
+#: build/admin.js:4
+msgid "Carrier shipping calculation"
+msgstr "Розрахунок вартості перевізником"
+
+#: build/admin.js:4
+msgid "Carrier calculation"
+msgstr "Розрахунок перевізника"
+
+#: build/admin.js:4
+msgid "Shipping Flat Rate"
+msgstr "Фіксована вартість доставки"
+
+#: build/admin.js:4
+msgid "Enter a fixed cost that will be displayed to the buyer. The actual shipping costs will be calculated via the API and charged to your account."
+msgstr "Введіть фіксовану вартість, яку побачить покупець. Фактична вартість доставки буде розрахована через API та списана з вашого рахунку."
+
+#: build/admin.js:4
+msgid "Free Delivery for orders above"
+msgstr "Безкоштовна доставка для замовлень від"
+
+#: build/admin.js:4
+msgid "Specify the order amount above which shipping will be free for the buyer. The actual shipping costs will be charged to your account"
+msgstr "Вкажіть суму замовлення, вище якої доставка буде безкоштовною для покупця. Фактична вартість доставки буде списана з вашого рахунку"
+
+#: build/admin.js:4
+msgid "Product Information"
+msgstr "Інформація про товар"
+
+#: build/admin.js:4
+msgid "Default product weight (kg)"
+msgstr "Типова вага товару (кг)"
+
+#: build/admin.js:4
+msgid "This weight will be used for all products that do not have the 'Weight' field filled in on the product page."
+msgstr "Ця вага використовуватиметься для всіх товарів, у яких на сторінці товару не заповнено поле «Вага»."
+
+#: build/admin.js:4
+msgid "Default product dimensions"
+msgstr "Типові розміри товару"
+
+#: build/admin.js:4
+msgid "Dimensions for each product are first taken from its WooCommerce settings. If they are missing, the default dimensions will be used for the shipping calculation."
+msgstr "Розміри кожного товару спершу беруться з його налаштувань WooCommerce. Якщо їх немає, для розрахунку доставки використовуються типові розміри."
+
+#: build/admin.js:4
+#: build/admin.js:7
+#: build/shipment.js:7
+msgid "Length (cm)"
+msgstr "Довжина (см)"
+
+#: build/admin.js:4
+#: build/admin.js:7
+#: build/shipment.js:7
+msgid "Width (cm)"
+msgstr "Ширина (см)"
+
+#: build/admin.js:4
+#: build/admin.js:7
+#: build/shipment.js:7
+msgid "Height (cm)"
+msgstr "Висота (см)"
+
+#: build/admin.js:4
+msgid "Default hs code"
+msgstr "Типовий HS-код"
+
+#: build/admin.js:4
+msgid "This code will be used for all goods in international shipments that do not have an individual HS-code. "
+msgstr "Цей код використовуватиметься для всіх товарів у міжнародних відправленнях, які не мають індивідуального HS-коду. "
+
+#: build/admin.js:4
+msgid "8517120000 (for mobile phones)"
+msgstr "8517120000 (для мобільних телефонів)"
+
+#: build/admin.js:4
+msgid "Enter default HS tariff code"
+msgstr "Введіть типовий HS-код"
+
+#. translators: %d: box number
+#: build/admin.js:7
+#, js-format
+msgid "Box %d"
+msgstr "Коробка %d"
+
+#: build/admin.js:7
+msgid "L"
+msgstr "Д"
+
+#: build/admin.js:7
+msgid "cm"
+msgstr "см"
+
+#: build/admin.js:7
+msgid "W"
+msgstr "Ш"
+
+#: build/admin.js:7
+msgid "H"
+msgstr "В"
+
+#: build/admin.js:7
+msgid "Remove box"
+msgstr "Видалити коробку"
+
+#: build/admin.js:7
+msgid "Add Box"
+msgstr "Додати коробку"
+
+#: build/admin.js:7
+msgid "At least one custom box with valid dimensions is required."
+msgstr "Потрібна щонайменше одна власна коробка з коректними розмірами."
+
+#: build/admin.js:7
+msgid "You can define up to 10 custom boxes. At least one box is required."
+msgstr "Ви можете задати до 10 власних коробок. Потрібна щонайменше одна."
+
+#: build/admin.js:7
+msgid "Packaging Settings"
+msgstr "Налаштування пакування"
+
+#: build/admin.js:7
+msgid "Packaging type"
+msgstr "Тип пакування"
+
+#: build/admin.js:7
+msgid "Nova Post boxes uses predefined standard sizes with optimal packing. One box uses fixed dimensions for entire order. Custom boxes allows you to define up to 10 box sizes."
+msgstr "«Коробки Nova Post» використовують стандартні розміри з оптимальним пакуванням. «Одна коробка на замовлення» використовує фіксовані розміри для всього замовлення. «Власні коробки» дозволяють задати до 10 розмірів."
+
+#: build/admin.js:7
+msgid "Use Nova Post boxes"
+msgstr "Використовувати коробки Nova Post"
+
+#: build/admin.js:7
+msgid "One box per order"
+msgstr "Одна коробка на замовлення"
+
+#: build/admin.js:7
+msgid "Use custom boxes"
+msgstr "Використовувати власні коробки"
+
+#: build/admin.js:7
+msgid "Cash on Delivery"
+msgstr "Післяплата"
+
+#: build/admin.js:7
+msgid "COD fee is paid by the seller"
+msgstr "Комісію за післяплату сплачує продавець"
+
+#: build/admin.js:7
+msgid "Choose who pays the commission for the cash on delivery service. If off, the commission will be added to the total amount the buyer has to pay. If on, the buyer will only pay for the goods and their delivery."
+msgstr "Оберіть, хто сплачує комісію за послугу післяплати. Якщо вимкнено, комісію буде додано до загальної суми, яку сплачує покупець. Якщо увімкнено, покупець сплатить лише за товар і його доставку."
+
+#: build/admin.js:7
+msgid "This setting must be agreed at the contract level."
+msgstr "Це налаштування має бути погоджене на рівні договору."
+
+#: build/admin.js:7
+msgid "Bank Account Id"
+msgstr "Ідентифікатор банківського рахунку"
+
+#: build/admin.js:7
+msgid "Enter your bank account's unique identifier provided by your bank for crediting funds for cash on delivery."
+msgstr "Введіть унікальний ідентифікатор банківського рахунку, наданий вашим банком для зарахування коштів за післяплатою."
+
+#: build/admin.js:7
+msgid "Enter your Bank Account Id"
+msgstr "Введіть ідентифікатор банківського рахунку"
+
+#: build/admin.js:7
+msgid "Bank Account Name or IBAN"
+msgstr "Назва банківського рахунку або IBAN"
+
+#: build/admin.js:7
+msgid "Enter your bank name or account number in IBAN format to transfer funds for cash on delivery."
+msgstr "Введіть назву банку або номер рахунку у форматі IBAN для переказу коштів за післяплатою."
+
+#: build/admin.js:7
+msgid "Enter your Bank Account Name"
+msgstr "Введіть назву банківського рахунку"
+
+#: build/admin.js:7
+msgid "Order Workflow"
+msgstr "Робочий процес замовлень"
+
+#: build/admin.js:7
+msgid "Auto-complete orders"
+msgstr "Автоматично виконувати замовлення"
+
+#: build/admin.js:7
+msgid "Automatically change order status to ‘Completed' after creating a waybill. This triggers the standard email notification with tracking details to the customer."
+msgstr "Автоматично змінювати статус замовлення на «Виконано» після створення накладної. Це надсилає покупцю стандартне сповіщення електронною поштою з даними для відстеження."
+
+#: build/admin.js:7
+msgid "Divisions Filters"
+msgstr "Фільтри відділень"
+
+#: build/admin.js:7
+msgid "Allowed Divisions Types"
+msgstr "Дозволені типи відділень"
+
+#: build/admin.js:7
+msgid "Post Branch"
+msgstr "Поштове відділення"
+
+#: build/admin.js:7
+#: build/widget-classic-checkout.js:1
+#: build/widget.js:1
+msgid "Pick Up Drop Off"
+msgstr "Пункт видачі"
+
+#: build/orderPageApp.js:1
+msgid "Markings (100x100)"
+msgstr "Маркування (100x100)"
+
+#: build/orderPageApp.js:1
+msgid "Commercial Invoice"
+msgstr "Комерційний інвойс"
+
+#: build/orderPageApp.js:1
+msgid "Customs Declaration"
+msgstr "Митна декларація"
+
+#: build/orderPageApp.js:1
+msgid "✓ Documents Ready"
+msgstr "✓ Документи готові"
+
+#. translators: %s: document type
+#: build/orderPageApp.js:2
+#, js-format
+msgid "Print %s"
+msgstr "Друк %s"
+
+#: build/orderPageApp.js:3
+#: build/orderPageApp.js:22
+#: build/shipment.js:7
+msgid "Cancel"
+msgstr "Скасувати"
+
+#: build/orderPageApp.js:3
+msgid "Failed to generate documents"
+msgstr "Не вдалося сформувати документи"
+
+#: build/orderPageApp.js:3
+msgid "An error occurred while generating documents"
+msgstr "Сталася помилка під час формування документів"
+
+#: build/orderPageApp.js:3
+#: build/orderPageApp.js:22
+msgid "Confirm"
+msgstr "Підтвердити"
+
+#. translators: 1: number of successful, 2: total number
+#: build/orderPageApp.js:4
+#, js-format
+msgid "Successfully generated %1$d of %2$d documents"
+msgstr "Успішно сформовано %1$d із %2$d документів"
+
+#: build/orderPageApp.js:5
+#: build/orderPageApp.js:6
+msgid "Order IDs:"
+msgstr "Ідентифікатори замовлень:"
+
+#. translators: %d: number of failed orders
+#: build/orderPageApp.js:7
+#, js-format
+msgid "Failed: %d order (invalid tracking number or API error)"
+msgid_plural "Failed: %d orders (invalid tracking numbers or API errors)"
+msgstr[0] "Не вдалося: %d замовлення (недійсні номери відправлень або помилки API)"
+msgstr[1] "Не вдалося: %d замовлення (недійсні номери відправлень або помилки API)"
+msgstr[2] "Не вдалося: %d замовлень (недійсні номери відправлень або помилки API)"
+
+#. translators: %d: order ID
+#: build/orderPageApp.js:8
+#, js-format
+msgid "Order #%d:"
+msgstr "Замовлення #%d:"
+
+#: build/orderPageApp.js:8
+msgid "Close"
+msgstr "Закрити"
+
+#: build/orderPageApp.js:8
+msgid "Download PDF"
+msgstr "Завантажити PDF"
+
+#. translators: %s: error message
+#: build/orderPageApp.js:9
+#: build/shipment.js:2
+#: build/widget-order-edit.js:5
+#, js-format
+msgid "Failed to get shipment information: %s"
+msgstr "Не вдалося отримати інформацію про відправлення: %s"
+
+#. translators: %s: error message
+#: build/orderPageApp.js:10
+#: build/shipment.js:3
+#: build/widget-order-edit.js:6
+#, js-format
+msgid "Failed to generate label: %s"
+msgstr "Не вдалося сформувати маркування: %s"
+
+#. translators: %s: error message
+#: build/orderPageApp.js:11
+#: build/shipment.js:4
+#: build/widget-order-edit.js:7
+#, js-format
+msgid "Failed to generate invoice: %s"
+msgstr "Не вдалося сформувати інвойс: %s"
+
+#. translators: %s: error message
+#: build/orderPageApp.js:12
+#: build/shipment.js:5
+#: build/widget-order-edit.js:8
+#, js-format
+msgid "Failed to generate customs declaration: %s"
+msgstr "Не вдалося сформувати митну декларацію: %s"
+
+#: build/orderPageApp.js:12
+#: build/shipment.js:5
+#: build/widget-order-edit.js:8
+msgid "Invalid PDF response from server"
+msgstr "Недійсна PDF-відповідь від сервера"
+
+#: build/orderPageApp.js:12
+#: build/shipment.js:5
+#: build/widget-order-edit.js:8
+msgid "Unknown error occurred while printing document"
+msgstr "Під час друку документа сталася невідома помилка"
+
+#. translators: %s: error message
+#: build/orderPageApp.js:13
+#: build/shipment.js:6
+#: build/widget-order-edit.js:9
+#, js-format
+msgid "Failed to delete waybill: %s"
+msgstr "Не вдалося видалити накладну: %s"
+
+#: build/orderPageApp.js:13
+#: build/shipment.js:6
+#: build/widget-order-edit.js:9
+msgid "Order IDs array is required"
+msgstr "Масив ідентифікаторів замовлень обов'язковий"
+
+#. translators: %s: error message
+#: build/orderPageApp.js:14
+#: build/shipment.js:7
+#: build/widget-order-edit.js:10
+#, js-format
+msgid "Failed to create bulk shipments: %s"
+msgstr "Не вдалося створити відправлення масово: %s"
+
+#: build/orderPageApp.js:14
+#: build/shipment.js:7
+#: build/widget-order-edit.js:10
+msgid "Order ID must be a valid number"
+msgstr "Ідентифікатор замовлення має бути коректним числом"
+
+#. translators: %d: number of orders
+#: build/orderPageApp.js:15
+#, js-format
+msgid "Create shipment for %d order"
+msgid_plural "Create shipments for %d orders"
+msgstr[0] "Створити відправлення для %d замовлення"
+msgstr[1] "Створити відправлення для %d замовлень"
+msgstr[2] "Створити відправлення для %d замовлень"
+
+#. translators: %d: number of orders
+#: build/orderPageApp.js:16
+#, js-format
+msgid "You are about to create a shipment for %d order."
+msgid_plural "You are about to create shipments for %d orders."
+msgstr[0] "Ви збираєтеся створити відправлення для %d замовлення."
+msgstr[1] "Ви збираєтеся створити відправлення для %d замовлень."
+msgstr[2] "Ви збираєтеся створити відправлення для %d замовлень."
+
+#: build/orderPageApp.js:16
+msgid "This action cannot be undone. Do you want to continue?"
+msgstr "Цю дію не можна скасувати. Продовжити?"
+
+#. translators: 1: processed count, 2: total count
+#: build/orderPageApp.js:17
+#, js-format
+msgid "Processing orders: %1$d of %2$d"
+msgstr "Обробка замовлень: %1$d із %2$d"
+
+#. translators: %d: number of successful shipments
+#: build/orderPageApp.js:18
+#, js-format
+msgid "%d shipment created successfully"
+msgid_plural "%d shipments created successfully"
+msgstr[0] "%d відправлення успішно створено"
+msgstr[1] "%d відправлення успішно створено"
+msgstr[2] "%d відправлень успішно створено"
+
+#. translators: %d: number of failed shipments
+#: build/orderPageApp.js:19
+#, js-format
+msgid "%d shipment failed"
+msgid_plural "%d shipments failed"
+msgstr[0] "%d відправлення не вдалося створити"
+msgstr[1] "%d відправлення не вдалося створити"
+msgstr[2] "%d відправлень не вдалося створити"
+
+#. translators: %d: number of skipped shipments
+#: build/orderPageApp.js:20
+#, js-format
+msgid "%d order skipped"
+msgid_plural "%d orders skipped"
+msgstr[0] "%d замовлення пропущено"
+msgstr[1] "%d замовлення пропущено"
+msgstr[2] "%d замовлень пропущено"
+
+#: build/orderPageApp.js:20
+msgid "Failed Orders:"
+msgstr "Невдалі замовлення:"
+
+#: build/orderPageApp.js:21
+msgid "Skipped Orders:"
+msgstr "Пропущені замовлення:"
+
+#: build/orderPageApp.js:22
+msgid "Create Shipments"
+msgstr "Створити відправлення"
+
+#: build/orderPageApp.js:22
+msgid "Reload Page"
+msgstr "Перезавантажити сторінку"
+
+#: build/orderPageApp.js:22
+msgid "Order to"
+msgstr "Замовлення до"
+
+#. translators: %d: maximum number of orders
+#: build/orderPageApp.js:23
+#, js-format
+msgid "You can create shipments for maximum %d orders at once"
+msgstr "За один раз можна створити відправлення щонайбільше для %d замовлень"
+
+#: build/shipment.js:1
+msgid "Order ID not found"
+msgstr "Ідентифікатор замовлення не знайдено"
+
+#: build/admin.js:4
+#: build/shipment.js:7
+msgid "Sender"
+msgstr "Відправник"
+
+#: build/shipment.js:7
+msgid "Name"
+msgstr "Ім'я"
+
+#: build/shipment.js:7
+msgid "Division Address"
+msgstr "Адреса відділення"
+
+#: build/shipment.js:7
+msgid "Region"
+msgstr "Регіон"
+
+#: build/shipment.js:7
+msgid "Apartment"
+msgstr "Квартира"
+
+#: build/admin.js:4
+#: build/shipment.js:7
+msgid "Recipient"
+msgstr "Отримувач"
+
+#: build/shipment.js:7
+msgid "Parcels"
+msgstr "Посилки"
+
+#: build/shipment.js:7
+msgid "Parcel"
+msgstr "Посилка"
+
+#: build/shipment.js:7
+msgid "Weight (kg)"
+msgstr "Вага (кг)"
+
+#: build/shipment.js:7
+msgid "Description"
+msgstr "Опис"
+
+#: build/shipment.js:7
+msgid "Declared Cost"
+msgstr "Оголошена вартість"
+
+#: build/shipment.js:7
+msgid "Invoice (International)"
+msgstr "Інвойс (міжнародний)"
+
+#: build/shipment.js:7
+msgid "Incoterm"
+msgstr "Incoterm"
+
+#: build/shipment.js:7
+msgid "Export Reason"
+msgstr "Причина експорту"
+
+#: build/shipment.js:7
+msgid "Customer Number"
+msgstr "Номер клієнта"
+
+#: build/shipment.js:7
+msgid "Items"
+msgstr "Товари"
+
+#: build/shipment.js:7
+msgid "Weight (g)"
+msgstr "Вага (г)"
+
+#: build/shipment.js:7
+msgid "Unit Cost"
+msgstr "Вартість за одиницю"
+
+#: build/shipment.js:7
+msgid "Totals"
+msgstr "Підсумки"
+
+#: build/shipment.js:7
+msgid "Total Cost"
+msgstr "Загальна вартість"
+
+#: build/shipment.js:7
+msgid "Additional Services"
+msgstr "Додаткові послуги"
+
+#: build/shipment.js:7
+msgid "Service"
+msgstr "Послуга"
+
+#: build/shipment.js:7
+msgid "Type"
+msgstr "Тип"
+
+#: build/shipment.js:7
+msgid "Amount"
+msgstr "Сума"
+
+#: build/shipment.js:7
+msgid "Card Number"
+msgstr "Номер картки"
+
+#: build/shipment.js:7
+msgid "Account Number"
+msgstr "Номер рахунку"
+
+#: build/shipment.js:7
+msgid "Note"
+msgstr "Примітка"
+
+#: build/shipment.js:7
+msgid "Add a note for this shipment"
+msgstr "Додайте примітку до цього відправлення"
+
+#: build/shipment.js:7
+msgid "Optional note that will be included with the shipment"
+msgstr "Необов'язкова примітка, яка буде додана до відправлення"
+
+#: build/shipment.js:7
+msgid "Create Waybill - Preview"
+msgstr "Створення накладної — попередній перегляд"
+
+#: build/shipment.js:7
+msgid "Failed to create shipment"
+msgstr "Не вдалося створити відправлення"
+
+#: build/shipment.js:7
+msgid "Create Waybill"
+msgstr "Створити накладну"
+
+#: build/shipment.js:7
+msgid "Waybill created successfully!"
+msgstr "Накладну успішно створено!"
+
+#: build/shipment.js:7
+msgid "Failed to create waybill. Please try again."
+msgstr "Не вдалося створити накладну. Спробуйте ще раз."
+
+#: build/shipment.js:7
+msgid "Are you sure you want to delete this waybill?"
+msgstr "Ви впевнені, що хочете видалити цю накладну?"
+
+#: build/shipment.js:7
+msgid "Shipment deleted successfully!"
+msgstr "Відправлення успішно видалено!"
+
+#: build/shipment.js:7
+msgid "Failed to delete waybill. Please try again."
+msgstr "Не вдалося видалити накладну. Спробуйте ще раз."
+
+#: build/shipment.js:7
+msgid "Label generated and printing initiated successfully!"
+msgstr "Маркування сформовано, друк успішно розпочато!"
+
+#: build/shipment.js:7
+msgid "Failed to generate label. Please try again."
+msgstr "Не вдалося сформувати маркування. Спробуйте ще раз."
+
+#: build/shipment.js:7
+msgid "Invoice generated and printing initiated successfully!"
+msgstr "Інвойс сформовано, друк успішно розпочато!"
+
+#: build/shipment.js:7
+msgid "Failed to generate invoice. Please try again."
+msgstr "Не вдалося сформувати інвойс. Спробуйте ще раз."
+
+#: build/shipment.js:7
+msgid "Customs declaration generated and printing initiated successfully!"
+msgstr "Митну декларацію сформовано, друк успішно розпочато!"
+
+#: build/shipment.js:7
+msgid "Failed to generate customs declaration. Please try again."
+msgstr "Не вдалося сформувати митну декларацію. Спробуйте ще раз."
+
+#: build/shipment.js:7
+msgid "Cannot delete waybill with this status"
+msgstr "Неможливо видалити накладну з таким статусом"
+
+#: build/widget-classic-checkout.js:1
+#: build/widget-order-edit.js:10
+#: build/widget.js:1
+msgid "Branch"
+msgstr "Відділення"
+
+#: build/admin.js:7
+#: build/widget-classic-checkout.js:1
+#: build/widget-order-edit.js:10
+#: build/widget.js:1
+msgid "Parcel locker"
+msgstr "Поштомат"
+
+#: build/widget-classic-checkout.js:1
+#: build/widget.js:1
+msgid "Saving division"
+msgstr "Збереження відділення"
+
+#: build/widget-classic-checkout.js:1
+#: build/widget.js:1
+msgid "Error saving division. Clear and try again."
+msgstr "Помилка збереження відділення. Очистіть і спробуйте ще раз."
+
+#: build/widget-classic-checkout.js:1
+#: build/widget.js:1
+msgid "Nova Post shipping methods cannot be applied to this shipment."
+msgstr "Методи доставки Nova Post не можна застосувати до цього відправлення."
+
+#: build/widget-classic-checkout.js:1
+#: build/widget.js:1
+msgid "If you wish to choose address delivery, please enter a valid address or select delivery to a branch."
+msgstr "Якщо ви хочете обрати доставку на адресу, введіть коректну адресу або оберіть доставку у відділення."
+
+#: build/widget-classic-checkout.js:1
+#: build/widget.js:1
+msgid "If you wish to choose warehouse delivery, please enter a valid zip code or select delivery to address."
+msgstr "Якщо ви хочете обрати доставку у відділення, введіть коректний поштовий індекс або оберіть доставку на адресу."
+
+#: build/widget-order-edit.js:10
+msgid "Division Type"
+msgstr "Тип відділення"
+
+#: build/widget-order-edit.js:10
+msgid "Save Changes"
+msgstr "Зберегти зміни"
+
+#: includes/Api/Controllers/BulkPrintController.php:142
+msgid "Invalid filename."
+msgstr ""
+
+#: includes/Api/Controllers/BulkPrintController.php:158
+msgid "File not found or expired."
+msgstr ""
+
+#. translators: %s: Directory path that failed to be created.
+#: includes/Services/BulkPrintService.php:130
+msgid "Failed to create directory: %s"
+msgstr ""
+
+#: includes/Services/BulkPrintService.php:207
+msgid "Failed to save temporary PDF file."
+msgstr ""
+
+#: build/admin.js:4
+#: build/widget-order-edit.js:4
+msgid "Loading divisions…"
+msgstr ""
+
+#: build/admin.js:7
+msgid "Select the branch types to display in the Nova Post widget on the checkout page. Customers will only see the branch types you have checked (Post Branch, Freight branch, Parcel locker, or Pick Up Drop Off)."
+msgstr "Виберіть типи відділень для відображення у віджеті Nova Post на сторінці оформлення замовлення. Клієнти бачитимуть лише обрані типи (поштове відділення, вантажне відділення, поштомат або пункт видачі)."
+
+#: build/admin.js:7
+#: build/widget-classic-checkout.js:1
+#: build/widget.js:1
+msgid "Freight branch"
+msgstr "Вантажне відділення"
+
+#: build/admin.js:7
+msgid "Loading data…"
+msgstr ""
+
+#: build/orderPageApp.js:1
+#: build/orderPageApp.js:3
+msgid "Processing…"
+msgstr "Обробка..."
+
+#: build/orderPageApp.js:3
+msgid "Please wait, do not close this window…"
+msgstr "Будь ласка, зачекайте та не закривайте це вікно."
+
+#: build/widget-classic-checkout.js:1
+#: build/widget.js:1
+msgid "Could not load the Nova Post division widget. Please reload the page."
+msgstr ""
+
+#: build/widget-classic-checkout.js:1
+#: build/widget.js:1
+msgid "Select branch or parcel locker"
+msgstr "Оберіть відділення або поштомат"
+
+#: build/widget-order-edit.js:10
+msgid "Loading division data…"
+msgstr ""
+
+#. translators: 1: document type, 2: number of selected orders
+#: build/orderPageApp.js:3
+msgid "You are about to print %1$s for %2$d selected order."
+msgid_plural "You are about to print %1$s for %2$d selected orders."
+msgstr[0] "Ви збираєтеся надрукувати %1$s для %2$d обраного замовлення."
+msgstr[1] "Ви збираєтеся надрукувати %1$s для %2$d обраних замовлень."
+msgstr[2] "Ви збираєтеся надрукувати %1$s для %2$d обраних замовлень."
+
+#. translators: %d: number of skipped orders
+#: build/orderPageApp.js:5
+msgid "Skipped: %d order (no shipment found)"
+msgid_plural "Skipped: %d orders (no shipments found)"
+msgstr[0] "Пропущено: %d замовлення (відправлення не знайдено)"
+msgstr[1] "Пропущено: %d замовлення (відправлень не знайдено)"
+msgstr[2] "Пропущено: %d замовлень (відправлень не знайдено)"
+
+#. translators: %d: number of skipped_print orders
+#: build/orderPageApp.js:6
+msgid "Skipped: %d order (document is only available for international shipments)"
+msgid_plural "Skipped: %d orders (document is only available for international shipments)"
+msgstr[0] "Пропущено: %d замовлення (документ доступний лише для міжнародних відправлень)"
+msgstr[1] "Пропущено: %d замовлення (документ доступний лише для міжнародних відправлень)"
+msgstr[2] "Пропущено: %d замовлень (документ доступний лише для міжнародних відправлень)"

@@ -1,0 +1,195 @@
+# Translation of Plugins - CatCode Card Payments with LiqPay for WooCommerce - Stable (latest release) in Ukrainian
+# This file is distributed under the same license as the Plugins - CatCode Card Payments with LiqPay for WooCommerce - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2026-08-27 10:38:33+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : ((n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14)) ? 1 : 2);\n"
+"X-Generator: GlotPress/4.1.0\n"
+"Language: uk_UA\n"
+"Project-Id-Version: Plugins - CatCode Card Payments with LiqPay for WooCommerce - Stable (latest release)\n"
+
+#: includes/Gateway/Method.php:455
+msgid "LiqPay: payment refunded."
+msgstr "LiqPay: платіж повернено."
+
+#: includes/Gateway/Method.php:448
+msgid "LiqPay: payment declined. "
+msgstr "LiqPay: платіж відхилено. "
+
+#: includes/Gateway/Method.php:439
+msgid "LiqPay: funds are held, awaiting confirmation."
+msgstr "LiqPay: кошти заблоковано, очікується підтвердження."
+
+#: includes/Gateway/Method.php:428
+msgid "LiqPay: payment received."
+msgstr "LiqPay: платіж отримано."
+
+#: includes/Gateway/Method.php:427
+msgid "LiqPay: test payment received (sandbox)."
+msgstr "LiqPay: отримано тестовий платіж (sandbox)."
+
+#: includes/Gateway/Method.php:417
+msgid "LiqPay: the paid amount or currency does not match the order — manual review required."
+msgstr "LiqPay: сплачена сума або валюта не збігається із замовленням — потрібна ручна перевірка."
+
+#: includes/Gateway/Method.php:262
+msgid "The payment was not completed. Please try again or choose another payment method."
+msgstr "Оплату не завершено. Спробуйте ще раз або оберіть інший спосіб оплати."
+
+#: includes/Gateway/Method.php:229
+msgid "Proceed to payment"
+msgstr "Перейти до оплати"
+
+#: includes/Gateway/Method.php:225
+msgid "Redirecting you to the secure LiqPay payment page…"
+msgstr "Перенаправляємо вас на захищену сторінку оплати LiqPay…"
+
+#. translators: 1: order number, 2: shop name
+#: includes/Gateway/Method.php:203
+msgid "Order #%1$s, %2$s"
+msgstr "Замовлення #%1$s, %2$s"
+
+#: includes/Gateway/Method.php:166
+msgid "Awaiting LiqPay payment."
+msgstr "Очікується оплата через LiqPay."
+
+#. translators: %s: webhook URL
+#: includes/Gateway/Method.php:112
+msgid "Sent automatically with every payment:<br><code>%s</code>"
+msgstr "Передається автоматично при кожному платежі:<br><code>%s</code>"
+
+#: includes/Gateway/Method.php:108
+msgid "Webhook URL (serviceUrl)"
+msgstr "URL вебхука (serviceUrl)"
+
+#: includes/Gateway/Method.php:104
+msgid "Write requests and responses to the WooCommerce log"
+msgstr "Писати запити/відповіді у лог WooCommerce"
+
+#: includes/Gateway/Method.php:102
+msgid "Logging"
+msgstr "Логування"
+
+#: includes/Gateway/Method.php:97
+msgid "Completed"
+msgstr "Виконано (completed)"
+
+#: includes/Gateway/Method.php:96
+msgid "Processing"
+msgstr "В обробці (processing)"
+
+#: includes/Gateway/Method.php:93
+msgid "Status after payment"
+msgstr "Статус після оплати"
+
+#: includes/Gateway/Method.php:87
+msgid "Test private key"
+msgstr "Тестовий приватний ключ"
+
+#: includes/Gateway/Method.php:83 includes/Gateway/Method.php:89
+msgid "Starts with <code>sandbox_</code>."
+msgstr "Починається з <code>sandbox_</code>."
+
+#: includes/Gateway/Method.php:81
+msgid "Test public key"
+msgstr "Тестовий публічний ключ"
+
+#: includes/Gateway/Method.php:77
+msgid "Live private key. Used for signing only — it is never exposed to the customer."
+msgstr "Бойовий приватний ключ. Використовується лише для підпису — покупцю не передається."
+
+#: includes/Gateway/Method.php:75
+msgid "Private key (private_key)"
+msgstr "Приватний ключ (private_key)"
+
+#: includes/Gateway/Method.php:71
+msgid "Live public key from your LiqPay cabinet."
+msgstr "Бойовий публічний ключ з кабінету LiqPay."
+
+#: includes/Gateway/Method.php:69
+msgid "Public key (public_key)"
+msgstr "Публічний ключ (public_key)"
+
+#: includes/Gateway/Method.php:65
+msgid "LiqPay issues a separate key pair prefixed with <code>sandbox_</code> (LiqPay cabinet → Settings → API → Test). No real money is charged."
+msgstr "LiqPay видає окрему пару ключів з префіксом <code>sandbox_</code> (Кабінет → Налаштування → API → Тестові). Реальні кошти не списуються."
+
+#: includes/Gateway/Method.php:64
+msgid "Use the test keys"
+msgstr "Використовувати тестові ключі"
+
+#: includes/Gateway/Method.php:62
+msgid "Test mode (sandbox)"
+msgstr "Тестовий режим (sandbox)"
+
+#: includes/Gateway/Method.php:59
+msgid "Visa/Mastercard, Apple Pay and Google Pay via the secure LiqPay page."
+msgstr "Visa/Mastercard, Apple Pay, Google Pay через захищену сторінку LiqPay."
+
+#: includes/Gateway/Method.php:57
+msgid "Description"
+msgstr "Опис"
+
+#: includes/Gateway/Method.php:52
+msgid "The payment method name the customer sees at checkout."
+msgstr "Назва методу оплати, яку бачить клієнт у чекауті."
+
+#: includes/Gateway/Method.php:50
+msgid "Title"
+msgstr "Назва"
+
+#: includes/Gateway/Method.php:46
+msgid "Enable LiqPay card payments"
+msgstr "Увімкнути оплату карткою LiqPay"
+
+#: includes/Gateway/Method.php:44
+msgid "Enable"
+msgstr "Увімкнути"
+
+#: includes/Gateway/Method.php:24
+msgid "Accept card payments via LiqPay. The customer is redirected to the secure payment page and the order is confirmed automatically through the serviceUrl webhook."
+msgstr "Приймання оплати карткою через LiqPay. Клієнт перенаправляється на захищену сторінку оплати; замовлення підтверджується автоматично через serviceUrl-вебхук."
+
+#: includes/Gateway/Method.php:23
+msgid "LiqPay"
+msgstr "LiqPay"
+
+#: includes/Gateway/Blocks.php:47 includes/Gateway/Method.php:53
+msgid "Card payment (LiqPay)"
+msgstr "Оплата карткою (LiqPay)"
+
+#: includes/Core/Plugin.php:67
+msgid "Settings"
+msgstr "Налаштування"
+
+#: catcode-card-payments-with-liqpay-for-woocommerce.php:64
+msgid "CatCode Card Payments with LiqPay for WooCommerce requires an active WooCommerce installation."
+msgstr "CatCode Card Payments with LiqPay for WooCommerce потребує активної інсталяції WooCommerce."
+
+#. Author URI of the plugin
+#: catcode-card-payments-with-liqpay-for-woocommerce.php
+msgid "https://catcode.com.ua"
+msgstr "https://catcode.com.ua"
+
+#. Author of the plugin
+#: catcode-card-payments-with-liqpay-for-woocommerce.php
+msgid "CatCode"
+msgstr "CatCode"
+
+#. Description of the plugin
+#: catcode-card-payments-with-liqpay-for-woocommerce.php
+msgid "Accept card payments in WooCommerce via LiqPay: redirect to the secure payment page, automatic order confirmation through the signed serviceUrl webhook, status reconciliation from the admin."
+msgstr "Приймайте оплату карткою у WooCommerce через LiqPay: редірект на захищену сторінку оплати, автоматичне підтвердження замовлення через підписаний serviceUrl-вебхук, звірка статусів з адмінки."
+
+#. Plugin URI of the plugin
+#: catcode-card-payments-with-liqpay-for-woocommerce.php
+msgid "https://catcode.com.ua/modules/catcode-card-payments-with-liqpay-for-woocommerce/"
+msgstr "https://catcode.com.ua/modules/catcode-card-payments-with-liqpay-for-woocommerce/"
+
+#. Plugin Name of the plugin
+#: catcode-card-payments-with-liqpay-for-woocommerce.php
+msgid "CatCode Card Payments with LiqPay for WooCommerce"
+msgstr "CatCode Card Payments with LiqPay for WooCommerce"

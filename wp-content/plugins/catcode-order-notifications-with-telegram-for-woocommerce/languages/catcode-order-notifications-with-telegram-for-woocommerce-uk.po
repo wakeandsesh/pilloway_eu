@@ -1,0 +1,579 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: CatCode Order Notifications with Telegram for WooCommerce 1.1.0\n"
+"Report-Msgid-Bugs-To: https://catcode.com.ua/\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"X-Generator: catcode-port\n"
+
+#. Plugin Name of the plugin
+#: catcode-order-notifications-with-telegram-for-woocommerce.php
+msgid "CatCode Order Notifications with Telegram for WooCommerce"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: catcode-order-notifications-with-telegram-for-woocommerce.php
+msgid ""
+"https://catcode.com.ua/modules/telegram-order-notifications-for-woocommerce/"
+msgstr ""
+
+#. Description of the plugin
+#: catcode-order-notifications-with-telegram-for-woocommerce.php
+msgid ""
+"Instant WooCommerce order notifications in Telegram: new orders, status "
+"changes, failed payments, low stock and leads from site forms (Contact Form "
+"7). Flexible message templates, multiple chats and topics, and a delivery "
+"log."
+msgstr ""
+"Миттєві сповіщення про замовлення WooCommerce у Telegram: нові замовлення, "
+"зміна статусу, невдала оплата, низький залишок і заявки з форм сайту "
+"(Contact Form 7). Гнучкі шаблони повідомлень, кілька чатів і тем, журнал "
+"відправок."
+
+#. Author of the plugin
+#: catcode-order-notifications-with-telegram-for-woocommerce.php
+msgid "CatCode"
+msgstr ""
+
+#. Author URI of the plugin
+#: catcode-order-notifications-with-telegram-for-woocommerce.php
+msgid "https://catcode.com.ua"
+msgstr ""
+
+#: catcode-order-notifications-with-telegram-for-woocommerce.php:41
+msgid ""
+"Two copies of Telegram Notifications are active. Keep only one of them."
+msgstr "Активні дві копії Telegram-сповіщень. Залиште лише одну з них."
+
+#: catcode-order-notifications-with-telegram-for-woocommerce.php:101
+msgid ""
+"CatCode Order Notifications with Telegram for WooCommerce requires an active"
+" WooCommerce installation."
+msgstr ""
+"Для роботи «CatCode Order Notifications with Telegram for WooCommerce» "
+"потрібен активний WooCommerce."
+
+#: includes/Admin/Notice.php:59
+msgid "Telegram notifications are working."
+msgstr "Telegram-сповіщення працюють."
+
+#: includes/Admin/Notice.php:61
+msgid ""
+"The plugin is free — if it works for you, please leave a review, it helps "
+"keep it going."
+msgstr ""
+"Модуль безкоштовний — якщо він вам підходить, залиште відгук, це допомагає "
+"його розвивати."
+
+#: includes/Admin/Notice.php:63
+msgid "Leave a review"
+msgstr "Залишити відгук"
+
+#: includes/Admin/SettingsPage.php:38 includes/Admin/SettingsPage.php:39
+#: includes/Admin/SettingsPage.php:70
+msgid "Telegram Notifications"
+msgstr "Telegram-сповіщення"
+
+#: includes/Admin/SettingsPage.php:71
+msgid ""
+"Instant WooCommerce order notifications to a Telegram chat, group or topic."
+msgstr ""
+"Миттєві повідомлення про замовлення WooCommerce у Telegram-чат, групу або "
+"тему."
+
+#: includes/Admin/SettingsPage.php:80
+msgid "Settings"
+msgstr "Налаштування"
+
+#: includes/Admin/SettingsPage.php:81
+msgid "Log"
+msgstr "Журнал"
+
+#: includes/Admin/SettingsPage.php:103
+msgid "Connection"
+msgstr "Підключення"
+
+#: includes/Admin/SettingsPage.php:106
+msgid "Bot token"
+msgstr "Токен бота"
+
+#: includes/Admin/SettingsPage.php:107
+msgid "•••••• saved — enter to replace"
+msgstr "•••••• збережено — введіть щоб замінити"
+
+#: includes/Admin/SettingsPage.php:108
+msgid ""
+"Create a bot via @BotFather → /newbot and paste the token you receive. It is"
+" stored encrypted."
+msgstr ""
+"Створіть бота у @BotFather → /newbot і вставте отриманий токен. Зберігається"
+" у зашифрованому вигляді."
+
+#: includes/Admin/SettingsPage.php:108
+msgid "Token saved."
+msgstr "Токен збережено."
+
+#: includes/Admin/SettingsPage.php:111
+msgid "Chats for notifications"
+msgstr "Чати для сповіщень"
+
+#: includes/Admin/SettingsPage.php:113
+msgid ""
+"One per line: a chat id, a group id (negative) or a channel @username. For a"
+" topic in a forum group append \":topic_id\" — e.g. -1001234567890:42."
+msgstr ""
+"По одному на рядок: ID чату, ID групи (від’ємний) або @username каналу. Для "
+"теми у форум-групі додайте \":ID_теми\" — напр. -1001234567890:42."
+
+#: includes/Admin/SettingsPage.php:116
+msgid "Silent messages"
+msgstr "Тихі повідомлення"
+
+#: includes/Admin/SettingsPage.php:117
+msgid "Send notifications without sound"
+msgstr "Надсилати без звуку сповіщення"
+
+#: includes/Admin/SettingsPage.php:124
+msgid "Events"
+msgstr "Події"
+
+#: includes/Admin/SettingsPage.php:127 includes/Admin/SettingsPage.php:159
+msgid "New order"
+msgstr "Нове замовлення"
+
+#: includes/Admin/SettingsPage.php:128
+msgid "Notify about new orders"
+msgstr "Повідомляти про нові замовлення"
+
+#: includes/Admin/SettingsPage.php:130
+msgid ""
+"An order is announced once — the first time it enters one of the selected "
+"statuses."
+msgstr ""
+"Замовлення оголошується один раз — коли вперше потрапляє в один із "
+"позначених статусів."
+
+#: includes/Admin/SettingsPage.php:133 includes/Admin/SettingsPage.php:160
+msgid "Status change"
+msgstr "Зміна статусу"
+
+#: includes/Admin/SettingsPage.php:134
+msgid "Notify about order status changes"
+msgstr "Повідомляти про зміну статусу замовлення"
+
+#: includes/Admin/SettingsPage.php:138
+msgid "Failed payment"
+msgstr "Невдала оплата"
+
+#: includes/Admin/SettingsPage.php:139
+msgid "Notify about orders with the \"Failed\" status"
+msgstr "Повідомляти про замовлення зі статусом «Не вдалося»"
+
+#: includes/Admin/SettingsPage.php:142 includes/Admin/SettingsPage.php:161
+msgid "Low stock"
+msgstr "Низький залишок"
+
+#: includes/Admin/SettingsPage.php:143
+msgid "Notify when a product reaches the low-stock threshold"
+msgstr "Повідомляти, коли товар досягає порогу низького залишку"
+
+#: includes/Admin/SettingsPage.php:144
+msgid ""
+"The threshold is taken from WooCommerce → Settings → Products → Inventory."
+msgstr ""
+"Поріг береться з WooCommerce → Налаштування → Товари → Складський облік."
+
+#: includes/Admin/SettingsPage.php:147
+msgid "Site form leads"
+msgstr "Заявки з форм"
+
+#: includes/Admin/SettingsPage.php:148
+msgid "Notify about leads from site forms"
+msgstr "Повідомляти про заявки з форм сайту"
+
+#: includes/Admin/SettingsPage.php:149
+msgid ""
+"Works with Contact Form 7 and with any plugin that fires the "
+"catcode_lead_captured action (KeyCRM Form Catcher, for example — then the "
+"lead also carries its type, product and SKU)."
+msgstr ""
+"Працює з Contact Form 7, а також з будь-яким модулем, що викликає екшен "
+"catcode_lead_captured (наприклад KeyCRM Form Catcher — тоді в заявці є тип, "
+"товар і артикул)."
+
+#: includes/Admin/SettingsPage.php:156
+msgid "Message templates"
+msgstr "Шаблони повідомлень"
+
+#: includes/Admin/SettingsPage.php:162
+msgid "Form lead"
+msgstr "Заявка з форми"
+
+#: includes/Admin/SettingsPage.php:165
+msgid "Available tags:"
+msgstr "Доступні теги:"
+
+#: includes/Admin/SettingsPage.php:173
+msgid ""
+"A line whose tags are all empty is removed from the message. Allowed "
+"Telegram markup: <b>, <i>, <u>, <s>, <code>, <a href>."
+msgstr ""
+"Рядок, усі теги якого порожні, не потрапляє в повідомлення. Дозволена "
+"розмітка Telegram: <b>, <i>, <u>, <s>, <code>, <a href>."
+
+#: includes/Admin/SettingsPage.php:177
+msgid "Save settings"
+msgstr "Зберегти налаштування"
+
+#: includes/Admin/SettingsPage.php:187
+msgid "Send a test message"
+msgstr "Надіслати тестове повідомлення"
+
+#: includes/Admin/SettingsPage.php:188
+msgid "Checks the token and sends a test to all specified chats."
+msgstr "Перевіряє токен і надсилає тест у всі вказані чати."
+
+#: includes/Admin/SettingsPage.php:194
+msgid "Find chat_id"
+msgstr "Знайти chat_id"
+
+#: includes/Admin/SettingsPage.php:195
+msgid ""
+"Send the bot any message (or add it to a group) and click — it will show the"
+" chat ids."
+msgstr ""
+"Напишіть боту будь-яке повідомлення (або додайте його в групу) і натисніть —"
+" покаже ID чатів."
+
+#: includes/Admin/SettingsPage.php:224
+msgid "Recent deliveries"
+msgstr "Останні відправки"
+
+#: includes/Admin/SettingsPage.php:227
+msgid "No events yet."
+msgstr "Подій ще немає."
+
+#: includes/Admin/SettingsPage.php:233
+msgid "Date"
+msgstr "Дата"
+
+#: includes/Admin/SettingsPage.php:234
+msgid "Order"
+msgstr "Замовлення"
+
+#: includes/Admin/SettingsPage.php:235
+msgid "Event"
+msgstr "Подія"
+
+#: includes/Admin/SettingsPage.php:236
+msgid "Chat"
+msgstr "Чат"
+
+#: includes/Admin/SettingsPage.php:238
+msgid "Result"
+msgstr "Результат"
+
+#: includes/Admin/SettingsPage.php:239
+msgid "Message"
+msgstr "Повідомлення"
+
+#: includes/Admin/SettingsPage.php:251
+msgid "Error"
+msgstr "Помилка"
+
+#: includes/Admin/SettingsPage.php:260 includes/Admin/SettingsPage.php:338
+#: includes/Admin/SettingsPage.php:388
+msgid "Insufficient permissions"
+msgstr "Немає прав"
+
+#: includes/Admin/SettingsPage.php:290
+msgid "Settings saved."
+msgstr "Налаштування збережено."
+
+#. translators: %s — error details.
+#: includes/Admin/SettingsPage.php:346
+#, php-format
+msgid "Token error: %s"
+msgstr "Помилка токена: %s"
+
+#: includes/Admin/SettingsPage.php:351
+msgid "No chats specified."
+msgstr "Не вказано жодного чату."
+
+#. translators: 1: line break, 2: site name, 3: line break.
+#: includes/Admin/SettingsPage.php:356
+#, php-format
+msgid ""
+"✅ <b>Test message</b>%1$sStore: %2$s%3$sTelegram notifications are "
+"configured."
+msgstr ""
+"✅ <b>Тестове повідомлення</b>%1$sМагазин: %2$s%3$sTelegram-сповіщення "
+"налаштовано."
+
+#. translators: 1: bot username, 2: number of chats.
+#: includes/Admin/SettingsPage.php:376
+#, php-format
+msgid "Bot @%1$s — message sent to %2$d chat(s)."
+msgstr "Бот @%1$s — повідомлення надіслано в %2$d чат(ів)."
+
+#. translators: %s — list of errors.
+#: includes/Admin/SettingsPage.php:379
+#, php-format
+msgid "Not delivered: %s"
+msgstr "Не доставлено: %s"
+
+#. translators: %s — error details.
+#: includes/Admin/SettingsPage.php:395
+#, php-format
+msgid "Error: %s"
+msgstr "Помилка: %s"
+
+#: includes/Admin/SettingsPage.php:411
+msgid ""
+"No updates. Send the bot a message (or add it to a group) and try again. If "
+"the bot has a webhook enabled, getUpdates will not work."
+msgstr ""
+"Оновлень немає. Напишіть боту повідомлення (або додайте його в групу) і "
+"спробуйте ще раз. Якщо для бота увімкнено webhook — getUpdates не працює."
+
+#. translators: %s — list of chat ids.
+#: includes/Admin/SettingsPage.php:415
+#, php-format
+msgid "Chats found: %s"
+msgstr "Знайдені чати: %s"
+
+#: includes/Admin/SettingsPage.php:423
+msgid "Order number"
+msgstr "Номер замовлення"
+
+#: includes/Admin/SettingsPage.php:424
+msgid "Order ID"
+msgstr "ID замовлення"
+
+#: includes/Admin/SettingsPage.php:425
+msgid "Order total"
+msgstr "Сума замовлення"
+
+#: includes/Admin/SettingsPage.php:426
+msgid "Current status"
+msgstr "Поточний статус"
+
+#: includes/Admin/SettingsPage.php:427
+msgid "Previous status"
+msgstr "Попередній статус"
+
+#: includes/Admin/SettingsPage.php:428
+msgid "Order date"
+msgstr "Дата замовлення"
+
+#: includes/Admin/SettingsPage.php:429
+msgid "Items list"
+msgstr "Список товарів"
+
+#: includes/Admin/SettingsPage.php:430
+msgid "Item count"
+msgstr "Кількість позицій"
+
+#: includes/Admin/SettingsPage.php:431
+msgid "Customer name"
+msgstr "Ім’я покупця"
+
+#: includes/Admin/SettingsPage.php:432
+msgid "Phone"
+msgstr "Телефон"
+
+#: includes/Admin/SettingsPage.php:433
+msgid "Email"
+msgstr "Email"
+
+#: includes/Admin/SettingsPage.php:434
+msgid "Customer note"
+msgstr "Коментар покупця"
+
+#: includes/Admin/SettingsPage.php:435
+msgid "Payment method"
+msgstr "Спосіб оплати"
+
+#: includes/Admin/SettingsPage.php:436
+msgid "Shipping method"
+msgstr "Спосіб доставки"
+
+#: includes/Admin/SettingsPage.php:437
+msgid "Shipping total"
+msgstr "Вартість доставки"
+
+#: includes/Admin/SettingsPage.php:438
+msgid "Billing address"
+msgstr "Адреса платника"
+
+#: includes/Admin/SettingsPage.php:439
+msgid "Shipping address"
+msgstr "Адреса доставки"
+
+#: includes/Admin/SettingsPage.php:440
+msgid "Admin link"
+msgstr "Посилання в адмінку"
+
+#: includes/Admin/SettingsPage.php:441
+msgid "Store name"
+msgstr "Назва магазину"
+
+#: includes/Admin/SettingsPage.php:442
+msgid "Product name (low stock)"
+msgstr "Назва товару (низький залишок)"
+
+#: includes/Admin/SettingsPage.php:443
+msgid "SKU (low stock)"
+msgstr "Артикул (низький залишок)"
+
+#: includes/Admin/SettingsPage.php:444
+msgid "Stock quantity (low stock)"
+msgstr "Залишок (низький залишок)"
+
+#: includes/Admin/SettingsPage.php:445
+msgid "Lead type (form lead)"
+msgstr "Тип заявки (заявка з форми)"
+
+#: includes/Admin/SettingsPage.php:446
+msgid "Form title (form lead)"
+msgstr "Назва форми (заявка з форми)"
+
+#: includes/Admin/SettingsPage.php:447
+msgid "Name (form lead)"
+msgstr "Ім’я (заявка з форми)"
+
+#: includes/Admin/SettingsPage.php:448
+msgid "Phone (form lead)"
+msgstr "Телефон (заявка з форми)"
+
+#: includes/Admin/SettingsPage.php:449
+msgid "Email (form lead)"
+msgstr "Email (заявка з форми)"
+
+#: includes/Admin/SettingsPage.php:450
+msgid "Comment (form lead)"
+msgstr "Коментар (заявка з форми)"
+
+#: includes/Admin/SettingsPage.php:451
+msgid "Product (form lead)"
+msgstr "Товар (заявка з форми)"
+
+#: includes/Admin/SettingsPage.php:452
+msgid "Other form fields"
+msgstr "Інші поля форми"
+
+#: includes/Admin/SettingsPage.php:453
+msgid "Page the lead was sent from"
+msgstr "Сторінка, з якої відправлено заявку"
+
+#: includes/Api/Client.php:100
+msgid "Bot token is not set."
+msgstr "Токен бота не задано."
+
+#: includes/Formatter.php:48
+msgid "Open product"
+msgstr "Відкрити товар"
+
+#: includes/Formatter.php:51
+msgid "Edit product"
+msgstr "Редагувати товар"
+
+#: includes/Formatter.php:83
+msgid "Lead page"
+msgstr "Сторінка заявки"
+
+#: includes/Formatter.php:119
+msgid "Open order"
+msgstr "Відкрити замовлення"
+
+#. translators: Telegram message template. Keep the {tags} as-is — they are
+#. replaced with order data.
+#: includes/Core/Installer.php:0
+msgid ""
+"🔄 <b>Order {order_number}</b>\n"
+"Status: {order_status_old} → <b>{order_status}</b>\n"
+"Total: {order_total}\n"
+"{admin_url}"
+msgstr ""
+"🔄 <b>Замовлення {order_number}</b>\n"
+"Статус: {order_status_old} → <b>{order_status}</b>\n"
+"Разом: {order_total}\n"
+"{admin_url}"
+
+#. translators: Telegram message template. Keep the {tags} as-is — they are
+#. replaced with order data.
+#: includes/Core/Installer.php:0
+msgid ""
+"⚠️ <b>Low stock</b>\n"
+"{product_name}\n"
+"SKU: {product_sku}\n"
+"Remaining: <b>{stock_qty}</b>"
+msgstr ""
+"⚠️ <b>Низький залишок</b>\n"
+"{product_name}\n"
+"Артикул: {product_sku}\n"
+"Залишилось: <b>{stock_qty}</b>"
+
+#. translators: Telegram message template. Keep the {tags} as-is — they are
+#. replaced with order data.
+#: includes/Core/Installer.php:0
+msgid ""
+"📩 <b>{type}</b>\n"
+"👤 {name}\n"
+"📞 {phone}\n"
+"✉️ {email}\n"
+"📦 {product}\n"
+"🔖 SKU: {product_sku}\n"
+"📝 {comment}\n"
+"{extra}\n"
+"{page_url}"
+msgstr ""
+"📩 <b>{type}</b>\n"
+"👤 {name}\n"
+"📞 {phone}\n"
+"✉️ {email}\n"
+"📦 {product}\n"
+"🔖 Артикул: {product_sku}\n"
+"📝 {comment}\n"
+"{extra}\n"
+"{page_url}"
+
+#. translators: Telegram message template. Keep the {tags} as-is — they are
+#. replaced with order data.
+#: includes/Core/Installer.php:0
+msgid ""
+"🛒 <b>New order {order_number}</b>\n"
+"👤 {customer_name}\n"
+"📞 {customer_phone}\n"
+"💳 {payment_method}\n"
+"🚚 {shipping_method}\n"
+"📍 {shipping_address}\n"
+"\n"
+"{items}\n"
+"💰 Total: <b>{order_total}</b>\n"
+"📝 {customer_note}\n"
+"{admin_url}"
+msgstr ""
+"🛒 <b>Нове замовлення {order_number}</b>\n"
+"👤 {customer_name}\n"
+"📞 {customer_phone}\n"
+"💳 {payment_method}\n"
+"🚚 {shipping_method}\n"
+"📍 {shipping_address}\n"
+"\n"
+"{items}\n"
+"💰 Разом: <b>{order_total}</b>\n"
+"📝 {customer_note}\n"
+"{admin_url}"
+
+#: includes/Admin/SettingsPage.php
+msgid "Instant notifications about site form submissions to a Telegram chat, group or topic."
+msgstr "Миттєві повідомлення про заявки з форм сайту у Telegram-чат, групу або тему."
+
+#: catcode-order-notifications-with-telegram-for-woocommerce.php
+msgid "Telegram Notifications: neither WooCommerce nor a form source (Contact Form 7) was found, so nothing will be sent yet."
+msgstr "Telegram-сповіщення: не знайдено ані WooCommerce, ані джерела заявок (Contact Form 7) — поки що нічого не надсилатиметься."

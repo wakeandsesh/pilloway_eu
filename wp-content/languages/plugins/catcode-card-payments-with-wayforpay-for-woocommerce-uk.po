@@ -1,0 +1,203 @@
+# Translation of Plugins - CatCode Card Payments with WayForPay for WooCommerce - Stable (latest release) in Ukrainian
+# This file is distributed under the same license as the Plugins - CatCode Card Payments with WayForPay for WooCommerce - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2026-09-25 08:41:21+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : ((n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14)) ? 1 : 2);\n"
+"X-Generator: GlotPress/4.1.0\n"
+"Language: uk_UA\n"
+"Project-Id-Version: Plugins - CatCode Card Payments with WayForPay for WooCommerce - Stable (latest release)\n"
+
+#: catcode-card-payments-with-wayforpay-for-woocommerce.php:53
+msgid "The full version of this plugin from catcode.com.ua is active, so this copy is switched off and the full version runs on the same settings. You can deactivate or delete \"CatCode Card Payments with WayForPay for WooCommerce\": its settings and data stay while the full version is installed."
+msgstr "Активна повна версія цього плагіна з catcode.com.ua, тому ця копія вимкнена, а повна версія працює на тих самих налаштуваннях. «CatCode Card Payments with WayForPay for WooCommerce» можна деактивувати або видалити: її налаштування й дані лишаються, поки встановлена повна версія."
+
+#: includes/Api/Client.php:64
+msgid "Product"
+msgstr "Товар"
+
+#: catcode-card-payments-with-wayforpay-for-woocommerce.php:110
+msgid "CatCode Card Payments with WayForPay for WooCommerce requires an active WooCommerce installation."
+msgstr "Для роботи CatCode Card Payments with WayForPay for WooCommerce потрібен активний WooCommerce."
+
+#: includes/Core/Plugin.php:67
+msgid "Settings"
+msgstr "Налаштування"
+
+#: includes/Gateway/Blocks.php:47 includes/Gateway/Method.php:57
+msgid "Card payment (WayForPay)"
+msgstr "Оплата карткою (WayForPay)"
+
+#: includes/Gateway/Method.php:27
+msgid "WayForPay"
+msgstr "WayForPay"
+
+#: includes/Gateway/Method.php:28
+msgid "Accept card payments via WayForPay. The customer is redirected to the secure payment page and the order is confirmed automatically through the serviceUrl webhook."
+msgstr "Приймання оплати карткою через WayForPay. Клієнт перенаправляється на захищену сторінку оплати; замовлення підтверджується автоматично через serviceUrl-вебхук."
+
+#: includes/Gateway/Method.php:48
+msgid "Enable"
+msgstr "Увімкнути"
+
+#: includes/Gateway/Method.php:50
+msgid "Enable WayForPay card payments"
+msgstr "Увімкнути оплату карткою WayForPay"
+
+#: includes/Gateway/Method.php:54
+msgid "Title"
+msgstr "Назва"
+
+#: includes/Gateway/Method.php:56
+msgid "The payment method name the customer sees at checkout."
+msgstr "Назва методу оплати, яку бачить покупець на чекауті."
+
+#: includes/Gateway/Method.php:61
+msgid "Description"
+msgstr "Опис"
+
+#: includes/Gateway/Method.php:63
+msgid "Visa/Mastercard, Apple Pay and Google Pay via the secure WayForPay page."
+msgstr "Visa/Mastercard, Apple Pay, Google Pay через захищену сторінку WayForPay."
+
+#: includes/Gateway/Method.php:66
+msgid "Test mode"
+msgstr "Тестовий режим"
+
+#: includes/Gateway/Method.php:68
+msgid "Use the public test merchant"
+msgstr "Використовувати публічний тестовий мерчант"
+
+#: includes/Gateway/Method.php:69
+msgid "Payments go through the public WayForPay test merchant (test_merch_n1). No real money is charged."
+msgstr "Оплата йде через публічний тестовий мерчант WayForPay (test_merch_n1). Реальні кошти не списуються."
+
+#: includes/Gateway/Method.php:73
+msgid "Merchant login"
+msgstr "Логін мерчанта"
+
+#: includes/Gateway/Method.php:75
+msgid "Merchant identifier from your WayForPay account (for live payments)."
+msgstr "Ідентифікатор мерчанта з кабінету WayForPay (для реальних платежів)."
+
+#: includes/Gateway/Method.php:79
+msgid "Merchant secret key"
+msgstr "Секретний ключ мерчанта"
+
+#: includes/Gateway/Method.php:81
+msgid "Merchant secret key from your WayForPay account. Used for signing only — it is never exposed to the customer."
+msgstr "Секретний ключ мерчанта з кабінету WayForPay. Використовується лише для підпису — покупець його ніколи не бачить."
+
+#: includes/Gateway/Method.php:85
+msgid "Status after payment"
+msgstr "Статус після оплати"
+
+#: includes/Gateway/Method.php:88
+msgid "Processing"
+msgstr "В обробці"
+
+#: includes/Gateway/Method.php:89
+msgid "Completed"
+msgstr "Виконано"
+
+#: includes/Gateway/Method.php:94
+msgid "Logging"
+msgstr "Логування"
+
+#: includes/Gateway/Method.php:96
+msgid "Write requests and responses to the WooCommerce log"
+msgstr "Писати запити/відповіді у лог WooCommerce"
+
+#: includes/Gateway/Method.php:100
+msgid "Webhook URL (serviceUrl)"
+msgstr "URL вебхука (serviceUrl)"
+
+#. translators: %s: webhook URL
+#: includes/Gateway/Method.php:104
+msgid "Sent automatically with every payment:<br><code>%s</code>"
+msgstr "Передається автоматично при кожному платежі:<br><code>%s</code>"
+
+#: includes/Gateway/Method.php:158
+msgid "Awaiting WayForPay payment."
+msgstr "Очікування оплати WayForPay."
+
+#: includes/Gateway/Method.php:184
+msgid "Shipping"
+msgstr "Доставка"
+
+#: includes/Gateway/Method.php:197
+msgid "Other"
+msgstr "Інше"
+
+#: includes/Gateway/Method.php:197
+msgid "Discount"
+msgstr "Знижка"
+
+#. translators: %s: order number
+#: includes/Gateway/Method.php:206
+msgid "Order #%s"
+msgstr "Замовлення №%s"
+
+#: includes/Gateway/Method.php:271
+msgid "Redirecting you to the secure WayForPay payment page…"
+msgstr "Перенаправляємо вас на захищену сторінку оплати WayForPay…"
+
+#: includes/Gateway/Method.php:282
+msgid "Proceed to payment"
+msgstr "Перейти до оплати"
+
+#: includes/Gateway/Method.php:331
+msgid "The payment was not completed. Please try again or choose another payment method."
+msgstr "Оплату не завершено. Спробуйте ще раз або оберіть інший спосіб оплати."
+
+#: includes/Gateway/Method.php:483
+msgid "WayForPay: the paid amount or currency does not match the order — manual review required."
+msgstr "WayForPay: сума або валюта оплати не збігається із замовленням — потрібна перевірка."
+
+#: includes/Gateway/Method.php:491
+msgid "WayForPay: payment received."
+msgstr "WayForPay: оплату отримано."
+
+#: includes/Gateway/Method.php:497
+msgid "WayForPay: funds are held, awaiting confirmation."
+msgstr "WayForPay: кошти заблоковано, очікує підтвердження."
+
+#: includes/Gateway/Method.php:511
+msgid "WayForPay: payment declined. "
+msgstr "WayForPay: платіж відхилено. "
+
+#: includes/Gateway/Method.php:518
+msgid "WayForPay: the payment has expired."
+msgstr "WayForPay: термін дії платежу сплив."
+
+#: includes/Gateway/Method.php:526
+msgid "WayForPay: payment refunded."
+msgstr "WayForPay: платіж повернено."
+
+#. Plugin Name of the plugin
+#: catcode-card-payments-with-wayforpay-for-woocommerce.php
+msgid "CatCode Card Payments with WayForPay for WooCommerce"
+msgstr "CatCode Card Payments with WayForPay for WooCommerce"
+
+#. Plugin URI of the plugin
+#: catcode-card-payments-with-wayforpay-for-woocommerce.php
+msgid "https://catcode.com.ua/modules/wayforpay-for-woocommerce/"
+msgstr "https://catcode.com.ua/modules/wayforpay-for-woocommerce/"
+
+#. Description of the plugin
+#: catcode-card-payments-with-wayforpay-for-woocommerce.php
+msgid "Accept card payments in WooCommerce via WayForPay: redirect to the secure payment page, automatic order confirmation through the signed serviceUrl webhook, status reconciliation from the admin."
+msgstr "Приймання оплати карткою через WayForPay: редірект на захищену сторінку оплати, автоматичне підтвердження замовлення через serviceUrl-вебхук з перевіркою підпису, звірка статусу з адмінки."
+
+#. Author of the plugin
+#: catcode-card-payments-with-wayforpay-for-woocommerce.php
+msgid "CatCode"
+msgstr "CatCode"
+
+#. Author URI of the plugin
+#: catcode-card-payments-with-wayforpay-for-woocommerce.php
+msgid "https://catcode.com.ua"
+msgstr "https://catcode.com.ua"

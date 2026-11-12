@@ -1,0 +1,72 @@
+# Pilloway WordPress deployment (EU)
+# "Code goes up; content goes down."
+# Track site code under wp-content. Keep the database and user-generated uploads
+# outside Git; back them up and transfer them separately.
+
+# WordPress core is baked into the local Docker image, not installed per-branch.
+/license.txt
+/readme.html
+
+# Environment-specific settings and secrets.
+/wp-config.php
+/wp-config.php.*
+/wp-config-*.php
+/.htaccess
+/.htaccess.*
+/web.config
+/.user.ini
+/php.ini
+/.env
+/.env.*
+!/.env.example
+**/auth.json
+**/*.pem
+**/*.key
+
+# WordPress runtime/content data. Plugins, themes, MU plugins and language packs
+# remain tracked; their bundled vendor dependencies are intentionally included.
+# Keep site media in Git; runtime logs are not site content.
+/wp-content/uploads/wc-logs/
+/wp-content/cache/
+/wp-content/upgrade/
+/wp-content/upgrade-temp-backup/
+/wp-content/ai1wm-backups/
+/wp-content/updraft/
+/wp-content/backups/
+/wp-content/backup-db/
+/wp-content/wflogs/
+/wp-content/debug.log
+
+# Local preview-only MU plugin; do not deploy tunnel URL rewriting.
+/wp-content/mu-plugins/quick-tunnel-preview.php
+
+# EU-specific local scratch files.
+/.pilloway-temp-*
+
+# Database exports, backups, and logs.
+*.sql
+*.sql.gz
+*.sql.bz2
+*.dump
+*.bak
+*.backup
+*.old
+*.orig
+*.log
+error_log
+
+# Local development/editor artifacts.
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.phpunit.cache/
+node_modules/
+
+/local-backups/
+/docs/
+/scripts/
+/tests/
+
+# Generated browser evidence and deployment archives.
+/output/

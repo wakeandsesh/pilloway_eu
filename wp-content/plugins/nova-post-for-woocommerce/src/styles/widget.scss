@@ -1,0 +1,137 @@
+.nova-post-widget {
+  --color-accent: #da291c;
+  --color-info: #007cba;
+  --color-warning: #ff9800;
+
+  --outline-color: #da291c5f;
+  --outline-width: 1px;
+
+  font-size: 1rem;
+  font-weight: 400;
+
+  &__container {
+    border-radius: 12px;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    padding: 1.5em 1em;
+  }
+
+  * {
+    outline-width: var(--outline-width);
+    outline-color: var(--outline-color);
+  }
+
+  &__error-message {
+    color: var(--color-accent);
+  }
+
+  &__error-block {
+    --notice-background: #fff5e6;
+    --notice-border: #ffdca6;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    padding: 10px 16px;
+    border-radius: 8px;
+    background: var(--notice-background);
+    border: 1px solid var(--notice-border);
+  }
+
+  &__error-icon {
+    display: flex;
+    align-items: center;
+    padding-top: 1px;
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    color: var(--color-warning);
+  }
+
+  &__error-text {
+    flex: 1;
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.3;
+    color: #000000;
+    white-space: pre-wrap;
+  }
+
+  &__trigger {
+    appearance: none !important;
+    display: flex !important;
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 8px;
+    box-sizing: border-box;
+    width: 100% !important;
+    min-height: 86px;
+    margin: 0 !important;
+    padding: 16px 24px !important;
+    overflow: visible;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 12px !important;
+    box-shadow: none !important;
+    background: #fff !important;
+    color: #0f172a !important;
+    font: inherit !important;
+    letter-spacing: normal !important;
+    line-height: 1.3 !important;
+    text-align: left !important;
+    text-decoration: none !important;
+    text-transform: none !important;
+    white-space: normal !important;
+    cursor: pointer;
+
+    &:hover {
+      border-color: #cbd5e1 !important;
+      background: #fff !important;
+      color: #0f172a !important;
+    }
+
+    &:focus-visible {
+      outline: 3px solid var(--outline-color) !important;
+      outline-offset: 2px;
+    }
+  }
+
+  &__trigger-logo {
+    display: block;
+    flex: 0 0 auto;
+    width: 130px;
+    height: 28px;
+    background: url("../../assets/images/nova-post-full-logo.svg") no-repeat left center / contain;
+  }
+
+  &__trigger-content {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &__trigger-title {
+    color: #000;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.25;
+    overflow-wrap: anywhere;
+  }
+
+  &__trigger-address,
+  &__trigger-placeholder {
+    color: #334155;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+  }
+
+  @media (max-width: 480px) {
+    &__trigger {
+      padding-right: 16px !important;
+      padding-left: 16px !important;
+    }
+  }
+}

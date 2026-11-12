@@ -1,0 +1,291 @@
+.wp-toolbar body.wcpbc-admin-full-screen {
+	margin-top: -32px;
+}
+
+body.wcpbc-admin-full-screen #adminmenumain {
+	display: none !important;
+}
+
+body.wcpbc-admin-full-screen #wpadminbar {
+	display: none !important;
+}
+
+body.wcpbc-admin-full-screen #wpcontent {
+	display: block !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	min-height: calc(100vh - 32px);
+}
+
+body.wcpbc-admin-full-screen #wpbody-content {
+	padding: 0;
+	overflow-x: hidden !important;
+	min-height: 100vh !important;
+	float: none !important;
+}
+
+body.wcpbc-admin-full-screen #wpbody-content > :not(.wcpbc-setup-wizard-wrap) {
+	display: none !important;
+}
+
+body.wcpbc-admin-full-screen #wpfooter {
+	display: none;
+}
+
+body.wcpbc-setup-wizard .update-nag {
+	display: none !important;
+}
+
+body.wcpbc-setup-wizard {
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif !important;
+}
+
+body.wcpbc-setup-wizard h1,
+body.wcpbc-setup-wizard h2,
+body.wcpbc-setup-wizard h3 {
+	line-height: 1.2;
+	font-weight: 500;
+	margin-top: 0;
+}
+
+body.wcpbc-setup-wizard h1 {
+	font-size: 26px;
+}
+
+body.wcpbc-setup-wizard h2 {
+	font-size: 22px;
+}
+
+.wcpbc-setup-wizard .wcpbc-setup-wizard-wrap {
+	display: flex;
+	flex-direction: row;
+	min-height: 100vh;
+}
+
+.wcpbc-setup-wizard .wcpbc-setup-wizard-sidebar {
+	width: calc(22% - 60px);
+	background-color: #286A88;
+	color: #fff;
+	min-height: 100%;
+	padding: 60px;
+	overflow-y: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+body.wcpbc-setup-wizard .wcpbc-setup-wizard-sidebar h1,
+body.wcpbc-setup-wizard .wcpbc-setup-wizard-sidebar h2,
+body.wcpbc-setup-wizard .wcpbc-setup-wizard-sidebar h3 {
+	color: #fff;
+}
+.wcpbc-setup-wizard .wcpbc-logo {
+	max-width: 200px;
+	margin-bottom: 50px;
+	min-height: 43px;
+}
+
+.wcpbc-setup-wizard .wcpbc-logo img {
+	width: 100%;
+}
+
+.wcpbc-setup-wizard .wcpbc-setup-wizard-sidebar .escape {
+	margin-top: auto;
+
+}
+
+.wcpbc-setup-wizard .wcpbc-setup-wizard-sidebar .escape a {
+	color: #fff;
+	font-size: 14px;
+	text-decoration: none;
+}
+
+.wcpbc-setup-wizard .wcpbc-setup-wizard-sidebar .escape a:hover {
+	text-decoration: none;
+	opacity: 88%;
+}
+
+.wcpbc-setup-wizard #wcpbc-setup-wizard-content {
+	padding: 150px 100px 60px 100px;
+	flex-grow: 1;
+}
+
+.wcpbc-setup-wizard #wcpbc-setup-wizard-content > .wcpbc-setup-wizard-steps-wrap {
+	max-width: 500px;
+}
+
+body.wcpbc-setup-wizard #wcpbc-setup-wizard-content h2.wcpbc-content-title {
+	font-size: 26px;
+	font-weight: 400;
+}
+
+#wcpbc-setup-wizard-content .wcpbc-setup-step {
+	display: none;
+}
+
+#wcpbc-setup-wizard-content .wcpbc-text {
+	font-weight: 400;
+}
+
+#wcpbc-setup-wizard-content .wcpbc-text.-text-16 {
+	font-size: 16px;
+}
+
+#wcpbc-setup-wizard-content .wcpbc-text.-text-16 a > span.dashicons-external {
+	width: 16px;
+	height: 16px;
+	line-height: 1.5;
+	font-size: 14px;
+	vertical-align: text-top;
+	text-decoration: none;
+}
+
+#wcpbc-setup-wizard-content .wcpbc-input-container {
+	margin-top: 30px;
+}
+
+#wcpbc-setup-wizard-content .wcpbc-input-container input[type="text"] {
+	font-size: 16px;
+	width: 100%;
+	padding: 4px 10px;
+	line-height: 2;
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif !important;
+}
+
+#wcpbc-setup-wizard-content .wcpbc-input-container .wcpbc-input-wrap {
+	margin-top: 5px;
+}
+
+#wcpbc-setup-wizard-content .wcpbc-input-container .wcpbc-input-description {
+	margin-top: 4px;
+	font-size: 13px;
+}
+
+#wcpbc-setup-wizard-content .wcpbc-input-container .wcpbc-setup-wizard-notice {
+	display: flex;
+	flex-direction: row;
+	color: #fff;
+	padding: 10px 12px;
+	align-items: center;
+	margin-bottom: 30px;
+}
+
+#wcpbc-setup-wizard-content .wcpbc-input-container .wcpbc-setup-wizard-notice.-error {
+	background-color: #cc4949;
+	border-color: #c92c2c;
+}
+
+#wcpbc-setup-wizard-content .wcpbc-input-container .wcpbc-setup-wizard-notice p {
+	line-height: 1.5;
+	font-size: 14px;
+	margin: 0 15px 0 0;
+}
+
+#wcpbc-setup-wizard-content .wcpbc-input-container .wcpbc-setup-wizard-notice a.wcpbc-setup-wizard-notice-dismiss,
+#wcpbc-setup-wizard-content .wcpbc-input-container .wcpbc-setup-wizard-notice a.wcpbc-setup-wizard-notice-dismiss:visited {
+	margin-left: auto;
+	color: inherit;
+	text-decoration: none;
+	border: 1px solid;
+	border-radius: 50%;
+	opacity: 0.75;
+}
+
+#wcpbc-setup-wizard-content .wcpbc-input-container .wcpbc-setup-wizard-notice a.wcpbc-setup-wizard-notice-dismiss:focus {
+	box-shadow: none;
+	outline: 0;
+}
+
+#wcpbc-setup-wizard-content .wcpbc-input-container .wcpbc-setup-wizard-notice a.wcpbc-setup-wizard-notice-dismiss:hover {
+	opacity: 1;
+	text-decoration: none;
+}
+
+#wcpbc-setup-wizard-content .wcpbc-input-container label {
+	font-size: 14px;
+	font-weight: 500;
+	width: 100%;
+	display: inline;
+	margin: 0;
+	padding: 0 2px;
+}
+
+#wcpbc-setup-wizard-content .wcpbc-input-container .wcpbc-input-label-wrap label {
+	display: block;
+}
+
+#wcpbc-setup-wizard-content .wcpbc-input-container.-container-submit .wcpbc-button {
+	font-size: 16px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 2px 12px;
+	width: 100%;
+	background-color: #286A88;
+	border-color: #286A88;
+	color: #fff;
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif !important;
+}
+
+#wcpbc-setup-wizard-content .wcpbc-input-container.-container-submit .wcpbc-button:hover {
+	opacity: 88%;
+}
+
+#wcpbc-setup-wizard-content .wcpbc-input-container.-container-submit .wcpbc-button .dashicons {
+	line-height: 1.1 !important;
+}
+
+#wcpbc-setup-wizard-content .wcpbc-input-container.-container-true-false .wcpbc-input-toggle {
+	height: 16px;
+	width: 32px;
+	border: 2px solid #286A88;
+	background-color: #286A88;
+	display: inline-block;
+	text-indent: -9999px;
+	border-radius: 10em;
+	position: relative;
+	margin-top: -1px;
+	vertical-align: text-top;
+}
+
+#wcpbc-setup-wizard-content .wcpbc-input-container.-container-true-false .wcpbc-input-toggle.-input-toggle--disabled {
+	border-color: #999;
+	background-color: #999;
+}
+
+#wcpbc-setup-wizard-content .wcpbc-input-container.-container-true-false .wcpbc-input-toggle::before {
+	content: "";
+	display: block;
+	width: 16px;
+	height: 16px;
+	background: #fff;
+	position: absolute;
+	top: 0;
+	right: 0;
+	border-radius: 100%;
+}
+
+#wcpbc-setup-wizard-content .wcpbc-input-container.-container-true-false .wcpbc-input-toggle.-input-toggle--disabled::before{
+	right: auto;
+	left: 0;
+}
+
+#wcpbc-setup-wizard-content .wcpbc-input-container.-container-true-false a:focus {
+	color: inherit;
+	box-shadow: none;
+	outline: none;
+}
+
+@media (max-width:1280px) {
+	.wcpbc-setup-wizard .wcpbc-setup-wizard-sidebar {
+		width: calc(28% - 60px);
+		padding: 60px 40px;
+	}
+}
+
+/**
+ * RTL
+ */
+body.rtl span.dashicons-arrow-right-alt,
+body.rtl span.dashicons-arrow-left-alt {
+	transform: scaleX(-1);
+}

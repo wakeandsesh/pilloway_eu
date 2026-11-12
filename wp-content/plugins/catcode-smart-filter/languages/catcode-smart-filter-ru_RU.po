@@ -1,0 +1,66 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: CatCode Smart Filter 1.0.3\n"
+"Report-Msgid-Bugs-To: https://catcode.com.ua/\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ru_RU\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+
+msgid "Filter"
+msgstr "Фильтр"
+
+msgid "Filters"
+msgstr "Фильтры"
+
+msgid "Found: %s"
+msgstr "Найдено товаров: %s"
+
+msgid "Price"
+msgstr "Цена"
+
+msgid "In stock"
+msgstr "В наличии"
+
+msgid "Out of stock"
+msgstr "Нет в наличии"
+
+msgid "Stock status"
+msgstr "Наличие"
+
+msgid "On sale"
+msgstr "Акции"
+
+msgid "Products on sale"
+msgstr "Товары по акции"
+
+msgid "%s stars and up"
+msgstr "%s звёзд и выше"
+
+msgid "Rating"
+msgstr "Рейтинг"
+
+msgid "Reset all"
+msgstr "Сбросить все"
+
+msgid "Nothing matches this set of filters."
+msgstr "По выбранным фильтрам товары не найдены."
+
+msgid "from"
+msgstr "от"
+
+msgid "to"
+msgstr "до"
+
+msgid "Search values"
+msgstr "Поиск значений"
+
+msgid "Show more"
+msgstr "Показать больше"
+
+msgid "Show less"
+msgstr "Показать меньше"
+
+msgid "Show results"
+msgstr "Показать результаты"

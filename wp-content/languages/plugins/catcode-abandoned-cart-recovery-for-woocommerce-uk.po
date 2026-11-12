@@ -1,0 +1,309 @@
+# Translation of Plugins - CatCode Abandoned Cart Recovery for WooCommerce - Stable (latest release) in Ukrainian
+# This file is distributed under the same license as the Plugins - CatCode Abandoned Cart Recovery for WooCommerce - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2026-09-16 12:47:24+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : ((n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14)) ? 1 : 2);\n"
+"X-Generator: GlotPress/4.1.0\n"
+"Language: uk_UA\n"
+"Project-Id-Version: Plugins - CatCode Abandoned Cart Recovery for WooCommerce - Stable (latest release)\n"
+
+#: includes/Core/Rest.php:67
+msgid "A valid e-mail address is required."
+msgstr "Потрібна коректна e-mail адреса."
+
+#: includes/Core/Rest.php:58
+msgid "Invalid security token."
+msgstr "Недійсний токен безпеки."
+
+#: includes/Core/Recovery.php:89
+msgid "Sorry, the products from that cart are no longer available."
+msgstr "На жаль, товарів із того кошика вже немає в наявності."
+
+#: includes/Core/Recovery.php:80
+msgid "Welcome back — your cart has been restored."
+msgstr "З поверненням — ваш кошик відновлено."
+
+#: includes/Core/Recovery.php:61
+msgid "This recovery link has expired."
+msgstr "Термін дії посилання відновлення минув."
+
+#: includes/Core/Recovery.php:46
+msgid "This recovery link is no longer valid."
+msgstr "Це посилання відновлення більше не дійсне."
+
+#. translators: %d: number of days cart data is retained.
+#: includes/Core/Privacy.php:147
+msgid "This data is stored in the store database and is automatically deleted %d days after the cart was last updated. It is never sent to any third party."
+msgstr "Ці дані зберігаються в базі магазину й автоматично видаляються через %d дн. після останнього оновлення кошика. Вони не передаються третім сторонам."
+
+#: includes/Core/Privacy.php:143
+msgid "When you add products to your cart and enter your e-mail address at checkout, this store saves your e-mail address, your name, the contents of your cart and its total so that it can send you a reminder if you do not complete the order."
+msgstr "Коли ви додаєте товари до кошика та вводите e-mail на сторінці оформлення, магазин зберігає вашу адресу, ім'я, вміст кошика та його суму, щоб надіслати нагадування, якщо ви не завершите замовлення."
+
+#: includes/Core/Privacy.php:104
+msgid "Captured on"
+msgstr "Захоплено"
+
+#: includes/Core/Privacy.php:100
+msgid "Reminders sent"
+msgstr "Надіслано нагадувань"
+
+#: includes/Core/Privacy.php:92
+msgid "Cart total"
+msgstr "Сума кошика"
+
+#: includes/Core/Privacy.php:88
+msgid "Cart contents"
+msgstr "Вміст кошика"
+
+#: includes/Core/Privacy.php:84
+msgid "Name"
+msgstr "Ім'я"
+
+#: includes/Core/Privacy.php:80
+msgid "E-mail"
+msgstr "E-mail"
+
+#: includes/Core/Privacy.php:76
+msgid "Abandoned carts"
+msgstr "Кинуті кошики"
+
+#: includes/Core/Privacy.php:34 includes/Core/Privacy.php:49
+msgid "Abandoned carts (CatCode)"
+msgstr "Кинуті кошики (CatCode)"
+
+#: includes/Core/Plugin.php:114
+msgid "Carts"
+msgstr "Кошики"
+
+#. translators: 1: product name, 2: quantity, 3: line total.
+#: includes/Core/Mailer.php:130
+msgid "%1$s — %2$d pcs — %3$s"
+msgstr "%1$s — %2$d шт. — %3$s"
+
+#: includes/Core/Mailer.php:106
+msgid "there"
+msgstr "вітаємо"
+
+#: includes/Core/Cron.php:37
+msgid "Every 15 minutes (CatCode Abandoned Cart)"
+msgstr "Кожні 15 хвилин (CatCode Кинуті кошики)"
+
+#: includes/Admin/SettingsPage.php:205
+msgid "Settings saved."
+msgstr "Налаштування збережено."
+
+#: includes/Admin/SettingsPage.php:183
+msgid "Insufficient permissions."
+msgstr "Недостатньо прав."
+
+#: includes/Admin/SettingsPage.php:158
+msgid "Set to 0 to keep the data indefinitely (not recommended)."
+msgstr "0 — зберігати дані безстроково (не рекомендується)."
+
+#: includes/Admin/SettingsPage.php:156
+msgid "Delete cart data after"
+msgstr "Видаляти дані кошиків через"
+
+#: includes/Admin/SettingsPage.php:152
+msgid "The plugin stores the e-mail address, the name and the cart contents of shoppers who did not complete an order. Rows are deleted automatically once they are older than the retention period."
+msgstr "Плагін зберігає e-mail, ім'я та вміст кошика покупців, які не завершили замовлення. Записи видаляються автоматично, коли перевищують термін зберігання."
+
+#: includes/Admin/SettingsPage.php:151
+msgid "Data retention"
+msgstr "Зберігання даних"
+
+#: includes/Admin/SettingsPage.php:139
+msgid "Placeholders:"
+msgstr "Плейсхолдери:"
+
+#: includes/Admin/SettingsPage.php:137
+msgid "Message"
+msgstr "Повідомлення"
+
+#: includes/Admin/SettingsPage.php:133
+msgid "Subject"
+msgstr "Тема"
+
+#: includes/Admin/SettingsPage.php:127
+msgid "Send after abandonment"
+msgstr "Надіслати після покидання"
+
+#: includes/Admin/SettingsPage.php:122
+msgid "Reminder e-mail"
+msgstr "Лист-нагадування"
+
+#: includes/Admin/SettingsPage.php:110
+msgid "Protects frequent shoppers from repeated reminders. Set to 0 to disable."
+msgstr "Захищає постійних покупців від повторних нагадувань. 0 — вимкнути."
+
+#: includes/Admin/SettingsPage.php:108
+msgid "Do not e-mail the same address more often than once every"
+msgstr "Не писати на ту саму адресу частіше ніж раз на"
+
+#: includes/Admin/SettingsPage.php:103 includes/Admin/SettingsPage.php:111
+#: includes/Admin/SettingsPage.php:159
+msgid "days"
+msgstr "днів"
+
+#: includes/Admin/SettingsPage.php:102
+msgid "How long a recovery link stays valid. Afterwards the cart is marked as lost."
+msgstr "Скільки діє посилання відновлення. Після цього кошик позначається як втрачений."
+
+#: includes/Admin/SettingsPage.php:100
+msgid "Recovery link lifetime"
+msgstr "Термін дії посилання відновлення"
+
+#: includes/Admin/SettingsPage.php:95 includes/Admin/SettingsPage.php:130
+msgid "minutes"
+msgstr "хвилин"
+
+#: includes/Admin/SettingsPage.php:94
+msgid "Minutes of inactivity before a cart is considered abandoned. The scan runs every 15 minutes."
+msgstr "Хвилин бездіяльності, після яких кошик вважається кинутим. Сканування виконується кожні 15 хвилин."
+
+#: includes/Admin/SettingsPage.php:92
+msgid "Mark as abandoned after"
+msgstr "Вважати кинутим через"
+
+#: includes/Admin/SettingsPage.php:87
+msgid "Timing"
+msgstr "Тайминг"
+
+#: includes/Admin/SettingsPage.php:77
+msgid "Save settings"
+msgstr "Зберегти налаштування"
+
+#: includes/Admin/SettingsPage.php:59
+msgid "Cart list"
+msgstr "Список кошиків"
+
+#: includes/Admin/SettingsPage.php:30 includes/Admin/SettingsPage.php:31
+#: includes/Admin/SettingsPage.php:58
+msgid "Abandoned Cart Settings"
+msgstr "Налаштування кинутих кошиків"
+
+#: includes/Admin/CartsPage.php:63
+msgid "Search by e-mail"
+msgstr "Пошук за e-mail"
+
+#: includes/Admin/CartsPage.php:49 includes/Core/Plugin.php:112
+msgid "Settings"
+msgstr "Налаштування"
+
+#: includes/Admin/CartsPage.php:27 includes/Admin/CartsPage.php:28
+#: includes/Admin/CartsPage.php:48
+msgid "Abandoned Carts"
+msgstr "Кинуті кошики"
+
+#: includes/Admin/CartsListTable.php:250
+msgid "Recovery rate"
+msgstr "Конверсія відновлення"
+
+#: includes/Admin/CartsListTable.php:249
+msgid "Revenue recovered"
+msgstr "Відновлена сума"
+
+#: includes/Admin/CartsListTable.php:248
+msgid "Carts recovered"
+msgstr "Відновлено кошиків"
+
+#: includes/Admin/CartsListTable.php:247
+msgid "Carts abandoned"
+msgstr "Кинуто кошиків"
+
+#. translators: %s: date and time the cart was marked as abandoned.
+#: includes/Admin/CartsListTable.php:228
+msgid "abandoned: %s"
+msgstr "кинуто: %s"
+
+#. translators: %d: number of additional products not shown.
+#: includes/Admin/CartsListTable.php:166
+msgid "+%d more"
+msgstr "+%d ще"
+
+#: includes/Admin/CartsListTable.php:141
+msgid "Registered customer"
+msgstr "Зареєстрований покупець"
+
+#: includes/Admin/CartsListTable.php:89
+msgid "No carts captured yet."
+msgstr "Поки що не захоплено жодного кошика."
+
+#: includes/Admin/CartsListTable.php:75 includes/Admin/CartsListTable.php:200
+msgid "Lost"
+msgstr "Втрачений"
+
+#: includes/Admin/CartsListTable.php:74 includes/Admin/CartsListTable.php:199
+msgid "Recovered"
+msgstr "Відновлений"
+
+#: includes/Admin/CartsListTable.php:73 includes/Admin/CartsListTable.php:198
+msgid "Abandoned"
+msgstr "Кинутий"
+
+#: includes/Admin/CartsListTable.php:72 includes/Admin/CartsListTable.php:197
+msgid "Active"
+msgstr "Активний"
+
+#: includes/Admin/CartsListTable.php:71
+msgid "All"
+msgstr "Усі"
+
+#: includes/Admin/CartsListTable.php:45
+msgid "Captured"
+msgstr "Захоплено"
+
+#: includes/Admin/CartsListTable.php:44
+msgid "Reminders"
+msgstr "Нагадування"
+
+#: includes/Admin/CartsListTable.php:43 includes/Core/Privacy.php:96
+msgid "Status"
+msgstr "Статус"
+
+#: includes/Admin/CartsListTable.php:42
+msgid "Total"
+msgstr "Сума"
+
+#: includes/Admin/CartsListTable.php:41
+msgid "Products"
+msgstr "Товари"
+
+#: includes/Admin/CartsListTable.php:40
+msgid "Customer"
+msgstr "Клієнт"
+
+#: catcode-abandoned-cart-recovery-for-woocommerce.php:89
+msgid "CatCode Abandoned Cart Recovery for WooCommerce requires an active WooCommerce installation."
+msgstr "Для роботи CatCode Abandoned Cart Recovery for WooCommerce потрібен активний WooCommerce."
+
+#. Author URI of the plugin
+#: catcode-abandoned-cart-recovery-for-woocommerce.php
+msgid "https://catcode.com.ua"
+msgstr "https://catcode.com.ua"
+
+#. Author of the plugin
+#: catcode-abandoned-cart-recovery-for-woocommerce.php
+msgid "CatCode"
+msgstr "CatCode"
+
+#. Description of the plugin
+#: catcode-abandoned-cart-recovery-for-woocommerce.php
+msgid "Captures abandoned WooCommerce carts and wins them back with a reminder email containing a one-click recovery link. Cart list with statistics, configurable timings and templates."
+msgstr "Захоплює кинуті кошики WooCommerce і повертає покупців листом-нагадуванням із посиланням відновлення в один клік. Список кошиків зі статистикою, налаштовувані таймінги та шаблони."
+
+#. Plugin URI of the plugin
+#: catcode-abandoned-cart-recovery-for-woocommerce.php
+msgid "https://catcode.com.ua/modules/catcode-abandoned-cart-recovery-for-woocommerce/"
+msgstr "https://catcode.com.ua/modules/catcode-abandoned-cart-recovery-for-woocommerce/"
+
+#. Plugin Name of the plugin
+#: catcode-abandoned-cart-recovery-for-woocommerce.php
+#: includes/Core/Privacy.php:153
+msgid "CatCode Abandoned Cart Recovery for WooCommerce"
+msgstr "CatCode Покинуті кошики для WooCommerce"

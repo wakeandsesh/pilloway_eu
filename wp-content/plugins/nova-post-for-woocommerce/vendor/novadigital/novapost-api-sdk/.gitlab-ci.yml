@@ -1,0 +1,49 @@
+stages:
+  - validate
+  - test
+  - publish
+
+default:
+  image: php:8.0-alpine
+  cache:
+    key: "php-${CI_JOB_IMAGE}-${CI_COMMIT_REF_SLUG}"
+    paths:
+      - .composer/cache
+    policy: pull-push
+  before_script:
+    - apk add --no-cache git unzip libzip-dev curl
+    - docker-php-ext-install zip
+    - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer --2
+
+validate:
+  stage: validate
+  script:
+    - composer validate --strict
+    - composer install --no-interaction --optimize-autoloader --prefer-dist
+    - composer dump-autoload -o
+  artifacts:
+    paths:
+      - vendor/
+    expire_in: 1h
+
+code-quality:
+  stage: test
+  needs: [validate]
+  dependencies:
+    - validate
+  script:
+    - ./vendor/bin/phpcs --standard=PSR12 src tests
+
+static-analysis:
+  stage: test
+  needs: [validate]
+  dependencies:
+    - validate
+  script:
+    - ./vendor/bin/phpstan analyse src --level 5 --no-progress --memory-limit 1G
+
+test-unit:
+  stage: test
+  needs: [validate]
+  script:
+    - ./vendor/bin/phpunit --testsuite=Unit

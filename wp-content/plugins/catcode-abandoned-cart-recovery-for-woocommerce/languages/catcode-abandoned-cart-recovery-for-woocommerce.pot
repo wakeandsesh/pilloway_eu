@@ -1,0 +1,327 @@
+# Copyright (C) 2026 CatCode
+# This file is distributed under the GPLv2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: CatCode Abandoned Cart Recovery for WooCommerce 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/catcode-abandoned-cart-recovery-for-woocommerce\n"
+"Last-Translator: CatCode Studio <dev@catcode.com.ua>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-07-20T15:53:57+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: catcode-abandoned-cart-recovery-for-woocommerce\n"
+
+#. Plugin Name of the plugin
+#: catcode-abandoned-cart-recovery-for-woocommerce.php
+#: includes/Core/Privacy.php:153
+msgid "CatCode Abandoned Cart Recovery for WooCommerce"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: catcode-abandoned-cart-recovery-for-woocommerce.php
+msgid "https://catcode.com.ua/modules/catcode-abandoned-cart-recovery-for-woocommerce/"
+msgstr ""
+
+#. Description of the plugin
+#: catcode-abandoned-cart-recovery-for-woocommerce.php
+msgid "Captures abandoned WooCommerce carts and wins them back with a reminder email containing a one-click recovery link. Cart list with statistics, configurable timings and templates."
+msgstr ""
+
+#. Author of the plugin
+#: catcode-abandoned-cart-recovery-for-woocommerce.php
+msgid "CatCode"
+msgstr ""
+
+#. Author URI of the plugin
+#: catcode-abandoned-cart-recovery-for-woocommerce.php
+msgid "https://catcode.com.ua"
+msgstr ""
+
+#: catcode-abandoned-cart-recovery-for-woocommerce.php:89
+msgid "CatCode Abandoned Cart Recovery for WooCommerce requires an active WooCommerce installation."
+msgstr ""
+
+#: includes/Admin/CartsListTable.php:40
+msgid "Customer"
+msgstr ""
+
+#: includes/Admin/CartsListTable.php:41
+msgid "Products"
+msgstr ""
+
+#: includes/Admin/CartsListTable.php:42
+msgid "Total"
+msgstr ""
+
+#: includes/Admin/CartsListTable.php:43
+#: includes/Core/Privacy.php:96
+msgid "Status"
+msgstr ""
+
+#: includes/Admin/CartsListTable.php:44
+msgid "Reminders"
+msgstr ""
+
+#: includes/Admin/CartsListTable.php:45
+msgid "Captured"
+msgstr ""
+
+#: includes/Admin/CartsListTable.php:71
+msgid "All"
+msgstr ""
+
+#: includes/Admin/CartsListTable.php:72
+#: includes/Admin/CartsListTable.php:197
+msgid "Active"
+msgstr ""
+
+#: includes/Admin/CartsListTable.php:73
+#: includes/Admin/CartsListTable.php:198
+msgid "Abandoned"
+msgstr ""
+
+#: includes/Admin/CartsListTable.php:74
+#: includes/Admin/CartsListTable.php:199
+msgid "Recovered"
+msgstr ""
+
+#: includes/Admin/CartsListTable.php:75
+#: includes/Admin/CartsListTable.php:200
+msgid "Lost"
+msgstr ""
+
+#: includes/Admin/CartsListTable.php:89
+msgid "No carts captured yet."
+msgstr ""
+
+#: includes/Admin/CartsListTable.php:141
+msgid "Registered customer"
+msgstr ""
+
+#. translators: %d: number of additional products not shown.
+#: includes/Admin/CartsListTable.php:166
+#, php-format
+msgid "+%d more"
+msgstr ""
+
+#. translators: %s: date and time the cart was marked as abandoned.
+#: includes/Admin/CartsListTable.php:228
+#, php-format
+msgid "abandoned: %s"
+msgstr ""
+
+#: includes/Admin/CartsListTable.php:247
+msgid "Carts abandoned"
+msgstr ""
+
+#: includes/Admin/CartsListTable.php:248
+msgid "Carts recovered"
+msgstr ""
+
+#: includes/Admin/CartsListTable.php:249
+msgid "Revenue recovered"
+msgstr ""
+
+#: includes/Admin/CartsListTable.php:250
+msgid "Recovery rate"
+msgstr ""
+
+#: includes/Admin/CartsPage.php:27
+#: includes/Admin/CartsPage.php:28
+#: includes/Admin/CartsPage.php:48
+msgid "Abandoned Carts"
+msgstr ""
+
+#: includes/Admin/CartsPage.php:49
+#: includes/Core/Plugin.php:112
+msgid "Settings"
+msgstr ""
+
+#: includes/Admin/CartsPage.php:63
+msgid "Search by e-mail"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:30
+#: includes/Admin/SettingsPage.php:31
+#: includes/Admin/SettingsPage.php:58
+msgid "Abandoned Cart Settings"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:59
+msgid "Cart list"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:77
+msgid "Save settings"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:87
+msgid "Timing"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:92
+msgid "Mark as abandoned after"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:94
+msgid "Minutes of inactivity before a cart is considered abandoned. The scan runs every 15 minutes."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:95
+#: includes/Admin/SettingsPage.php:130
+msgid "minutes"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:100
+msgid "Recovery link lifetime"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:102
+msgid "How long a recovery link stays valid. Afterwards the cart is marked as lost."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:103
+#: includes/Admin/SettingsPage.php:111
+#: includes/Admin/SettingsPage.php:159
+msgid "days"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:108
+msgid "Do not e-mail the same address more often than once every"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:110
+msgid "Protects frequent shoppers from repeated reminders. Set to 0 to disable."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:122
+msgid "Reminder e-mail"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:127
+msgid "Send after abandonment"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:133
+msgid "Subject"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:137
+msgid "Message"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:139
+msgid "Placeholders:"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:151
+msgid "Data retention"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:152
+msgid "The plugin stores the e-mail address, the name and the cart contents of shoppers who did not complete an order. Rows are deleted automatically once they are older than the retention period."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:156
+msgid "Delete cart data after"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:158
+msgid "Set to 0 to keep the data indefinitely (not recommended)."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:183
+msgid "Insufficient permissions."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:205
+msgid "Settings saved."
+msgstr ""
+
+#: includes/Core/Cron.php:37
+msgid "Every 15 minutes (CatCode Abandoned Cart)"
+msgstr ""
+
+#: includes/Core/Mailer.php:106
+msgid "there"
+msgstr ""
+
+#. translators: 1: product name, 2: quantity, 3: line total.
+#: includes/Core/Mailer.php:130
+#, php-format
+msgid "%1$s — %2$d pcs — %3$s"
+msgstr ""
+
+#: includes/Core/Plugin.php:114
+msgid "Carts"
+msgstr ""
+
+#: includes/Core/Privacy.php:34
+#: includes/Core/Privacy.php:49
+msgid "Abandoned carts (CatCode)"
+msgstr ""
+
+#: includes/Core/Privacy.php:76
+msgid "Abandoned carts"
+msgstr ""
+
+#: includes/Core/Privacy.php:80
+msgid "E-mail"
+msgstr ""
+
+#: includes/Core/Privacy.php:84
+msgid "Name"
+msgstr ""
+
+#: includes/Core/Privacy.php:88
+msgid "Cart contents"
+msgstr ""
+
+#: includes/Core/Privacy.php:92
+msgid "Cart total"
+msgstr ""
+
+#: includes/Core/Privacy.php:100
+msgid "Reminders sent"
+msgstr ""
+
+#: includes/Core/Privacy.php:104
+msgid "Captured on"
+msgstr ""
+
+#: includes/Core/Privacy.php:143
+msgid "When you add products to your cart and enter your e-mail address at checkout, this store saves your e-mail address, your name, the contents of your cart and its total so that it can send you a reminder if you do not complete the order."
+msgstr ""
+
+#. translators: %d: number of days cart data is retained.
+#: includes/Core/Privacy.php:147
+#, php-format
+msgid "This data is stored in the store database and is automatically deleted %d days after the cart was last updated. It is never sent to any third party."
+msgstr ""
+
+#: includes/Core/Recovery.php:46
+msgid "This recovery link is no longer valid."
+msgstr ""
+
+#: includes/Core/Recovery.php:61
+msgid "This recovery link has expired."
+msgstr ""
+
+#: includes/Core/Recovery.php:80
+msgid "Welcome back — your cart has been restored."
+msgstr ""
+
+#: includes/Core/Recovery.php:89
+msgid "Sorry, the products from that cart are no longer available."
+msgstr ""
+
+#: includes/Core/Rest.php:58
+msgid "Invalid security token."
+msgstr ""
+
+#: includes/Core/Rest.php:67
+msgid "A valid e-mail address is required."
+msgstr ""

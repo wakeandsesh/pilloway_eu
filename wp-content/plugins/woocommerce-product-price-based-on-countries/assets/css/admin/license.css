@@ -1,0 +1,207 @@
+div.woocommerce div.wcpbc-license-panel.flex-panel {
+	--wcpbc-settings-input-border-color: #8c8f94;
+	--wcpbc-border-color: #e1e1e1;
+	--wcpbc-error-color: #b81c23;
+	--wcpbc-warning-color: #ffc322;
+	max-width: 1200px;
+	margin-top: 1.5em;
+	background: #fff;
+	border-left: 1px solid var(--wcpbc-border-color);
+	border-right: 1px solid var(--wcpbc-border-color);
+}
+
+div.woocommerce div.wcpbc-license-panel.flex-panel .button {
+	background-color: #955a89;
+	border-width: 0;
+	box-shadow: none;
+	border-radius: 3px;
+	color: #fff;
+	height: auto;
+	padding: 3px 14px;
+	text-align: center;
+	white-space: normal !important;
+}
+
+div.woocommerce div.wcpbc-license-panel.flex-panel > div.row {
+	width: 100%;
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+}
+
+div.woocommerce div.wcpbc-license-panel.flex-panel > div.row p {
+	margin: 2px 0 0.8em;
+}
+
+div.woocommerce div.wcpbc-license-panel.flex-panel > div.row span.dashicons {
+	margin: 0 5px 0 0;
+	line-height: 1.1;
+}
+
+div.woocommerce div.wcpbc-license-panel.flex-panel > div.row > div {
+	padding: 22px;
+}
+
+div.woocommerce div.wcpbc-license-panel.flex-panel > div.row.is-ext-header {
+	border-top: 1px solid var(--wcpbc-border-color);
+}
+
+div.woocommerce div.wcpbc-license-panel.flex-panel > div.row.is-ext-header > div.ext-title {
+	width: 30%;
+}
+
+div.woocommerce div.wcpbc-license-panel.flex-panel > div.row.is-ext-header > div.ext-title h3 {
+	font-size: 18px;
+	font-weight: 600;
+	margin: 0;
+}
+
+div.woocommerce div.wcpbc-license-panel.flex-panel > div.row.is-ext-header > div.ext-description {
+	flex: 1 1 0;
+}
+
+div.woocommerce div.wcpbc-license-panel.flex-panel > div.row.is-ext-header > div.ext-description span.renews {
+	display: block;
+}
+
+div.woocommerce div.wcpbc-license-panel.flex-panel > div.row.is-ext-header > div.ext-description .wcpbc-input-container .wcpbc-input-label {
+	margin: 0 0 8px 0;
+	display: block;
+	font-weight: 400;
+	font-size: 14px;
+}
+
+div.woocommerce div.wcpbc-license-panel.flex-panel > div.row.is-ext-header > div.ext-description .wcpbc-input-container .wcpbc-input-wrap {
+	padding: 0;
+	margin: 0;
+	display: block;
+}
+
+div.woocommerce div.wcpbc-license-panel.flex-panel > div.row.is-ext-header > div.ext-description .wcpbc-input-container input {
+	width: 100%;
+	max-width: 100%;
+	border-color: var(--wcpbc-settings-input-border-color);
+}
+
+div.woocommerce div.wcpbc-license-panel.flex-panel > div.row.is-ext-header > div.ext-description .wcpbc-input-container p.wcpbc-input-help {
+	margin: 8px 0 0 0;
+	font-size: 13px;
+	font-style: normal;
+	color: #757575;
+}
+
+div.woocommerce div.wcpbc-license-panel.flex-panel > div.row > .ext-actions {
+	min-width: 110px;
+	width: 12%;
+	text-align: right;
+}
+
+div.woocommerce div.wcpbc-license-panel.flex-panel > div.row > .ext-actions p.submit {
+	margin: 0;
+	padding: 0;
+	text-align: inherit;
+	line-height: inherit;
+}
+
+div.woocommerce div.wcpbc-license-panel.flex-panel > div.row.is-ext-header > .ext-actions  .wcpbc-input-container .wcpbc-input-label.-label-true-false {
+	color: #87a6bc;
+	font-size: 13px;
+	line-height: 16px;
+	margin-left: 12px;
+	margin-right: 8px;
+	vertical-align: top;
+	text-transform: uppercase;
+}
+
+div.woocommerce div.wcpbc-license-panel.flex-panel > div.row.ext-updates {
+	box-shadow: inset 0 -1px 0 #e1e1e1;
+	position: relative;
+}
+
+div.woocommerce div.wcpbc-license-panel.flex-panel > div.row.ext-updates::before {
+	background-color: var(--wcpbc-border-color);
+	content: " ";
+	height: 1px;
+	position: absolute;
+	top: 0;
+	right: 22px;
+	width: calc(100% - 44px);
+}
+
+div.wcpbc-license-panel.flex-panel > div.row.ext-updates > div.ext-status::after {
+	content: " ";
+	position: absolute;
+	top: 0;
+	right: 0;
+	left:0;
+	bottom: 0;
+	width: 5px;
+}
+
+div.wcpbc-license-panel.flex-panel > div.row.ext-updates > div.ext-status.-error::after {
+	background-color: var(--wcpbc-error-color);
+}
+
+div.wcpbc-license-panel.flex-panel > div.row.ext-updates > div.ext-status.-warning::after {
+	background-color: var(--wcpbc-warning-color);
+}
+
+div.wcpbc-license-panel.flex-panel > div.row.ext-updates > div.ext-status.-success::after {
+	background-color: var(--wp-admin-theme-color);
+}
+
+div.wcpbc-license-panel.flex-panel > div.row.ext-updates > div.ext-status {
+	flex: 1 1 0;
+}
+
+div.wcpbc-license-panel.flex-panel > div.row.ext-updates > div.ext-status > p {
+	display: flex;
+}
+
+div.wcpbc-license-panel.flex-panel div.row.ext-updates > div.ext-status.-error .dashicons {
+	color: var(--wcpbc-error-color);
+}
+
+div.wcpbc-license-panel.flex-panel div.row.ext-updates > div.ext-status.-warning .dashicons {
+	color: var(--wcpbc-warning-color);
+}
+
+div.wcpbc-license-panel.flex-panel div.row.ext-updates > div.ext-status.-success .dashicons {
+	color: var(--wp-admin-theme-color);
+}
+
+div.wcpbc-license-panel.flex-panel div.row.ext-updates code.license-error {
+	display: block;
+	margin: 4px 0 0 25px;
+	padding: 0.5em 1em;
+}
+
+@media (max-width: 782px) {
+	div.woocommerce div.wcpbc-license-panel.flex-panel > div.row {
+		flex-wrap: wrap;
+	}
+
+	div.woocommerce div.wcpbc-license-panel.flex-panel > div.row.is-ext-header > div.ext-title {
+		width: 100%;
+	}
+
+	div.woocommerce div.wcpbc-license-panel.flex-panel > div.row > .ext-actions {
+		width: 100%;
+		text-align: center;
+	}
+
+	div.woocommerce div.wcpbc-license-panel.flex-panel > div.row > .ext-actions .button {
+		width: 100%;
+	}
+
+	div.wcpbc-license-panel.flex-panel > div.row.ext-updates > div.ext-status > p {
+		font-size: 14px;
+	}
+}
+
+/**
+ * RTL
+ */
+body.rtl div.woocommerce div.wcpbc-license-panel.flex-panel > div.row span.dashicons {
+	margin: 0 0 0 5px;
+}

@@ -1,0 +1,12 @@
+.npwforwc-order-edit-widget-wrapper {
+  font-size: 0.8125rem; // 13px
+  display: flex;
+  flex-direction: column;
+   > * + * {
+    margin-top: 12px !important;
+   }
+}
+
+.npwforwc-save-button {
+  margin-left: auto;
+}

@@ -1,0 +1,527 @@
+# Copyright (C) 2026 CatCode
+# This file is distributed under the GPLv2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: CatCode Order Notifications with Telegram for WooCommerce 1.1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/catcode-order-notifications-with-telegram-for-woocommerce\n"
+"POT-Creation-Date: 2026-08-11T14:12:46+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Domain: catcode-order-notifications-with-telegram-for-woocommerce\n"
+"X-Generator: WP-CLI 2.12.0\n"
+
+#. Plugin Name of the plugin
+#: catcode-order-notifications-with-telegram-for-woocommerce.php
+msgid "CatCode Order Notifications with Telegram for WooCommerce"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: catcode-order-notifications-with-telegram-for-woocommerce.php
+msgid ""
+"https://catcode.com.ua/modules/telegram-order-notifications-for-woocommerce/"
+msgstr ""
+
+#. Description of the plugin
+#: catcode-order-notifications-with-telegram-for-woocommerce.php
+msgid ""
+"Instant WooCommerce order notifications in Telegram: new orders, status "
+"changes, failed payments, low stock and leads from site forms (Contact Form "
+"7). Flexible message templates, multiple chats and topics, and a delivery "
+"log."
+msgstr ""
+
+#. Author of the plugin
+#: catcode-order-notifications-with-telegram-for-woocommerce.php
+msgid "CatCode"
+msgstr ""
+
+#. Author URI of the plugin
+#: catcode-order-notifications-with-telegram-for-woocommerce.php
+msgid "https://catcode.com.ua"
+msgstr ""
+
+#: catcode-order-notifications-with-telegram-for-woocommerce.php:41
+msgid ""
+"Two copies of Telegram Notifications are active. Keep only one of them."
+msgstr ""
+
+#: catcode-order-notifications-with-telegram-for-woocommerce.php:101
+msgid ""
+"CatCode Order Notifications with Telegram for WooCommerce requires an active"
+" WooCommerce installation."
+msgstr ""
+
+#: includes/Admin/Notice.php:59
+msgid "Telegram notifications are working."
+msgstr ""
+
+#: includes/Admin/Notice.php:61
+msgid ""
+"The plugin is free — if it works for you, please leave a review, it helps "
+"keep it going."
+msgstr ""
+
+#: includes/Admin/Notice.php:63
+msgid "Leave a review"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:38 includes/Admin/SettingsPage.php:39
+#: includes/Admin/SettingsPage.php:70
+msgid "Telegram Notifications"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:71
+msgid ""
+"Instant WooCommerce order notifications to a Telegram chat, group or topic."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:80
+msgid "Settings"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:81
+msgid "Log"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:103
+msgid "Connection"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:106
+msgid "Bot token"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:107
+msgid "•••••• saved — enter to replace"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:108
+msgid ""
+"Create a bot via @BotFather → /newbot and paste the token you receive. It is"
+" stored encrypted."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:108
+msgid "Token saved."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:111
+msgid "Chats for notifications"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:113
+msgid ""
+"One per line: a chat id, a group id (negative) or a channel @username. For a"
+" topic in a forum group append \":topic_id\" — e.g. -1001234567890:42."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:116
+msgid "Silent messages"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:117
+msgid "Send notifications without sound"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:124
+msgid "Events"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:127 includes/Admin/SettingsPage.php:159
+msgid "New order"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:128
+msgid "Notify about new orders"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:130
+msgid ""
+"An order is announced once — the first time it enters one of the selected "
+"statuses."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:133 includes/Admin/SettingsPage.php:160
+msgid "Status change"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:134
+msgid "Notify about order status changes"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:138
+msgid "Failed payment"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:139
+msgid "Notify about orders with the \"Failed\" status"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:142 includes/Admin/SettingsPage.php:161
+msgid "Low stock"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:143
+msgid "Notify when a product reaches the low-stock threshold"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:144
+msgid ""
+"The threshold is taken from WooCommerce → Settings → Products → Inventory."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:147
+msgid "Site form leads"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:148
+msgid "Notify about leads from site forms"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:149
+msgid ""
+"Works with Contact Form 7 and with any plugin that fires the "
+"catcode_lead_captured action (KeyCRM Form Catcher, for example — then the "
+"lead also carries its type, product and SKU)."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:156
+msgid "Message templates"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:162
+msgid "Form lead"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:165
+msgid "Available tags:"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:173
+msgid ""
+"A line whose tags are all empty is removed from the message. Allowed "
+"Telegram markup: <b>, <i>, <u>, <s>, <code>, <a href>."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:177
+msgid "Save settings"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:187
+msgid "Send a test message"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:188
+msgid "Checks the token and sends a test to all specified chats."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:194
+msgid "Find chat_id"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:195
+msgid ""
+"Send the bot any message (or add it to a group) and click — it will show the"
+" chat ids."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:224
+msgid "Recent deliveries"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:227
+msgid "No events yet."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:233
+msgid "Date"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:234
+msgid "Order"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:235
+msgid "Event"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:236
+msgid "Chat"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:238
+msgid "Result"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:239
+msgid "Message"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:251
+msgid "Error"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:260 includes/Admin/SettingsPage.php:338
+#: includes/Admin/SettingsPage.php:388
+msgid "Insufficient permissions"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:290
+msgid "Settings saved."
+msgstr ""
+
+#. translators: %s — error details.
+#: includes/Admin/SettingsPage.php:346
+#, php-format
+msgid "Token error: %s"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:351
+msgid "No chats specified."
+msgstr ""
+
+#. translators: 1: line break, 2: site name, 3: line break.
+#: includes/Admin/SettingsPage.php:356
+#, php-format
+msgid ""
+"✅ <b>Test message</b>%1$sStore: %2$s%3$sTelegram notifications are "
+"configured."
+msgstr ""
+
+#. translators: 1: bot username, 2: number of chats.
+#: includes/Admin/SettingsPage.php:376
+#, php-format
+msgid "Bot @%1$s — message sent to %2$d chat(s)."
+msgstr ""
+
+#. translators: %s — list of errors.
+#: includes/Admin/SettingsPage.php:379
+#, php-format
+msgid "Not delivered: %s"
+msgstr ""
+
+#. translators: %s — error details.
+#: includes/Admin/SettingsPage.php:395
+#, php-format
+msgid "Error: %s"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:411
+msgid ""
+"No updates. Send the bot a message (or add it to a group) and try again. If "
+"the bot has a webhook enabled, getUpdates will not work."
+msgstr ""
+
+#. translators: %s — list of chat ids.
+#: includes/Admin/SettingsPage.php:415
+#, php-format
+msgid "Chats found: %s"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:423
+msgid "Order number"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:424
+msgid "Order ID"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:425
+msgid "Order total"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:426
+msgid "Current status"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:427
+msgid "Previous status"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:428
+msgid "Order date"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:429
+msgid "Items list"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:430
+msgid "Item count"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:431
+msgid "Customer name"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:432
+msgid "Phone"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:433
+msgid "Email"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:434
+msgid "Customer note"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:435
+msgid "Payment method"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:436
+msgid "Shipping method"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:437
+msgid "Shipping total"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:438
+msgid "Billing address"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:439
+msgid "Shipping address"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:440
+msgid "Admin link"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:441
+msgid "Store name"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:442
+msgid "Product name (low stock)"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:443
+msgid "SKU (low stock)"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:444
+msgid "Stock quantity (low stock)"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:445
+msgid "Lead type (form lead)"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:446
+msgid "Form title (form lead)"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:447
+msgid "Name (form lead)"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:448
+msgid "Phone (form lead)"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:449
+msgid "Email (form lead)"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:450
+msgid "Comment (form lead)"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:451
+msgid "Product (form lead)"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:452
+msgid "Other form fields"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:453
+msgid "Page the lead was sent from"
+msgstr ""
+
+#: includes/Api/Client.php:100
+msgid "Bot token is not set."
+msgstr ""
+
+#: includes/Formatter.php:48
+msgid "Open product"
+msgstr ""
+
+#: includes/Formatter.php:51
+msgid "Edit product"
+msgstr ""
+
+#: includes/Formatter.php:83
+msgid "Lead page"
+msgstr ""
+
+#: includes/Formatter.php:119
+msgid "Open order"
+msgstr ""
+
+#. translators: Telegram message template. Keep the {tags} as-is — they are
+#. replaced with order data.
+#: includes/Core/Installer.php:0
+msgid ""
+"🔄 <b>Order {order_number}</b>\n"
+"Status: {order_status_old} → <b>{order_status}</b>\n"
+"Total: {order_total}\n"
+"{admin_url}"
+msgstr ""
+
+#. translators: Telegram message template. Keep the {tags} as-is — they are
+#. replaced with order data.
+#: includes/Core/Installer.php:0
+msgid ""
+"⚠️ <b>Low stock</b>\n"
+"{product_name}\n"
+"SKU: {product_sku}\n"
+"Remaining: <b>{stock_qty}</b>"
+msgstr ""
+
+#. translators: Telegram message template. Keep the {tags} as-is — they are
+#. replaced with order data.
+#: includes/Core/Installer.php:0
+msgid ""
+"📩 <b>{type}</b>\n"
+"👤 {name}\n"
+"📞 {phone}\n"
+"✉️ {email}\n"
+"📦 {product}\n"
+"🔖 SKU: {product_sku}\n"
+"📝 {comment}\n"
+"{extra}\n"
+"{page_url}"
+msgstr ""
+
+#. translators: Telegram message template. Keep the {tags} as-is — they are
+#. replaced with order data.
+#: includes/Core/Installer.php:0
+msgid ""
+"🛒 <b>New order {order_number}</b>\n"
+"👤 {customer_name}\n"
+"📞 {customer_phone}\n"
+"💳 {payment_method}\n"
+"🚚 {shipping_method}\n"
+"📍 {shipping_address}\n"
+"\n"
+"{items}\n"
+"💰 Total: <b>{order_total}</b>\n"
+"📝 {customer_note}\n"
+"{admin_url}"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php
+msgid "Instant notifications about site form submissions to a Telegram chat, group or topic."
+msgstr ""
+
+#: catcode-order-notifications-with-telegram-for-woocommerce.php
+msgid "Telegram Notifications: neither WooCommerce nor a form source (Contact Form 7) was found, so nothing will be sent yet."
+msgstr ""

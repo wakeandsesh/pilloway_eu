@@ -1,0 +1,39 @@
+.tabs-container {
+  display: flex;
+  justify-content: space-between;
+  background: #f3f3f5;
+  border-radius: 9px;
+  padding: 2px;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.tab-button {
+  padding: 6px 12px;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #475569;
+  transition: background 0.2s, color 0.2s;
+  flex: 1;
+  font-weight: 500;
+  font-size: 1em;
+  min-height: 30px;
+
+  &:hover {
+    color: var(--color-accent);
+  }
+
+  &:focus {
+    outline: none;
+    color: var(--color-accent);
+  }
+
+  &.--active {
+    background: white;
+    color: var(--color-accent);
+    cursor: auto;
+    box-shadow: 0 2px 6px 0 #0000000A;
+  }
+}

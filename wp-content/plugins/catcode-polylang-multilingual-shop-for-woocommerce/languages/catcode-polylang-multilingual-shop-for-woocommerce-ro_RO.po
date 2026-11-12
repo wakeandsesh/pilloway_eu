@@ -1,0 +1,842 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Polylang Multilingual Shop\n"
+"Language: ro_RO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100>0 && n%100<20)) ? 1 : 2);\n"
+"X-Domain: catcode-polylang-multilingual-shop-for-woocommerce\n"
+
+#: includes/Pro/Bulk.php
+msgid "%d item without a language was put in the default language."
+msgid_plural "%d items without a language were put in the default language."
+msgstr[0] "%d element fără limbă a fost trecut în limba implicită."
+msgstr[1] "%d elemente fără limbă au fost trecute în limba implicită."
+msgstr[2] "%d de elemente fără limbă au fost trecute în limba implicită."
+
+#: includes/Admin/SettingsPage.php
+msgid "%d page translation created."
+msgid_plural "%d page translations created."
+msgstr[0] "A fost creată %d traducere de pagină."
+msgstr[1] "Au fost create %d traduceri de pagini."
+msgstr[2] "Au fost create %d de traduceri de pagini."
+
+#: includes/Admin/SettingsPage.php
+msgid ""
+"%d product has no language yet — Polylang offers to put such content in the "
+"default language on its Languages screen."
+msgid_plural ""
+"%d products have no language yet — Polylang offers to put such content in "
+"the default language on its Languages screen."
+msgstr[0] ""
+"%d produs nu are încă limbă — Polylang propune pe ecranul său Limbi trecerea"
+" acestui conținut în limba implicită."
+msgstr[1] ""
+"%d produse nu au încă limbă — Polylang propune pe ecranul său Limbi trecerea"
+" acestui conținut în limba implicită."
+msgstr[2] ""
+"%d de produse nu au încă limbă — Polylang propune pe ecranul său Limbi "
+"trecerea acestui conținut în limba implicită."
+
+#: includes/Admin/SettingsPage.php
+msgid "A coupon limited to a product or category covers it in every language."
+msgstr ""
+"Un cupon limitat la un produs sau o categorie se aplică acestuia în fiecare "
+"limbă."
+
+#: includes/Pro/License.php
+msgid "A trial has already been issued for this e-mail address."
+msgstr ""
+"Pentru această adresă de e-mail a fost deja emisă o perioadă de probă."
+
+#: includes/Pro/License.php
+msgid "A trial has already been issued for this site."
+msgstr "Pentru acest site a fost deja emisă o perioadă de probă."
+
+#: includes/Admin/SettingsPage.php
+msgid "Activate key"
+msgstr "Activați cheia"
+
+#: includes/Admin/SettingsPage.php
+msgid "Add your languages"
+msgstr "Adăugați limbile"
+
+#: includes/Admin/SettingsPage.php
+msgid ""
+"Attribute names and the e-mail subjects, headings and texts you typed in "
+"WooCommerce are translated in Languages → Translations."
+msgstr ""
+"Numele atributelor și subiectele, titlurile și textele e-mailurilor "
+"introduse în WooCommerce se traduc în Limbi → Traduceri."
+
+#: includes/Admin/SettingsPage.php
+msgid "Buy a licence"
+msgstr "Cumpărați licența"
+
+#: includes/Admin/SettingsPage.php
+msgid "Cancel"
+msgstr "Anulare"
+
+#: includes/Admin/PagesTool.php
+msgid "Cart"
+msgstr "Coș"
+
+#: catcode-polylang-multilingual-shop-for-woocommerce.php
+msgid "CatCode"
+msgstr "CatCode"
+
+#: includes/Pro/Bulk.php
+msgid "Categories, tags and attribute terms: %1$d of %2$d checked."
+msgstr "Categorii, etichete și termeni de atribut: %1$d din %2$d verificați."
+
+#: includes/Product/Fields.php
+msgid "Categories, tags, attributes and default variation"
+msgstr "Categorii, etichete, atribute și variația implicită"
+
+#: includes/Admin/PagesTool.php
+msgid "Checkout"
+msgstr "Finalizare comandă"
+
+#: includes/Admin/Ajax.php
+msgid "Choose a language other than the default one."
+msgstr "Alegeți o altă limbă decât cea implicită."
+
+#: includes/Admin/SettingsPage.php
+msgid ""
+"Copies of the original pages (with the cart / checkout / account block or "
+"shortcode) are published in each missing language. Translate their titles "
+"and slugs afterwards."
+msgstr ""
+"În fiecare limbă lipsă se publică copii ale paginilor originale (cu blocul "
+"sau shortcode-ul de coș / finalizare / cont). Traduceți apoi titlurile și "
+"slug-urile lor."
+
+#: includes/Pro/License.php
+msgid ""
+"Could not reach our licence server. We will retry automatically in a few "
+"hours."
+msgstr ""
+"Serverul de licențe nu a putut fi contactat. Vom reîncerca automat în câteva"
+" ore."
+
+#: includes/Admin/SettingsPage.php
+msgid "Could not reach the server. Try again in a moment."
+msgstr ""
+"Serverul nu a putut fi contactat. Încercați din nou peste câteva momente."
+
+#: includes/Admin/SettingsPage.php
+msgid "Create missing translations"
+msgstr "Creați traducerile lipsă"
+
+#: includes/Admin/SettingsPage.php
+msgid "Create the missing page translations"
+msgstr "Creați traducerile de pagini lipsă"
+
+#: includes/Admin/SettingsPage.php
+msgid ""
+"Create the missing translations of all categories, tags, attribute terms and"
+" products in this language? Existing translations are not touched."
+msgstr ""
+"Creați în această limbă traducerile lipsă ale tuturor categoriilor, "
+"etichetelor, termenilor de atribut și produselor? Traducerile existente nu "
+"sunt atinse."
+
+#: includes/Admin/SettingsPage.php
+msgid ""
+"Creates, in one run, the missing translations of every category, tag, "
+"attribute term and product of the default language — full copies, the same "
+"as the \"+\" button. Existing translations are not touched; the run can be "
+"stopped and started again. Pro feature."
+msgstr ""
+"Creează într-o singură rulare traducerile lipsă ale fiecărei categorii, "
+"etichete, termen de atribut și produs din limba implicită — copii complete, "
+"ca butonul „+”. Traducerile existente nu sunt atinse; rularea poate fi "
+"oprită și repornită. Funcție Pro."
+
+#: includes/Admin/SettingsPage.php
+msgid "Delete data on uninstall"
+msgstr "Ștergeți datele la dezinstalare"
+
+#: includes/Admin/SettingsPage.php
+msgid "Done. Translations created: %d."
+msgstr "Gata. Traduceri create: %d."
+
+#: includes/Admin/SettingsPage.php
+msgid "Draft"
+msgstr "Ciornă"
+
+#: includes/Admin/SettingsPage.php
+msgid "Draft — publish it after translating the texts"
+msgstr "Ciornă — publicați după traducerea textelor"
+
+#: includes/Admin/SettingsPage.php
+msgid ""
+"Each language needs its own shop, cart, checkout and account page. They are "
+"found automatically once they are translations of the pages set in "
+"WooCommerce → Settings → Advanced."
+msgstr ""
+"Fiecare limbă are nevoie de propriile pagini de magazin, coș, finalizare și "
+"cont. Ele sunt găsite automat de îndată ce sunt traduceri ale paginilor "
+"setate în WooCommerce → Setări → Avansat."
+
+#: includes/Pro/License.php
+msgid "Enter a licence key."
+msgstr "Introduceți o cheie de licență."
+
+#: includes/Pro/License.php
+msgid "Enter a valid e-mail address — the key will be sent there."
+msgstr "Introduceți o adresă de e-mail validă — cheia va fi trimisă acolo."
+
+#: includes/Admin/SettingsPage.php
+msgid "Free version."
+msgstr "Versiune gratuită."
+
+#: includes/Admin/SettingsPage.php
+msgid "Get the key"
+msgstr "Obțineți cheia"
+
+#: includes/Core/Environment.php
+msgid ""
+"Hyyan WooCommerce Polylang Integration is active. Deactivate it: both "
+"plugins would translate the cart and synchronise stock at the same time."
+msgstr ""
+"Hyyan WooCommerce Polylang Integration este activ. Dezactivați-l: ambele "
+"module ar traduce coșul și ar sincroniza stocul în același timp."
+
+#: includes/Admin/Ajax.php includes/Admin/PagesTool.php
+#: includes/Admin/ProductAdmin.php includes/Admin/SettingsPage.php
+msgid "Insufficient permissions."
+msgstr "Permisiuni insuficiente."
+
+#: includes/Pro/License.php
+msgid "Key not found. Check that you copied it in full, with no stray spaces."
+msgstr ""
+"Cheia nu a fost găsită. Verificați dacă ați copiat-o integral, fără spații "
+"în plus."
+
+#: includes/Admin/SettingsPage.php includes/Order/OrderLanguage.php
+#: includes/Pro/Csv.php
+msgid "Language"
+msgstr "Limbă"
+
+#: includes/Pro/Csv.php
+msgid "Language (Polylang)"
+msgstr "Limbă (Polylang)"
+
+#: includes/Admin/SettingsPage.php
+msgid "Languages and products"
+msgstr "Limbi și produse"
+
+#: includes/Admin/Ajax.php
+msgid "Licence active — the Pro features are unlocked."
+msgstr "Licență activă — funcțiile Pro sunt deblocate."
+
+#: includes/Admin/SettingsPage.php
+msgid "Licence key"
+msgstr "Cheie de licență"
+
+#: includes/Admin/Ajax.php
+msgid ""
+"Licence released from this site — the key can now be used on another store."
+msgstr ""
+"Licența a fost eliberată de pe acest site — cheia poate fi folosită acum în "
+"alt magazin."
+
+#: includes/Admin/SettingsPage.php
+msgid "Missing categories and attribute values"
+msgstr "Categorii și valori de atribut lipsă"
+
+#: includes/Admin/PagesTool.php
+msgid "My account"
+msgstr "Contul meu"
+
+#: includes/Admin/SettingsPage.php
+msgid "New product translation"
+msgstr "Traducere nouă de produs"
+
+#: includes/Pro/License.php
+msgid "No licence key is stored yet."
+msgstr "Nu este salvată încă nicio cheie de licență."
+
+#: includes/Admin/SettingsPage.php
+msgid "No licence yet?"
+msgstr "Nu aveți încă o licență?"
+
+#: includes/Admin/SettingsPage.php
+msgid "Not active yet"
+msgstr "Încă nu este activ"
+
+#: includes/Order/OrderLanguage.php
+msgid "Not set — store default"
+msgstr "Nesetat — implicit al magazinului"
+
+#: includes/Admin/SettingsPage.php
+msgid "Not translated yet"
+msgstr "Încă netradus"
+
+#: includes/Admin/SettingsPage.php
+msgid "Open Languages"
+msgstr "Deschideți Limbi"
+
+#: includes/Order/OrderLanguage.php
+msgid "Order language (customer e-mails):"
+msgstr "Limba comenzii (e-mailuri către client):"
+
+#: includes/Admin/SettingsPage.php
+msgid "Page"
+msgstr "Pagină"
+
+#: includes/Admin/SettingsPage.php
+msgid "Payment and shipping texts"
+msgstr "Texte de plată și livrare"
+
+#: includes/Core/Environment.php
+msgid "Polylang %1$s or newer is required, %2$s is installed."
+msgstr "Este necesar Polylang %1$s sau mai nou, este instalat %2$s."
+
+#: includes/Admin/SettingsPage.php
+msgid "Polylang Multilingual Shop"
+msgstr "Polylang Multilingual Shop"
+
+#: catcode-polylang-multilingual-shop-for-woocommerce.php
+msgid "Polylang Multilingual Shop for WooCommerce"
+msgstr "Polylang Multilingual Shop pentru WooCommerce"
+
+#: includes/Core/Plugin.php
+msgid "Polylang Multilingual Shop is paused:"
+msgstr "Polylang Multilingual Shop este în pauză:"
+
+#: includes/Admin/SettingsPage.php
+msgid "Polylang Shop"
+msgstr "Polylang Shop"
+
+#: includes/Core/Environment.php
+msgid ""
+"Polylang for WooCommerce is active. It already connects WooCommerce with "
+"Polylang — keep only one of the two plugins."
+msgstr ""
+"Polylang for WooCommerce este activ. El conectează deja WooCommerce cu "
+"Polylang — păstrați doar unul dintre cele două module."
+
+#: includes/Admin/SettingsPage.php
+msgid ""
+"Polylang has no languages yet. Add the store languages in Languages → "
+"Languages, then come back here."
+msgstr ""
+"Polylang nu are încă limbi. Adăugați limbile magazinului în Limbi → Limbi, "
+"apoi reveniți aici."
+
+#: includes/Product/Translator.php
+msgid "Polylang is not active or has no languages."
+msgstr "Polylang nu este activ sau nu are limbi."
+
+#: includes/Core/Environment.php
+msgid ""
+"Polylang is not active. Install and activate the free Polylang plugin from "
+"wordpress.org."
+msgstr ""
+"Polylang nu este activ. Instalați și activați modulul gratuit Polylang de pe"
+" wordpress.org."
+
+#: includes/Product/Fields.php
+msgid "Prices and sale dates"
+msgstr "Prețuri și date de reducere"
+
+#: includes/Admin/SettingsPage.php
+msgid ""
+"Prices, stock, SKU and the other shared data stay the same in every "
+"translation — edit any language, the others follow. An order in one language"
+" takes the stock of all."
+msgstr ""
+"Prețurile, stocul, SKU-ul și celelalte date comune sunt aceleași în fiecare "
+"traducere — editați orice limbă, celelalte urmează. O comandă într-o limbă "
+"scade stocul tuturor."
+
+#: includes/Admin/SettingsPage.php
+msgid "Pro is on — licence active."
+msgstr "Pro este activ — licență activă."
+
+#: includes/Admin/SettingsPage.php
+msgid "Pro is on — licence purchased, the features stay on for good."
+msgstr "Pro este activ — licență cumpărată, funcțiile rămân definitiv."
+
+#: includes/Admin/SettingsPage.php
+msgid "Pro is on — trial."
+msgstr "Pro este activ — perioadă de probă."
+
+#: includes/Admin/SettingsPage.php
+msgid "Pro licence"
+msgstr "Licență Pro"
+
+#: includes/Product/Fields.php
+msgid "Product image and gallery"
+msgstr "Imaginea și galeria produsului"
+
+#: includes/Product/Translator.php
+msgid "Product not found."
+msgstr "Produsul nu a fost găsit."
+
+#: includes/Admin/SettingsPage.php
+msgid "Products"
+msgstr "Produse"
+
+#: includes/Admin/SettingsPage.php
+msgid ""
+"Products, categories, tags and attribute terms have a language; each "
+"language shows its own."
+msgstr ""
+"Produsele, categoriile, etichetele și termenii de atribut au o limbă; "
+"fiecare limbă îi afișează pe ai săi."
+
+#: includes/Pro/Bulk.php
+msgid "Products: %1$d of %2$d checked."
+msgstr "Produse: %1$d din %2$d verificate."
+
+#: includes/Admin/SettingsPage.php
+msgid "Release licence"
+msgstr "Eliberați licența"
+
+#: includes/Admin/SettingsPage.php
+msgid ""
+"Release the licence from this site? The Pro features switch off here and the"
+" key becomes free for another store."
+msgstr ""
+"Eliberați licența de pe acest site? Funcțiile Pro se opresc aici, iar cheia "
+"devine liberă pentru alt magazin."
+
+#: includes/Admin/SettingsPage.php
+msgid "Renew the licence"
+msgstr "Reînnoiți licența"
+
+#: catcode-polylang-multilingual-shop-for-woocommerce.php
+msgid ""
+"Runs a multilingual WooCommerce store on the free Polylang: translatable "
+"products, variations, categories, tags and attributes, one-click product "
+"translation, shared price / stock / SKU across languages, shop, cart, "
+"checkout and account pages per language, the cart follows the language "
+"switch, the order keeps its language and customer e-mails go out in it. "
+"Classic and block checkout, HPOS compatible."
+msgstr ""
+"Un magazin WooCommerce multilingv cu Polylang gratuit: produse, variații, "
+"categorii, etichete și atribute traductibile, traducerea produsului dintr-un"
+" clic, preț / stoc / SKU comune tuturor limbilor, pagini de magazin, coș, "
+"finalizare și cont pentru fiecare limbă, coșul urmează schimbarea limbii, "
+"comanda își păstrează limba, iar e-mailurile către client pleacă în ea. "
+"Finalizare clasică și cu blocuri, compatibil HPOS."
+
+#: includes/Product/Fields.php
+msgid "SKU and GTIN"
+msgstr "SKU și GTIN"
+
+#: includes/Admin/SettingsPage.php
+msgid "Same as the original"
+msgstr "Ca la original"
+
+#: includes/Admin/SettingsPage.php
+msgid "Same status as the original"
+msgstr "Același statut ca originalul"
+
+#: includes/Admin/SettingsPage.php
+msgid "Save settings"
+msgstr "Salvați setările"
+
+#: includes/Admin/SettingsPage.php includes/Core/Plugin.php
+msgid "Settings"
+msgstr "Setări"
+
+#: includes/Admin/SettingsPage.php
+msgid "Settings saved."
+msgstr "Setările au fost salvate."
+
+#: includes/Admin/SettingsPage.php
+msgid "Shared by all translations"
+msgstr "Comun tuturor traducerilor"
+
+#: includes/Admin/PagesTool.php
+msgid "Shop"
+msgstr "Magazin"
+
+#: includes/Admin/SettingsPage.php
+msgid "Status of new products"
+msgstr "Statutul produselor noi"
+
+#: includes/Admin/SettingsPage.php
+msgid "Status: %s."
+msgstr "Stare: %s."
+
+#: includes/Product/Fields.php
+msgid "Stock quantity, stock status and backorders"
+msgstr "Cantitate în stoc, starea stocului și precomenzi"
+
+#: includes/Product/Fields.php
+msgid "Tax status and tax class"
+msgstr "Statut și clasă de taxă"
+
+#: includes/Admin/PagesTool.php
+msgid "Terms and conditions"
+msgstr "Termeni și condiții"
+
+#: includes/Pro/License.php
+msgid ""
+"The 7-day trial is over. Buy a licence on catcode.com.ua to switch the Pro "
+"features back on."
+msgstr ""
+"Perioada de probă de 7 zile s-a încheiat. Cumpărați o licență pe "
+"catcode.com.ua pentru a reactiva funcțiile Pro."
+
+#: includes/Admin/SettingsPage.php
+msgid ""
+"The key arrives by e-mail after purchase and is checked against "
+"catcode.com.ua. Once a purchased key is confirmed, Pro stays on for good — "
+"the licence term covers updates and support. A trial key switches Pro off "
+"when its 7 days are over."
+msgstr ""
+"Cheia sosește prin e-mail după cumpărare și este verificată pe "
+"catcode.com.ua. Odată ce o cheie cumpărată este confirmată, Pro rămâne "
+"definitiv — perioada licenței acoperă actualizările și asistența. O cheie de"
+" probă oprește Pro după 7 zile."
+
+#: includes/Product/Translator.php
+msgid "The product is already in this language."
+msgstr "Produsul este deja în această limbă."
+
+#: includes/Pro/License.php
+msgid ""
+"The server answered with something we could not read. Try again in a few "
+"minutes."
+msgstr ""
+"Serverul a răspuns cu ceva ce nu am putut citi. Încercați din nou peste "
+"câteva minute."
+
+#: includes/Admin/SettingsPage.php
+msgid ""
+"The step failed. Reload the page and start again — finished items are "
+"skipped."
+msgstr ""
+"Pasul a eșuat. Reîncărcați pagina și porniți din nou — elementele finalizate"
+" sunt omise."
+
+#: includes/Product/Translator.php
+msgid "The translation could not be saved."
+msgstr "Traducerea nu a putut fi salvată."
+
+#: includes/Admin/SettingsPage.php
+msgid "The trial has already been used on this site — one per install."
+msgstr ""
+"Perioada de probă a fost deja folosită pe acest site — una per instalare."
+
+#: includes/Admin/SettingsPage.php
+msgid ""
+"The trial issues a real 7-day key to your e-mail. No card, nothing is "
+"charged, and it never starts by itself."
+msgstr ""
+"Perioada de probă trimite o cheie reală de 7 zile pe e-mailul dumneavoastră."
+" Fără card, nu se percepe nimic și nu pornește niciodată singură."
+
+#: includes/Admin/SettingsPage.php
+msgid ""
+"The updates and support term ended on %s. Renew the licence to keep "
+"receiving new versions — the Pro features keep working either way."
+msgstr ""
+"Perioada de actualizări și asistență s-a încheiat pe %s. Reînnoiți licența "
+"pentru a primi în continuare versiuni noi — funcțiile Pro funcționează "
+"oricum."
+
+#: includes/Pro/License.php
+msgid ""
+"This key belongs to a different CatCode product, not to Polylang "
+"Multilingual Shop."
+msgstr ""
+"Această cheie aparține altui produs CatCode, nu lui Polylang Multilingual "
+"Shop."
+
+#: includes/Pro/License.php
+msgid "This key does not fit."
+msgstr "Această cheie nu se potrivește."
+
+#: includes/Pro/License.php
+msgid ""
+"This key is already in use on another store. Deactivate it there first."
+msgstr ""
+"Această cheie este deja folosită în alt magazin. Dezactivați-o mai întâi "
+"acolo."
+
+#: includes/Pro/License.php
+msgid "This key is no longer valid. Contact support if that is a mistake."
+msgstr ""
+"Această cheie nu mai este valabilă. Contactați asistența dacă este o "
+"greșeală."
+
+#: includes/Admin/ProductAdmin.php
+msgid ""
+"This product is also sold in: %1$s. Shared with those translations (a change"
+" here updates them too): %2$s. Texts stay per language."
+msgstr ""
+"Acest produs se vinde și în: %1$s. Comun cu aceste traduceri (o modificare "
+"aici le actualizează și pe ele): %2$s. Textele rămân separate pentru fiecare"
+" limbă."
+
+#: includes/Admin/SettingsPage.php
+msgid ""
+"To translate a product, open Products and click \"+\" in the column of the "
+"language: a full copy is created in that language, you translate the texts."
+msgstr ""
+"Pentru a traduce un produs, deschideți Produse și faceți clic pe „+” în "
+"coloana limbii: se creează o copie completă în acea limbă, iar dumneavoastră"
+" traduceți textele."
+
+#: includes/Pro/License.php
+msgid "Too many attempts. Try again in an hour."
+msgstr "Prea multe încercări. Încercați din nou peste o oră."
+
+#: includes/Admin/SettingsPage.php
+msgid ""
+"Translatable products, categories and attributes, one-click translation, "
+"shared price / stock / SKU, pages per language, the cart following the "
+"language and e-mails in the order language work without a licence. Pro adds "
+"translating the whole catalogue in one run, choosing what each language "
+"keeps separately, payment / shipping / checkout texts per language and CSV "
+"export / import with languages."
+msgstr ""
+"Produsele, categoriile și atributele traductibile, traducerea dintr-un clic,"
+" prețul / stocul / SKU-ul comune, paginile pentru fiecare limbă, coșul care "
+"urmează limba și e-mailurile în limba comenzii funcționează fără licență. "
+"Pro adaugă traducerea întregului catalog într-o singură rulare, alegerea a "
+"ceea ce păstrează separat fiecare limbă, texte de plată / livrare / "
+"finalizare pentru fiecare limbă și export / import CSV cu limbi."
+
+#: includes/Admin/SettingsPage.php
+msgid ""
+"Translate payment method titles, descriptions and instructions, shipping "
+"method titles, the store notice and the checkout privacy / terms texts in "
+"Languages → Translations. Pro feature."
+msgstr ""
+"Traduceți în Limbi → Traduceri titlurile, descrierile și instrucțiunile "
+"metodelor de plată, titlurile metodelor de livrare, anunțul magazinului și "
+"textele de confidențialitate / termeni de la finalizare. Funcție Pro."
+
+#: includes/Admin/SettingsPage.php
+msgid "Translate the whole catalogue"
+msgstr "Traduceți întregul catalog"
+
+#: includes/Admin/Ajax.php
+msgid "Translating the whole catalogue needs an active licence or trial."
+msgstr ""
+"Traducerea întregului catalog necesită o licență sau o perioadă de probă "
+"activă."
+
+#: includes/Admin/ProductAdmin.php
+msgid ""
+"Translation created as a copy of the original: prices, stock, SKU, images, "
+"categories, attributes and variations are already in place. Translate the "
+"name, descriptions and custom attribute values, then publish."
+msgstr ""
+"Traducerea a fost creată ca o copie a originalului: prețurile, stocul, SKU-"
+"ul, imaginile, categoriile, atributele și variațiile sunt deja la locul lor."
+" Traduceți numele, descrierile și valorile de atribut personalizate, apoi "
+"publicați."
+
+#: includes/Pro/Csv.php
+msgid "Translation group"
+msgstr "Grup de traduceri"
+
+#: includes/Pro/Csv.php
+msgid "Translation group (Polylang)"
+msgstr "Grup de traduceri (Polylang)"
+
+#: includes/Admin/Ajax.php
+msgid ""
+"Trial started — Pro works until %s. The key has also been e-mailed to you."
+msgstr ""
+"Perioada de probă a început — Pro funcționează până la %s. Cheia v-a fost "
+"trimisă și pe e-mail."
+
+#: includes/Admin/Ajax.php
+msgid "Trial started. The key has also been e-mailed to you."
+msgstr "Perioada de probă a început. Cheia v-a fost trimisă și pe e-mail."
+
+#: includes/Admin/SettingsPage.php
+msgid "Try Pro for 7 days"
+msgstr "Încercați Pro 7 zile"
+
+#: catcode-polylang-multilingual-shop-for-woocommerce.php
+msgid ""
+"Two copies of Polylang Multilingual Shop are active. The copy in \"%1$s\" is"
+" used; the copy in \"%2$s\" is paused — deactivate and delete the one you do"
+" not need."
+msgstr ""
+"Sunt active două copii ale Polylang Multilingual Shop. Este folosită copia "
+"din „%1$s”; copia din „%2$s” este în pauză — dezactivați-o și ștergeți-o pe "
+"cea de care nu aveți nevoie."
+
+#: includes/Product/Translator.php
+msgid "Unknown language."
+msgstr "Limbă necunoscută."
+
+#: includes/Admin/SettingsPage.php
+msgid ""
+"Untick what each language should keep separately — e.g. its own images, its "
+"own price or its own stock. Pro feature; without a licence everything in "
+"this list is shared."
+msgstr ""
+"Debifați ce trebuie să păstreze separat fiecare limbă — de ex. propriile "
+"imagini, propriul preț sau propriul stoc. Funcție Pro; fără licență, tot ce "
+"e în această listă este comun."
+
+#: includes/Admin/SettingsPage.php
+msgid "Updates and support until %s."
+msgstr "Actualizări și asistență până la %s."
+
+#: includes/Product/Fields.php
+msgid "Upsells, cross-sells and grouped products"
+msgstr "Vânzări suplimentare, vânzări încrucișate și produse grupate"
+
+#: includes/Admin/SettingsPage.php
+msgid "Valid until %s."
+msgstr "Valabilă până la %s."
+
+#: includes/Product/Fields.php
+msgid ""
+"Virtual / downloadable, files, featured, catalogue visibility, menu order, "
+"reviews, external URL"
+msgstr ""
+"Virtual / descărcabil, fișiere, recomandat, vizibilitate în catalog, ordine,"
+" recenzii, URL extern"
+
+#: includes/Product/Fields.php
+msgid "Weight, dimensions and shipping class"
+msgstr "Greutate, dimensiuni și clasă de livrare"
+
+#: includes/Admin/SettingsPage.php
+msgid "What happens in the shop"
+msgstr "Ce se întâmplă în magazin"
+
+#: includes/Admin/SettingsPage.php
+msgid ""
+"When a product is translated, create its categories, tags and attribute "
+"values in the target language as copies if they are not translated yet "
+"(rename them later in Products → Categories / Attributes)."
+msgstr ""
+"La traducerea unui produs, creați categoriile, etichetele și valorile de "
+"atribut ale acestuia în limba țintă ca și copii, dacă nu sunt încă traduse "
+"(redenumiți-le apoi în Produse → Categorii / Atribute)."
+
+#: includes/Admin/SettingsPage.php
+msgid ""
+"When a shopper switches language, the cart switches with them. The order "
+"keeps its language (see the Language column in Orders) and customer e-mails "
+"are sent in it."
+msgstr ""
+"Când un client schimbă limba, coșul se schimbă odată cu el. Comanda își "
+"păstrează limba (coloana „Limbă” din Comenzi), iar e-mailurile către client "
+"sunt trimise în ea."
+
+#: includes/Admin/SettingsPage.php
+msgid ""
+"When the plugin is deleted, also remove its settings, the links between "
+"variations and the language saved in orders. Products, translations and "
+"pages stay."
+msgstr ""
+"La ștergerea modulului, eliminați și setările sale, legăturile dintre "
+"variații și limba salvată în comenzi. Produsele, traducerile și paginile "
+"rămân."
+
+#: includes/Admin/SettingsPage.php
+msgid ""
+"Whole-catalogue translation, per-language data, payment / shipping / "
+"checkout texts per language and CSV with languages — free for 7 days. We "
+"e-mail you the key and switch Pro on right away."
+msgstr ""
+"Traducerea întregului catalog, date separate pe limbi, texte de plată / "
+"livrare / finalizare pentru fiecare limbă și CSV cu limbi — gratuit 7 zile. "
+"Vă trimitem cheia pe e-mail și activăm Pro imediat."
+
+#: includes/Admin/SettingsPage.php
+msgid ""
+"WooCommerce has no shop, cart, checkout or account page set (WooCommerce → "
+"Settings → Advanced)."
+msgstr ""
+"WooCommerce nu are setată nicio pagină de magazin, coș, finalizare sau cont "
+"(WooCommerce → Setări → Avansat)."
+
+#: includes/Core/Environment.php
+msgid "WooCommerce is not active."
+msgstr "WooCommerce nu este activ."
+
+#: includes/Admin/SettingsPage.php
+msgid "WooCommerce pages"
+msgstr "Pagini WooCommerce"
+
+#: includes/Admin/SettingsPage.php
+msgid "Your e-mail"
+msgstr "E-mailul dumneavoastră"
+
+#: includes/Admin/SettingsPage.php
+msgid "Your key:"
+msgstr "Cheia dumneavoastră:"
+
+#: includes/Admin/SettingsPage.php
+msgid "default"
+msgstr "implicită"
+
+#: catcode-polylang-multilingual-shop-for-woocommerce.php
+msgid "https://catcode.com.ua"
+msgstr "https://catcode.com.ua"
+
+#: catcode-polylang-multilingual-shop-for-woocommerce.php
+msgid ""
+"https://catcode.com.ua/modules/catcode-polylang-multilingual-shop-for-"
+"woocommerce/"
+msgstr ""
+"https://catcode.com.ua/modules/catcode-polylang-multilingual-shop-for-"
+"woocommerce/"
+
+#: includes/Pro/License.php
+msgid "invalid (last checked %s)"
+msgstr "nevalidă (ultima verificare %s)"
+
+#: includes/Admin/SettingsPage.php
+msgid "missing"
+msgstr "lipsește"
+
+#: includes/Pro/License.php
+msgid "not checked"
+msgstr "neverificată"
+
+#: includes/Pro/License.php
+msgid "purchased — the Pro features are yours for good"
+msgstr "cumpărată — funcțiile Pro sunt ale dumneavoastră definitiv"
+
+#: includes/Pro/License.php
+msgid ""
+"purchased — the Pro features are yours for good; the updates and support "
+"term has ended"
+msgstr ""
+"cumpărată — funcțiile Pro sunt ale dumneavoastră definitiv; perioada de "
+"actualizări și asistență s-a încheiat"
+
+#: includes/Pro/License.php
+msgid "trial active"
+msgstr "perioadă de probă activă"
+
+#: includes/Pro/License.php
+msgid "trial — %d day left"
+msgid_plural "trial — %d days left"
+msgstr[0] "perioadă de probă — a mai rămas %d zi"
+msgstr[1] "perioadă de probă — au mai rămas %d zile"
+msgstr[2] "perioadă de probă — au mai rămas %d de zile"
+
+#: includes/Pro/License.php
+msgid "valid (checked %1$d days ago, %2$d days of grace left)"
+msgstr "validă (verificată acum %1$d zile, mai sunt %2$d zile de grație)"
+
+#: includes/Pro/License.php
+msgid "valid (grace period over — waiting for a re-check)"
+msgstr ""
+"validă (perioada de grație s-a încheiat — se așteaptă o nouă verificare)"
+
+#: includes/Pro/License.php
+msgid "valid (not re-checked yet)"
+msgstr "validă (încă nereverificată)"

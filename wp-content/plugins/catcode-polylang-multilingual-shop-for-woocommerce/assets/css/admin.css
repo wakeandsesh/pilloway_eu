@@ -1,0 +1,106 @@
+/* Polylang Multilingual Shop — admin. */
+.catcode-plms-card {
+	max-width: 960px;
+	margin-top: 16px;
+	padding: 4px 20px 16px;
+	border: 1px solid #c3c4c7;
+	background: #fff;
+}
+
+.catcode-plms-table {
+	border-collapse: collapse;
+	margin: 8px 0 12px;
+}
+
+.catcode-plms-table th,
+.catcode-plms-table td {
+	padding: 6px 12px 6px 0;
+	text-align: left;
+	vertical-align: top;
+}
+
+.catcode-plms-table thead th {
+	border-bottom: 1px solid #dcdcde;
+}
+
+.catcode-plms-missing {
+	color: #b32d2e;
+	font-weight: 600;
+}
+
+.catcode-plms-ok {
+	color: #00a32a;
+}
+
+.catcode-plms-problems li {
+	color: #b32d2e;
+}
+
+.catcode-plms-groups label {
+	display: block;
+	margin: 0 0 6px;
+}
+
+.catcode-plms-locked {
+	opacity: 0.6;
+}
+
+.catcode-plms-msg {
+	margin: 6px 0 0;
+}
+
+.catcode-plms-msg--ok {
+	color: #00a32a;
+}
+
+.catcode-plms-msg--error {
+	color: #d63638;
+}
+
+.catcode-plms-log {
+	max-height: 220px;
+	overflow: auto;
+	margin: 10px 0 0;
+	padding: 8px 10px;
+	background: #f6f7f7;
+	font-family: Consolas, Monaco, monospace;
+	font-size: 12px;
+	white-space: pre-wrap;
+}
+
+.catcode-plms-log[hidden] {
+	display: none;
+}
+
+.catcode-plms-modal[hidden] {
+	display: none;
+}
+
+.catcode-plms-modal {
+	position: fixed;
+	inset: 0;
+	z-index: 100000;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.catcode-plms-modal__backdrop {
+	position: absolute;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.5);
+}
+
+.catcode-plms-modal__box {
+	position: relative;
+	max-width: 480px;
+	width: calc(100% - 32px);
+	padding: 8px 24px 16px;
+	background: #fff;
+	border-radius: 4px;
+	box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.catcode-plms-modal__key code {
+	user-select: all;
+}

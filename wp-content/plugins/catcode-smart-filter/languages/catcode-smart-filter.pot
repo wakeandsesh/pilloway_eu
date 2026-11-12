@@ -1,0 +1,416 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: CatCode Smart Filter for WooCommerce 1.0.0\n"
+"Report-Msgid-Bugs-To: https://catcode.com.ua/\n"
+"POT-Creation-Date: 2026-09-08T12:08:31+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language-Team: CatCode\n"
+"X-Domain: catcode-smart-filter\n"
+
+#: catcode-smart-filter.php:95
+msgid "CatCode Smart Filter needs WooCommerce to be active."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:38
+#: includes/Admin/SettingsPage.php:39
+msgid "Smart Filter"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:61
+msgid "Saved."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:62
+msgid "The request failed."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:63
+msgid "Indexing…"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:64
+msgid "Done."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:66
+msgid "Merge into…"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:67
+msgid "products"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:68
+msgid "Delete all filter data?"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:70
+#: templates/admin.php:150
+msgid "Rows in the index"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:71
+#: templates/admin.php:151
+msgid "Products"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:72
+#: templates/admin.php:36
+msgid "Facets"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:73
+msgid "Orphaned rows"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:74
+msgid "Products missing from the index"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:75
+#: templates/admin.php:60
+msgid "Values with no products"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:76
+msgid "WooCommerce lookup table"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:77
+msgid "Catalogue version"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:78
+msgid "ok"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:79
+msgid "MISSING"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:107
+msgid "Insufficient permissions."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:114
+msgid "Unknown action."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:159
+msgid "Settings saved."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:260
+msgid "Facets saved: %d."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:275
+msgid "Facet deleted."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:285
+msgid "Values merged."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:316
+msgid "Imported sources: %1$d, values: %2$d."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:364
+msgid "Stale rows removed: %d."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:429
+msgid "Facets, values and the index have been deleted."
+msgstr ""
+
+#: includes/Frontend/FilterWidget.php:23
+msgid "CatCode: Smart Filter"
+msgstr ""
+
+#: includes/Frontend/FilterWidget.php:25
+msgid "Faceted product filter for catalogue pages."
+msgstr ""
+
+#: includes/Frontend/FilterWidget.php:71
+msgid "Title:"
+msgstr ""
+
+#: includes/Frontend/Renderer.php:93
+msgid "Filter"
+msgstr ""
+
+#: includes/Frontend/Renderer.php:223
+msgid "Price"
+msgstr ""
+
+#: includes/Frontend/Renderer.php:251
+msgid "In stock"
+msgstr ""
+
+#: includes/Frontend/Renderer.php:252
+msgid "Out of stock"
+msgstr ""
+
+#: includes/Frontend/Renderer.php:279
+msgid "Stock status"
+msgstr ""
+
+#: includes/Frontend/Renderer.php:314
+msgid "%s stars and up"
+msgstr ""
+
+#: includes/Frontend/Renderer.php:326
+msgid "Rating"
+msgstr ""
+
+#: templates/admin.php:13
+msgid "Filter enabled"
+msgstr ""
+
+#: templates/admin.php:14
+msgid "Apply without a page reload"
+msgstr ""
+
+#: templates/admin.php:15
+msgid "Apply immediately on click"
+msgstr ""
+
+#: templates/admin.php:16
+msgid "Show counts"
+msgstr ""
+
+#: templates/admin.php:17
+msgid "Hide facets that have a single value"
+msgstr ""
+
+#: templates/admin.php:18
+msgid "Mobile drawer"
+msgstr ""
+
+#: templates/admin.php:19
+msgid "Show the selection as chips"
+msgstr ""
+
+#: templates/admin.php:20
+msgid "Price facet"
+msgstr ""
+
+#: templates/admin.php:21
+msgid "Stock facet"
+msgstr ""
+
+#: templates/admin.php:22
+msgid "Rating facet"
+msgstr ""
+
+#: templates/admin.php:23
+msgid "Reindex when a product is saved"
+msgstr ""
+
+#: templates/admin.php:24
+msgid "Cache the counters"
+msgstr ""
+
+#: templates/admin.php:25
+msgid "Load the plugin stylesheet"
+msgstr ""
+
+#: templates/admin.php:30
+msgid "CatCode — Smart Filter"
+msgstr ""
+
+#: templates/admin.php:35
+msgid "Settings"
+msgstr ""
+
+#: templates/admin.php:37
+msgid "Index"
+msgstr ""
+
+#: templates/admin.php:38
+msgid "Diagnostics"
+msgstr ""
+
+#: templates/admin.php:56
+msgid "Block heading"
+msgstr ""
+
+#: templates/admin.php:63
+msgid "Hide"
+msgstr ""
+
+#: templates/admin.php:64
+msgid "Show greyed out"
+msgstr ""
+
+#: templates/admin.php:69
+msgid "Values before “show more”"
+msgstr ""
+
+#: templates/admin.php:73
+msgid "Product grid selector"
+msgstr ""
+
+#: templates/admin.php:76
+msgid "What AJAX swaps in place. In most themes this is ul.products."
+msgstr ""
+
+#: templates/admin.php:80
+msgid "Also refresh"
+msgstr ""
+
+#: templates/admin.php:84
+msgid "Canonical of a filtered page"
+msgstr ""
+
+#: templates/admin.php:87
+msgid "The clean archive"
+msgstr ""
+
+#: templates/admin.php:88
+msgid "The filtered page itself"
+msgstr ""
+
+#: templates/admin.php:93
+msgid "Robots: one facet / several"
+msgstr ""
+
+#: templates/admin.php:100
+msgid "Products per indexing pass"
+msgstr ""
+
+#: templates/admin.php:104
+msgid "Counter cache lifetime, seconds"
+msgstr ""
+
+#: templates/admin.php:110
+msgid "Save"
+msgstr ""
+
+#: templates/admin.php:111
+msgid "Place the block: the “CatCode: Smart Filter” widget or the [catcode_filter] shortcode."
+msgstr ""
+
+#: templates/admin.php:118
+msgid "Import from the catalogue"
+msgstr ""
+
+#: templates/admin.php:119
+msgid "Save facets"
+msgstr ""
+
+#: templates/admin.php:127
+msgid "Facet"
+msgstr ""
+
+#: templates/admin.php:128
+msgid "Source"
+msgstr ""
+
+#: templates/admin.php:129
+msgid "Widget"
+msgstr ""
+
+#: templates/admin.php:130
+msgid "Logic"
+msgstr ""
+
+#: templates/admin.php:131
+msgid "URL key"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:65
+#: templates/admin.php:132
+msgid "Values"
+msgstr ""
+
+#: templates/admin.php:133
+msgid "Order"
+msgstr ""
+
+#: templates/admin.php:134
+msgid "Status"
+msgstr ""
+
+#: templates/admin.php:146
+msgid "The index is what the storefront reads. Build it once after importing facets; from then on every product save keeps it current."
+msgstr ""
+
+#: templates/admin.php:152
+msgid "Last full build"
+msgstr ""
+
+#: templates/admin.php:152
+msgid "never"
+msgstr ""
+
+#: templates/admin.php:158
+msgid "Rebuild the index"
+msgstr ""
+
+#: templates/admin.php:159
+msgid "Prune stale rows"
+msgstr ""
+
+#: templates/admin.php:164
+msgid "Run the check"
+msgstr ""
+
+#: templates/admin.php:167
+msgid "Delete all filter data"
+msgstr ""
+
+#: templates/filter.php:30
+msgid "Filters"
+msgstr ""
+
+#: templates/filter.php:44
+msgid "Found: %s"
+msgstr ""
+
+#: templates/filter.php:60
+#: templates/filter.php:173
+msgid "Reset all"
+msgstr ""
+
+#: templates/filter.php:67
+msgid "Nothing matches this set of filters."
+msgstr ""
+
+#: templates/filter.php:96
+#: templates/filter.php:106
+msgid "from"
+msgstr ""
+
+#: templates/filter.php:100
+#: templates/filter.php:107
+msgid "to"
+msgstr ""
+
+#: templates/filter.php:139
+msgid "Search values"
+msgstr ""
+
+#: templates/filter.php:156
+#: templates/filter.php:158
+msgid "Show more"
+msgstr ""
+
+#: templates/filter.php:157
+msgid "Show less"
+msgstr ""
+
+#: templates/filter.php:169
+msgid "Show results"
+msgstr ""
+
+#: includes/Frontend/Renderer.php:344
+msgid "On sale"
+msgstr ""
+
+#: includes/Frontend/Renderer.php:355
+msgid "Products on sale"
+msgstr ""

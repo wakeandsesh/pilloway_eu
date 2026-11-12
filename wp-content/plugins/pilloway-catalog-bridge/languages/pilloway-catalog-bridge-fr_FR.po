@@ -1,0 +1,38 @@
+msgid ""
+msgstr "Project-Id-Version: Pilloway Catalog Bridge 1.0.9\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nLanguage: fr_FR\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Pilloway selection"
+msgstr "La sélection Pilloway"
+
+msgid "Pilloway favourites"
+msgstr "Les favoris Pilloway"
+
+msgid "Comfort picks for rest, study and professional work."
+msgstr "Une sélection pour le repos, les études et le travail des professionnels."
+
+msgid "Comfort when resting on your stomach."
+msgstr "Confort pour se reposer sur le ventre."
+
+msgid "A comfortable seat for studying at a desk."
+msgstr "Une assise confortable au bureau pour les enfants."
+
+msgid "Everyday comfort for adult sleep."
+msgstr "Confort au quotidien pour le sommeil des adultes."
+
+msgid "Three pillows for lash professionals."
+msgstr "Trois coussins pour les professionnels des cils."
+
+msgid "View product"
+msgstr "Voir le produit"
+
+msgid "Pilloway offers"
+msgstr "Offres Pilloway"
+
+msgid "Up to 30% off"
+msgstr "Jusqu’à 30 % de réduction"
+
+msgid "on selected Pilloway orthopedic pillows"
+msgstr "sur une sélection d’oreillers orthopédiques Pilloway"
+
+msgid "Explore offers"
+msgstr "Voir les offres"

@@ -1,0 +1,19 @@
+/* Admin screen — WordPress core styles do the heavy lifting; this only fills gaps. */
+
+.ccf-admin .ccf-pane { margin-top: 1rem; }
+.ccf-admin table.widefat td input[type="text"],
+.ccf-admin table.widefat td select { width: 100%; max-width: 22rem; }
+.ccf-admin #ccf-values { margin-top: 1.5rem; }
+.ccf-admin #ccf-import label { padding: .15rem 0; }
+.ccf-admin #ccf-progress { margin: 1rem 0; display: flex; align-items: center; gap: .75rem; }
+.ccf-admin #ccf-progress progress { width: 22rem; height: 1rem; }
+
+.ccf-badge {
+	display: inline-block;
+	padding: .15rem .5rem;
+	border-radius: 999px;
+	background: #f0f0f1;
+	font-size: .8rem;
+}
+
+.ccf-badge--ok { background: #d7f5e3; color: #14603a; }

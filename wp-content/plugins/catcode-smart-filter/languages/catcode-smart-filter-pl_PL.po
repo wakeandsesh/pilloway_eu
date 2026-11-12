@@ -1,0 +1,66 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: CatCode Smart Filter 1.0.3\n"
+"Report-Msgid-Bugs-To: https://catcode.com.ua/\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pl_PL\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+
+msgid "Filter"
+msgstr "Filtr"
+
+msgid "Filters"
+msgstr "Filtry"
+
+msgid "Found: %s"
+msgstr "Znaleziono produktów: %s"
+
+msgid "Price"
+msgstr "Cena"
+
+msgid "In stock"
+msgstr "W magazynie"
+
+msgid "Out of stock"
+msgstr "Niedostępny"
+
+msgid "Stock status"
+msgstr "Dostępność"
+
+msgid "On sale"
+msgstr "W promocji"
+
+msgid "Products on sale"
+msgstr "Produkty w promocji"
+
+msgid "%s stars and up"
+msgstr "%s gwiazdek i więcej"
+
+msgid "Rating"
+msgstr "Ocena"
+
+msgid "Reset all"
+msgstr "Wyczyść wszystko"
+
+msgid "Nothing matches this set of filters."
+msgstr "Brak produktów pasujących do wybranych filtrów."
+
+msgid "from"
+msgstr "od"
+
+msgid "to"
+msgstr "do"
+
+msgid "Search values"
+msgstr "Szukaj wartości"
+
+msgid "Show more"
+msgstr "Pokaż więcej"
+
+msgid "Show less"
+msgstr "Pokaż mniej"
+
+msgid "Show results"
+msgstr "Pokaż wyniki"

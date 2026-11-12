@@ -1,0 +1,2217 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WOO\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: Deutsch\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-11-20 14:31+0000\n"
+"PO-Revision-Date: 2026-06-01 10:16+0000\n"
+"Language: de_DE\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Domain: nova-post-for-woocommerce\n"
+"X-Loco-Version: 2.8.0; wp-6.8.3; php-8.3.28\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"https: //novapost.com\n"
+
+#. translators: %d: number of skipped shipments
+#: build/orderPageApp.js:20
+#, js-format
+msgid "%d order skipped"
+msgid_plural "%d orders skipped"
+msgstr[0] "%d Bestellung übersprungen"
+msgstr[1] "%d Bestellungen übersprungen"
+
+#. translators: %d is the number of shipments.
+#: includes/Admin/OrderBulkActions.php:97
+#, php-format
+msgid "%d shipment added to pickup"
+msgid_plural "%d shipments added to pickup"
+msgstr[0] "%d Sendung zur Abholung hinzugefügt."
+msgstr[1] "%d Sendungen zur Abholung hinzugefügt."
+
+#. translators: %d: number of successful shipments
+#: build/orderPageApp.js:18
+#, js-format
+msgid "%d shipment created successfully"
+msgid_plural "%d shipments created successfully"
+msgstr[0] "%d Sendung erfolgreich erstellt"
+msgstr[1] "%d Sendungen erfolgreich erstellt"
+
+#. translators: %d: number of failed shipments
+#: build/orderPageApp.js:19
+#, js-format
+msgid "%d shipment failed"
+msgid_plural "%d shipments failed"
+msgstr[0] "%d Sendung fehlgeschlagen"
+msgstr[1] "%d Sendungen fehlgeschlagen"
+
+#: build/admin.js:4
+msgid "8517120000 (for mobile phones)"
+msgstr "8517120000 (für Mobiltelefone)"
+
+#: build/shipment.js:7
+msgid "Account Number"
+msgstr "Kontonummer"
+
+#: build/shipment.js:7
+msgid "Add a note for this shipment"
+msgstr "Hinweis zu dieser Sendung hinzufügen"
+
+#: build/admin.js:7
+msgid "Add Box"
+msgstr "Box hinzufügen"
+
+#: build/shipment.js:7
+msgid "Additional Services"
+msgstr "Zusatzleistungen"
+
+#: views/order/division-info.php:46
+#: build/admin.js:4
+msgid "Address"
+msgstr "Adresse"
+
+#: includes/Validation/Requests/PickupTimeIntervalsValidator.php:75
+msgid "addressParts is required when departure method is address"
+msgstr "„addressParts“ ist erforderlich, wenn die Abfahrtsmethode „Adresse“ ist."
+
+#: includes/Shipping/NovaPostShippingMethodAddress.php:27
+msgid "Adds a Nova Post shipping method (Address)"
+msgstr "Fügt eine Nova Post-Versandmethode hinzu (Adresse)"
+
+#: includes/Shipping/NovaPostShippingMethodDivision.php:26
+msgid "Adds a Nova Post shipping method (Division/Branch)"
+msgstr "Fügt eine Nova Post-Versandmethode hinzu (Abteilung/Zweigstelle)"
+
+#: includes/Validation/SettingsPageValidator.php:128
+#: includes/Validation/SettingsPageValidator.php:129
+#: build/admin.js:7
+msgid "All dimensions are required for each box and must be positive numbers."
+msgstr "Für jeden Karton sind alle Abmessungen erforderlich und müssen positive Zahlen sein."
+
+#: build/admin.js:7
+msgid "Allowed Divisions Types"
+msgstr "Erlaubte Filialtypen"
+
+#: includes/Services/PickupService.php:374
+msgid "Already assigned to another pickup"
+msgstr "Bereits einer anderen Abholung zugewiesen."
+
+#: build/shipment.js:7
+msgid "Amount"
+msgstr "Betrag"
+
+#: build/orderPageApp.js:3
+msgid "An error occurred while generating documents"
+msgstr "Beim Generieren der Dokumente ist ein Fehler aufgetreten"
+
+#: includes/Api/Controllers/OrderController.php:74
+msgid "An error occurred while updating the order division."
+msgstr "Beim Aktualisieren der Bestellabteilung ist ein Fehler aufgetreten."
+
+#. translators: %s: error message
+#. translators: %s: Error message text.
+#: includes/Api/Controllers/BulkPrintController.php:103
+#: includes/Api/Controllers/ShipmentController.php:221
+#, php-format
+msgid "An unexpected error occurred: %s"
+msgstr "Ein unerwarteter Fehler ist aufgetreten: %s."
+
+#: build/shipment.js:7
+msgid "Apartment"
+msgstr "Wohnung"
+
+#: build/admin.js:1
+msgid "API Configuration"
+msgstr "API-Konfiguration"
+
+#: build/admin.js:1
+msgid "API configuration saved successfully!"
+msgstr "API-Konfiguration erfolgreich gespeichert!"
+
+#: includes/Validation/SettingsPageApiKeysValidator.php:50
+#: includes/Validation/SettingsPageValidator.php:103
+msgid "API key is required"
+msgstr "API-Schlüssel ist erforderlich."
+
+#: build/shipment.js:7
+msgid "Are you sure you want to delete this waybill?"
+msgstr "Möchten Sie diesen Frachtbrief wirklich löschen?"
+
+#: build/admin.js:7
+msgid "At least one custom box with valid dimensions is required."
+msgstr "Mindestens eine eigene Box mit gültigen Abmessungen ist erforderlich."
+
+#: includes/Validation/Rules/AtLeastOneDivisionFilterRule.php:55
+#: includes/Validation/SettingsPageValidator.php:238
+msgid "At least one division type must be enabled."
+msgstr "Mindestens ein Abteilungstyp muss aktiviert sein."
+
+#: includes/Services/ShipmentApiService.php:448
+msgid "At least one parcel is required"
+msgstr "Mindestens ein Paket ist erforderlich"
+
+#. translators: 1: currency symbol, 2: tooltip with supported currencies, 3: link to WooCommerce settings
+#: includes/Admin/AdminAlerts.php:89
+#, php-format
+msgid "Attention! The current currency of your store (%1$s) is not supported by the Nova Post API. Please change it for the plugin to work correctly. <a href=\"%3$s\">Set up currency</a>. %2$s"
+msgstr "Achtung! Die aktuelle Währung Ihres Shops (%1$s) wird von der Nova Post API nicht unterstützt. Bitte ändern Sie sie, damit das Plugin korrekt funktioniert. <a href=\"%3$s\">Währung einrichten</a>. %2$s"
+
+#: build/admin.js:7
+msgid "Auto-complete orders"
+msgstr "Bestellungen automatisch abschließen"
+
+#: build/admin.js:7
+msgid "Automatically change order status to ‘Completed' after creating a waybill. This triggers the standard email notification with tracking details to the customer."
+msgstr "Ändern Sie den Bestellstatus automatisch auf 'Abgeschlossen', nachdem ein Frachtbrief erstellt wurde. Dies löst die standardmäßige E-Mail-Benachrichtigung mit Tracking-Details an den Kunden aus."
+
+#: build/admin.js:7
+msgid "Bank Account Id"
+msgstr "Bankkontonummer"
+
+#: build/admin.js:7
+msgid "Bank Account Name or IBAN"
+msgstr "Name des Bankkontos oder IBAN"
+
+#. translators: %d: box number
+#: build/admin.js:7
+#, js-format
+msgid "Box %d"
+msgstr "Box %d"
+
+#: build/widget-classic-checkout.js:1
+#: build/widget-order-edit.js:10
+#: build/widget.js:1
+msgid "Branch"
+msgstr "Filiale"
+
+#: build/admin.js:1
+#: build/shipment.js:7
+msgid "Building"
+msgstr "Gebäude"
+
+#: includes/Validation/SettingsPageValidator.php:199
+msgid "Building number must contain only letters, numbers, spaces, dots, slashes and hyphens"
+msgstr "Die Gebäudenummer darf nur Buchstaben, Zahlen, Leerzeichen, Punkte, Schrägstriche und Bindestriche enthalten."
+
+#: build/orderPageApp.js:3
+#: build/orderPageApp.js:22
+#: build/shipment.js:7
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: build/shipment.js:7
+msgid "Cannot delete waybill with this status"
+msgstr "Frachtbrief mit diesem Status kann nicht gelöscht werden"
+
+#. translators: %d: maximum shipments per pickup.
+#: includes/Services/PickupService.php:291
+#, php-format
+msgid "Cannot exceed %d shipments per pickup"
+msgstr "Pro Abholung dürfen nicht mehr als %d Sendungen hinzugefügt werden."
+
+#: build/shipment.js:7
+msgid "Card Number"
+msgstr "Kartennummer"
+
+#: build/admin.js:7
+#: build/widget-classic-checkout.js:1
+#: build/widget.js:1
+msgid "Freight branch"
+msgstr "Güterverkehrssparte"
+
+#: build/admin.js:4
+msgid "Carrier calculation"
+msgstr "Berechnung des Versanddienstleisters"
+
+#: build/admin.js:4
+msgid "Carrier shipping calculation"
+msgstr "Berechnung der Versandkosten"
+
+#: build/admin.js:7
+msgid "Cash on Delivery"
+msgstr "Nachnahme"
+
+#: views/order/division-info.php:56
+msgid "Changing the division will not affect the already created shipment. You need to delete the shipment."
+msgstr "Das Ändern der Abteilung hat keine Auswirkungen auf die bereits erstellte Sendung. Sie müssen die Sendung löschen."
+
+#: build/admin.js:7
+msgid "Choose who pays the commission for the cash on delivery service. If off, the commission will be added to the total amount the buyer has to pay. If on, the buyer will only pay for the goods and their delivery."
+msgstr "Wählen Sie aus, wer die Provision für den Nachnahmeservice bezahlt. Wenn diese Option deaktiviert ist, wird die Provision zum Gesamtbetrag hinzugefügt, den der Käufer zu zahlen hat. Wenn diese Option aktiviert ist, zahlt der Käufer nur für die Waren und deren Lieferung."
+
+#: build/admin.js:4
+#: build/shipment.js:7
+msgid "City"
+msgstr "Stadt"
+
+#: build/admin.js:4
+#: build/widget-order-edit.js:4
+msgid "City is required"
+msgstr "Stadt ist erforderlich."
+
+#: includes/Plugin/NovaPostForWoocommerce.php:148
+msgid "Cloning is forbidden."
+msgstr "Das Klonen ist verboten."
+
+#: build/orderPageApp.js:8
+msgid "Close"
+msgstr "Schließen"
+
+#: build/admin.js:7
+msgid "cm"
+msgstr "cm"
+
+#: build/admin.js:7
+msgid "COD fee is paid by the seller"
+msgstr "Die Nachnahmegebühr wird vom Verkäufer bezahlt"
+
+#: build/orderPageApp.js:1
+msgid "Commercial Invoice"
+msgstr "Handelsrechnung"
+
+#: build/admin.js:4
+msgid "Company Name"
+msgstr "Firmenname"
+
+#: build/admin.js:4
+msgid "Company TIN"
+msgstr "Firmen-TIN"
+
+#: build/admin.js:4
+msgid "Configure your shipment departure method. Fill in the address fields if you want a courier to pick up shipments from your address (Pickup service). Select a division in the widget if you will bring the parcels yourself."
+msgstr "Konfigurieren Sie die Versandart für Ihre Sendung. Füllen Sie die Adressfelder aus, wenn Sie möchten, dass ein Kurier die Sendungen an Ihrer Adresse abholt (Abholservice). Wählen Sie im Widget eine Abteilung aus, wenn Sie die Pakete selbst vorbeibringen möchten."
+
+#: build/admin.js:4
+msgid "International Shipment Settings"
+msgstr "Internationale Versandeinstellungen"
+
+#: build/admin.js:4
+msgid "Configure customs fee payer and delivery tariff for shipments from Ukraine."
+msgstr "Konfigurieren Sie den Zahler der Zollgebühren und den Liefertarif für Sendungen aus der Ukraine."
+
+#: build/admin.js:4
+msgid "Customs Fee Payer"
+msgstr "Zahler der Zollgebühren"
+
+#: build/admin.js:4
+msgid "Who pays customs fees for shipments. The sender may be automatically switched to the recipient as the customs fee payer if the declared parcel value exceeds the limit set for the recipient's country. If the value is below that country's minimum threshold, customs fees do not apply at all."
+msgstr "Wer die Zollgebühren für Sendungen bezahlt. Der Absender kann automatisch durch den Empfänger als Zahler der Zollgebühren ersetzt werden, wenn der deklarierte Paketwert den für das Land des Empfängers festgelegten Grenzwert überschreitet. Liegt der Wert unter dem Mindestschwellenwert dieses Landes, fallen keine Zollgebühren an."
+
+#: build/admin.js:4
+msgid "Delivery Tariff"
+msgstr "Liefertarif"
+
+#: build/admin.js:4
+msgid "Field for selecting the type of delivery. Available values: \"Standard\" - regular delivery for all countries, and \"Express\" - fast international delivery available only for shipments to the USA. For other countries, \"Standard\" will be applied automatically. For shipments to the USA, when the recipient pays customs fees, only \"Express\" is applied."
+msgstr "Feld zur Auswahl der Lieferart. Verfügbare Werte: \"Standard\" - reguläre Lieferung für alle Länder und \"Express\" - schnelle internationale Lieferung, die nur für Sendungen in die USA verfügbar ist. Für andere Länder wird automatisch \"Standard\" angewendet. Für Sendungen in die USA wird nur \"Express\" angewendet, wenn der Empfänger die Zollgebühren bezahlt."
+
+#: build/admin.js:4
+msgid "Standard"
+msgstr "Standard"
+
+#: build/admin.js:4
+msgid "Express"
+msgstr "Express"
+
+#: build/orderPageApp.js:3
+#: build/orderPageApp.js:22
+msgid "Confirm"
+msgstr "Bestätigen"
+
+#: build/admin.js:1
+#: build/shipment.js:7
+msgid "Confirm Action"
+msgstr "bestätigen Sie die Aktion"
+
+#: build/admin.js:1
+msgid "Contract Numbers"
+msgstr "Vertragsnummern"
+
+#: build/admin.js:4
+#: build/shipment.js:7
+msgid "Country"
+msgstr "Land"
+
+#: build/admin.js:4
+#: build/widget-order-edit.js:4
+msgid "Country code is required"
+msgstr "Ländercode ist erforderlich."
+
+#. translators: %d: number of orders
+#: build/orderPageApp.js:15
+#, js-format
+msgid "Create shipment for %d order"
+msgid_plural "Create shipments for %d orders"
+msgstr[0] "Sendung für %d Bestellung erstellen"
+msgstr[1] "Sendungen für %d Bestellungen erstellen"
+
+#: build/orderPageApp.js:22
+msgid "Create Shipments"
+msgstr "Sendungen erstellen"
+
+#: build/shipment.js:7
+msgid "Create Waybill"
+msgstr "Frachtbrief erstellen"
+
+#: views/shipment/button-create-waybill.php:20
+msgid "Create waybill"
+msgstr "Frachtbrief erstellen"
+
+#: build/shipment.js:7
+msgid "Create Waybill - Preview"
+msgstr "Frachtbrief erstellen – Vorschau"
+
+#: includes/Validation/SettingsPageValidator.php:144
+msgid "Custom box #{0} height field must not be greater than :max."
+msgstr "Das Feld Höhe der eigenen Box #{0} darf nicht größer als :max sein."
+
+#: includes/Validation/SettingsPageValidator.php:143
+msgid "Custom box #{0} height field must not be lower than :min."
+msgstr "Das Feld Höhe der eigenen Box #{0} muss mindestens :min sein."
+
+#: includes/Validation/SettingsPageValidator.php:141
+#: includes/Validation/SettingsPageValidator.php:142
+msgid "Custom box #{0} height is required."
+msgstr "Die Höhe des benutzerdefinierten Kartons #{0} ist erforderlich"
+
+#: includes/Validation/SettingsPageValidator.php:139
+msgid "Custom box #{0} length field must not be greater than :max."
+msgstr "Das Feld Länge der eigenen Box #{0} darf nicht größer als :max sein."
+
+#: includes/Validation/SettingsPageValidator.php:138
+msgid "Custom box #{0} length field must not be lower than :min."
+msgstr "Das Feld Länge der eigenen Box #{0} muss mindestens :min sein."
+
+#: includes/Validation/SettingsPageValidator.php:136
+#: includes/Validation/SettingsPageValidator.php:137
+msgid "Custom box #{0} length is required."
+msgstr "Die Länge des benutzerdefinierten Kartons #{0} ist erforderlich"
+
+#: includes/Validation/SettingsPageValidator.php:134
+msgid "Custom box #{0} width field must not be greater than :max."
+msgstr "Das Feld Breite der eigenen Box #{0} darf nicht größer als :max sein."
+
+#: includes/Validation/SettingsPageValidator.php:133
+msgid "Custom box #{0} width field must not be lower than :min."
+msgstr "Das Feld Breite der eigenen Box #{0} muss mindestens :min sein."
+
+#: includes/Validation/SettingsPageValidator.php:131
+#: includes/Validation/SettingsPageValidator.php:132
+msgid "Custom box #{0} width is required."
+msgstr "Die Breite des benutzerdefinierten Kartons #{0} ist erforderlich"
+
+#: includes/Validation/SettingsPageValidator.php:127
+msgid "Custom boxes must be an array"
+msgstr "Benutzerdefinierte Boxen müssen ein Array sein"
+
+#: build/shipment.js:7
+msgid "Customer Number"
+msgstr "Kundennummer"
+
+#: build/orderPageApp.js:1
+msgid "Customs Declaration"
+msgstr "Zollerklärung"
+
+#: build/shipment.js:7
+msgid "Customs declaration generated and printing initiated successfully!"
+msgstr "Zollanmeldung erfolgreich erstellt und Druckvorgang gestartet!"
+
+#: views/shipment/button-print-customs.php:23
+msgid "Customs declaration printing"
+msgstr "Zollanmeldung drucken"
+
+#: build/shipment.js:7
+msgid "Declared Cost"
+msgstr "Angegebene Kosten"
+
+#: includes/Validation/SettingsPageValidator.php:109
+#: includes/Validation/SettingsPageValidator.php:110
+msgid "Default height is required"
+msgstr "Standardhöhe ist erforderlich."
+
+#: includes/Validation/SettingsPageValidator.php:111
+msgid "Default height must be a number"
+msgstr "Standardhöhe muss eine Zahl sein."
+
+#: includes/Validation/SettingsPageValidator.php:112
+msgid "Default height must be at least :min"
+msgstr "Standardhöhe muss mindestens :min sein"
+
+#: includes/Validation/SettingsPageValidator.php:113
+msgid "Default height must be at most :max"
+msgstr "Standardhöhe darf höchstens :max sein"
+
+#: build/admin.js:4
+msgid "Default hs code"
+msgstr "Standard hs code"
+
+#: includes/Validation/SettingsPageValidator.php:235
+msgid "Default HS tariff code must be a number"
+msgstr "Der Standard-HS-Tarifcode muss eine Zahl sein."
+
+#: includes/Validation/SettingsPageValidator.php:236
+msgid "Default HS tariff code must be between :min and :max digits"
+msgstr "Der Standard-HS-Tarifcode muss zwischen :min und :max Ziffern liegen"
+
+#: includes/Validation/SettingsPageValidator.php:121
+#: includes/Validation/SettingsPageValidator.php:122
+msgid "Default length is required"
+msgstr "Die Standardlänge ist erforderlich."
+
+#: includes/Validation/SettingsPageValidator.php:123
+msgid "Default length must be a number"
+msgstr "Die Standardlänge muss eine Zahl sein."
+
+#: includes/Validation/SettingsPageValidator.php:124
+msgid "Default length must be at least :min"
+msgstr "Standardlänge muss mindestens :min sein"
+
+#: includes/Validation/SettingsPageValidator.php:125
+msgid "Default length must be at most :max"
+msgstr "Standardlänge darf höchstens :max sein"
+
+#: build/admin.js:4
+msgid "Default product dimensions"
+msgstr "Standard produktabmessungen"
+
+#: includes/Validation/SettingsPageValidator.php:146
+msgid "Default product height is required"
+msgstr "Die Standard-Produkthöhe ist erforderlich"
+
+#: includes/Validation/SettingsPageValidator.php:147
+msgid "Default product height must be a number"
+msgstr "Die Standardhöhe des Produkts muss eine Zahl sein."
+
+#: includes/Validation/SettingsPageValidator.php:148
+msgid "Default product height must be at least :min"
+msgstr "Die Standard-Produkthöhe muss mindestens :min betragen"
+
+#: includes/Validation/SettingsPageValidator.php:149
+msgid "Default product height must be at most :max"
+msgstr "Die Standard-Produktlänge darf höchstens :max betragen"
+
+#: includes/Validation/SettingsPageValidator.php:156
+msgid "Default product length is required"
+msgstr "Die Standard-Produktlänge ist erforderlich"
+
+#: includes/Validation/SettingsPageValidator.php:157
+msgid "Default product length must be a number"
+msgstr "Die Standardlänge des Produkts muss eine Zahl sein."
+
+#: includes/Validation/SettingsPageValidator.php:158
+msgid "Default product length must be at least :min"
+msgstr "Die Standard-Produktlänge muss mindestens :min betragen"
+
+#: includes/Validation/SettingsPageValidator.php:159
+msgid "Default product length must be at most :max"
+msgstr "Die Standard-Produkthöhe darf höchstens :max betragen"
+
+#: build/admin.js:4
+msgid "Default product weight (kg)"
+msgstr "Standardproduktgewicht (kg)"
+
+#: includes/Validation/SettingsPageValidator.php:161
+msgid "Default product weight is required"
+msgstr "Das Standard-Produktgewicht ist erforderlich"
+
+#: includes/Validation/SettingsPageValidator.php:162
+msgid "Default product weight must be a number"
+msgstr "Das Standard-Produktgewicht muss eine Zahl sein"
+
+#: includes/Validation/SettingsPageValidator.php:163
+msgid "Default product weight must be at least :min"
+msgstr "Das Standard-Produktgewicht muss mindestens :min betragen"
+
+#: includes/Validation/SettingsPageValidator.php:164
+msgid "Default product weight must be at most :max"
+msgstr "Das Standard-Produktgewicht darf höchstens :max betragen"
+
+#: includes/Validation/SettingsPageValidator.php:151
+msgid "Default product width is required"
+msgstr "Die Standard-Produktbreite ist erforderlich."
+
+#: includes/Validation/SettingsPageValidator.php:152
+msgid "Default product width must be a number"
+msgstr "Die Standardbreite des Produkts muss eine Zahl sein."
+
+#: includes/Validation/SettingsPageValidator.php:153
+msgid "Default product width must be at least :min"
+msgstr "Die Standard-Produktbreite muss mindestens :min betragen"
+
+#: includes/Validation/SettingsPageValidator.php:154
+msgid "Default product width must be at most :max"
+msgstr "Die Standard-Produktbreite darf höchstens :max betragen"
+
+#: includes/Validation/SettingsPageValidator.php:115
+#: includes/Validation/SettingsPageValidator.php:116
+msgid "Default width is required"
+msgstr "Standardbreite ist erforderlich."
+
+#: includes/Validation/SettingsPageValidator.php:117
+msgid "Default width must be a number"
+msgstr "Standardbreite muss eine Zahl sein."
+
+#: includes/Validation/SettingsPageValidator.php:118
+msgid "Default width must be at least :min"
+msgstr "Standardbreite muss mindestens :min sein"
+
+#: includes/Validation/SettingsPageValidator.php:119
+msgid "Default width must be at most :max"
+msgstr "Standardbreite darf höchstens :max sein"
+
+#: views/shipment/button-delete-shipment.php:23
+#: build/shipment.js:7
+msgid "Delete waybill"
+msgstr "Frachtbrief löschen"
+
+#: includes/Helpers/ShipmentStatusHelper.php:46
+msgid "Delivered successfully"
+msgstr "Erfolgreich zugestellt"
+
+#: includes/Services/NovaPostStatusBlock.php:78
+msgid "Delivery"
+msgstr "Zustellung"
+
+#: build/shipment.js:7
+msgid "Description"
+msgstr "Beschreibung"
+
+#: includes_dev/Debug/OrderDuplicator.php:41
+msgid "Dev: Duplicate Orders"
+msgstr "Dev: Bestellungen duplizieren"
+
+#: build/admin.js:4
+msgid "Dimensions for each product are first taken from its WooCommerce settings. If they are missing, the default dimensions will be used for the shipping calculation."
+msgstr "Die Abmessungen für jedes Produkt werden zunächst aus den WooCommerce-Einstellungen übernommen. Fehlen diese, werden die Standardabmessungen für die Versandberechnung verwendet."
+
+#: views/order/division-info.php:24
+#: build/admin.js:4
+#: build/shipment.js:7
+msgid "Division"
+msgstr "Abteilung"
+
+#: build/shipment.js:7
+msgid "Division Address"
+msgstr "Abteilungsadresse"
+
+#: includes/Services/PickupService.php:381
+msgid "Division delivery not supported. Use a full address for pickup"
+msgstr "Abteilung für Lieferung wird nicht unterstützt. Verwenden Sie eine vollständige Adresse für die Abholung."
+
+#: build/widget-order-edit.js:10
+msgid "Division Type"
+msgstr "Abteilungstyp"
+
+#: build/admin.js:7
+msgid "Divisions Filters"
+msgstr "Filialfilter"
+
+#: build/admin.js:1
+#: build/shipment.js:7
+msgid "Do you want to continue?"
+msgstr "Willst du weitermachen?"
+
+#: includes/Api/Controllers/ShipmentController.php:173
+msgid "Document type is required"
+msgstr "Dokumenttyp erforderlich."
+
+#: build/admin.js:1
+msgid "Domestic Contract Number"
+msgstr "Inländische Vertragsnummer"
+
+#: build/orderPageApp.js:8
+msgid "Download PDF"
+msgstr "PDF herunterladen"
+
+#: views/order/division-info.php:25
+msgid "Edit division"
+msgstr "Abteilung bearbeiten"
+
+#: includes/Services/ShipmentApiService.php:444
+msgid "Either division or address must be specified for recipient"
+msgstr "Entweder Abteilung oder Adresse muss für den Empfänger angegeben werden."
+
+#: build/admin.js:4
+#: build/shipment.js:7
+msgid "Email"
+msgstr "E-Mail"
+
+#: build/admin.js:1
+msgid "Enable testing mode to use stage API key"
+msgstr "Testmodus aktivieren, um den Stage-API-Schlüssel zu verwenden"
+
+#: build/admin.js:1
+msgid "Enable to use the NovaPost testing environment. This allows you to test the plugin's functionality without creating real shipments. Remember to disable this mode before launching your store for actual sales."
+msgstr "Aktivieren Sie diese Option, um die NovaPost-Testumgebung zu verwenden. So können Sie die Funktionalität des Plugins testen, ohne echte Sendungen zu erstellen. Denken Sie daran, diesen Modus zu deaktivieren, bevor Sie Ihren Shop für den tatsächlichen Verkauf starten."
+
+#: build/admin.js:4
+msgid "Enter a fixed cost that will be displayed to the buyer. The actual shipping costs will be calculated via the API and charged to your account."
+msgstr "Geben Sie einen Festpreis ein, der dem Käufer angezeigt wird. Die tatsächlichen Versandkosten werden über die API berechnet und Ihrem Konto in Rechnung gestellt."
+
+#: build/admin.js:4
+msgid "Enter company name"
+msgstr "Geben Sie den Namen des Unternehmens ein"
+
+#: build/admin.js:4
+msgid "Enter company TIN"
+msgstr "Geben Sie die TIN des Unternehmens ein"
+
+#: build/admin.js:4
+msgid "Enter Country"
+msgstr "Land eingeben"
+
+#: build/admin.js:4
+msgid "Enter default HS tariff code"
+msgstr "Geben Sie den Standard-HS-Tarifcode ein"
+
+#: build/admin.js:4
+#: build/widget-order-edit.js:4
+#: build/widget-order-edit.js:10
+msgid "Enter division name"
+msgstr "Geben Sie den Namen der Division ein."
+
+#: build/admin.js:1
+msgid "Enter domestic contract number"
+msgstr "Geben Sie die inländische Vertragsnummer ein"
+
+#: build/admin.js:4
+msgid "Enter email address"
+msgstr "Geben Sie die E-Mail-Adresse ein"
+
+#: build/admin.js:4
+msgid "Enter EORI code"
+msgstr "EORI-Code eingeben"
+
+#: build/admin.js:4
+msgid "Enter first name"
+msgstr "Geben Sie den Vornamen ein"
+
+#: includes/Services/ProductPageService.php:54
+msgid "Enter HS code of the product"
+msgstr "HS-Code des Produkts eingeben"
+
+#: build/admin.js:1
+msgid "Enter international contract number"
+msgstr "Geben Sie die internationale Vertragsnummer ein"
+
+#: build/admin.js:4
+msgid "Enter IOSS"
+msgstr "IOSS eingeben"
+
+#: build/admin.js:4
+msgid "Enter last name"
+msgstr "Geben Sie den Nachnamen ein"
+
+#: build/admin.js:4
+msgid "Enter phone number"
+msgstr "Geben Sie die Telefonnummer ein"
+
+#: includes/Services/ProductPageService.php:45
+msgid "Enter product title in English"
+msgstr "Geben Sie den Produkttitel auf Englisch ein"
+
+#: build/admin.js:4
+msgid "Enter the full legal name of your company as specified in the registration documents."
+msgstr "Geben Sie den vollständigen rechtlichen Namen Ihres Unternehmens ein, wie er in den Registrierungsunterlagen angegeben ist."
+
+#: includes/Services/ProductPageService.php:56
+msgid "Enter the individual customs code (Harmonized System code) for this product. It is required for international shipments. Example: 8517120000"
+msgstr "Geben Sie den individuellen Zollcode (Harmonized System Code) für dieses Produkt ein. Dieser ist für internationale Sendungen erforderlich. Beispiel: 8517120000"
+
+#: includes/Services/ProductPageService.php:47
+msgid "Enter the name of the product in English. This field is required for correct completion of customs declarations. Example: Cotton T-shirt"
+msgstr "Geben Sie den Namen des Produkts in englischer Sprache ein. Dieses Feld ist für die korrekte Ausfüllung der Zollanmeldung erforderlich. Beispiel: Baumwoll-T-Shirt"
+
+#: build/admin.js:7
+msgid "Enter your Bank Account Id"
+msgstr "Geben Sie Ihre Bankkontonummer ein"
+
+#: build/admin.js:7
+msgid "Enter your Bank Account Name"
+msgstr "Geben Sie den Namen Ihres Bankkontos ein"
+
+#: build/admin.js:7
+msgid "Enter your bank account's unique identifier provided by your bank for crediting funds for cash on delivery."
+msgstr "Geben Sie die von Ihrer Bank bereitgestellte eindeutige Kennung Ihres Bankkontos ein, um Geld für Nachnahmezahlungen gutzuschreiben."
+
+#: build/admin.js:7
+msgid "Enter your bank name or account number in IBAN format to transfer funds for cash on delivery."
+msgstr "Geben Sie Ihren Banknamen oder Ihre Kontonummer im IBAN-Format ein, um Geld für Nachnahmezahlungen zu überweisen."
+
+#: build/admin.js:4
+msgid "Enter your company's Taxpayer Identification Number."
+msgstr "Geben Sie die Steueridentifikationsnummer Ihres Unternehmens ein."
+
+#: build/admin.js:1
+msgid "Enter your contract number for international shipments outside the country of departure and the EU."
+msgstr "Geben Sie Ihre Vertragsnummer für internationale Sendungen außerhalb des Abgangslandes und der EU ein."
+
+#: build/admin.js:1
+msgid "Enter your contract number for shipments within one country."
+msgstr "Geben Sie Ihre Vertragsnummer für Sendungen innerhalb eines Landes ein."
+
+#: build/admin.js:4
+msgid "Enter your EORI (Economic Operators Registration and Identification) number. It is mandatory for all companies engaged in importing or exporting goods within the European Union."
+msgstr "Geben Sie Ihre EORI-Nummer (Economic Operators Registration and Identification) ein. Diese ist für alle Unternehmen obligatorisch, die innerhalb der Europäischen Union Waren importieren oder exportieren."
+
+#: build/admin.js:4
+msgid "Enter your IOSS (Import One-Stop Shop) number if you are registered in this system. It is used to simplify VAT payments on sales of goods up to 150 EUR to buyers in the EU."
+msgstr "Geben Sie Ihre IOSS-Nummer (Import One-Stop Shop) ein, wenn Sie in diesem System registriert sind. Diese dient zur Vereinfachung der Mehrwertsteuerzahlungen für Warenverkäufe bis zu 150 EUR an Käufer in der EU."
+
+#: build/admin.js:1
+msgid "Enter your live API key obtained from your NovaPost account. This key is used for creating actual shipments."
+msgstr "Geben Sie Ihren Live-API-Schlüssel ein, den Sie von Ihrem NovaPost-Konto erhalten haben. Dieser Schlüssel wird zum Erstellen tatsächlicher Sendungen verwendet."
+
+#: build/admin.js:1
+msgid "Enter your Nova Post API key"
+msgstr "Geben Sie Ihren Nova Post API-Schlüssel ein"
+
+#: build/admin.js:1
+msgid "Enter your Stage Nova Post API key"
+msgstr "Geben Sie Ihren Stage Nova Post API-Schlüssel ein"
+
+#: build/admin.js:1
+msgid "Enter your test API key obtained from the NovaPost Sandbox environment. Use it with the 'Testing API' option to safely test the plugin's functionality."
+msgstr "Geben Sie Ihren Test-API-Schlüssel ein, den Sie von der NovaPost-Sandbox-Umgebung erhalten haben. Verwenden Sie ihn mit der Option „API testen”, um die Funktionalität des Plugins sicher zu testen."
+
+#: build/admin.js:4
+msgid "EORI Code"
+msgstr "EORI-Code"
+
+#: build/admin.js:4
+msgid "Error loading countries"
+msgstr "Fehler beim Laden der Länder"
+
+#: build/admin.js:4
+#: build/widget-order-edit.js:4
+msgid "Error loading divisions"
+msgstr "Fehler beim Laden der Divisionen."
+
+#: build/widget-classic-checkout.js:1
+#: build/widget.js:1
+msgid "Error saving division. Clear and try again."
+msgstr "Fehler beim Speichern der Abteilung. Löschen und erneut versuchen."
+
+#: views/shipment/shipment-errors.php:19
+msgid "Errors"
+msgstr "Fehler"
+
+#: build/admin.js:1
+msgid "Example"
+msgstr "Beispiel"
+
+#: build/shipment.js:7
+msgid "Export Reason"
+msgstr "Exportgrund"
+
+#: build/orderPageApp.js:20
+msgid "Failed Orders:"
+msgstr "Fehlgeschlagene Bestellungen:"
+
+#. translators: %s: error message
+#: build/orderPageApp.js:14
+#: build/shipment.js:7
+#: build/widget-order-edit.js:10
+#, js-format
+msgid "Failed to create bulk shipments: %s"
+msgstr "Fehler beim Erstellen von Massensendungen: %s"
+
+#: build/shipment.js:7
+msgid "Failed to create shipment"
+msgstr "Versand konnte nicht erstellt werden"
+
+#: build/shipment.js:7
+msgid "Failed to create waybill. Please try again."
+msgstr "Frachtbrief konnte nicht erstellt werden. Bitte versuchen Sie es erneut."
+
+#: includes/Services/ShipmentApiService.php:481
+msgid "Failed to delete waybill"
+msgstr "Fehler beim Löschen des Frachtbriefs"
+
+#: build/shipment.js:7
+msgid "Failed to delete waybill. Please try again."
+msgstr "Fehler beim Löschen des Frachtbriefs. Bitte versuchen Sie es erneut."
+
+#. translators: %s: error message
+#: build/orderPageApp.js:13
+#: build/shipment.js:6
+#: build/widget-order-edit.js:9
+#, js-format
+msgid "Failed to delete waybill: %s"
+msgstr "Fehler beim Löschen des Frachtbriefs: %s"
+
+#: includes/Services/BulkPrintService.php:84
+msgid "Failed to generate any documents. All tracking numbers are invalid."
+msgstr "Fehler beim Generieren von Dokumenten. Alle Sendungsnummern sind ungültig."
+
+#: build/shipment.js:7
+msgid "Failed to generate customs declaration. Please try again."
+msgstr "Fehler beim Erstellen der Zollanmeldung. Bitte versuchen Sie es erneut."
+
+#. translators: %s: error message
+#: build/orderPageApp.js:12
+#: build/shipment.js:5
+#: build/widget-order-edit.js:8
+#, js-format
+msgid "Failed to generate customs declaration: %s"
+msgstr "Fehler beim Erstellen der Zollanmeldung: %s"
+
+#: build/orderPageApp.js:3
+msgid "Failed to generate documents"
+msgstr "Fehler beim Generieren von Dokumenten"
+
+#: build/shipment.js:7
+msgid "Failed to generate invoice. Please try again."
+msgstr "Fehler beim Erstellen der Rechnung. Bitte versuchen Sie es erneut."
+
+#. translators: %s: error message
+#: build/orderPageApp.js:11
+#: build/shipment.js:4
+#: build/widget-order-edit.js:7
+#, js-format
+msgid "Failed to generate invoice: %s"
+msgstr "Fehler beim Erstellen der Rechnung: %s"
+
+#: build/shipment.js:7
+msgid "Failed to generate label. Please try again."
+msgstr "Fehler beim Erstellen des Etiketts. Bitte versuchen Sie es erneut."
+
+#. translators: %s: error message
+#: build/orderPageApp.js:10
+#: build/shipment.js:3
+#: build/widget-order-edit.js:6
+#, js-format
+msgid "Failed to generate label: %s"
+msgstr "Fehler beim Erstellen des Etiketts: %s"
+
+#: includes/Services/ShipmentApiService.php:531
+#: includes/Services/ShipmentApiService.php:534
+msgid "Failed to get printable documents."
+msgstr "Fehler beim Abrufen der druckbaren Dokumente."
+
+#. translators: %s: error message
+#: build/orderPageApp.js:9
+#: build/shipment.js:2
+#: build/widget-order-edit.js:5
+#, js-format
+msgid "Failed to get shipment information: %s"
+msgstr "Fehler beim Abrufen der Sendungsinformationen: %s"
+
+#: includes/Services/ShipmentApiService.php:279
+msgid "Failed to get shipments statuses via API"
+msgstr "Fehler beim Abrufen des Versandstatus über die API"
+
+#: build/admin.js:1
+msgid "Failed to load countries"
+msgstr "Laden der Länder fehlgeschlagen"
+
+#: includes/Services/PickupService.php:158
+msgid "Failed to save pickup to database"
+msgstr "Speichern der Abholung in der Datenbank fehlgeschlagen."
+
+#. translators: %s: error message
+#: build/admin.js:4
+#: build/widget-order-edit.js:4
+#, js-format
+msgid "Failed to search divisions: %s"
+msgstr "Suche nach Niederlassungen fehlgeschlagen: %s"
+
+#: build/admin.js:4
+msgid "First Name"
+msgstr "Vorname"
+
+#: includes/Validation/SettingsPageValidator.php:231
+msgid "Free delivery amount is required when free delivery for this address is enabled"
+msgstr "Der Betrag für die kostenlose Lieferung ist erforderlich, wenn für diese Adresse eine kostenlose Lieferung aktiviert ist."
+
+#: includes/Validation/SettingsPageValidator.php:223
+msgid "Free delivery amount is required when free delivery for this division is enabled"
+msgstr "Ein Betrag für kostenlose Lieferung ist erforderlich, wenn für diesen Bereich kostenlose Lieferung aktiviert ist."
+
+#: includes/Validation/SettingsPageValidator.php:225
+#: includes/Validation/SettingsPageValidator.php:233
+msgid "Free delivery amount must be :min or higher"
+msgstr "Der Betrag für kostenlose Lieferung muss :min oder höher sein"
+
+#: includes/Validation/SettingsPageValidator.php:224
+msgid "Free delivery amount must be a positive number with maximum 2 decimal places"
+msgstr "Der Betrag für kostenlose Lieferung muss eine positive Zahl mit maximal 2 Dezimalstellen sein."
+
+#: includes/Validation/SettingsPageValidator.php:232
+msgid "Free delivery amount must be a positive number with up to 2 decimal places"
+msgstr "Der Betrag für die kostenlose Lieferung muss eine positive Zahl mit maximal 2 Dezimalstellen sein."
+
+#: build/admin.js:4
+msgid "Free Delivery for orders above"
+msgstr "Kostenlose Lieferung für Bestellungen über"
+
+#: build/admin.js:7
+msgid "H"
+msgstr "H"
+
+#: build/admin.js:4
+#: build/admin.js:7
+#: build/shipment.js:7
+msgid "Height (cm)"
+msgstr "Höhe (cm)"
+
+#: includes/Services/ProductPageService.php:53
+#: build/shipment.js:7
+msgid "HS Code"
+msgstr "HS-Code"
+
+#: includes/Services/ProductPageService.php:103
+msgid "HS Code is invalid. It must be a numeric value with 8-10 digits."
+msgstr "HS-Code ist ungültig. Es muss sich um einen numerischen Wert mit 8 bis 10 Ziffern handeln."
+
+#. Author URI of the plugin
+msgid "https://novapost.com/"
+msgstr ""
+
+#: build/widget-classic-checkout.js:1
+#: build/widget.js:1
+msgid "If you wish to choose address delivery, please enter a valid address or select delivery to a branch."
+msgstr "Wenn Sie die Lieferung an eine Adresse wählen möchten, geben Sie bitte eine gültige Adresse ein oder wählen Sie die Lieferung an eine Filiale."
+
+#: build/widget-classic-checkout.js:1
+#: build/widget.js:1
+msgid "If you wish to choose warehouse delivery, please enter a valid zip code or select delivery to address."
+msgstr "Wenn Sie die Lieferung an ein Lager wählen möchten, geben Sie bitte eine gültige Postleitzahl ein oder wählen Sie die Lieferung an eine Adresse."
+
+#: includes/Helpers/ShipmentStatusHelper.php:45
+msgid "In transit to recipient"
+msgstr "Auf dem Weg zum Empfänger"
+
+#: build/shipment.js:7
+msgid "Incoterm"
+msgstr "Incoterm"
+
+#: build/admin.js:1
+msgid "Information"
+msgstr "Informationen"
+
+#: build/admin.js:1
+msgid "International Contract Number"
+msgstr "Internationale Vertragsnummer"
+
+#. translators: %s: allowed types
+#: includes/Services/BulkPrintService.php:551
+#, php-format
+msgid "Invalid document type. Allowed types: %s"
+msgstr "Ungültiger Dokumenttyp. Zulässige Typen: %s"
+
+#: build/orderPageApp.js:12
+#: build/shipment.js:5
+#: build/widget-order-edit.js:8
+msgid "Invalid PDF response from server"
+msgstr "Ungültige PDF-Antwort vom Server"
+
+#: build/shipment.js:7
+msgid "Invoice (International)"
+msgstr "Rechnung (international)"
+
+#: build/shipment.js:7
+msgid "Invoice generated and printing initiated successfully!"
+msgstr "Rechnung erfolgreich erstellt und Druckvorgang gestartet!"
+
+#: views/shipment/button-print-invoice.php:23
+msgid "Invoice printing"
+msgstr "Rechnungsdruck"
+
+#: build/admin.js:4
+msgid "IOSS"
+msgstr "IOSS"
+
+#: build/shipment.js:7
+msgid "Items"
+msgstr "Artikel"
+
+#: build/admin.js:7
+msgid "L"
+msgstr "L"
+
+#: build/shipment.js:7
+msgid "Label generated and printing initiated successfully!"
+msgstr "Etikett erfolgreich erstellt und Druckvorgang gestartet!"
+
+#: views/shipment/button-print-label.php:15
+msgid "Label printing"
+msgstr "Etikettendruck"
+
+#: build/admin.js:4
+msgid "Last Name"
+msgstr "Nachname"
+
+#: includes/Validation/Requests/PickupTimeIntervalsValidator.php:73
+msgid "Latitude is required when departure method is division"
+msgstr "Die Breite ist erforderlich, wenn die Abfahrtsmethode „Division“ ist."
+
+#: build/admin.js:4
+#: build/admin.js:7
+#: build/shipment.js:7
+msgid "Length (cm)"
+msgstr "Länge (cm)"
+
+#: includes/Validation/Requests/PickupTimeIntervalsValidator.php:74
+msgid "Longitude is required when departure method is division"
+msgstr "Die Länge ist erforderlich, wenn die Abfahrtsmethode „Division“ ist."
+
+#: build/orderPageApp.js:1
+msgid "Markings (100x100)"
+msgstr "Markierungen (100x100)"
+
+#. translators: %d: maximum number of orders
+#: includes/Services/BulkPrintService.php:538
+#: build/orderPageApp.js:24
+#, php-format,js-format
+msgid "Maximum %d orders allowed for bulk printing"
+msgstr "Maximal %d Bestellungen für Massendruck zulässig"
+
+#. translators: %d: maximum number of orders allowed
+#: includes/Api/Controllers/BulkShipmentController.php:102
+#, php-format
+msgid "Maximum %d orders can be processed at once"
+msgstr "Maximal %d Bestellungen können gleichzeitig verarbeitet werden"
+
+#: build/admin.js:1
+msgid "More information"
+msgstr "Weitere Informationen"
+
+#: build/shipment.js:7
+msgid "Name"
+msgstr "Name"
+
+#: views/order/division-info.php:40
+#: build/widget-order-edit.js:10
+msgid "No division selected"
+msgstr "Keine Abteilung ausgewählt"
+
+#: build/admin.js:4
+#: build/widget-order-edit.js:4
+msgid "No divisions found"
+msgstr "Keine Divisionen gefunden."
+
+#: includes/Api/Controllers/ShipmentController.php:121
+msgid "No order IDs provided"
+msgstr "Keine Bestellnummern angegeben."
+
+#: includes/Api/Controllers/ShipmentController.php:180
+#: includes/Api/Controllers/ShipmentController.php:199
+msgid "No shipment found for this order"
+msgstr "Keine Sendung für diese Bestellung gefunden."
+
+#: includes/Services/BulkPrintService.php:73
+msgid "No shipments found for selected orders"
+msgstr "Keine Sendungen für ausgewählte Bestellungen gefunden"
+
+#: includes/Services/AsyncShipmentApiService.php:217
+msgid "Not a Nova Post shipping method"
+msgstr "Keine Nova Post-Versandmethode"
+
+#: views/shipment/status-badge-icon.php:17
+msgid "Not available"
+msgstr "Nicht verfügbar"
+
+#: includes/Helpers/ShipmentStatusHelper.php:44
+msgid "Not yet shipped"
+msgstr "Noch nicht versendet"
+
+#: build/shipment.js:7
+msgid "Note"
+msgstr "Hinweis"
+
+#. Author of the plugin
+#: includes/Admin/OrderSidebarMetaBox.php:54
+#: includes/Admin/OrderSidebarMetaBox.php:82
+#: build/admin.js:7
+msgid "Nova Post"
+msgstr "Nova Post"
+
+#: includes/Shipping/NovaPostShippingMethodAddress.php:26
+msgid "Nova Post Address"
+msgstr "Nova Post-Adresse"
+
+#: build/admin.js:7
+msgid "Nova Post boxes uses predefined standard sizes with optimal packing. One box uses fixed dimensions for entire order. Custom boxes allows you to define up to 10 box sizes."
+msgstr "Nova Post Boxen verwenden vordefinierte Standardgrößen mit optimaler Verpackung. 'One box' verwendet feste Abmessungen für die gesamte Bestellung. 'Custom boxes' ermöglicht es Ihnen, bis zu 10 Boxgrößen zu definieren."
+
+#: includes/Shipping/NovaPostShippingMethodDivision.php:25
+msgid "Nova Post Division"
+msgstr "Nova Post Abteilung"
+
+#. Plugin Name of the plugin
+msgid "Nova Post for WooCommerce"
+msgstr "Nova Post für WooCommerce"
+
+#: includes/Admin/AdminSetup.php:48
+#: build/admin.js:7
+msgid "Nova Post Settings"
+msgstr "Nova Post-Einstellungen"
+
+#: includes/Admin/OrderListColumn.php:55
+#: includes/Admin/OrderListColumn.php:60
+msgid "Nova Post Shipment"
+msgstr "Nova Post Sendung"
+
+#. Description of the plugin
+msgid "Nova Post shipping integration for WooCommerce"
+msgstr "Nova Post Versandintegration für WooCommerce"
+
+#: includes/Admin/AdminAlerts.php:142
+msgid "Nova Post shipping methods cannot be added until at least one API key is configured"
+msgstr "Nova Post Versandarten können erst hinzugefügt werden, wenn mindestens ein API-Schlüssel konfiguriert ist"
+
+#: build/widget-classic-checkout.js:1
+#: build/widget.js:1
+msgid "Nova Post shipping methods cannot be applied to this shipment."
+msgstr "Die Versandarten von Nova Post können auf diese Sendung nicht angewendet werden."
+
+#: includes/Services/EmailsService.php:32
+#: includes/Services/EmailsService.php:36
+msgid "Nova Post Tracking Number:"
+msgstr "Nova Post-Sendungsnummer:"
+
+#. translators: %s: HTML link to woocommerce.com.
+#: includes/Plugin/NovaPostForWoocommercePlugin.php:51
+#, php-format
+msgid "Nova Post Woocommerce requires WooCommerce to be installed and active. You can download %s here."
+msgstr "Nova Post Woocommerce erfordert, dass WooCommerce installiert und aktiviert ist. Sie können %s hier herunterladen."
+
+#: includes/Admin/OrderBulkActions.php:77
+msgid "Nova Post: Create Pickup"
+msgstr "Nova Post: Abholung erstellen"
+
+#: includes/Admin/OrderBulkActions.php:76
+msgid "Nova Post: Create Shipments"
+msgstr "Nova Post: Sendungen erstellen"
+
+#: includes/Admin/OrderBulkActions.php:79
+msgid "Nova Post: Print Commercial Invoice"
+msgstr "Nova Post: Handelsrechnung drucken"
+
+#: includes/Admin/OrderBulkActions.php:80
+msgid "Nova Post: Print Customs Declaration"
+msgstr "Nova Post: Zollerklärung drucken"
+
+#: includes/Admin/OrderBulkActions.php:78
+msgid "Nova Post: Print Markings (100х100)"
+msgstr "Nova Post: Markierungen drucken (100х100)"
+
+#: build/admin.js:7
+msgid "One box per order"
+msgstr "Ein Paket pro Bestellung"
+
+#: build/shipment.js:7
+msgid "Optional note that will be included with the shipment"
+msgstr "Optionaler Hinweis, der der Sendung beigefügt wird"
+
+#. translators: %d: order ID, %s: error message
+#. translators: 1: order ID, 2: error message
+#. translators: 1: order ID, 2: reason
+#: includes/Services/PickupService.php:335
+#: build/orderPageApp.js:21
+#: build/orderPageApp.js:22
+#, php-format,js-format
+msgid "Order #%1$d: %2$s"
+msgstr "Bestellung #%1$d: %2$s"
+
+#. translators: %d: order ID
+#: build/orderPageApp.js:8
+#, js-format
+msgid "Order #%d:"
+msgstr "Bestellung #%d:"
+
+#: includes/Services/ShipmentService.php:231
+msgid "Order completed automatically after shipment creation."
+msgstr "Bestellung automatisch nach Sendungserstellung abgeschlossen."
+
+#: includes/Api/Controllers/ShipmentController.php:169
+#: build/orderPageApp.js:14
+#: build/shipment.js:7
+#: build/widget-order-edit.js:10
+msgid "Order ID is required"
+msgstr "Bestellnummer erforderlich."
+
+#: build/orderPageApp.js:14
+#: build/shipment.js:7
+#: build/widget-order-edit.js:10
+msgid "Order ID must be a valid number"
+msgstr "Die Bestellnummer muss eine gültige Zahl sein"
+
+#: build/shipment.js:1
+msgid "Order ID not found"
+msgstr "Bestellnummer nicht gefunden"
+
+#: build/orderPageApp.js:13
+#: build/shipment.js:6
+#: build/widget-order-edit.js:9
+msgid "Order IDs array is required"
+msgstr "Array mit Bestellnummern ist erforderlich"
+
+#: includes/Api/Controllers/BulkShipmentController.php:92
+#: includes/Services/BulkPrintService.php:529
+msgid "Order IDs must be a non-empty array"
+msgstr "Bestellnummern müssen ein nicht-leeres Array sein"
+
+#: build/orderPageApp.js:5
+#: build/orderPageApp.js:6
+msgid "Order IDs:"
+msgstr "Bestellnummern:"
+
+#: includes/Database/Repositories/OrderRepository.php:49
+#: includes/Services/AsyncShipmentApiService.php:77
+msgid "Order not found"
+msgstr "Bestellung nicht gefunden."
+
+#: includes/Api/Controllers/OrderController.php:63
+#: includes/Api/Controllers/OrderController.php:93
+msgid "Order not found."
+msgstr "Bestellung nicht gefunden."
+
+#: build/orderPageApp.js:22
+msgid "Order to"
+msgstr "Bestellung an"
+
+#: build/admin.js:7
+msgid "Order Workflow"
+msgstr "Bestellablauf"
+
+#. translators: %s: comma-separated order IDs
+#: includes/Validation/Requests/PickupTimeIntervalsValidator.php:103
+#, php-format
+msgid "Orders #%s do not have shipments created. Please create shipments first"
+msgstr "Für die Bestellungen #%s wurden keine Sendungen erstellt. Bitte erstellen Sie zuerst Sendungen"
+
+#: build/admin.js:7
+msgid "Packaging Settings"
+msgstr "Verpackungseinstellungen"
+
+#: build/admin.js:7
+msgid "Packaging type"
+msgstr "Verpackungsart"
+
+#: build/shipment.js:7
+msgid "Parcel"
+msgstr "Paket"
+
+#: build/admin.js:7
+#: build/widget-classic-checkout.js:1
+#: build/widget-order-edit.js:10
+#: build/widget.js:1
+msgid "Parcel locker"
+msgstr "Paketschließfach"
+
+#: build/shipment.js:7
+msgid "Parcels"
+msgstr "Pakete"
+
+#: includes/Services/PickupService.php:400
+msgid "Payment status must be one of: "
+msgstr "Der Zahlungsstatus muss einer der folgenden sein: "
+
+#: build/admin.js:4
+#: build/shipment.js:7
+msgid "Phone"
+msgstr "Telefon"
+
+#: build/admin.js:7
+#: build/widget-classic-checkout.js:1
+#: build/widget.js:1
+msgid "Pick Up Drop Off"
+msgstr "Abhol- und Abgabestelle"
+
+#: includes/Services/NovaPostStatusBlock.php:64
+msgid "Pickup"
+msgstr "Abholung"
+
+#: includes/Services/PickupService.php:480
+msgid "Pickup has no shipments"
+msgstr "Die Abholung enthält keine Sendungen."
+
+#: includes/Validation/CheckoutPageValidator.php:48
+msgid "Please ensure your division is selected."
+msgstr "Bitte stellen Sie sicher, dass Ihre Abteilung ausgewählt ist."
+
+#: includes/Validation/CheckoutPageValidator.php:47
+msgid "Please ensure your phone number is filled."
+msgstr "Bitte stellen Sie sicher, dass Ihre Telefonnummer angegeben ist."
+
+#. translators: %s: link to WooCommerce shipping settings
+#: includes/Admin/AdminAlerts.php:102
+#, php-format
+msgid "Please note: None of the Nova Post shipping methods have been added to your shipping zones. The plugin will not appear on the Checkout page until you configure the region. <a href=\"%s\">Set up shipping zone</a>."
+msgstr "Bitte beachten Sie: Keine der Nova Post-Versandmethoden wurde zu Ihren Versandzonen hinzugefügt. Das Plugin wird erst auf der Checkout-Seite angezeigt, wenn Sie die Region konfiguriert haben. <a href=\"%s\">Versandzone einrichten</a>."
+
+#: includes/Validation/Requests/PickupStatusValidator.php:40
+msgid "Please provide the reason for the status update."
+msgstr "Bitte geben Sie den Grund für die Statusaktualisierung an."
+
+#: build/admin.js:7
+msgid "Post Branch"
+msgstr "Postfiliale"
+
+#: build/admin.js:1
+#: build/shipment.js:7
+msgid "Postal Code"
+msgstr "Postleitzahl"
+
+#. translators: %s: document type
+#: build/orderPageApp.js:2
+#, js-format
+msgid "Print %s"
+msgstr "%s drucken"
+
+#. translators: 1: processed count, 2: total count
+#: build/orderPageApp.js:17
+#, js-format
+msgid "Processing orders: %1$d of %2$d"
+msgstr "Verarbeite Bestellungen: %1$d von %2$d"
+
+#: build/admin.js:4
+msgid "Product Information"
+msgstr "Produktinformationen"
+
+#: includes/Services/ProductPageService.php:44
+msgid "Product Title in English"
+msgstr "Produkttitel auf Englisch"
+
+#: build/admin.js:1
+msgid "Production API Key"
+msgstr "Produktions-API-Schlüssel"
+
+#: includes/Helpers/ShipmentStatusHelper.php:47
+msgid "Received by recipient"
+msgstr "Vom Empfänger empfangen"
+
+#: build/admin.js:4
+#: build/shipment.js:7
+msgid "Recipient"
+msgstr "Empfänger"
+
+#: includes/Services/ShipmentApiService.php:436
+msgid "Recipient email is required"
+msgstr "E-Mail-Adresse des Empfängers erforderlich"
+
+#: includes/Services/ShipmentApiService.php:440
+msgid "Recipient name is required"
+msgstr "Name des Empfängers erforderlich"
+
+#: includes/Services/ShipmentApiService.php:432
+msgid "Recipient phone is required"
+msgstr "Telefonnummer des Empfängers erforderlich"
+
+#: includes/Helpers/ShipmentStatusHelper.php:49
+msgid "Refused by recipient"
+msgstr "Annahme vom Empfänger verweigert"
+
+#: build/shipment.js:7
+msgid "Region"
+msgstr "Region"
+
+#: build/orderPageApp.js:22
+msgid "Reload Page"
+msgstr "Seite neu laden"
+
+#: build/admin.js:7
+msgid "Remove box"
+msgstr "Box entfernen"
+
+#: includes/Helpers/ShipmentStatusHelper.php:50
+msgid "Returning to sender"
+msgstr "Rücksendung an den Absender"
+
+#: build/admin.js:1
+#: build/admin.js:7
+msgid "Save"
+msgstr "Speichern"
+
+#: build/widget-order-edit.js:10
+msgid "Save Changes"
+msgstr "Änderungen speichern"
+
+#: build/widget-classic-checkout.js:1
+#: build/widget.js:1
+msgid "Saving division"
+msgstr "Abteilung speichern"
+
+#: build/admin.js:4
+#: build/widget-order-edit.js:4
+msgid "Search query is required"
+msgstr "Suchanfrage ist erforderlich."
+
+#: build/admin.js:7
+msgid "Select the branch types to display in the Nova Post widget on the checkout page. Customers will only see the branch types you have checked (Post Branch, Freight branch, Parcel locker, or Pick Up Drop Off)."
+msgstr "Wählen Sie die Filialtypen aus, die im Nova Post Widget auf der Checkout-Seite angezeigt werden sollen. Kunden sehen nur die Filialtypen, die Sie aktiviert haben (Postfiliale, Güterverkehrssparte, Paketautomat oder Abhol- und Abgabestelle)."
+
+#: build/admin.js:4
+#: build/shipment.js:7
+msgid "Sender"
+msgstr "Absender"
+
+#: build/admin.js:4
+msgid "Sender Data"
+msgstr "Absenderdaten"
+
+#: includes/Services/PickupService.php:385
+msgid "Sender details don't match current settings"
+msgstr "Absenderangaben stimmen nicht mit den aktuellen Einstellungen überein."
+
+#: includes/Services/ShipmentApiService.php:424
+msgid "Sender email is required"
+msgstr "E-Mail-Adresse des Absenders erforderlich"
+
+#: includes/Services/ShipmentApiService.php:428
+msgid "Sender name is required"
+msgstr "Name des Absenders erforderlich"
+
+#: includes/Services/ShipmentApiService.php:420
+msgid "Sender phone is required"
+msgstr "Telefonnummer des Absenders erforderlich"
+
+#: includes/Validation/SettingsPageValidator.php:196
+msgid "Sender's building is required when address type is address"
+msgstr "Das Gebäude des Absenders ist erforderlich, wenn der Adresstyp „Adresse” ist."
+
+#: includes/Validation/SettingsPageValidator.php:197
+msgid "Sender's building must be at least :min character"
+msgstr "Das Gebäude des Absenders muss mindestens :min Zeichen lang sein"
+
+#: includes/Validation/SettingsPageValidator.php:198
+msgid "Sender's building must not exceed :max characters"
+msgstr "Das Gebäude des Absenders darf :max Zeichen nicht überschreiten"
+
+#: includes/Validation/SettingsPageValidator.php:181
+msgid "Sender's city is required when address type is address"
+msgstr "Die Stadt des Absenders ist erforderlich, wenn der Adresstyp „Adresse” ist."
+
+#: includes/Validation/SettingsPageValidator.php:182
+msgid "Sender's city must be at least :min character"
+msgstr "Die Stadt des Absenders muss mindestens :min Zeichen lang sein"
+
+#: includes/Validation/SettingsPageValidator.php:183
+msgid "Sender's city must not exceed :max characters"
+msgstr "Die Stadt des Absenders darf :max Zeichen nicht überschreiten"
+
+#: includes/Validation/SettingsPageValidator.php:185
+msgid "Sender's country is required"
+msgstr "Das Land des Absenders ist erforderlich."
+
+#: includes/Validation/SettingsPageValidator.php:186
+msgid "Sender's country must be :size characters long"
+msgstr "Das Land des Absenders muss :size Zeichen lang sein"
+
+#: includes/Validation/SettingsPageValidator.php:201
+msgid "Sender's division ID is required when address type is division"
+msgstr "Die ID der Abteilung des Absenders ist erforderlich, wenn der Adresstyp „Abteilung“ lautet."
+
+#: includes/Validation/SettingsPageValidator.php:202
+msgid "Sender's division ID must be a number"
+msgstr "Die ID der Abteilung des Absenders muss eine Zahl sein."
+
+#: includes/Validation/SettingsPageValidator.php:203
+msgid "Sender's division ID must be at least :min"
+msgstr "Die Abteilungs-ID des Absenders muss mindestens :min sein"
+
+#: includes/Validation/SettingsPageValidator.php:205
+msgid "Sender's division latitude is required when address type is division"
+msgstr "Die Breite der Abteilung des Absenders ist erforderlich, wenn der Adresstyp „Abteilung“ lautet."
+
+#: includes/Validation/SettingsPageValidator.php:206
+msgid "Sender's division latitude must be a number"
+msgstr "Die Breite der Abteilung des Absenders muss eine Zahl sein."
+
+#: includes/Validation/SettingsPageValidator.php:207
+msgid "Sender's division latitude must be between :min and :max"
+msgstr "Der Breitengrad der Abteilung des Absenders muss zwischen :min und :max liegen"
+
+#: includes/Validation/SettingsPageValidator.php:209
+msgid "Sender's division longitude is required when address type is division"
+msgstr "Die Länge der Abteilung des Absenders ist erforderlich, wenn der Adresstyp „Abteilung” lautet."
+
+#: includes/Validation/SettingsPageValidator.php:210
+msgid "Sender's division longitude must be a number"
+msgstr "Die Länge der Abteilung des Absenders muss eine Zahl sein."
+
+#: includes/Validation/SettingsPageValidator.php:211
+msgid "Sender's division longitude must be between :min and :max"
+msgstr "Der Längengrad der Abteilung des Absenders muss zwischen :min und :max liegen"
+
+#: includes/Validation/SettingsPageValidator.php:213
+msgid "Customs fee payer is required"
+msgstr "Zahler der Zollgebühren ist erforderlich"
+
+#: includes/Validation/SettingsPageValidator.php:214
+msgid "Customs fee payer must be Sender or Recipient"
+msgstr "Der Zahler der Zollgebühren muss Sender oder Recipient sein"
+
+#: includes/Validation/SettingsPageValidator.php:216
+msgid "Delivery tariff is required"
+msgstr "Liefertarif ist erforderlich"
+
+#: includes/Validation/SettingsPageValidator.php:217
+msgid "Delivery tariff must be standard or express"
+msgstr "Der Liefertarif muss standard oder express sein"
+
+#: includes/Validation/SettingsPageValidator.php:178
+msgid "Sender's email is required"
+msgstr "Die E-Mail-Adresse des Absenders ist erforderlich."
+
+#: includes/Validation/SettingsPageValidator.php:179
+msgid "Sender's email must be a valid email address"
+msgstr "Die E-Mail-Adresse des Absenders muss eine gültige E-Mail-Adresse sein."
+
+#: includes/Validation/SettingsPageValidator.php:166
+msgid "Sender's first name is required"
+msgstr "Der Vorname des Absenders ist erforderlich."
+
+#: includes/Validation/SettingsPageValidator.php:167
+msgid "Sender's first name must be at least :min character"
+msgstr "Der Vorname des Absenders muss mindestens :min Zeichen lang sein"
+
+#: includes/Validation/SettingsPageValidator.php:168
+msgid "Sender's first name must not exceed :max characters"
+msgstr "Der Vorname des Absenders darf :max Zeichen nicht überschreiten"
+
+#: includes/Validation/SettingsPageValidator.php:170
+msgid "Sender's last name is required"
+msgstr "Der Nachname des Absenders ist erforderlich."
+
+#: includes/Validation/SettingsPageValidator.php:171
+msgid "Sender's last name must be at least :min character"
+msgstr "Der Nachname des Absenders muss mindestens :min Zeichen lang sein"
+
+#: includes/Validation/SettingsPageValidator.php:172
+msgid "Sender's last name must not exceed :max characters"
+msgstr "Der Nachname des Absenders darf :max Zeichen nicht überschreiten"
+
+#: includes/Validation/SettingsPageValidator.php:174
+msgid "Sender's phone is required"
+msgstr "Die Telefonnummer des Absenders ist erforderlich."
+
+#: includes/Validation/SettingsPageValidator.php:175
+msgid "Sender's phone must be at least :min character"
+msgstr "Die Telefonnummer des Absenders muss mindestens :min Zeichen lang sein"
+
+#: includes/Validation/SettingsPageValidator.php:176
+msgid "Sender's phone must not exceed :max characters"
+msgstr "Die Telefonnummer des Absenders darf :max Zeichen nicht überschreiten"
+
+#: includes/Validation/SettingsPageValidator.php:188
+msgid "Sender's postal code is required when address type is address"
+msgstr "Die Postleitzahl des Absenders ist erforderlich, wenn der Adresstyp „Adresse” ist."
+
+#: includes/Validation/SettingsPageValidator.php:189
+msgid "Sender's postal code must be at least :min character"
+msgstr "Die Postleitzahl des Absenders muss mindestens :min Zeichen lang sein"
+
+#: includes/Validation/SettingsPageValidator.php:190
+msgid "Sender's postal code must not exceed :max characters"
+msgstr "Die Postleitzahl des Absenders darf :max Zeichen nicht überschreiten"
+
+#: includes/Validation/SettingsPageValidator.php:192
+msgid "Sender's street is required when address type is address"
+msgstr "Die Straße des Absenders ist erforderlich, wenn der Adresstyp „Adresse” ist."
+
+#: includes/Validation/SettingsPageValidator.php:193
+msgid "Sender's street must be at least :min character"
+msgstr "Die Straße des Absenders muss mindestens :min Zeichen lang sein"
+
+#: includes/Validation/SettingsPageValidator.php:194
+msgid "Sender's street must not exceed :max characters"
+msgstr "Die Straße des Absenders darf :max Zeichen nicht überschreiten"
+
+#: build/shipment.js:7
+msgid "Service"
+msgstr "Leistung"
+
+#: build/admin.js:1
+msgid "Settings saved successfully!"
+msgstr "Einstellungen erfolgreich gespeichert!"
+
+#. translators: %s: pickup request number.
+#: includes/Services/NovaPostStatusBlock.php:52
+#, php-format
+msgid "Shipment added to pickup request #%s"
+msgstr "Sendung zur Abholanfrage #%s hinzugefügt."
+
+#: includes/Services/AsyncShipmentApiService.php:208
+msgid "Shipment already exists"
+msgstr "Sendung existiert bereits"
+
+#: includes/Services/ShipmentApiService.php:54
+msgid "Shipment already exists for the order"
+msgstr "Für die Bestellung existiert bereits eine Sendung."
+
+#: includes/Services/ShipmentApiService.php:94
+msgid "Shipment creation failed"
+msgstr "Sendung Erstellung fehlgeschlagen"
+
+#: includes/Helpers/ShipmentStatusHelper.php:51
+msgid "Shipment deleted"
+msgstr "Sendung gelöscht"
+
+#: build/shipment.js:7
+msgid "Shipment deleted successfully!"
+msgstr "Sendung erfolgreich gelöscht!"
+
+#: build/admin.js:4
+msgid "Shipment Departure Method"
+msgstr "Sendung"
+
+#: includes/Services/NovaPostStatusBlock.php:60
+msgid "Shipment is waiting to be added to a pickup."
+msgstr "Sendung wartet darauf, zu einer Abholung hinzugefügt zu werden."
+
+#: includes/Exceptions/ShipmentException.php:23
+msgid "Shipment not found for the order"
+msgstr "Keine Sendung für die Bestellung gefunden."
+
+#: includes/Services/BulkPrintService.php:300
+msgid "Shipment not found in Nova Post"
+msgstr "Sendung in Nova Post nicht gefunden"
+
+#: build/admin.js:4
+msgid "Shipping Flat Rate"
+msgstr "Versandpauschale"
+
+#: includes/Validation/SettingsPageValidator.php:227
+msgid "Shipping flat rate is required when free delivery for this address is enabled"
+msgstr "Eine Versandpauschale ist erforderlich, wenn für diese Adresse eine kostenlose Lieferung aktiviert ist."
+
+#: includes/Validation/SettingsPageValidator.php:219
+msgid "Shipping flat rate is required when free delivery for this division is enabled"
+msgstr "Eine Versandpauschale ist erforderlich, wenn für diesen Bereich kostenlose Lieferung aktiviert ist."
+
+#: includes/Validation/SettingsPageValidator.php:221
+#: includes/Validation/SettingsPageValidator.php:229
+msgid "Shipping flat rate must be :min or higher"
+msgstr "Die Versandpauschale muss :min oder höher sein"
+
+#: includes/Validation/SettingsPageValidator.php:220
+#: includes/Validation/SettingsPageValidator.php:228
+msgid "Shipping flat rate must be a positive number with up to 2 decimal places"
+msgstr "Die Versandpauschale muss eine positive Zahl mit maximal 2 Dezimalstellen sein."
+
+#: includes/Admin/OrderListColumn.php:49
+#: includes/Admin/OrderListColumn.php:64
+msgid "Shipping Status"
+msgstr "Versandstatus"
+
+#: build/orderPageApp.js:21
+msgid "Skipped Orders:"
+msgstr "Übersprungene Bestellungen:"
+
+#: includes/Services/PickupService.php:342
+msgid "Some orders are not eligible for pickup"
+msgstr "Einige Bestellungen sind nicht für die Abholung geeignet"
+
+#: build/admin.js:4
+msgid "Specify the order amount above which shipping will be free for the buyer. The actual shipping costs will be charged to your account"
+msgstr "Geben Sie den Bestellwert an, ab dem der Versand für den Käufer kostenlos ist. Die tatsächlichen Versandkosten werden Ihrem Konto in Rechnung gestellt."
+
+#: build/admin.js:1
+msgid "Stage API Key"
+msgstr "Stage-API-Schlüssel"
+
+#: includes/Validation/SettingsPageApiKeysValidator.php:53
+#: includes/Validation/SettingsPageValidator.php:106
+msgid "Stage API key is required"
+msgstr "Stage-API-Schlüssel ist erforderlich."
+
+#: includes/Validation/Requests/PickupStatusValidator.php:39
+msgid "Status must be `Created`"
+msgstr "Der Status muss „Erstellt“ sein."
+
+#: includes/Services/PickupService.php:392
+msgid "Status must be: "
+msgstr "Der Status muss lauten: "
+
+#: build/admin.js:1
+#: build/shipment.js:7
+msgid "Street"
+msgstr "Straße"
+
+#. translators: 1: number of successful, 2: total number
+#: build/orderPageApp.js:4
+#, js-format
+msgid "Successfully generated %1$d of %2$d documents"
+msgstr "Erfolgreich %1$d von %2$d Dokumenten generiert"
+
+#. translators: %s: list of supported currencies.
+#: includes/Admin/AdminAlerts.php:83
+msgid "Supported currencies: "
+msgstr "Unterstützte Währungen: "
+
+#: build/admin.js:1
+msgid "Testing API"
+msgstr "API testen"
+
+#: data/validator-messages.php:18
+msgid "The :attribute and :other must be different."
+msgstr "Die Felder :attribute und :other müssen unterschiedlich sein."
+
+#: data/validator-messages.php:46
+msgid "The :attribute and :other must match."
+msgstr ":attribute und :other müssen übereinstimmen."
+
+#: data/validator-messages.php:17
+msgid "The :attribute default is :default"
+msgstr "Der Standardwert für :attribute ist :default"
+
+#: data/validator-messages.php:50
+msgid "The :attribute failed to upload."
+msgstr "Das Attribut :attribute konnte nicht hochgeladen werden."
+
+#: data/validator-messages.php:37
+msgid "The :attribute field format is invalid."
+msgstr "Das Format des Feldes :attribute ist ungültig."
+
+#: data/validator-messages.php:41
+msgid "The :attribute field is required unless :other is in :values."
+msgstr "Das Feld :attribute ist erforderlich, es sei denn, :other ist in :values enthalten."
+
+#: data/validator-messages.php:39
+msgid "The :attribute field is required when :other is :value."
+msgstr "Das Feld :attribute ist erforderlich, wenn :other :value ist."
+
+#: data/validator-messages.php:43
+msgid "The :attribute field is required when :values are present."
+msgstr "Das Feld :attribute ist erforderlich, wenn :values vorhanden ist."
+
+#: data/validator-messages.php:44
+msgid "The :attribute field is required when :values is not present."
+msgstr "Das Feld :attribute ist erforderlich, wenn :values nicht vorhanden ist."
+
+#: data/validator-messages.php:42
+msgid "The :attribute field is required when :values is present."
+msgstr "Das Feld :attribute ist erforderlich, wenn :values vorhanden ist."
+
+#: data/validator-messages.php:45
+msgid "The :attribute field is required when none of :values are present."
+msgstr "Das Feld :attribute ist erforderlich, wenn keines der :values vorhanden ist."
+
+#: data/validator-messages.php:38
+msgid "The :attribute field is required."
+msgstr "Das Feld :attribute ist erforderlich."
+
+#: data/validator-messages.php:19
+msgid "The :attribute field must be :digits digits."
+msgstr "Das Feld „:attribute“ muss aus :digits Ziffern bestehen."
+
+#: data/validator-messages.php:47
+msgid "The :attribute field must be :size."
+msgstr "Das Feld :attribute muss :size sein."
+
+#: data/validator-messages.php:6
+msgid "The :attribute field must be a date after :date."
+msgstr "Das Feld :attribute muss ein Datum nach :date sein."
+
+#: data/validator-messages.php:7
+msgid "The :attribute field must be a date after or equal to :date."
+msgstr "Das Feld :attribute muss ein Datum nach oder gleich :date sein."
+
+#: data/validator-messages.php:12
+msgid "The :attribute field must be a date before :date."
+msgstr "Das Feld „:attribute“ muss ein Datum vor „:date“ sein."
+
+#: data/validator-messages.php:32
+msgid "The :attribute field must be a file of type: :values."
+msgstr "Das Feld :attribute muss eine Datei vom Typ :values sein."
+
+#: data/validator-messages.php:35
+msgid "The :attribute field must be a number."
+msgstr "Das Feld :attribute muss eine Zahl sein."
+
+#: data/validator-messages.php:49
+msgid "The :attribute field must be a string."
+msgstr "Das Feld :attribute muss eine Zeichenfolge sein."
+
+#: data/validator-messages.php:16
+msgid "The :attribute field must be a valid date."
+msgstr "Das Feld :attribute muss ein gültiges Datum sein."
+
+#: data/validator-messages.php:21
+msgid "The :attribute field must be a valid email address."
+msgstr "Das Feld :attribute muss eine gültige E-Mail-Adresse sein."
+
+#: data/validator-messages.php:26
+msgid "The :attribute field must be a valid IP address."
+msgstr "Das Feld „:attribute“ muss eine gültige IP-Adresse sein."
+
+#: data/validator-messages.php:27
+msgid "The :attribute field must be a valid IPv4 address."
+msgstr "Das Feld „:attribute“ muss eine gültige IPv4-Adresse sein."
+
+#: data/validator-messages.php:28
+msgid "The :attribute field must be a valid IPv6 address."
+msgstr "Das Feld „:attribute“ muss eine gültige IPv6-Adresse sein."
+
+#: data/validator-messages.php:29
+msgid "The :attribute field must be a valid JSON string."
+msgstr "Das Feld „:attribute“ muss eine gültige JSON-Zeichenfolge sein."
+
+#: data/validator-messages.php:52
+msgid "The :attribute field must be a valid URL."
+msgstr "Das Feld :attribute muss eine gültige URL sein."
+
+#: data/validator-messages.php:5
+msgid "The :attribute field must be accepted."
+msgstr "Das Feld :attribute muss akzeptiert werden."
+
+#: data/validator-messages.php:48
+msgid "The :attribute field must be an array."
+msgstr "Das Feld „:attribute“ muss ein Array sein."
+
+#: data/validator-messages.php:25
+msgid "The :attribute field must be an integer."
+msgstr "Das Feld „:attribute“ muss eine ganze Zahl sein."
+
+#: data/validator-messages.php:33
+msgid "The :attribute field must be at least :min."
+msgstr "Das Feld :attribute muss mindestens :min groß sein."
+
+#: data/validator-messages.php:20
+msgid "The :attribute field must be between :min and :max digits."
+msgstr "Das Feld „:attribute“ muss zwischen :min und :max Ziffern liegen."
+
+#: data/validator-messages.php:13
+msgid "The :attribute field must be between :min and :max."
+msgstr "Das Feld :attribute muss zwischen :min und :max liegen."
+
+#: data/validator-messages.php:30
+msgid "The :attribute field must be lowercase."
+msgstr "Das Feld „:attribute“ muss in Kleinbuchstaben geschrieben sein."
+
+#: data/validator-messages.php:36
+msgid "The :attribute field must be present."
+msgstr "Das Feld :attribute muss vorhanden sein."
+
+#: data/validator-messages.php:14
+msgid "The :attribute field must be true or false."
+msgstr "Das Feld :attribute muss wahr oder falsch sein."
+
+#: data/validator-messages.php:51
+msgid "The :attribute field must be uppercase."
+msgstr "Das Feld :attribute muss in Großbuchstaben geschrieben sein."
+
+#: data/validator-messages.php:23
+msgid "The :attribute field must have a value."
+msgstr "Das Feld :attribute muss einen Wert haben."
+
+#: data/validator-messages.php:31
+msgid "The :attribute field must not be greater than :max."
+msgstr "Das Feld :attribute darf nicht größer als :max sein."
+
+#: data/validator-messages.php:10
+msgid "The :attribute field must only contain letters and numbers."
+msgstr "Das Feld „:attribute“ darf nur Buchstaben und Zahlen enthalten."
+
+#: data/validator-messages.php:9
+msgid "The :attribute field must only contain letters, numbers, dashes, and underscores."
+msgstr "Das Feld :attribute darf nur Buchstaben, Zahlen, Bindestriche und Unterstriche enthalten."
+
+#: data/validator-messages.php:8
+msgid "The :attribute field must only contain letters."
+msgstr "Das Feld :attribute darf nur Buchstaben enthalten."
+
+#: data/validator-messages.php:15
+msgid "The :attribute is not valid"
+msgstr "Das Feld :attribute ist ungültig"
+
+#: data/validator-messages.php:40
+msgid "The :attribute is required"
+msgstr "Das Feld :attribute ist erforderlich"
+
+#: data/validator-messages.php:11
+msgid "The :attribute may only allows alphabet and spaces"
+msgstr "Das Feld :attribute erlaubt nur Alphabet und Leerzeichen"
+
+#: data/validator-messages.php:22
+msgid "The :attribute must be a :allowed_extensions file"
+msgstr "Das Feld :attribute muss eine Datei vom Typ :allowed_extensions sein"
+
+#: includes/Validation/Rules/ApiKeyValidationRule.php:78
+#: includes/Validation/SettingsPageApiKeysValidator.php:51
+#: includes/Validation/SettingsPageValidator.php:104
+msgid "The provided API key is invalid or failed to authenticate."
+msgstr "Der angegebene API-Schlüssel ist ungültig oder konnte nicht authentifiziert werden."
+
+#: includes/Validation/SettingsPageApiKeysValidator.php:54
+#: includes/Validation/SettingsPageValidator.php:107
+msgid "The provided stage API key is invalid or failed to authenticate."
+msgstr "Der angegebene Stage-API-Schlüssel ist ungültig oder die Authentifizierung ist fehlgeschlagen."
+
+#. translators: 1: column name, 2: table name
+#: includes/Validation/Rules/ExistsInCustomTableRule.php:63
+#, php-format
+msgid "The selected %1$s does not exist in the %2$s table."
+msgstr "Das ausgewählte %1$s ist in der Tabelle %2$s nicht vorhanden."
+
+#: data/validator-messages.php:24
+#: data/validator-messages.php:34
+msgid "The selected :attribute is invalid."
+msgstr "Das ausgewählte :attribute ist ungültig."
+
+#: includes/Validation/Rules/ExistingWooOrderRule.php:37
+msgid "The selected WC order does not exist."
+msgstr "Die ausgewählte WC-Bestellung ist nicht vorhanden."
+
+#: includes/Services/PickupErrorFormatter.php:94
+msgid "The sender's city specified in Nova Post settings is not recognized. Try entering the city name in the local language."
+msgstr "Der in den Nova Post-Einstellungen angegebene Absenderort wird nicht erkannt. Bitte geben Sie den Ortsnamen in der Landessprache ein."
+
+#: build/orderPageApp.js:16
+msgid "This action cannot be undone. Do you want to continue?"
+msgstr "Diese Aktion kann nicht rückgängig gemacht werden. Möchten Sie fortfahren?"
+
+#: build/admin.js:4
+msgid "This code will be used for all goods in international shipments that do not have an individual HS-code. "
+msgstr "Dieser Code wird für alle Waren in internationalen Sendungen verwendet, die keinen individuellen HS-Code haben. "
+
+#: includes/Shipping/NovaPostShippingMethodAbstract.php:121
+msgid "This controls the title which the user sees during checkout."
+msgstr "Dies steuert den Titel, den der Benutzer während des Bezahlvorgangs sieht."
+
+#: includes/Shipping/NovaPostShippingMethodAbstract.php:191
+msgid "Exchange rate unavailable."
+msgstr "Wechselkurs nicht verfügbar."
+
+#: build/admin.js:7
+msgid "This setting must be agreed at the contract level."
+msgstr "Diese Einstellung muss auf Vertragsebene vereinbart werden."
+
+#: build/admin.js:4
+msgid "This weight will be used for all products that do not have the 'Weight' field filled in on the product page."
+msgstr "Dieses Gewicht wird für alle Produkte verwendet, für die das Feld „Gewicht” auf der Produktseite nicht ausgefüllt ist."
+
+#: views/shipment/button-delete-shipment.php:27
+msgid "This will delete the waybill for this order. This action cannot be undone."
+msgstr "Dadurch wird der Frachtbrief für diese Bestellung gelöscht. Diese Aktion kann nicht rückgängig gemacht werden."
+
+#: includes/Shipping/NovaPostShippingMethodAbstract.php:119
+msgid "Title"
+msgstr "Titel"
+
+#. translators: %s: link to checkout page editor
+#: includes/Admin/AdminAlerts.php:116
+#, php-format
+msgid "To work correctly with the NovaPost API please set the \"Phone\" field as required on the checkout page for shipping address block. <a href=\"%s\">Edit checkout page</a>."
+msgstr "Damit die NovaPost-API korrekt funktioniert, legen Sie bitte das Feld „Telefon” auf der Checkout-Seite für den Versandadressblock als erforderlich fest. <a href=\"%s\">Checkout-Seite bearbeiten</a>."
+
+#: build/shipment.js:7
+msgid "Total Cost"
+msgstr "Gesamtkosten"
+
+#: build/shipment.js:7
+msgid "Totals"
+msgstr "Gesamt"
+
+#: includes/Services/EmailsService.php:33
+#: includes/Services/EmailsService.php:37
+msgid "Tracking Link:"
+msgstr "Tracking-Link:"
+
+#: build/shipment.js:7
+msgid "Type"
+msgstr "Art"
+
+#: includes/Validation/Requests/PickupTimeIntervalsValidator.php:72
+msgid "Type must be `PickupNextDay`"
+msgstr "Der Typ muss „Abholung am nächsten Tag“ sein."
+
+#: build/admin.js:4
+#: build/widget-order-edit.js:4
+msgid "Type must be either \"branch\" or \"postomat\""
+msgstr "Typ muss entweder „Filiale” oder „Postomat” sein."
+
+#: build/shipment.js:7
+msgid "Unit Cost"
+msgstr "Stückpreis"
+
+#: includes/Services/ShipmentApiService.php:314
+#: includes/Services/ShipmentApiService.php:315
+#: includes/Services/ShipmentApiService.php:325
+#: includes/Services/ShipmentApiService.php:326
+#: includes/Services/ShipmentApiService.php:330
+#: includes/Services/ShipmentApiService.php:331
+msgid "Unknown"
+msgstr "Unbekannt"
+
+#: includes/Services/BulkPrintService.php:455
+msgid "Unknown error"
+msgstr "Unbekannter Fehler"
+
+#: build/orderPageApp.js:12
+#: build/shipment.js:5
+#: build/widget-order-edit.js:8
+msgid "Unknown error occurred while printing document"
+msgstr "Unbekannter Fehler beim Drucken des Dokuments"
+
+#: includes/Helpers/ShipmentStatusHelper.php:66
+msgid "Unknown status"
+msgstr "Unbekannter Status"
+
+#: includes/Plugin/NovaPostForWoocommerce.php:155
+msgid "Unserializing instances of this class is forbidden."
+msgstr "Das Deserialisieren von Instanzen dieser Klasse ist verboten."
+
+#: build/admin.js:7
+msgid "Use custom boxes"
+msgstr "Eigene Boxen verwende"
+
+#: build/admin.js:7
+msgid "Use Nova Post boxes"
+msgstr "Nova Post Boxen verwenden"
+
+#: includes/Services/PickupApiService.php:35
+#: includes/Services/PickupApiService.php:61
+#: includes/Services/PickupApiService.php:88
+#: includes/Services/PickupApiService.php:114
+msgid "Validation error"
+msgstr "Validierungsfehler"
+
+#: includes/Services/BulkPrintService.php:313
+msgid "Validation failed: "
+msgstr "Validierung fehlgeschlagen: "
+
+#: build/admin.js:7
+msgid "W"
+msgstr "B"
+
+#: views/order/division-info.php:55
+msgid "Warning"
+msgstr "Warnung"
+
+#: build/shipment.js:7
+msgid "Waybill created successfully!"
+msgstr "Frachtbrief erfolgreich erstellt!"
+
+#: build/shipment.js:7
+msgid "Weight (g)"
+msgstr "Gewicht (g)"
+
+#: build/shipment.js:7
+msgid "Weight (kg)"
+msgstr "Gewicht (kg)"
+
+#: build/admin.js:4
+#: build/admin.js:7
+#: build/shipment.js:7
+msgid "Width (cm)"
+msgstr "Breite (cm)"
+
+#: includes/Services/PickupService.php:279
+msgid "Wrong pickup status. Must be in `Draft` to add shipments"
+msgstr "Falscher Abholstatus. Muss sich im Status „Entwurf“ befinden, um Sendungen hinzufügen zu können."
+
+#. translators: %d: number of orders
+#: build/orderPageApp.js:16
+#, js-format
+msgid "You are about to create a shipment for %d order."
+msgid_plural "You are about to create shipments for %d orders."
+msgstr[0] "Sie sind dabei, eine Sendung für %d Bestellung zu erstellen."
+msgstr[1] "Sie sind dabei, Sendungen für %d Bestellungen zu erstellen."
+
+#. translators: %d: maximum number of orders
+#: build/orderPageApp.js:23
+#, js-format
+msgid "You can create shipments for maximum %d orders at once"
+msgstr "Sie können Sendungen für maximal %d Bestellungen gleichzeitig erstellen"
+
+#: build/admin.js:7
+msgid "You can define up to 10 custom boxes. At least one box is required."
+msgstr "Sie können bis zu 10 eigene Boxen definieren. Mindestens eine Box ist erforderlich."
+
+#. translators: %s: link to Help Center
+#: includes/Admin/AdminAlerts.php:130
+#, php-format
+msgid "You can get the Nova Post API key according to the  <a href=\"%s\" target=\"_blank\">instruction.</a>"
+msgstr "Sie können den Nova Post API-Schlüssel zusammen mit der <a href=\"%s\" target=\"_blank\">Anleitung</a> erhalten."
+
+#: build/orderPageApp.js:1
+msgid "✓ Documents Ready"
+msgstr "✓ Dokumente bereit"
+
+#: includes/Helpers/ShipmentStatusHelper.php:48
+msgid "Delivery failed - action required"
+msgstr "Zustellung fehlgeschlagen - Aktion erforderlich"
+
+#: includes/Api/Controllers/BulkPrintController.php:142
+msgid "Invalid filename."
+msgstr "Ungültiger Dateiname."
+
+#: includes/Api/Controllers/BulkPrintController.php:158
+msgid "File not found or expired."
+msgstr "Datei nicht gefunden oder abgelaufen."
+
+#. translators: %s: Directory path that failed to be created.
+#: includes/Services/BulkPrintService.php:130
+msgid "Failed to create directory: %s"
+msgstr "Verzeichnis konnte nicht erstellt werden: %s"
+
+#: includes/Services/BulkPrintService.php:207
+msgid "Failed to save temporary PDF file."
+msgstr "Temporäre PDF-Datei konnte nicht gespeichert werden."
+
+#: build/widget-classic-checkout.js:1
+#: build/widget.js:1
+msgid "Could not load the Nova Post division widget. Please reload the page."
+msgstr "Das Nova Post-Widget für Filialen konnte nicht geladen werden. Bitte laden Sie die Seite neu."
+
+#: build/widget-classic-checkout.js:1
+#: build/widget.js:1
+msgid "Select branch or parcel locker"
+msgstr "Filiale oder Paketautomat auswählen"
+
+#: build/admin.js:4
+#: build/widget-order-edit.js:4
+msgid "Loading divisions…"
+msgstr ""
+
+#: build/admin.js:7
+msgid "Loading data…"
+msgstr ""
+
+#: build/orderPageApp.js:1
+#: build/orderPageApp.js:3
+msgid "Processing…"
+msgstr "Wird verarbeitet..."
+
+#: build/orderPageApp.js:3
+msgid "Please wait, do not close this window…"
+msgstr "Bitte warten Sie und schließen Sie dieses Fenster nicht."
+
+#: build/widget-order-edit.js:10
+msgid "Loading division data…"
+msgstr ""
+
+#. translators: %d: number of failed orders
+#: build/orderPageApp.js:7
+msgid "Failed: %d order (invalid tracking number or API error)"
+msgid_plural "Failed: %d orders (invalid tracking numbers or API errors)"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: document type, 2: number of selected orders
+#: build/orderPageApp.js:3
+msgid "You are about to print %1$s for %2$d selected order."
+msgid_plural "You are about to print %1$s for %2$d selected orders."
+msgstr[0] "Sie sind dabei, %1$s für %2$d ausgewählte Bestellung zu drucken."
+msgstr[1] "Sie sind dabei, %1$s für %2$d ausgewählte Bestellungen zu drucken."
+
+#. translators: %d: number of skipped orders
+#: build/orderPageApp.js:5
+msgid "Skipped: %d order (no shipment found)"
+msgid_plural "Skipped: %d orders (no shipments found)"
+msgstr[0] "Übersprungen: %d Bestellung (keine Sendung gefunden)"
+msgstr[1] "Übersprungen: %d Bestellungen (keine Sendungen gefunden)"
+
+#. translators: %d: number of skipped_print orders
+#: build/orderPageApp.js:6
+msgid "Skipped: %d order (document is only available for international shipments)"
+msgid_plural "Skipped: %d orders (document is only available for international shipments)"
+msgstr[0] "Übersprungen: %d Bestellung (Dokument ist nur für internationale Sendungen verfügbar)"
+msgstr[1] "Übersprungen: %d Bestellungen (Dokument ist nur für internationale Sendungen verfügbar)"

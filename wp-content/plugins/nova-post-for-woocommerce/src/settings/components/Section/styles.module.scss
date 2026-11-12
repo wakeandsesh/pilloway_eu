@@ -1,0 +1,16 @@
+.wrapper {
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+}
+.head {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex-grow: 1;
+}

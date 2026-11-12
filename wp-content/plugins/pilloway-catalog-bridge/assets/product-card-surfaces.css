@@ -1,0 +1,23 @@
+/* Keep every WooCommerce product card and image surface white across all page types. */
+.wc-block-product-template > .wc-block-product,
+.wc-block-grid__products > .wc-block-grid__product,
+.woocommerce ul.products > li.product,
+.woocommerce-page ul.products > li.product,
+.pilloway-home-featured__card {
+	background: #fff !important;
+}
+
+.wc-block-components-product-image,
+.wc-block-grid__product-image,
+.woocommerce ul.products li.product > a,
+.woocommerce ul.products li.product .woocommerce-loop-product__link,
+.woocommerce ul.products li.product .woocommerce-LoopProduct-link,
+.pilloway-home-featured__image {
+	background: #fff !important;
+}
+
+.wc-block-components-product-image img,
+.wc-block-grid__product-image img,
+.woocommerce ul.products li.product img {
+	background: #fff !important;
+}

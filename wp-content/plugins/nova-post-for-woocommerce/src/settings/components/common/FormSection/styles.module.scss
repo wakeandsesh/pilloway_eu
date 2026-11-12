@@ -1,0 +1,44 @@
+/* Enhanced FormSection styles */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.head {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e1e1e;
+}
+
+.body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+}
+
+.body.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Ensure proper spacing between form fields */
+.body > * + * {
+  margin-top: 0;
+}
+
+/* Form field consistency */
+.body .components-input-control {
+  margin-bottom: 0;
+}
+
+.body .components-checkbox-control {
+  margin-bottom: 0;
+}
+
+.body .components-combobox-control {
+  margin-bottom: 0;
+}
