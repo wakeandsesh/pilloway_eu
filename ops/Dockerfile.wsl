@@ -1,0 +1,5 @@
+FROM wordpress:php8.3-apache
+
+COPY apache/wordpress-rewrite.conf /etc/apache2/conf-enabled/wordpress-rewrite.conf
+
+RUN install -d -o www-data -g www-data -m 0750 /run/wp-ngrok-preview
