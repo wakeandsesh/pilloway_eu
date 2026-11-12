@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Pilloway GA4 Event Additions
  * Description: Adds missing GA4 view_cart and select_item events to the free WooCommerce integration.
- * Version: 1.2.0
+ * Version: 1.2.1
  * Requires Plugins: woocommerce, woocommerce-google-analytics-integration
  */
 
@@ -18,7 +18,7 @@ function pilloway_ga4_view_cart_enqueue() {
 	if (
 		! function_exists( 'WC' )
 		|| ! class_exists( 'WC_Google_Analytics_Integration' )
-		|| ! class_exists( 'WC_Abstract_Google_Analytics_JS' )
+		|| ! class_exists( 'WC_Google_Gtag_JS' )
 		|| ! function_exists( 'is_cart' )
 		|| ! is_cart()
 	) {
@@ -64,7 +64,25 @@ function pilloway_ga4_view_cart_enqueue() {
 function pilloway_ga4_view_cart_payload( $cart ): array {
 	$items          = array();
 	$value          = 0.0;
-	$price_decimals = wc_get_price_decimals();
+	$price_decimals      = wc_get_price_decimals();
+	$identifier_provider = null;
+
+	try {
+		if (
+			class_exists( 'WC_Google_Gtag_JS' )
+			&& is_callable( array( 'WC_Google_Gtag_JS', 'get_instance' ) )
+		) {
+			$ga_settings = get_option( 'woocommerce_google_analytics_settings', array() );
+			$ga_settings = is_array( $ga_settings ) ? $ga_settings : array();
+			$candidate   = WC_Google_Gtag_JS::get_instance( $ga_settings );
+
+			if ( is_object( $candidate ) && is_callable( array( $candidate, 'get_product_identifier_for_product' ) ) ) {
+				$identifier_provider = $candidate;
+			}
+		}
+	} catch ( Throwable $exception ) {
+		// Analytics must never prevent the cart from rendering.
+	}
 
 	foreach ( $cart->get_cart() as $cart_item ) {
 		$product = $cart_item['data'] ?? null;
@@ -77,10 +95,17 @@ function pilloway_ga4_view_cart_payload( $cart ): array {
 			? (float) $cart_item['line_total']
 			: ( (float) $product->get_price() * $quantity );
 
-		if ( is_callable( array( 'WC_Abstract_Google_Analytics_JS', 'get_product_identifier' ) ) ) {
-			$item_id = WC_Abstract_Google_Analytics_JS::get_product_identifier( $product );
-		} else {
-			$item_id = (string) $product->get_id();
+		$item_id = (string) ( $product->is_type( 'variation' ) ? $product->get_parent_id() : $product->get_id() );
+
+		if ( $identifier_provider ) {
+			try {
+				$configured_id = $identifier_provider->get_product_identifier_for_product( $product );
+				if ( is_scalar( $configured_id ) && '' !== (string) $configured_id ) {
+					$item_id = (string) $configured_id;
+				}
+			} catch ( Throwable $exception ) {
+				// Analytics must never prevent the cart from rendering.
+			}
 		}
 
 		$item = array(
@@ -130,7 +155,7 @@ add_action( 'wp_enqueue_scripts', 'pilloway_ga4_select_item_enqueue', 110 );
 function pilloway_ga4_select_item_enqueue() {
 	if (
 		! class_exists( 'WC_Google_Analytics_Integration' )
-		|| ! class_exists( 'WC_Abstract_Google_Analytics_JS' )
+		|| ! class_exists( 'WC_Google_Gtag_JS' )
 	) {
 		return;
 	}

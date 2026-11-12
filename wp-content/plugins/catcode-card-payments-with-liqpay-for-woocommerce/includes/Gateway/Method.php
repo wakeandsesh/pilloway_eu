@@ -111,9 +111,37 @@ class Method extends \WC_Payment_Gateway {
 					/* translators: %s: webhook URL */
 					__( 'Sent automatically with every payment:<br><code>%s</code>', 'catcode-card-payments-with-liqpay-for-woocommerce' ),
 					esc_html( $webhook )
-				),
+				) . '<br>' . self::callback_status(),
 			),
 		);
+	}
+
+	/** Option that remembers the last signed callback (time, order, status). */
+	const LAST_CALLBACK = 'catcode_liqpay_last_callback';
+
+	/**
+	 * When the last signed callback arrived — so a shop whose server blocks
+	 * LiqPay (firewall, "bad bot" rules that refuse a request without a
+	 * User-Agent, as LiqPay's is) sees it at once.
+	 */
+	private static function callback_status(): string {
+		$last = get_option( self::LAST_CALLBACK );
+		if ( is_array( $last ) && ! empty( $last['at'] ) ) {
+			return '<span style="color:#1a7f37">' . esc_html(
+				sprintf(
+					/* translators: 1: date and time, 2: order number */
+					__( 'Last notification from LiqPay: %1$s (order #%2$s) — statuses update automatically.', 'catcode-card-payments-with-liqpay-for-woocommerce' ),
+					wp_date( 'd.m.Y H:i', (int) $last['at'] ),
+					(string) ( $last['order'] ?? '' )
+				)
+			) . '</span>';
+		}
+		return '<span style="color:#b32d2e">' . esc_html__( 'No notification from LiqPay has arrived yet. If a paid order stays "Pending payment", the server blocks LiqPay: allow POST requests to this address (LiqPay sends them without a User-Agent).', 'catcode-card-payments-with-liqpay-for-woocommerce' ) . '</span>';
+	}
+
+	/** Remember a signed callback (called by the webhook handler). */
+	public static function remember_callback( int $order_id, string $status ): void {
+		update_option( self::LAST_CALLBACK, array( 'at' => time(), 'order' => $order_id, 'status' => $status ), false );
 	}
 
 	public function is_available() {
@@ -212,6 +240,7 @@ class Method extends \WC_Payment_Gateway {
 					array(
 						'wc-api'               => self::ID,
 						'catcode_liqpay_order' => $order->get_id(),
+						'key'                 => $order->get_order_key(),
 					),
 					home_url( '/' )
 				),
@@ -242,9 +271,18 @@ class Method extends \WC_Payment_Gateway {
 	 * Buyer returns from LiqPay (result_url). Reconcile via the status API,
 	 * then route to the thank-you page only when actually paid.
 	 */
+	/** A browser return may expose order details only with its secret order key. */
+	private static function can_access_return( \WC_Order $order, string $key ): bool {
+		return self::ID === $order->get_payment_method() && '' !== $key && '' !== $order->get_order_key() && hash_equals( $order->get_order_key(), $key );
+	}
+
 	public function handle_return() {
 		$order_id = isset( $_GET['catcode_liqpay_order'] ) ? absint( wp_unslash( $_GET['catcode_liqpay_order'] ) ) : 0; // phpcs:ignore WordPress.Security.NonceVerification
 		$order    = $order_id ? wc_get_order( $order_id ) : null;
+		$key = isset( $_GET['key'] ) && is_string( $_GET['key'] ) ? wc_clean( wp_unslash( $_GET['key'] ) ) : '';
+		if ( $order && ! self::can_access_return( $order, $key ) ) {
+			$order = null;
+		}
 
 		if ( $order ) {
 			$this->sync_order( $order );
@@ -259,7 +297,14 @@ class Method extends \WC_Payment_Gateway {
 				wp_safe_redirect( $this->get_return_url( $order ) );
 				exit;
 			}
-			wc_add_notice( __( 'The payment was not completed. Please try again or choose another payment method.', 'catcode-card-payments-with-liqpay-for-woocommerce' ), 'error' );
+			$state = (string) $order->get_meta( '_catcode_liqpay_status' );
+			if ( 'cancelled' === $state ) {
+				wc_add_notice( __( 'The payment was cancelled. You can try again or choose another payment method.', 'catcode-card-payments-with-liqpay-for-woocommerce' ), 'notice' );
+			} elseif ( in_array( $state, array( 'failure', 'error' ), true ) ) {
+				wc_add_notice( __( 'The bank declined the payment. Please try another card or another payment method.', 'catcode-card-payments-with-liqpay-for-woocommerce' ), 'error' );
+			} else {
+				wc_add_notice( __( 'The payment was not completed. Please try again or choose another payment method.', 'catcode-card-payments-with-liqpay-for-woocommerce' ), 'error' );
+			}
 		}
 
 		wp_safe_redirect( $order ? $order->get_checkout_payment_url() : wc_get_checkout_url() );
@@ -280,7 +325,12 @@ class Method extends \WC_Payment_Gateway {
 		if ( empty( $data['status'] ) ) {
 			return false;
 		}
-		return $this->apply_status( $order, $data );
+		try {
+			return $this->apply_status( $order, $data );
+		} catch ( \RuntimeException $e ) {
+			$this->log( 'Order update busy; reconciliation deferred.' );
+			return false;
+		}
 	}
 
 	/** Seconds a held lock stays valid before the next caller takes it over. */
@@ -339,17 +389,22 @@ class Method extends \WC_Payment_Gateway {
 	public function apply_status( \WC_Order $order, array $data ): bool {
 		$lock = '_catcode_liqpay_apply_' . $order->get_id();
 
+		$acquired = false;
 		for ( $i = 0; $i < 40; $i++ ) {
 			if ( $this->lock_acquire( $lock ) ) {
+				$acquired = true;
 				break;
 			}
 			usleep( 100000 );
 		}
 
-		// The winner may have written while we waited — decide on fresh state.
-		$order = self::reload_order( $order->get_id(), $order );
+		if ( ! $acquired ) {
+			throw new \RuntimeException( 'LiqPay order is being updated; retry the callback.' );
+		}
 
+		// The winner may have written while we waited — decide on fresh state.
 		try {
+			$order = self::reload_order( $order->get_id(), $order );
 			return $this->apply_status_locked( $order, $data );
 		} finally {
 			$this->lock_release( $lock );
@@ -392,6 +447,20 @@ class Method extends \WC_Payment_Gateway {
 	 */
 	private function apply_status_locked( \WC_Order $order, array $data ): bool {
 		$status = (string) ( $data['status'] ?? '' );
+		$prev   = (string) $order->get_meta( '_catcode_liqpay_status' );
+
+		// Out-of-order callbacks must not replace a final payment with an older state.
+		if ( ( $order->is_paid() || $order->has_status( 'refunded' ) ) && 'reversed' !== $status ) {
+			return false;
+		}
+
+		// "payment_not_found" is LiqPay's answer to a status query about an attempt
+		// it has no payment for. After a refusal LiqPay already told us more than
+		// that (the callback), and that verdict stays.
+		if ( 'payment_not_found' === (string) ( $data['err_code'] ?? '' ) && in_array( $prev, array( 'failure', 'error', 'cancelled' ), true ) ) {
+			return false;
+		}
+
 		$order->update_meta_data( '_catcode_liqpay_status', $status );
 		foreach ( array( 'payment_id', 'transaction_id', 'sender_card_mask2', 'sender_card_type', 'paytype', 'liqpay_order_id' ) as $k ) {
 			if ( ! empty( $data[ $k ] ) ) {
@@ -404,7 +473,7 @@ class Method extends \WC_Payment_Gateway {
 
 		// Money secured — success, or `sandbox` when test keys are in play.
 		if ( Client::is_paid_status( $status ) && 'wait_accept' !== $status ) {
-			if ( $order->is_paid() ) {
+			if ( $order->is_paid() || $order->has_status( 'refunded' ) ) {
 				$order->save();
 				return false;
 			}
@@ -413,20 +482,35 @@ class Method extends \WC_Payment_Gateway {
 			$paid = (float) ( $data['amount'] ?? 0 );
 			$due  = round( (float) $order->get_total(), 2 );
 			$ccy  = (string) ( $data['currency'] ?? '' );
-			if ( ( $paid > 0 && $paid + 0.01 < $due ) || ( '' !== $ccy && $ccy !== $order->get_currency() ) ) {
+			if ( ! isset( $data['amount'] ) || ! is_numeric( $data['amount'] ) || ! is_finite( $paid ) || $paid <= 0 || abs( round( $paid, 2 ) - $due ) > 0.001 || $ccy !== $order->get_currency() || ( 'sandbox' === $status && ! $this->client()->is_sandbox() ) ) {
 				$order->update_status( 'on-hold', __( 'LiqPay: the paid amount or currency does not match the order — manual review required.', 'catcode-card-payments-with-liqpay-for-woocommerce' ) );
 				$order->save();
 				return false;
 			}
-			$order->payment_complete( (string) ( $data['payment_id'] ?? $data['transaction_id'] ?? '' ) );
+			// WooCommerce writes "Payment via <method title> (<transaction>)". With a
+			// title such as "Card payment (LiqPay)" that read "Payment via Card
+			// payment (LiqPay)" — so for this one note the method is called by its name.
+			$short = static function () {
+				return 'LiqPay';
+			};
+			add_filter( 'woocommerce_order_get_payment_method_title', $short );
+			try {
+				$order->payment_complete( (string) ( $data['payment_id'] ?? $data['transaction_id'] ?? '' ) );
+			} finally {
+				remove_filter( 'woocommerce_order_get_payment_method_title', $short );
+			}
 			if ( 'completed' === $this->get_option( 'complete_status', 'processing' ) && ! $order->has_status( 'completed' ) ) {
 				$order->update_status( 'completed' );
 			}
-			$order->add_order_note(
-				'sandbox' === $status
-					? __( 'LiqPay: test payment received (sandbox).', 'catcode-card-payments-with-liqpay-for-woocommerce' )
-					: __( 'LiqPay: payment received.', 'catcode-card-payments-with-liqpay-for-woocommerce' )
-			);
+			$card = (string) ( $data['sender_card_mask2'] ?? '' );
+			$note = 'sandbox' === $status
+				? __( 'LiqPay: test payment received (sandbox).', 'catcode-card-payments-with-liqpay-for-woocommerce' )
+				: __( 'LiqPay: payment received.', 'catcode-card-payments-with-liqpay-for-woocommerce' );
+			if ( '' !== $card ) {
+				/* translators: %s: masked card number */
+				$note .= ' ' . sprintf( __( 'Card %s.', 'catcode-card-payments-with-liqpay-for-woocommerce' ), $card );
+			}
+			$order->add_order_note( $note );
 			$order->save();
 			return true;
 		}
@@ -435,6 +519,9 @@ class Method extends \WC_Payment_Gateway {
 			// Money is held on the card (action=hold) or taken but not settled.
 			case 'hold_wait':
 			case 'wait_accept':
+				if ( $order->is_paid() || $order->has_status( 'refunded' ) ) {
+					return false;
+				}
 				if ( ! $order->has_status( 'on-hold' ) ) {
 					$order->update_status( 'on-hold', __( 'LiqPay: funds are held, awaiting confirmation.', 'catcode-card-payments-with-liqpay-for-woocommerce' ) );
 				}
@@ -443,9 +530,28 @@ class Method extends \WC_Payment_Gateway {
 
 			case 'failure':
 			case 'error':
-				if ( ! $order->is_paid() ) {
-					$reason = (string) ( $data['err_description'] ?? $data['err_code'] ?? '' );
-					$order->update_status( 'failed', __( 'LiqPay: payment declined. ', 'catcode-card-payments-with-liqpay-for-woocommerce' ) . $reason );
+				// "payment_not_found": LiqPay has no payment for this attempt at all —
+				// the buyer cancelled on the LiqPay page or came back without paying.
+				// That is not a bank refusal and must not read like one.
+				if ( 'payment_not_found' === (string) ( $data['err_code'] ?? '' ) ) {
+					if ( ! $order->is_paid() ) {
+						$order->update_meta_data( '_catcode_liqpay_status', 'cancelled' );
+					}
+					if ( $order->has_status( 'pending' ) ) {
+						$order->update_status( 'failed', __( 'LiqPay: the buyer cancelled the payment on the LiqPay page (no payment was created).', 'catcode-card-payments-with-liqpay-for-woocommerce' ) );
+					}
+					$order->save();
+					return true;
+				}
+				if ( ! $order->is_paid() && ! $order->has_status( 'failed' ) ) {
+					$reason = trim( (string) ( $data['err_description'] ?? $data['err_code'] ?? '' ) );
+					$order->update_status(
+						'failed',
+						'' !== $reason
+							/* translators: %s: reason given by LiqPay */
+							? sprintf( __( 'LiqPay: payment declined (%s).', 'catcode-card-payments-with-liqpay-for-woocommerce' ), $reason )
+							: __( 'LiqPay: payment declined.', 'catcode-card-payments-with-liqpay-for-woocommerce' )
+					);
 				}
 				$order->save();
 				return true;

@@ -66,8 +66,10 @@ final class QrGenerator
         string $function = self::FUNC_REGULAR  // legacy сигнатура, тільки UCT для v002
     ): string {
         $iban        = strtoupper(preg_replace('/\s+/', '', $iban) ?? '');
-        // Сума — trim trailing zeros (1.00 → "1", 99.50 → "99.5", 99.99 → "99.99")
-        $amountStr   = rtrim(rtrim(number_format($amount, 2, '.', ''), '0'), '.');
+        // Сума за правилами НБУ: ціле — без «.00» (1.00 → "1"), дробова частина — завжди дві цифри
+        // (99.50 → "99.50", не "99.5"; Правила, постанова НБУ № 97 від 19.08.2025, додаток 3 п. 4.8).
+        $cents       = (int) round($amount * 100);
+        $amountStr   = $cents % 100 ? number_format($cents / 100, 2, '.', '') : (string) intdiv($cents, 100);
         $beneficiary = self::trimLine($beneficiary, 140);
         $memo        = self::trimLine($memo, 420);
         $edrpou      = preg_replace('/\D+/', '', $edrpou) ?? '';

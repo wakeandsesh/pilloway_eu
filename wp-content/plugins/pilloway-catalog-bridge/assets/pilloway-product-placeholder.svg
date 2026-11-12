@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-labelledby="title desc">
+  <title id="title">Pilloway product image placeholder</title>
+  <desc id="desc">A soft white pillow on a calm pale background</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f8faf9"/><stop offset="1" stop-color="#edf4f2"/></linearGradient>
+    <linearGradient id="pillow" x1="0" y1="0" x2="0.9" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#e8efed"/></linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="170%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="22"/><feOffset dy="18"/>
+      <feColorMatrix values="0 0 0 0 0.27 0 0 0 0 0.37 0 0 0 0 0.35 0 0 0 .14 0"/>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="800" height="800" rx="36" fill="url(#bg)"/>
+  <g filter="url(#shadow)">
+    <path d="M154 365c15-57 75-88 146-75 72 13 129 20 202 0 70-20 131 13 145 69l31 119c13 51-23 91-80 91H201c-59 0-94-42-81-93l34-111Z" fill="url(#pillow)" stroke="#d6e2df" stroke-width="8"/>
+    <path d="M170 398c70 27 151 31 230 11 88-22 160-20 239 8" fill="none" stroke="#dce7e4" stroke-width="7" stroke-linecap="round"/>
+  </g>
+  <text x="400" y="690" text-anchor="middle" fill="#147d7b" font-family="Arial,sans-serif" font-size="38" font-weight="700" letter-spacing="5">PILLOWAY</text>
+</svg>

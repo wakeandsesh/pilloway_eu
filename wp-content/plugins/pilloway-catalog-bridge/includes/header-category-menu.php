@@ -37,7 +37,7 @@ function pilloway_catalog_get_current_language_header_categories(): array {
 	);
 }
 
-function pilloway_catalog_render_header_categories(): string {
+function pilloway_catalog_render_header_category_menu_item(): string {
 	$terms = pilloway_catalog_get_current_language_header_categories();
 	if ( empty( $terms ) ) {
 		return '';
@@ -71,6 +71,70 @@ function pilloway_catalog_render_header_categories(): string {
 		implode( '', $items )
 	);
 }
+
+/**
+ * The header pattern retains this block for backwards compatibility. The category
+ * item is inserted into the classic menu by the filter below, so avoid a duplicate.
+ */
+function pilloway_catalog_render_header_categories(): string {
+	return '';
+}
+
+/**
+ * Insert the language-aware category disclosure after the second top-level item.
+ *
+ * @param string   $items Menu item HTML.
+ * @param stdClass $args  Menu arguments.
+ * @return string
+ */
+function pilloway_catalog_insert_header_categories_after_second_menu_item( $items, $args ): string {
+	if ( ! is_object( $args ) || 'pilloway-primary' !== ( $args->theme_location ?? '' ) ) {
+		return $items;
+	}
+	if ( false !== strpos( $items, 'pilloway-nav-categories' ) ) {
+		return $items;
+	}
+
+	$category_item = pilloway_catalog_render_header_category_menu_item();
+	if ( '' === $category_item ) {
+		return $items;
+	}
+
+	if ( ! preg_match_all( '/<li\b[^>]*>|<\/li\s*>/i', $items, $tags, PREG_OFFSET_CAPTURE ) ) {
+		return $items;
+	}
+
+	$depth           = 0;
+	$top_level_count = 0;
+	$insert_at       = null;
+
+	foreach ( $tags[0] as $tag_match ) {
+		$tag    = $tag_match[0];
+		$offset = $tag_match[1];
+
+		if ( 0 === stripos( $tag, '</li' ) ) {
+			if ( $depth > 0 ) {
+				--$depth;
+			}
+			if ( 0 === $depth ) {
+				++$top_level_count;
+				if ( 2 === $top_level_count ) {
+					$insert_at = $offset + strlen( $tag );
+					break;
+				}
+			}
+		} else {
+			++$depth;
+		}
+	}
+
+	if ( null === $insert_at ) {
+		return $items;
+	}
+
+	return substr_replace( $items, $category_item, $insert_at, 0 );
+}
+add_filter( 'wp_nav_menu_items', 'pilloway_catalog_insert_header_categories_after_second_menu_item', 20, 2 );
 
 function pilloway_catalog_render_header_category_strip(): string {
 	$terms = pilloway_catalog_get_current_language_header_categories();

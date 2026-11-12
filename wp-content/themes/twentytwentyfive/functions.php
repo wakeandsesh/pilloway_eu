@@ -1,181 +1,28 @@
 <?php
 /**
- * Twenty Twenty-Five functions and definitions.
+ * Pilloway standalone theme setup.
  *
- * @link https://developer.wordpress.org/themes/basics/theme-functions/
- *
- * @package WordPress
- * @subpackage Twenty_Twenty_Five
- * @since Twenty Twenty-Five 1.0
+ * All theme templates and assets are owned by Pilloway; no parent theme is required.
  */
 
-if ( ! function_exists( 'twentytwentyfive_post_format_setup' ) ) :
-	/**
-	 * Adds theme support for post formats.
-	 *
-	 * @since Twenty Twenty-Five 1.0
-	 *
-	 * @return void
-	 */
-	function twentytwentyfive_post_format_setup() {
-		add_theme_support( 'post-formats', array( 'aside', 'audio', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video' ) );
-		add_theme_support( 'woocommerce' );
-		add_theme_support( 'wc-product-gallery-zoom' );
-		add_theme_support( 'wc-product-gallery-lightbox' );
-		add_theme_support( 'wc-product-gallery-slider' );
-	}
-endif;
-add_action( 'after_setup_theme', 'twentytwentyfive_post_format_setup' );
+require_once __DIR__ . '/inc/theme-base.php';
 
-if ( ! function_exists( 'twentytwentyfive_editor_style' ) ) :
-	/**
-	 * Enqueues editor-style.css in the editors.
-	 *
-	 * @since Twenty Twenty-Five 1.0
-	 *
-	 * @return void
-	 */
-	function twentytwentyfive_editor_style() {
-		add_editor_style( 'assets/css/editor-style.css' );
-	}
-endif;
-add_action( 'after_setup_theme', 'twentytwentyfive_editor_style' );
-
-if ( ! function_exists( 'twentytwentyfive_enqueue_styles' ) ) :
-	/**
-	 * Enqueues the theme stylesheet on the front.
-	 *
-	 * @since Twenty Twenty-Five 1.0
-	 *
-	 * @return void
-	 */
-	function twentytwentyfive_enqueue_styles() {
-		$suffix = SCRIPT_DEBUG ? '' : '.min';
-		$src    = 'style' . $suffix . '.css';
-
-		wp_enqueue_style(
-			'twentytwentyfive-style',
-			get_parent_theme_file_uri( $src ),
-			array(),
-			wp_get_theme()->get( 'Version' )
-		);
-		wp_style_add_data(
-			'twentytwentyfive-style',
-			'path',
-			get_parent_theme_file_path( $src )
-		);
-	}
-endif;
-add_action( 'wp_enqueue_scripts', 'twentytwentyfive_enqueue_styles' );
-
-if ( ! function_exists( 'twentytwentyfive_block_styles' ) ) :
-	/**
-	 * Registers custom block styles.
-	 *
-	 * @since Twenty Twenty-Five 1.0
-	 *
-	 * @return void
-	 */
-	function twentytwentyfive_block_styles() {
-		register_block_style(
-			'core/list',
-			array(
-				'name'         => 'checkmark-list',
-				'label'        => __( 'Checkmark', 'twentytwentyfive' ),
-				'inline_style' => '
-				ul.is-style-checkmark-list {
-					list-style-type: "\2713";
-				}
-
-				ul.is-style-checkmark-list li {
-					padding-inline-start: 1ch;
-				}',
-			)
-		);
-	}
-endif;
-add_action( 'init', 'twentytwentyfive_block_styles' );
-
-if ( ! function_exists( 'twentytwentyfive_pattern_categories' ) ) :
-	/**
-	 * Registers pattern categories.
-	 *
-	 * @since Twenty Twenty-Five 1.0
-	 *
-	 * @return void
-	 */
-	function twentytwentyfive_pattern_categories() {
-
-		register_block_pattern_category(
-			'twentytwentyfive_page',
-			array(
-				'label'       => __( 'Pages', 'twentytwentyfive' ),
-				'description' => __( 'A collection of full page layouts.', 'twentytwentyfive' ),
-			)
-		);
-
-		register_block_pattern_category(
-			'twentytwentyfive_post-format',
-			array(
-				'label'       => __( 'Post formats', 'twentytwentyfive' ),
-				'description' => __( 'A collection of post format patterns.', 'twentytwentyfive' ),
-			)
-		);
-	}
-endif;
-add_action( 'init', 'twentytwentyfive_pattern_categories' );
-
-if ( ! function_exists( 'twentytwentyfive_register_block_bindings' ) ) :
-	/**
-	 * Registers the post format block binding source.
-	 *
-	 * @since Twenty Twenty-Five 1.0
-	 *
-	 * @return void
-	 */
-	function twentytwentyfive_register_block_bindings() {
-		register_block_bindings_source(
-			'twentytwentyfive/format',
-			array(
-				'label'              => _x( 'Post format name', 'Label for the block binding placeholder in the editor', 'twentytwentyfive' ),
-				'get_value_callback' => 'twentytwentyfive_format_binding',
-			)
-		);
-	}
-endif;
-add_action( 'init', 'twentytwentyfive_register_block_bindings' );
-
-if ( ! function_exists( 'twentytwentyfive_format_binding' ) ) :
-	/**
-	 * Callback function for the post format name block binding source.
-	 *
-	 * @since Twenty Twenty-Five 1.0
-	 *
-	 * @return string|void Post format name, or nothing if the format is 'standard'.
-	 */
-	function twentytwentyfive_format_binding() {
-		$post_format_slug = get_post_format();
-
-		if ( $post_format_slug && 'standard' !== $post_format_slug ) {
-			return get_post_format_string( $post_format_slug );
-		}
-	}
-endif;
-
-
-/**
- * Register the classic primary menu location used by Polylang Free.
- */
-function twentytwentyfive_register_pilloway_primary_menu_location() {
+function pilloway_theme_theme_setup() {
+	add_theme_support( 'woocommerce' );
+	add_theme_support( 'wc-product-gallery-zoom' );
+	add_theme_support( 'wc-product-gallery-lightbox' );
+	add_theme_support( 'wc-product-gallery-slider' );
 	add_theme_support( 'menus' );
-	register_nav_menu( 'pilloway-primary', __( 'Primary navigation', 'twentytwentyfive' ) );
+	register_nav_menu( 'pilloway-primary', __( 'Primary navigation', 'pilloway' ) );
 }
-add_action( 'after_setup_theme', 'twentytwentyfive_register_pilloway_primary_menu_location', 20 );
+add_action( 'after_setup_theme', 'pilloway_theme_theme_setup', 20 );
 
 /**
- * Let the server-rendered classic menu block be used inside core/navigation.
+ * Allow the server-rendered menu block inside core/navigation.
+ *
+ * The block's menu data remains in WordPress; only its renderer lives in this theme.
  */
-function twentytwentyfive_allow_pilloway_primary_menu_block( $settings, $metadata ) {
+function pilloway_theme_allow_primary_menu_block( $settings, $metadata ) {
 	if ( 'core/navigation' === ( $metadata['name'] ?? '' ) ) {
 		$settings['allowed_blocks'] = array_values(
 			array_unique(
@@ -188,12 +35,32 @@ function twentytwentyfive_allow_pilloway_primary_menu_block( $settings, $metadat
 	}
 	return $settings;
 }
-add_filter( 'block_type_metadata_settings', 'twentytwentyfive_allow_pilloway_primary_menu_block', 10, 2 );
+add_filter( 'block_type_metadata_settings', 'pilloway_theme_allow_primary_menu_block', 10, 2 );
+
 
 /**
- * Register the bridge block. Menu content stays in WordPress menu data.
+ * Register the custom navigation block from this child theme.
  */
-function twentytwentyfive_register_pilloway_primary_menu_block() {
-	register_block_type( __DIR__ . '/blocks/primary-menu' );
+function pilloway_theme_register_primary_menu_block() {
+	$block_name = 'pilloway/primary-menu';
+	$registry   = WP_Block_Type_Registry::get_instance();
+
+	// Register our menu renderer from this standalone theme.
+	if ( ! $registry->is_registered( $block_name ) ) {
+		register_block_type( get_stylesheet_directory() . '/blocks/primary-menu' );
+	}
 }
-add_action( 'init', 'twentytwentyfive_register_pilloway_primary_menu_block', 20 );
+add_action( 'init', 'pilloway_theme_register_primary_menu_block', 20 );
+
+/**
+ * Load the Pilloway stylesheet after the base stylesheet.
+ */
+function pilloway_theme_enqueue_styles() {
+	wp_enqueue_style(
+		'pilloway-theme',
+		get_stylesheet_uri(),
+		array( 'pilloway-base-style' ),
+		wp_get_theme()->get( 'Version' )
+	);
+}
+add_action( 'wp_enqueue_scripts', 'pilloway_theme_enqueue_styles', 20 );

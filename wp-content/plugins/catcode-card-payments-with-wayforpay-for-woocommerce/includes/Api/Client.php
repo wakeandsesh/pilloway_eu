@@ -176,9 +176,18 @@ class Client {
 		);
 	}
 
-	/** CHECK_STATUS — pull the current transaction state for an order. */
+	/**
+	 * CHECK_STATUS — pull the current transaction state for an order.
+	 *
+	 * The reasonCode in this answer belongs to the PAYMENT, not to the request:
+	 * a declined card comes back as 1105 or 1122 with transactionStatus
+	 * "Declined". It used to be judged like any other call (only 1100 = success),
+	 * so a declined or cancelled payment read as "the lookup failed" and the
+	 * order stayed "Pending payment". A signed answer that names the transaction
+	 * status is a successful lookup, whatever the payment's own reason code.
+	 */
 	public function check_status( string $reference ): array {
-		return $this->api(
+		$resp = $this->api(
 			array(
 				'transactionType'   => 'CHECK_STATUS',
 				'merchantAccount'   => $this->account,
@@ -187,6 +196,99 @@ class Client {
 				'merchantSignature' => $this->sign( array( $this->account, $reference ) ),
 			)
 		);
+		$data = isset( $resp['data'] ) && is_array( $resp['data'] ) ? $resp['data'] : array();
+		if ( empty( $resp['success'] ) && 200 === (int) ( $resp['status'] ?? 0 )
+			&& ! empty( $data['transactionStatus'] )
+			&& (string) ( $data['orderReference'] ?? '' ) === $reference
+			&& $this->verify_response( $data ) ) {
+			$resp['success'] = true;
+		}
+		return $resp;
+	}
+
+	/**
+	 * Item lines for the payment page, built so that sum(price × count) equals
+	 * the amount to the kopeck. Positive extras (delivery, fees) get a line of
+	 * their own; negative ones come off the goods proportionally.
+	 *
+	 * @param array  $items    list of array( name, qty, total ) — line totals
+	 * @param array  $extras   list of array( name, total ) — signed amounts
+	 * @param float  $grand    the amount sent to WayForPay
+	 * @param string $fallback name of the single line used when nothing else fits
+	 * @param string $other    name of a line for an unexplained positive remainder
+	 */
+	public static function lines( array $items, array $extras, float $grand, string $fallback, string $other ): array {
+		$g    = (int) round( $grand * 100 );
+		$rows = array();
+		$neg  = 0;
+		foreach ( $items as $it ) {
+			$c = (int) round( (float) $it['total'] * 100 );
+			if ( $c > 0 ) {
+				$rows[] = array( (string) $it['name'], max( 1, (int) $it['qty'] ), $c );
+			}
+		}
+		$nitems = count( $rows );
+		foreach ( $extras as $ex ) {
+			$c = (int) round( (float) $ex['total'] * 100 );
+			if ( $c > 0 ) {
+				$rows[] = array( (string) $ex['name'], 1, $c );
+			} elseif ( $c < 0 ) {
+				$neg += $c;
+			}
+		}
+		$base = 0;
+		foreach ( $rows as $r ) {
+			$base += $r[2];
+		}
+		$rest = $g - ( $base + $neg );
+		if ( $rest > 5 ) {
+			$rows[] = array( $other, 1, $rest );
+			$base  += $rest;
+		} else {
+			$neg += $rest;
+		}
+		$single = array( array( 'name' => $fallback, 'count' => 1, 'price' => round( $grand, 2 ) ) );
+		if ( ! $rows || $g <= 0 || $base + $neg <= 0 ) {
+			return $single;
+		}
+		if ( 0 !== $neg ) {
+			// Discounts come off the goods; delivery and fees keep their price
+			// unless the discount is bigger than the goods.
+			$pool = array();
+			$sum  = 0;
+			foreach ( $rows as $i => $r ) {
+				if ( $i < $nitems ) {
+					$pool[] = $i;
+					$sum   += $r[2];
+				}
+			}
+			if ( ! $pool || $sum + $neg <= 0 ) {
+				$pool = array_keys( $rows );
+				$sum  = $base;
+			}
+			$left = $neg;
+			$last = end( $pool );
+			foreach ( $pool as $i ) {
+				$share         = $i === $last ? $left : (int) round( $neg * $rows[ $i ][2] / $sum );
+				$rows[ $i ][2] += $share;
+				$left         -= $share;
+			}
+			foreach ( $rows as $r ) {
+				if ( $r[2] <= 0 ) {
+					return $single;
+				}
+			}
+		}
+		$out = array();
+		foreach ( $rows as $r ) {
+			if ( $r[1] > 1 && 0 !== $r[2] % $r[1] ) {
+				// A unit price that does not divide evenly would break the sum.
+				$out[] = array( 'name' => $r[0] . ' × ' . $r[1], 'count' => 1, 'price' => $r[2] / 100 );
+			} else {
+				$out[] = array( 'name' => $r[0], 'count' => $r[1], 'price' => intdiv( $r[2], $r[1] ) / 100 );
+			}
+		}
+		return $out;
 	}
 
 	/**

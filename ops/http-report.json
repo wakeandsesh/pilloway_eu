@@ -1,0 +1,130 @@
+[
+  {
+    "url": "http://127.0.0.1:8098/",
+    "status": 200,
+    "final_url": "http://127.0.0.1:8098/?v=c4fd8bc330b1",
+    "bytes": 224932,
+    "php_fatal": false,
+    "cookie_banner": true
+  },
+  {
+    "url": "http://127.0.0.1:8098/shop/",
+    "status": 200,
+    "final_url": "http://127.0.0.1:8098/shop/?v=c4fd8bc330b1",
+    "bytes": 605262,
+    "php_fatal": false,
+    "cookie_banner": true
+  },
+  {
+    "url": "http://127.0.0.1:8098/cart/",
+    "status": 200,
+    "final_url": "http://127.0.0.1:8098/cart/",
+    "bytes": 672036,
+    "php_fatal": false,
+    "cookie_banner": true
+  },
+  {
+    "url": "http://127.0.0.1:8098/checkout/",
+    "status": 200,
+    "final_url": "http://127.0.0.1:8098/cart/",
+    "bytes": 672036,
+    "php_fatal": false,
+    "cookie_banner": true
+  },
+  {
+    "url": "http://127.0.0.1:8098/en/",
+    "status": 200,
+    "final_url": "http://127.0.0.1:8098/en/?v=c4fd8bc330b1",
+    "bytes": 219778,
+    "php_fatal": false,
+    "cookie_banner": true
+  },
+  {
+    "url": "http://127.0.0.1:8098/fr/",
+    "status": 200,
+    "final_url": "http://127.0.0.1:8098/fr/?v=c4fd8bc330b1",
+    "bytes": 220978,
+    "php_fatal": false,
+    "cookie_banner": true
+  },
+  {
+    "url": "http://127.0.0.1:8098/pl/",
+    "status": 200,
+    "final_url": "http://127.0.0.1:8098/pl/?v=c4fd8bc330b1",
+    "bytes": 220555,
+    "php_fatal": false,
+    "cookie_banner": true
+  },
+  {
+    "url": "http://127.0.0.1:8098/ru/",
+    "status": 200,
+    "final_url": "http://127.0.0.1:8098/ru/?v=c4fd8bc330b1",
+    "bytes": 225420,
+    "php_fatal": false,
+    "cookie_banner": true
+  },
+  {
+    "url": "http://127.0.0.1:8098/de/",
+    "status": 200,
+    "final_url": "http://127.0.0.1:8098/de/?v=c4fd8bc330b1",
+    "bytes": 220464,
+    "php_fatal": false,
+    "cookie_banner": true
+  },
+  {
+    "url": "http://127.0.0.1:8098/wp-json/wc/store/v1/products",
+    "status": 200,
+    "final_url": "http://127.0.0.1:8098/wp-json/wc/store/v1/products",
+    "bytes": 172950,
+    "php_fatal": false,
+    "cookie_banner": false
+  },
+  {
+    "url": "http://127.0.0.1:8098/?post_type=product&ccf=o:1",
+    "status": 200,
+    "final_url": "http://127.0.0.1:8098/?post_type=product&ccf=o%3A1&v=c4fd8bc330b1",
+    "bytes": 683045,
+    "php_fatal": false,
+    "cookie_banner": true
+  },
+  {
+    "url": "http://127.0.0.1:8099/",
+    "status": 200,
+    "final_url": "http://127.0.0.1:8099/",
+    "bytes": 231617,
+    "php_fatal": false,
+    "cookie_banner": true
+  },
+  {
+    "url": "http://127.0.0.1:8099/shop/",
+    "status": 200,
+    "final_url": "http://127.0.0.1:8099/shop/",
+    "bytes": 619265,
+    "php_fatal": false,
+    "cookie_banner": true
+  },
+  {
+    "url": "http://127.0.0.1:8099/cart/",
+    "status": 200,
+    "final_url": "http://127.0.0.1:8099/cart/",
+    "bytes": 455306,
+    "php_fatal": false,
+    "cookie_banner": true
+  },
+  {
+    "url": "http://127.0.0.1:8099/checkout/",
+    "status": 200,
+    "final_url": "http://127.0.0.1:8099/cart/",
+    "bytes": 455306,
+    "php_fatal": false,
+    "cookie_banner": true
+  },
+  {
+    "url": "http://127.0.0.1:8099/product/podushka-dlya-sydinnya-max-comfort-zamsha-scuba-chornyi/",
+    "status": 200,
+    "final_url": "http://127.0.0.1:8099/product/podushka-dlya-sydinnya-max-comfort-zamsha-scuba-chornyi/",
+    "bytes": 471082,
+    "php_fatal": false,
+    "cookie_banner": true
+  }
+]

@@ -1,0 +1,69 @@
+=== Google Analytics for WooCommerce ===
+Contributors: woocommerce, automattic, claudiosanches, bor0, royho, laurendavissmith001, cshultz88, mmjones, tomalec, neosinner
+Tags: woocommerce, google analytics
+Requires at least: 7.0
+Tested up to: 7.1
+Stable tag: 2.4.4
+License: GPLv3
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
+
+Provides integration between Google Analytics and WooCommerce.
+
+== Description ==
+
+This plugin provides the integration between Google Analytics and the WooCommerce plugin. You can link a referral to a purchase and add transaction information to your Google Analytics data. It supports Global Site Tag (GA4) and eCommerce event tracking.
+
+Please visit the [documentation page for additional information](https://woocommerce.com/document/google-analytics-integration/).
+
+Contributions are welcome via the [GitHub repository](https://github.com/woocommerce/woocommerce-google-analytics-integration).
+
+== Installation ==
+
+1. Download the plugin file to your computer and unzip it
+2. Using an FTP program, or your hosting control panel, upload the unzipped plugin folder to your WordPress installation’s wp-content/plugins/ directory.
+3. Activate the plugin from the Plugins menu within the WordPress admin.
+4. Don't forget to enable e-commerce tracking in your Google Analytics account: [https://support.google.com/analytics/answer/1009612?hl=en](https://support.google.com/analytics/answer/1009612?hl=en)
+
+Or use the automatic installation wizard through your admin panel, just search for this plugin's name.
+
+== Frequently Asked Questions ==
+
+= Where can I find the setting for this plugin? =
+
+This plugin will add the settings to the Integration tab, found in the WooCommerce → Settings menu.
+
+= I don't see the code on my site. Where is it? =
+
+We purposefully don't track admin visits to the site. Log out of the site (or open a Google Chrome Incognito window) and check if the code is there for non-admins.
+
+Also please make sure to enter your Google Analytics ID under WooCommerce → Settings → Integrations.
+
+= My code is there. Why is it still not tracking sales?  =
+
+Duplicate Google Analytics code causes a conflict in tracking. Remove any other Google Analytics plugins or code from your site to avoid duplication and conflicts in tracking.
+
+== Screenshots ==
+
+1. Google Analytics Integration Settings.
+
+== Changelog ==
+
+= 2.4.4 - 2026-10-20 =
+* Dev - Add shared npm scripts, a pre-commit hook, Dependabot for GitHub Actions and a Node 24 pin.
+* Dev - Declare GPL-3.0-or-later in package metadata to match the plugin header.
+* Dev - Require yoast/phpunit-polyfills 1.1.5 or newer for PHP 8.5.
+* Dev - Run the JavaScript unit tests in CI and update the README.
+* Fix - Send `add_to_cart` once, not twice, when "Redirect to the cart page after successful addition" is off.
+* Fix - Stop sending the purchase event for failed and cancelled orders, so a later successful payment for the same order is still tracked.
+
+= 2.4.3 - 2026-10-12 =
+* Fix - Report the catalog price of Composite Products instead of 0 in `view_item`, `view_item_list`, `select_content` and `add_to_cart` events.
+* Update - Bump the minimum required WooCommerce version to 11.1 and the compatibility version to 11.2.
+
+= 2.4.2 - 2026-09-08 =
+* Declare compatibility with WooCommerce 11.1.0.
+* Dev - Pin GitHub Actions and their nested dependencies to immutable commit SHAs.
+* Fix - Strip the order key and other sensitive query parameters from the page URL and referrer sent to Google Analytics, and send an explicit denied consent state for undecided visitors on opt-in sites.
+* Update GitHub Action references.
+
+[See changelog for all versions](https://raw.githubusercontent.com/woocommerce/woocommerce-google-analytics-integration/trunk/changelog.txt).

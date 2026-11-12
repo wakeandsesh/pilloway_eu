@@ -3,7 +3,7 @@
  * Plugin Name:       CatCode IBAN Smart Invoice
  * Plugin URI:        https://catcode.com.ua/modules/iban-smart-invoice
  * Description:       QR code (NBU v002) + Monobank/Privat24 deep-link buttons on the WooCommerce Thank You page. Optional Pro add-on adds automatic payment detection via Monobank Personal API webhook.
- * Version:           0.2.7
+ * Version:           0.2.8
  * Requires at least: 6.5
  * Requires PHP:      8.0
  * Requires Plugins:  woocommerce
@@ -67,7 +67,7 @@ if (
 	return;
 }
 
-define('CATCODE_IBAN_SMART_INVOICE_VERSION', '0.2.7');
+define('CATCODE_IBAN_SMART_INVOICE_VERSION', '0.2.8');
 define('CATCODE_IBAN_SMART_INVOICE_PLUGIN_FILE', __FILE__);
 define('CATCODE_IBAN_SMART_INVOICE_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('CATCODE_IBAN_SMART_INVOICE_PLUGIN_URL', plugin_dir_url(__FILE__));
@@ -143,7 +143,7 @@ add_filter('plugin_action_links_' . plugin_basename(__FILE__), static function (
 });
 
 add_action('plugins_loaded', static function (): void {
-    // WP 4.6+ auto-loads translations by slug — we don't call load_plugin_textdomain manually
+    // WP 4.6+ loads translations by slug automatically.
     // (PluginCheck flags it as discouraged when invoked from the plugin itself).
 
     if (!class_exists('WooCommerce')) {

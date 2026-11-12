@@ -3,7 +3,7 @@
  * Plugin Name: CatCode Card Payments with WayForPay for WooCommerce
  * Plugin URI: https://catcode.com.ua/modules/wayforpay-for-woocommerce/
  * Description: Accept card payments in WooCommerce via WayForPay: redirect to the secure payment page, automatic order confirmation through the signed serviceUrl webhook, status reconciliation from the admin.
- * Version: 1.0.4
+ * Version: 1.0.5
  * Requires at least: 5.6
  * Requires PHP: 7.4
  * Requires Plugins: woocommerce
@@ -67,7 +67,7 @@ if (
 	return;
 }
 
-define( 'CATCODE_WAYFORPAY_VERSION', '1.0.4' );
+define( 'CATCODE_WAYFORPAY_VERSION', '1.0.5' );
 define( 'CATCODE_WAYFORPAY_FILE', __FILE__ );
 define( 'CATCODE_WAYFORPAY_DIR', plugin_dir_path( __FILE__ ) );
 define( 'CATCODE_WAYFORPAY_URL', plugin_dir_url( __FILE__ ) );

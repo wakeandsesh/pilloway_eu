@@ -60,6 +60,27 @@
     var isNovaAddress = rate.indexOf("nova_post_address:") === 0;
     var isNovaDivision = rate.indexOf("nova_post_division:") === 0;
     var body = document.body;
+    var email = document.getElementById("billing_email");
+    var emailField = document.getElementById("billing_email_field");
+    var needsEmail = isNovaAddress || isNovaDivision;
+    if (email && emailField) {
+      email.setAttribute("aria-required", String(needsEmail));
+      emailField.classList.toggle("validate-required", needsEmail);
+      var label = emailField.querySelector("label");
+      if (label) {
+        var optional = label.querySelector(".optional");
+        if (optional) optional.hidden = needsEmail;
+        var required = label.querySelector(".pilloway-email-required");
+        if (needsEmail && !required) {
+          required = document.createElement("abbr");
+          required.className = "required pilloway-email-required";
+          required.textContent = "*";
+          label.appendChild(required);
+        }
+        if (required) required.hidden = !needsEmail;
+      }
+    }
+
     var checkbox = document.getElementById("ship-to-different-address-checkbox");
 
     body.classList.toggle("pilloway-nova-post-address", isNovaAddress);

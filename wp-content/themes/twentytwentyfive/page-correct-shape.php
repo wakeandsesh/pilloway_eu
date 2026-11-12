@@ -270,7 +270,7 @@ $cs_footer_markup = ob_get_clean();
 </head>
 <body <?php body_class('cs-landing cs-lang-' . $cs_language); ?>>
 <?php wp_body_open(); ?>
-<a class="skip-link screen-reader-text" href="#wp--skip-link--target"><?php esc_html_e('Перейти до вмісту', 'twentytwentyfive'); ?></a>
+<a class="skip-link screen-reader-text" href="#wp--skip-link--target"><?php esc_html_e('Skip to content'); ?></a>
 <div class="wp-site-blocks">
 <header class="wp-block-template-part">
 <?php echo $cs_header_markup; ?>

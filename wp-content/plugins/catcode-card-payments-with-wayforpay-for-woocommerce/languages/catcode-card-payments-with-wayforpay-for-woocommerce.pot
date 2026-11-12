@@ -2,24 +2,61 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: CatCode Card Payments with WayForPay for WooCommerce 1.0.0\n"
+"Project-Id-Version: CatCode Card Payments with WayForPay for WooCommerce 1.0.5\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/catcode-card-payments-with-wayforpay-for-woocommerce\n"
-"POT-Creation-Date: 2026-07-20T12:00:00+03:00\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-10-26T11:43:38+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: catcode-card-payments-with-wayforpay-for-woocommerce\n"
 
-#: catcode-card-payments-with-wayforpay-for-woocommerce.php:64
+#. Plugin Name of the plugin
+#: catcode-card-payments-with-wayforpay-for-woocommerce.php
+msgid "CatCode Card Payments with WayForPay for WooCommerce"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: catcode-card-payments-with-wayforpay-for-woocommerce.php
+msgid "https://catcode.com.ua/modules/wayforpay-for-woocommerce/"
+msgstr ""
+
+#. Description of the plugin
+#: catcode-card-payments-with-wayforpay-for-woocommerce.php
+msgid "Accept card payments in WooCommerce via WayForPay: redirect to the secure payment page, automatic order confirmation through the signed serviceUrl webhook, status reconciliation from the admin."
+msgstr ""
+
+#. Author of the plugin
+#: catcode-card-payments-with-wayforpay-for-woocommerce.php
+msgid "CatCode"
+msgstr ""
+
+#. Author URI of the plugin
+#: catcode-card-payments-with-wayforpay-for-woocommerce.php
+msgid "https://catcode.com.ua"
+msgstr ""
+
+#: catcode-card-payments-with-wayforpay-for-woocommerce.php:53
+msgid "The full version of this plugin from catcode.com.ua is active, so this copy is switched off and the full version runs on the same settings. You can deactivate or delete \"CatCode Card Payments with WayForPay for WooCommerce\": its settings and data stay while the full version is installed."
+msgstr ""
+
+#: catcode-card-payments-with-wayforpay-for-woocommerce.php:110
 msgid "CatCode Card Payments with WayForPay for WooCommerce requires an active WooCommerce installation."
+msgstr ""
+
+#: includes/Api/Client.php:64
+msgid "Product"
 msgstr ""
 
 #: includes/Core/Plugin.php:67
 msgid "Settings"
 msgstr ""
 
-#: includes/Gateway/Blocks.php:47 includes/Gateway/Method.php:57
+#: includes/Gateway/Blocks.php:47
+#: includes/Gateway/Method.php:57
 msgid "Card payment (WayForPay)"
 msgstr ""
 
@@ -107,6 +144,7 @@ msgstr ""
 msgid "Webhook URL (serviceUrl)"
 msgstr ""
 
+#. translators: %s: webhook URL
 #: includes/Gateway/Method.php:104
 #, php-format
 msgid "Sent automatically with every payment:<br><code>%s</code>"
@@ -116,21 +154,18 @@ msgstr ""
 msgid "Awaiting WayForPay payment."
 msgstr ""
 
-#: includes/Gateway/Method.php:184
+#: includes/Gateway/Method.php:186
 msgid "Shipping"
 msgstr ""
 
-#: includes/Gateway/Method.php:197
-msgid "Other"
-msgstr ""
-
-#: includes/Gateway/Method.php:197
-msgid "Discount"
-msgstr ""
-
-#: includes/Gateway/Method.php:206
+#. translators: %s: order number
+#: includes/Gateway/Method.php:201
 #, php-format
 msgid "Order #%s"
+msgstr ""
+
+#: includes/Gateway/Method.php:202
+msgid "Other"
 msgstr ""
 
 #: includes/Gateway/Method.php:262
@@ -141,54 +176,128 @@ msgstr ""
 msgid "Proceed to payment"
 msgstr ""
 
-#: includes/Gateway/Method.php:315
-msgid "The payment was not completed. Please try again or choose another payment method."
-msgstr ""
-
-#: includes/Gateway/Method.php:365
-msgid "WayForPay: the paid amount or currency does not match the order — manual review required."
-msgstr ""
-
-#: includes/Gateway/Method.php:373
-msgid "WayForPay: payment received."
+#: includes/Gateway/Method.php:346
+msgid "Taking you back to the shop…"
 msgstr ""
 
 #: includes/Gateway/Method.php:379
-msgid "WayForPay: funds are held, awaiting confirmation."
+msgid "The bank declined the card payment. Your order is saved — try another card or choose another payment method."
 msgstr ""
 
-#: includes/Gateway/Method.php:393
-msgid "WayForPay: payment declined. "
+#: includes/Gateway/Method.php:382
+msgid "The payment was cancelled. Your order is saved — pay for it again or choose another payment method."
 msgstr ""
 
-#: includes/Gateway/Method.php:400
-msgid "WayForPay: the payment has expired."
+#: includes/Gateway/Method.php:384
+msgid "The payment was not completed. Please try again or choose another payment method."
+msgstr ""
+
+#: includes/Gateway/Method.php:403
+msgid "declined by the card issuer"
+msgstr ""
+
+#: includes/Gateway/Method.php:404
+msgid "wrong CVV2"
+msgstr ""
+
+#: includes/Gateway/Method.php:405
+msgid "the card has expired or the expiry date is wrong"
+msgstr ""
+
+#: includes/Gateway/Method.php:406
+msgid "insufficient funds"
+msgstr ""
+
+#: includes/Gateway/Method.php:407
+msgid "invalid card number or the card is blocked"
 msgstr ""
 
 #: includes/Gateway/Method.php:408
+msgid "card operation limit exceeded or online payments are disabled"
+msgstr ""
+
+#: includes/Gateway/Method.php:409
+msgid "3-D Secure check failed"
+msgstr ""
+
+#: includes/Gateway/Method.php:410
+msgid "malformed request from the shop"
+msgstr ""
+
+#: includes/Gateway/Method.php:411
+msgid "currency not supported"
+msgstr ""
+
+#: includes/Gateway/Method.php:412
+msgid "invalid shop signature"
+msgstr ""
+
+#: includes/Gateway/Method.php:413
+msgid "blocked by the anti-fraud filter"
+msgstr ""
+
+#: includes/Gateway/Method.php:414
+msgid "merchant restriction"
+msgstr ""
+
+#: includes/Gateway/Method.php:415
+msgid "the card does not support 3-D Secure"
+msgstr ""
+
+#: includes/Gateway/Method.php:416
+msgid "declined by the payment gateway"
+msgstr ""
+
+#: includes/Gateway/Method.php:417
+msgid "the payment session ended"
+msgstr ""
+
+#: includes/Gateway/Method.php:418
+msgid "the buyer cancelled the payment"
+msgstr ""
+
+#: includes/Gateway/Method.php:419
+msgid "invalid amount"
+msgstr ""
+
+#: includes/Gateway/Method.php:420
+msgid "card limit exceeded"
+msgstr ""
+
+#: includes/Gateway/Method.php:421
+msgid "the card is blocked by the bank"
+msgstr ""
+
+#: includes/Gateway/Method.php:576
+msgid "WayForPay: the paid amount or currency does not match the order — manual review required."
+msgstr ""
+
+#: includes/Gateway/Method.php:584
+msgid "WayForPay: payment received."
+msgstr ""
+
+#: includes/Gateway/Method.php:590
+msgid "WayForPay: funds are held, awaiting confirmation."
+msgstr ""
+
+#. translators: %s: why the payment was declined
+#: includes/Gateway/Method.php:609
+#, php-format
+msgid "WayForPay: payment declined — %s."
+msgstr ""
+
+#: includes/Gateway/Method.php:610
+msgid "WayForPay: payment declined."
+msgstr ""
+
+#: includes/Gateway/Method.php:624
+msgid "WayForPay: the buyer cancelled the payment on the WayForPay page."
+msgstr ""
+
+#: includes/Gateway/Method.php:625
+msgid "WayForPay: the payment has expired."
+msgstr ""
+
+#: includes/Gateway/Method.php:634
 msgid "WayForPay: payment refunded."
-msgstr ""
-
-#. Name of the plugin
-msgid "CatCode Card Payments with WayForPay for WooCommerce"
-msgstr ""
-
-#. URI of the plugin
-msgid "https://catcode.com.ua/modules/wayforpay-for-woocommerce/"
-msgstr ""
-
-#. Description of the plugin
-msgid "Accept card payments in WooCommerce via WayForPay: redirect to the secure payment page, automatic order confirmation through the signed serviceUrl webhook, status reconciliation from the admin."
-msgstr ""
-
-#. Author of the plugin
-msgid "CatCode"
-msgstr ""
-
-#. Author URI of the plugin
-msgid "https://catcode.com.ua"
-msgstr ""
-
-#: catcode-card-payments-with-wayforpay-for-woocommerce.php
-msgid "The full version of this plugin from catcode.com.ua is active, so this copy is switched off and the full version runs on the same settings. You can deactivate or delete \"CatCode Card Payments with WayForPay for WooCommerce\": its settings and data stay while the full version is installed."
 msgstr ""

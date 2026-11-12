@@ -5,7 +5,7 @@ Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.0
 Requires Plugins: woocommerce
-Stable tag: 0.2.7
+Stable tag: 0.2.8
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -94,6 +94,9 @@ NBU v002 (Resolution 97, 2025-08-19), the standard recognised by NBU as the univ
 3. The payment method as the customer sees it at checkout.
 
 == Changelog ==
+
+= 0.2.8 =
+* Fixed: in the payment QR code an amount with kopiykas now always has two digits after the point (99.50 instead of 99.5), as the National Bank of Ukraine rules require.
 
 = 0.2.7 =
 * Fixed: activating this copy while the full version is active no longer fails with a fatal error.

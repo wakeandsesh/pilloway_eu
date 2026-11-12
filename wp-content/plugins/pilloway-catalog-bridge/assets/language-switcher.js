@@ -36,6 +36,7 @@
 	'use strict';
 
 	var desktopHover = window.matchMedia('(min-width: 600px) and (hover: hover)');
+	var desktopPopover = window.matchMedia('(min-width: 600px)');
 
 	document.querySelectorAll('.pilloway-category-disclosure').forEach(function (details) {
 		var summary = details.querySelector('summary');
@@ -51,7 +52,11 @@
 		}
 
 		function positionPanel() {
-			if (!desktopHover.matches || !details.open || !categoryPanel) return;
+			if (!desktopPopover.matches || !details.open || !categoryPanel) return;
+			if (details.closest('.wp-block-navigation__responsive-container.is-menu-open')) {
+				clearPanelPosition();
+				return;
+			}
 
 			categoryPanel.style.setProperty('left', '0px', 'important');
 			var panelWidth = categoryPanel.getBoundingClientRect().width;
@@ -82,6 +87,11 @@
 		} else if (typeof desktopHover.addListener === 'function') {
 			desktopHover.addListener(closeOnViewportModeChange);
 		}
+		if (typeof desktopPopover.addEventListener === 'function') {
+			desktopPopover.addEventListener('change', closeOnViewportModeChange);
+		} else if (typeof desktopPopover.addListener === 'function') {
+			desktopPopover.addListener(closeOnViewportModeChange);
+		}
 
 		function schedulePanelPosition() {
 			window.requestAnimationFrame(positionPanel);
@@ -95,7 +105,7 @@
 		});
 
 		window.addEventListener('resize', function () {
-			if (desktopHover.matches && details.open) positionPanel();
+			if (desktopPopover.matches && details.open) positionPanel();
 			else clearPanelPosition();
 		});
 

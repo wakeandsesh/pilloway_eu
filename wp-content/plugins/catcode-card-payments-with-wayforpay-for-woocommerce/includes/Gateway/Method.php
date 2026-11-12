@@ -162,55 +162,45 @@ class Method extends \WC_Payment_Gateway {
 		);
 	}
 
-	/** Build the item list sent to WayForPay (name / count / price). */
+	/**
+	 * Build the item list sent to WayForPay (name / count / price) so that
+	 * sum(price × count) equals the order total to the kopeck. Delivery and
+	 * fees get a line of their own; negative fees come off the goods.
+	 */
 	private function build_products( \WC_Order $order ): array {
-		$products = array();
+		$items = array();
 		foreach ( $order->get_items() as $item ) {
 			if ( ! $item instanceof \WC_Order_Item_Product ) {
 				continue;
 			}
-			$qty        = max( 1, (int) $item->get_quantity() );
-			$total      = (float) $item->get_total() + (float) $item->get_total_tax();
-			$products[] = array(
-				'name'  => mb_substr( $item->get_name(), 0, 255 ),
-				'count' => $qty,
-				'price' => round( $total / $qty, 2 ),
+			$items[] = array(
+				'name'  => (string) $item->get_name(),
+				'qty'   => max( 1, (int) $item->get_quantity() ),
+				'total' => (float) $item->get_total() + (float) $item->get_total_tax(),
 			);
 		}
-		// Shipping as a separate line so the sum of price*count equals amount.
-		$ship = (float) $order->get_shipping_total() + (float) $order->get_shipping_tax();
-		if ( $ship > 0 ) {
-			$products[] = array(
+		$extras = array();
+		$ship   = (float) $order->get_shipping_total() + (float) $order->get_shipping_tax();
+		if ( abs( $ship ) >= 0.005 ) {
+			$extras[] = array(
 				'name'  => __( 'Shipping', 'catcode-card-payments-with-wayforpay-for-woocommerce' ),
-				'count' => 1,
-				'price' => round( $ship, 2 ),
+				'total' => $ship,
 			);
 		}
-		// Fees / discounts remainder — reconcile any rounding gap into one line.
-		$sum = 0.0;
-		foreach ( $products as $p ) {
-			$sum += $p['price'] * $p['count'];
-		}
-		$diff = round( (float) $order->get_total() - $sum, 2 );
-		if ( abs( $diff ) >= 0.01 ) {
-			$products[] = array(
-				'name'  => $diff > 0 ? __( 'Other', 'catcode-card-payments-with-wayforpay-for-woocommerce' ) : __( 'Discount', 'catcode-card-payments-with-wayforpay-for-woocommerce' ),
-				'count' => 1,
-				'price' => $diff,
+		foreach ( $order->get_fees() as $fee ) {
+			$extras[] = array(
+				'name'  => (string) $fee->get_name(),
+				'total' => (float) $fee->get_total() + (float) $fee->get_total_tax(),
 			);
 		}
-		if ( ! $products ) {
-			$products[] = array(
-				'name'  => sprintf(
-					/* translators: %s: order number */
-					__( 'Order #%s', 'catcode-card-payments-with-wayforpay-for-woocommerce' ),
-					$order->get_order_number()
-				),
-				'count' => 1,
-				'price' => round( (float) $order->get_total(), 2 ),
-			);
-		}
-		return $products;
+		return Client::lines(
+			$items,
+			$extras,
+			(float) $order->get_total(),
+			/* translators: %s: order number */
+			sprintf( __( 'Order #%s', 'catcode-card-payments-with-wayforpay-for-woocommerce' ), $order->get_order_number() ),
+			__( 'Other', 'catcode-card-payments-with-wayforpay-for-woocommerce' )
+		);
 	}
 
 	/** Generate (and persist) a unique WayForPay orderReference for this attempt. */
@@ -250,6 +240,7 @@ class Method extends \WC_Payment_Gateway {
 					array(
 						'wc-api'                  => self::ID,
 						'catcode_wayforpay_order' => $order->get_id(),
+						'catcode_wayforpay_key'   => $order->get_order_key(),
 					),
 					home_url( '/' )
 				),
@@ -304,35 +295,136 @@ class Method extends \WC_Payment_Gateway {
 	}
 
 	/**
-	 * Buyer returns from WayForPay (returnUrl). Reconcile via CHECK_STATUS,
-	 * then route to the thank-you page only when actually paid.
+	 * Buyer returns from WayForPay (returnUrl).
+	 *
+	 * ⚠ WayForPay comes back with a cross-site POST, and the browser does not
+	 * send the WooCommerce session cookie with it. The «payment was not
+	 * completed» notice went into a session nobody would ever see, so the buyer
+	 * landed on «Pay for order» with no word about what had happened. Now the
+	 * POST only reconciles and moves the browser on with a page of our own; the
+	 * follow-up GET carries the buyer's session and gets the notice.
 	 */
 	public function handle_return() {
-		// The return URL is opened by the payment provider, so no nonce can be
-		// carried here; the order state is taken from the signed WayForPay API
-		// response, never from the request itself.
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		// phpcs:disable WordPress.Security.NonceVerification -- WayForPay's return: the payload is checked by its signature, the order by its key.
 		$order_id = isset( $_GET['catcode_wayforpay_order'] ) ? absint( wp_unslash( $_GET['catcode_wayforpay_order'] ) ) : 0;
+		$key      = isset( $_GET['catcode_wayforpay_key'] ) ? sanitize_text_field( wp_unslash( $_GET['catcode_wayforpay_key'] ) ) : '';
+		$back     = isset( $_GET['catcode_wayforpay_back'] );
 		$order    = $order_id ? wc_get_order( $order_id ) : null;
 
-		if ( $order ) {
-			$this->sync_order( $order );
+		// Only the buyer who holds the order key is sent to its pay / thank-you page.
+		if ( $order && ( '' === $key || ! hash_equals( (string) $order->get_order_key(), $key ) ) ) {
+			$order = null;
+		}
 
-			// The callback may have written the payment while the buyer was
-			// coming back: apply_status() works on its own fresh copy under the
-			// lock, so this object still holds the pre-payment state and would
-			// tell a paying customer that the payment failed.
+		if ( ! $back ) {
+			if ( $order ) {
+				$posted = array();
+				foreach ( array( 'merchantAccount', 'orderReference', 'amount', 'currency', 'authCode', 'cardPan', 'transactionStatus', 'reasonCode', 'reason', 'cardType', 'paymentSystem', 'merchantSignature' ) as $field ) {
+					if ( isset( $_POST[ $field ] ) ) {
+						$posted[ $field ] = sanitize_text_field( wp_unslash( $_POST[ $field ] ) );
+					}
+				}
+				$this->reconcile( $order, $posted );
+			}
+			$next = add_query_arg(
+				array(
+					'wc-api'                  => self::ID,
+					'catcode_wayforpay_order' => $order_id,
+					'catcode_wayforpay_key'   => $key,
+					'catcode_wayforpay_back'  => 1,
+				),
+				home_url( '/' )
+			);
+			if ( ! headers_sent() ) {
+				// Nothing from the cookie-less request may overwrite the buyer's session.
+				header_remove( 'Set-Cookie' );
+				nocache_headers();
+				header( 'Content-Type: text/html; charset=utf-8' );
+			}
+			echo '<!doctype html><html><head><meta charset="utf-8"><meta name="robots" content="noindex">';
+			echo '<meta http-equiv="refresh" content="0;url=' . esc_url( $next ) . '"><title>WayForPay</title></head>';
+			echo '<body style="font-family:sans-serif;text-align:center;padding:40px;"><p><a href="' . esc_url( $next ) . '">' . esc_html__( 'Taking you back to the shop…', 'catcode-card-payments-with-wayforpay-for-woocommerce' ) . '</a></p></body></html>';
+			exit;
+		}
+		// phpcs:enable
+
+		if ( $order ) {
 			$order = self::reload_order( $order_id, $order );
+			$state = (string) $order->get_meta( '_catcode_wayforpay_status' );
+
+			// The callback may be late and the return may carry nothing — ask once more.
+			if ( ! in_array( $state, array( 'Approved', 'WaitingAuthComplete', 'Declined', 'Expired', 'Refunded', 'Voided' ), true ) ) {
+				$this->sync_order( $order );
+				$order = self::reload_order( $order_id, $order );
+			}
 
 			if ( $order->is_paid() || $order->has_status( 'on-hold' ) ) {
 				wp_safe_redirect( $this->get_return_url( $order ) );
 				exit;
 			}
-			wc_add_notice( __( 'The payment was not completed. Please try again or choose another payment method.', 'catcode-card-payments-with-wayforpay-for-woocommerce' ), 'error' );
+			wc_add_notice( $this->buyer_message( $order ), 'error' );
+			wp_safe_redirect( $order->get_checkout_payment_url() );
+			exit;
 		}
 
-		wp_safe_redirect( $order ? $order->get_checkout_payment_url() : wc_get_checkout_url() );
+		wp_safe_redirect( wc_get_checkout_url() );
 		exit;
+	}
+
+	/** What the buyer is told when the payment did not go through. */
+	private function buyer_message( \WC_Order $order ): string {
+		$state = (string) $order->get_meta( '_catcode_wayforpay_status' );
+		$code  = (int) $order->get_meta( '_catcode_wayforpay_reasonCode' );
+		if ( 'Declined' === $state ) {
+			return __( 'The bank declined the card payment. Your order is saved — try another card or choose another payment method.', 'catcode-card-payments-with-wayforpay-for-woocommerce' );
+		}
+		if ( 'Expired' === $state || '' === $state || 'Created' === $state || in_array( $code, array( 1124, 1125 ), true ) ) {
+			return __( 'The payment was cancelled. Your order is saved — pay for it again or choose another payment method.', 'catcode-card-payments-with-wayforpay-for-woocommerce' );
+		}
+		return __( 'The payment was not completed. Please try again or choose another payment method.', 'catcode-card-payments-with-wayforpay-for-woocommerce' );
+	}
+
+	/** Apply the signed return POST, or ask WayForPay when there is none. */
+	private function reconcile( \WC_Order $order, array $posted ): void {
+		$reference = (string) $order->get_meta( '_catcode_wayforpay_order_ref' );
+		if ( '' !== $reference && ! empty( $posted['transactionStatus'] ) && isset( $posted['orderReference'] )
+			&& (string) $posted['orderReference'] === $reference && $this->client()->verify_response( $posted ) ) {
+			$this->log( 'return in #' . $order->get_id() . ': ' . wp_json_encode( $posted ) );
+			$this->apply_status( $order, $posted );
+			return;
+		}
+		$this->sync_order( $order );
+	}
+
+	/** WayForPay's reason for a declined payment, readable for the merchant. */
+	private static function reason_text( array $data ): string {
+		$code = (int) ( $data['reasonCode'] ?? 0 );
+		$map  = array(
+			1101 => __( 'declined by the card issuer', 'catcode-card-payments-with-wayforpay-for-woocommerce' ),
+			1102 => __( 'wrong CVV2', 'catcode-card-payments-with-wayforpay-for-woocommerce' ),
+			1103 => __( 'the card has expired or the expiry date is wrong', 'catcode-card-payments-with-wayforpay-for-woocommerce' ),
+			1104 => __( 'insufficient funds', 'catcode-card-payments-with-wayforpay-for-woocommerce' ),
+			1105 => __( 'invalid card number or the card is blocked', 'catcode-card-payments-with-wayforpay-for-woocommerce' ),
+			1106 => __( 'card operation limit exceeded or online payments are disabled', 'catcode-card-payments-with-wayforpay-for-woocommerce' ),
+			1108 => __( '3-D Secure check failed', 'catcode-card-payments-with-wayforpay-for-woocommerce' ),
+			1109 => __( 'malformed request from the shop', 'catcode-card-payments-with-wayforpay-for-woocommerce' ),
+			1110 => __( 'currency not supported', 'catcode-card-payments-with-wayforpay-for-woocommerce' ),
+			1113 => __( 'invalid shop signature', 'catcode-card-payments-with-wayforpay-for-woocommerce' ),
+			1114 => __( 'blocked by the anti-fraud filter', 'catcode-card-payments-with-wayforpay-for-woocommerce' ),
+			1118 => __( 'merchant restriction', 'catcode-card-payments-with-wayforpay-for-woocommerce' ),
+			1120 => __( 'the card does not support 3-D Secure', 'catcode-card-payments-with-wayforpay-for-woocommerce' ),
+			1122 => __( 'declined by the payment gateway', 'catcode-card-payments-with-wayforpay-for-woocommerce' ),
+			1124 => __( 'the payment session ended', 'catcode-card-payments-with-wayforpay-for-woocommerce' ),
+			1125 => __( 'the buyer cancelled the payment', 'catcode-card-payments-with-wayforpay-for-woocommerce' ),
+			1130 => __( 'invalid amount', 'catcode-card-payments-with-wayforpay-for-woocommerce' ),
+			1135 => __( 'card limit exceeded', 'catcode-card-payments-with-wayforpay-for-woocommerce' ),
+			1146 => __( 'the card is blocked by the bank', 'catcode-card-payments-with-wayforpay-for-woocommerce' ),
+		);
+		if ( isset( $map[ $code ] ) ) {
+			return $map[ $code ];
+		}
+		$raw = trim( (string) ( $data['reason'] ?? '' ) );
+		return '' !== $raw ? $raw . ( $code ? ' (' . $code . ')' : '' ) : '';
 	}
 
 	/** Pull the current transaction status from WayForPay and reconcile. */
@@ -458,8 +550,9 @@ class Method extends \WC_Payment_Gateway {
 	 */
 	private function apply_status_locked( \WC_Order $order, array $data ): bool {
 		$status = (string) ( $data['transactionStatus'] ?? '' );
+		$prev   = (string) $order->get_meta( '_catcode_wayforpay_status' );
 		$order->update_meta_data( '_catcode_wayforpay_status', $status );
-		foreach ( array( 'authCode', 'cardPan', 'cardType', 'paymentSystem' ) as $k ) {
+		foreach ( array( 'authCode', 'cardPan', 'cardType', 'paymentSystem', 'reasonCode' ) as $k ) {
 			if ( ! empty( $data[ $k ] ) ) {
 				$order->update_meta_data( '_catcode_wayforpay_' . $k, (string) $data[ $k ] );
 			}
@@ -506,16 +599,31 @@ class Method extends \WC_Payment_Gateway {
 				return false;
 
 			case 'Declined':
-				if ( ! $order->is_paid() ) {
-					$reason = (string) ( $data['reason'] ?? '' );
-					$order->update_status( 'failed', __( 'WayForPay: payment declined. ', 'catcode-card-payments-with-wayforpay-for-woocommerce' ) . $reason );
+				// The callback and the buyer's return both report it — one note is enough.
+				if ( ! $order->is_paid() && 'Declined' !== $prev ) {
+					$reason = self::reason_text( $data );
+					$order->update_status(
+						'failed',
+						'' !== $reason
+							/* translators: %s: why the payment was declined */
+							? sprintf( __( 'WayForPay: payment declined — %s.', 'catcode-card-payments-with-wayforpay-for-woocommerce' ), $reason )
+							: __( 'WayForPay: payment declined.', 'catcode-card-payments-with-wayforpay-for-woocommerce' )
+					);
 				}
 				$order->save();
 				return true;
 
 			case 'Expired':
-				if ( ! $order->is_paid() && ! $order->has_status( array( 'cancelled', 'completed', 'processing' ) ) ) {
-					$order->update_status( 'cancelled', __( 'WayForPay: the payment has expired.', 'catcode-card-payments-with-wayforpay-for-woocommerce' ) );
+				// «Failed», not «Cancelled»: a cancelled order cannot be paid again,
+				// and a buyer who pressed «Cancel» on the payment page may well want to.
+				if ( ! $order->is_paid() && 'Expired' !== $prev && ! $order->has_status( array( 'cancelled', 'completed', 'processing', 'refunded' ) ) ) {
+					$cancel = in_array( (int) ( $data['reasonCode'] ?? 0 ), array( 1124, 1125 ), true );
+					$order->update_status(
+						'failed',
+						$cancel
+							? __( 'WayForPay: the buyer cancelled the payment on the WayForPay page.', 'catcode-card-payments-with-wayforpay-for-woocommerce' )
+							: __( 'WayForPay: the payment has expired.', 'catcode-card-payments-with-wayforpay-for-woocommerce' )
+					);
 				}
 				$order->save();
 				return true;

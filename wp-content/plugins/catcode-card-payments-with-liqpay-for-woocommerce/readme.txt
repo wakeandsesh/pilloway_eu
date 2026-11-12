@@ -4,7 +4,7 @@ Tags: ЛікПей, оплата карткою, еквайринг, Прива�
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -100,13 +100,19 @@ Entirely on the LiqPay side. The customer is redirected to LiqPay's own payment 
 
 == Screenshots ==
 
-1. LiqPay gateway settings in WooCommerce (test mode with sandbox keys).
+1. LiqPay gateway settings in WooCommerce (test mode with sandbox keys) and the time of the last LiqPay notification.
 2. LiqPay payment method on the checkout page.
 3. The hosted LiqPay payment page the customer is redirected to.
 4. Order received page after a successful payment.
-5. Order notes: the webhook confirms the payment and completes the order.
+5. Order notes: the webhook confirms the payment — "Payment via LiqPay" with the transaction, the LiqPay note with the masked card.
 
 == Changelog ==
+
+= 1.0.5 =
+* Fixed: when the buyer cancels on the LiqPay page, the order note now says so ("the buyer cancelled the payment, no payment was created") instead of "payment declined. Payment not found", and the buyer sees "The payment was cancelled".
+* Fixed: a bank refusal gives its reason in brackets, and the buyer sees "The bank declined the payment".
+* Fixed: the WooCommerce payment note reads "Payment via LiqPay (transaction)" instead of repeating the method title; the LiqPay note shows the masked card.
+* New: the settings show when the last notification from LiqPay arrived, so a server that blocks LiqPay is noticed at once.
 
 = 1.0.4 =
 * Fixed: on sites where every language has a URL prefix (Polylang), the buyer came back from LiqPay to a "Page not found" page instead of the thank-you page.

@@ -10,6 +10,8 @@
  */
 defined( 'ABSPATH' ) || exit;
 
+require_once __DIR__ . '/shipping.php';
+
 function pilloway_checkout_flow_declare_hpos_compatibility() {
     $features_util = 'Automattic\\WooCommerce\\Utilities\\FeaturesUtil';
     if ( class_exists( $features_util ) ) {
@@ -35,6 +37,29 @@ function pilloway_checkout_flow_configure_fields( $fields ) {
     return $fields;
 }
 add_filter( 'woocommerce_checkout_fields', 'pilloway_checkout_flow_configure_fields', 20 );
+
+/** Require the contact email that the installed Nova Post shipment validator needs. */
+function pilloway_checkout_flow_validate_shipping_email( $data, $errors ) {
+    $methods = isset( $data['shipping_method'] ) && is_array( $data['shipping_method'] ) ? $data['shipping_method'] : array();
+    foreach ( $methods as $method ) {
+        if ( ! is_string( $method ) || ! preg_match( '/^nova_post_(division|address)(:|$)/', $method ) ) {
+            continue;
+        }
+        if ( empty( $data['billing_email'] ) || '' === trim( (string) $data['billing_email'] ) ) {
+            $errors->add(
+                'billing_email_required',
+                sprintf(
+                    __( '%s is a required field.', 'woocommerce' ),
+                    '<strong>' . esc_html__( 'Email address', 'woocommerce' ) . '</strong>'
+                ),
+                array( 'id' => 'billing_email' )
+            );
+        }
+        break;
+    }
+}
+add_action( 'woocommerce_after_checkout_validation', 'pilloway_checkout_flow_validate_shipping_email', 20, 2 );
+
 
 /**
  * Register WooCommerce option strings with Polylang Free.

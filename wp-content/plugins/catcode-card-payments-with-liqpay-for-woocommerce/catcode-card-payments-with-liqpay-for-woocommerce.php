@@ -3,7 +3,7 @@
  * Plugin Name: CatCode Card Payments with LiqPay for WooCommerce
  * Plugin URI: https://catcode.com.ua/modules/catcode-card-payments-with-liqpay-for-woocommerce/
  * Description: Accept card payments in WooCommerce via LiqPay: redirect to the secure payment page, automatic order confirmation through the signed serviceUrl webhook, status reconciliation from the admin.
- * Version: 1.0.4
+ * Version: 1.0.5
  * Requires at least: 6.2
  * Requires PHP: 7.4
  * Requires Plugins: woocommerce
@@ -21,7 +21,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'CATCODE_LIQPAY_VERSION', '1.0.4' );
+define( 'CATCODE_LIQPAY_VERSION', '1.0.5' );
 define( 'CATCODE_LIQPAY_FILE', __FILE__ );
 define( 'CATCODE_LIQPAY_DIR', plugin_dir_path( __FILE__ ) );
 define( 'CATCODE_LIQPAY_URL', plugin_dir_url( __FILE__ ) );

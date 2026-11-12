@@ -4,7 +4,7 @@ Tags: WayForPay, оплата карткою, еквайринг, платіжн
 Requires at least: 5.6
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -94,6 +94,13 @@ The interface is in English and ships with a complete Ukrainian translation.
 1. WayForPay gateway settings in WooCommerce.
 
 == Changelog ==
+
+= 1.0.5 =
+* Fixed: after a declined card or "Cancel payment" on the WayForPay page the buyer now sees why on the "Pay for order" page ("The bank declined the card payment…" / "The payment was cancelled…"). The notice used to be lost because WayForPay sends the buyer back with a cross-site request that carries no shop session.
+* Fixed: a declined payment moves the order to "Failed" even when no webhook arrives — WayForPay's answer about a declined payment is no longer taken for a failed status lookup. An order the buyer cancelled is "Failed" too, not "Cancelled", so it can still be paid.
+* Order notes give the decline reason in plain words and appear once, not once from the webhook and again from the buyer's return.
+* The item list on the WayForPay page always adds up to the order total; shipping and fees get lines of their own.
+* The "Pay for order" page after the return is only opened for the buyer who holds the order key.
 
 = 1.0.4 =
 * Fixed: on sites where every language has a URL prefix (Polylang), the buyer came back from WayForPay to a "Page not found" page instead of the thank-you page.

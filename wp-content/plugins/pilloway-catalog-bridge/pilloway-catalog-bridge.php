@@ -2,7 +2,7 @@
 /**
  * Plugin Name: PILLOWAY Catalog Integration
  * Description: Places the CatCode Smart Filter on WooCommerce archives and connects it to Polylang-aware catalogue data.
- * Version: 1.1.0
+ * Version: 1.1.3
  * Requires Plugins: woocommerce, catcode-smart-filter, catcode-polylang-multilingual-shop-for-woocommerce
  * Text Domain: pilloway-catalog-bridge
  */
@@ -1002,8 +1002,9 @@ add_action( 'template_redirect', 'pilloway_catalog_redirect_legacy_prom_urls', 0
 require_once __DIR__ . '/includes/brand-landing-cards.php';
 require_once __DIR__ . '/includes/home-reviews.php';
 require_once __DIR__ . '/includes/product-card-surfaces.php';
+require_once __DIR__ . '/includes/media-fallback.php';
+
 require_once __DIR__ . '/includes/home-featured-products.php';
-require_once __DIR__ . '/includes/promo-banner.php';
 require_once __DIR__ . '/includes/header-category-menu.php';
 require_once __DIR__ . '/includes/prom-sku-display.php';
 
@@ -1066,6 +1067,30 @@ function pilloway_catalog_render_polylang_synchronized_block( $pre_render, $pars
 add_filter( 'pre_render_block', 'pilloway_catalog_render_polylang_synchronized_block', 10, 3 );
 
 
+
+/**
+ * Put individual Beauty Balance pillows first in the sleep-wrinkle category.
+ * The per-product rank is stored in _pilloway_sleep_wrinkle_order and is set
+ * for both the Ukrainian category and its Russian translation.
+ */
+function pilloway_catalog_order_sleep_wrinkle_category( array $args, string $orderby, string $order ): array {
+    unset( $order );
+
+    if (
+        'menu_order' !== $orderby
+        || ! function_exists( 'is_product_category' )
+        || ! is_product_category( function_exists('pll_get_term_translations') ? array_values(pll_get_term_translations(47)) : array(47) )
+    ) {
+        return $args;
+    }
+
+    $args['orderby']  = 'meta_value_num';
+    $args['order']    = 'ASC';
+    $args['meta_key'] = '_pilloway_sleep_wrinkle_order';
+
+    return $args;
+}
+add_filter( 'woocommerce_get_catalog_ordering_args', 'pilloway_catalog_order_sleep_wrinkle_category', 20, 3 );
 
 /** Provide the current year to editable WordPress shortcode blocks. */
 function pilloway_catalog_current_year_shortcode(): string {

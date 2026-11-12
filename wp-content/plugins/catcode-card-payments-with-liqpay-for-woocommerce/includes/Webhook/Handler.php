@@ -64,8 +64,14 @@ class Handler {
 
 		$order = $this->resolve_order( (string) $data['order_id'] );
 		if ( $order && $order->get_payment_method() === Method::ID ) {
-			$gateway->apply_status( $order, $data );
+			try {
+				$gateway->apply_status( $order, $data );
+			} catch ( \RuntimeException $e ) {
+				return new \WP_REST_Response( array( 'error' => 'order update busy; retry' ), 503 );
+			}
 		}
+
+		Method::remember_callback( $order ? (int) $order->get_id() : 0, (string) ( $data['status'] ?? '' ) );
 
 		// Always 200 so LiqPay stops retransmitting this callback.
 		return new \WP_REST_Response( array( 'status' => 'accepted' ), 200 );
@@ -77,14 +83,19 @@ class Handler {
 	 * @return array{0:string,1:string} raw data, signature
 	 */
 	private function parse( \WP_REST_Request $request ): array {
-		$data      = (string) $request->get_param( 'data' );
-		$signature = (string) $request->get_param( 'signature' );
+		$data      = $request->get_param( 'data' );
+		$signature = $request->get_param( 'signature' );
+		if ( ( null !== $data && ! is_string( $data ) ) || ( null !== $signature && ! is_string( $signature ) ) ) {
+			return array( '', '' );
+		}
+		$data = (string) $data;
+		$signature = (string) $signature;
 
 		if ( '' === $data ) {
 			$json = json_decode( (string) $request->get_body(), true );
 			if ( is_array( $json ) ) {
-				$data      = (string) ( $json['data'] ?? '' );
-				$signature = (string) ( $json['signature'] ?? '' );
+				$data      = is_string( $json['data'] ?? null ) ? $json['data'] : '';
+				$signature = is_string( $json['signature'] ?? null ) ? $json['signature'] : '';
 			}
 		}
 

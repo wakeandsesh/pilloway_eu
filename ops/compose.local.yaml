@@ -1,0 +1,59 @@
+name: pilloway_eu
+
+services:
+  db:
+    image: mysql:8.4
+    pull_policy: never
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -u root -p$${MYSQL_ROOT_PASSWORD} --silent"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  wordpress:
+    image: pilloway_eu:local-wsl
+    pull_policy: never
+    build:
+      context: .
+      dockerfile: Dockerfile.wsl
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: ${MYSQL_DATABASE}
+      WORDPRESS_DB_USER: ${MYSQL_USER}
+      WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD}
+      WORDPRESS_DEBUG: "${WORDPRESS_DEBUG:-1}"
+      WP_ENVIRONMENT_TYPE: ${WP_ENVIRONMENT_TYPE:-local}
+      PILLOWAY_HOME: ${PILLOWAY_HOME:-}
+      WORDPRESS_CONFIG_EXTRA: |
+        define('FS_METHOD', 'direct');
+        define('WP_DEBUG_LOG', true);
+        define('WP_DEBUG_DISPLAY', false);
+        $$_requestHost = $$_SERVER['HTTP_HOST'] ?? '';
+        if (!defined('WP_HOME') && preg_match('/^(?:127\.0\.0\.1|localhost|192\.168\.0\.[0-9]{1,3}):8098\z/', $$_requestHost)) {
+          define('WP_HOME', 'http://' . $$_requestHost);
+          define('WP_SITEURL', 'http://' . $$_requestHost);
+        }
+    ports:
+      - "${WORDPRESS_PORT:-8080}:80"
+    volumes:
+      - wordpress_data:/var/www/html
+      - pilloway_eu_wordpress_uploads:/var/www/html/wp-content/uploads
+volumes:
+  wordpress_data:
+    name: pilloway_eu_wordpress_data
+  db_data:
+  pilloway_eu_wordpress_uploads:
+    external: true
+    name: pilloway_eu_wordpress_uploads

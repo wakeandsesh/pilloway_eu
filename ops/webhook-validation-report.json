@@ -1,0 +1,12 @@
+[
+  [
+    "/wp-json/catcode-wayforpay/v1/webhook",
+    400,
+    "{\"error\":\"bad payload\"}"
+  ],
+  [
+    "/wp-json/catcode-liqpay/v1/webhook",
+    400,
+    "{\"error\":\"bad payload\"}"
+  ]
+]

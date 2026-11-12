@@ -7,7 +7,31 @@ msgstr ""
 "X-Domain: catcode-card-payments-with-liqpay-for-woocommerce\n"
 
 
-#: catcode-card-payments-with-liqpay-for-woocommerce.php:63
+#: catcode-card-payments-with-liqpay-for-woocommerce.php
+msgid "CatCode Card Payments with LiqPay for WooCommerce"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: catcode-card-payments-with-liqpay-for-woocommerce.php
+msgid "https://catcode.com.ua/modules/catcode-card-payments-with-liqpay-for-woocommerce/"
+msgstr ""
+
+#. Description of the plugin
+#: catcode-card-payments-with-liqpay-for-woocommerce.php
+msgid "Accept card payments in WooCommerce via LiqPay: redirect to the secure payment page, automatic order confirmation through the signed serviceUrl webhook, status reconciliation from the admin."
+msgstr ""
+
+#. Author of the plugin
+#: catcode-card-payments-with-liqpay-for-woocommerce.php
+msgid "CatCode"
+msgstr ""
+
+#. Author URI of the plugin
+#: catcode-card-payments-with-liqpay-for-woocommerce.php
+msgid "https://catcode.com.ua"
+msgstr ""
+
+#: catcode-card-payments-with-liqpay-for-woocommerce.php:64
 msgid "CatCode Card Payments with LiqPay for WooCommerce requires an active WooCommerce installation."
 msgstr ""
 
@@ -16,6 +40,7 @@ msgid "Settings"
 msgstr ""
 
 #: includes/Gateway/Blocks.php:47
+#: includes/Gateway/Method.php:53
 msgid "Card payment (LiqPay)"
 msgstr ""
 
@@ -84,6 +109,7 @@ msgid "Test public key"
 msgstr ""
 
 #: includes/Gateway/Method.php:83
+#: includes/Gateway/Method.php:89
 msgid "Starts with <code>sandbox_</code>."
 msgstr ""
 
@@ -115,50 +141,88 @@ msgstr ""
 msgid "Webhook URL (serviceUrl)"
 msgstr ""
 
+#. translators: %s: webhook URL
 #: includes/Gateway/Method.php:112
+#, php-format
 msgid "Sent automatically with every payment:<br><code>%s</code>"
 msgstr ""
 
-#: includes/Gateway/Method.php:166
+#. translators: 1: date and time, 2: order number
+#: includes/Gateway/Method.php:133
+#, php-format
+msgid "Last notification from LiqPay: %1$s (order #%2$s) — statuses update automatically."
+msgstr ""
+
+#: includes/Gateway/Method.php:139
+msgid "No notification from LiqPay has arrived yet. If a paid order stays \"Pending payment\", the server blocks LiqPay: allow POST requests to this address (LiqPay sends them without a User-Agent)."
+msgstr ""
+
+#: includes/Gateway/Method.php:194
 msgid "Awaiting LiqPay payment."
 msgstr ""
 
-#: includes/Gateway/Method.php:203
+#. translators: 1: order number, 2: shop name
+#: includes/Gateway/Method.php:231
+#, php-format
 msgid "Order #%1$s, %2$s"
 msgstr ""
 
-#: includes/Gateway/Method.php:216
+#: includes/Gateway/Method.php:253
 msgid "Redirecting you to the secure LiqPay payment page…"
 msgstr ""
 
-#: includes/Gateway/Method.php:220
+#: includes/Gateway/Method.php:257
 msgid "Proceed to payment"
 msgstr ""
 
-#: includes/Gateway/Method.php:246
+#: includes/Gateway/Method.php:292
+msgid "The payment was cancelled. You can try again or choose another payment method."
+msgstr ""
+
+#: includes/Gateway/Method.php:294
+msgid "The bank declined the payment. Please try another card or another payment method."
+msgstr ""
+
+#: includes/Gateway/Method.php:296
 msgid "The payment was not completed. Please try again or choose another payment method."
 msgstr ""
 
-#: includes/Gateway/Method.php:299
+#: includes/Gateway/Method.php:461
 msgid "LiqPay: the paid amount or currency does not match the order — manual review required."
 msgstr ""
 
-#: includes/Gateway/Method.php:309
+#: includes/Gateway/Method.php:482
 msgid "LiqPay: test payment received (sandbox)."
 msgstr ""
 
-#: includes/Gateway/Method.php:310
+#: includes/Gateway/Method.php:483
 msgid "LiqPay: payment received."
 msgstr ""
 
-#: includes/Gateway/Method.php:321
+#. translators: %s: masked card number
+#: includes/Gateway/Method.php:486
+#, php-format
+msgid "Card %s."
+msgstr ""
+
+#: includes/Gateway/Method.php:498
 msgid "LiqPay: funds are held, awaiting confirmation."
 msgstr ""
 
-#: includes/Gateway/Method.php:330
-msgid "LiqPay: payment declined. "
+#: includes/Gateway/Method.php:513
+msgid "LiqPay: the buyer cancelled the payment on the LiqPay page (no payment was created)."
 msgstr ""
 
-#: includes/Gateway/Method.php:337
+#. translators: %s: reason given by LiqPay
+#: includes/Gateway/Method.php:524
+#, php-format
+msgid "LiqPay: payment declined (%s)."
+msgstr ""
+
+#: includes/Gateway/Method.php:525
+msgid "LiqPay: payment declined."
+msgstr ""
+
+#: includes/Gateway/Method.php:533
 msgid "LiqPay: payment refunded."
 msgstr ""

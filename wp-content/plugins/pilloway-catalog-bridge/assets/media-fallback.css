@@ -1,0 +1,55 @@
+.woocommerce img.woocommerce-placeholder,
+img.pilloway-product-image-fallback {
+	display: block;
+	width: 100%;
+	aspect-ratio: 1 / 1;
+	object-fit: contain;
+	object-position: center;
+	background: #f5f8f7 !important;
+}
+img.pilloway-blog-image-fallback {
+	display: block;
+	width: 100%;
+	height: auto;
+	aspect-ratio: 16 / 9;
+	object-fit: cover;
+	object-position: center;
+	background: #f5f8f7;
+}
+/* Blog query loop: one full-width article per row at every viewport. */
+body .pilloway-blog-query .wp-block-post-template {
+	box-sizing: border-box;
+	display: grid !important;
+	grid-template-columns: minmax(0, 1fr) !important;
+	grid-auto-flow: row;
+	width: 100%;
+	max-width: 100%;
+	gap: clamp(1.25rem, 2.5vw, 2rem) !important;
+}
+
+body .pilloway-blog-query .wp-block-post-template > .wp-block-post {
+	box-sizing: border-box;
+	grid-column: 1 / -1;
+	width: 100% !important;
+	max-width: none !important;
+	min-width: 0;
+	margin: 0 !important;
+}
+
+body .pilloway-blog-query .wp-block-post-featured-image {
+	width: 100%;
+	max-width: 100%;
+}
+
+body .pilloway-blog-query .wp-block-post-featured-image img {
+	display: block;
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+}
+
+body .pilloway-blog-query .pilloway-blog-card__title {
+	max-width: 100%;
+	word-break: normal !important;
+	overflow-wrap: break-word;
+}

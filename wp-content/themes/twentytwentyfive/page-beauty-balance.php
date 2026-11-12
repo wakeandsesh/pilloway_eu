@@ -416,6 +416,10 @@ if (function_exists('wc_get_product')) {
 }
 
 echo $beauty_balance_content;
+$beauty_balance_lash_modal_path = __DIR__ . '/inc/beauty-balance-lash-modal.php';
+if (is_readable($beauty_balance_lash_modal_path)) {
+    require $beauty_balance_lash_modal_path;
+}
 ?>
 </main>
 <footer class="wp-block-template-part">
