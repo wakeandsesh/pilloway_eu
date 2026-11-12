@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: Pilloway Google Shopping Feed
- * Description: Google Merchant Center product feed for Pilloway UA.
- * Version: 1.0.0
+ * Description: Google Merchant Center product feed for Pilloway EU (English, EUR).
+ * Version: 1.1.0
  * Requires Plugins: woocommerce
  * Text Domain: pilloway-google-shopping-feed
  */
@@ -29,34 +29,40 @@ final class Pilloway_Google_Shopping_Feed {
  public function cron_schedules($s){$s[self::CRON]=array('interval'=>6*HOUR_IN_SECONDS,'display'=>__('Every six hours','pilloway-google-shopping-feed'));return $s;}
  public function query_vars($vars){$vars[]=self::QUERY;$vars[]=self::TOKEN_QUERY;return $vars;}
  private function settings(){ $s=get_option(self::OPTION,array()); if(empty($s['token'])){$s['token']=wp_generate_password(48,false,false);update_option(self::OPTION,$s);} return wp_parse_args($s,array('scope_mode'=>'categories','category_scope'=>'all','category_ids'=>array(),'token'=>'')); }
- private function feed_path(){ $u=wp_upload_dir();if(!empty($u['error']))return false;$d=trailingslashit($u['basedir']).'pilloway-google-shopping-feed';if(!wp_mkdir_p($d))return false;return trailingslashit($d).'google-shopping-ua.xml'; }
+ private function feed_path(){ $u=wp_upload_dir();if(!empty($u['error']))return false;$d=trailingslashit($u['basedir']).'pilloway-google-shopping-feed';if(!wp_mkdir_p($d))return false;return trailingslashit($d).'google-shopping-eu.xml'; }
  private function feed_url(){ $s=$this->settings();return add_query_arg(array(self::QUERY=>1,self::TOKEN_QUERY=>$s['token']),home_url('/')); }
  public function serve_feed(){
   if(!get_query_var(self::QUERY))return;$s=$this->settings();$given=(string)get_query_var(self::TOKEN_QUERY);
   if(!$given||!hash_equals((string)$s['token'],$given)){status_header(403);nocache_headers();exit('Forbidden');}
   $p=$this->feed_path();if(!$p||!is_readable($p)){status_header(503);nocache_headers();exit('Feed is not generated yet. Generate it in WooCommerce > Google Shopping Feed.');}
-  nocache_headers();header('Content-Type: application/xml; charset=UTF-8');header('Content-Disposition: inline; filename="google-shopping-ua.xml"');readfile($p);exit;
+  nocache_headers();header('Content-Type: application/xml; charset=UTF-8');header('Content-Disposition: inline; filename="google-shopping-eu.xml"');readfile($p);exit;
  }
  public function schedule_feed(){if(!wp_next_scheduled(self::SINGLE_HOOK))wp_schedule_single_event(time()+30,self::SINGLE_HOOK);}
  public function schedule_after_product_save($id,$post,$update){if(wp_is_post_revision($id)||(defined('DOING_AUTOSAVE')&&DOING_AUTOSAVE)||!$post||'product'!==$post->post_type)return;$this->schedule_feed();} private function each_product_batch($args,$callback){
-  $page=1;$max=1;do{$query=$args;$query['limit']=40;$query['page']=$page;$query['paginate']=true;$previous=wp_suspend_cache_addition(true);try{$result=wc_get_products($query);$batch=(is_object($result)&&isset($result->products))?$result->products:array();$max=(is_object($result)&&isset($result->max_num_pages))?max(1,(int)$result->max_num_pages):$page;foreach($batch as $product)$callback($product);$has=!empty($batch);}finally{wp_suspend_cache_addition($previous);unset($result,$batch,$query);if(function_exists('wp_cache_flush_runtime'))wp_cache_flush_runtime();if(function_exists('gc_collect_cycles'))gc_collect_cycles();}$page++;}while($has&&$page<=$max);
+  $page=1;$max=1;do{$query=$args;$query['limit']=40;$query['page']=$page;$query['paginate']=true;$previous=wp_suspend_cache_addition(false);try{$result=wc_get_products($query);$batch=(is_object($result)&&isset($result->products))?$result->products:array();$max=(is_object($result)&&isset($result->max_num_pages))?max(1,(int)$result->max_num_pages):$page;foreach($batch as $product)$callback($product);$has=!empty($batch);}finally{wp_suspend_cache_addition($previous);unset($result,$batch,$query);if(function_exists('wp_cache_flush_runtime'))wp_cache_flush_runtime();if(function_exists('gc_collect_cycles'))gc_collect_cycles();}$page++;}while($has&&$page<=$max);
  }
  public function generate_feed(){
-  if(!function_exists('wc_get_products'))return false;$s=$this->settings();$args=array('status'=>'publish','return'=>'objects','orderby'=>'ID','order'=>'ASC');$run=true;
-  if('categories'===$s['scope_mode']&&'selected'===$s['category_scope']){$ids=array_values(array_filter(array_map('absint',(array)$s['category_ids'])));$slugs=array();foreach($ids as $term_id){$term=get_term($term_id,'product_cat');if($term&&!is_wp_error($term))$slugs[]=$term->slug;}if($slugs)$args['category']=$slugs;else $run=false;}if('sale'===$s['scope_mode']){$on_sale=function_exists('wc_get_product_ids_on_sale')?wc_get_product_ids_on_sale():array();if($on_sale)$args['include']=$on_sale;else $run=false;}
+  $previous=function_exists('PLL')?PLL()->curlang:null;
+  if(function_exists('PLL'))PLL()->curlang=PLL()->model->get_language('en');
+  $currency=static function(){return 'EUR';};add_filter('woocommerce_currency',$currency,999);
+  try{return $this->generate_eu_feed();}finally{remove_filter('woocommerce_currency',$currency,999);if(function_exists('PLL'))PLL()->curlang=$previous;}
+ }
+ private function generate_eu_feed(){
+  if(!function_exists('wc_get_products'))return false;$s=$this->settings();$args=array('status'=>'publish','return'=>'objects','orderby'=>'ID','order'=>'ASC');$english=get_posts(array('post_type'=>'product','post_status'=>'publish','fields'=>'ids','posts_per_page'=>-1,'lang'=>'en','suppress_filters'=>false));$args['include']=$english;$run=!empty($english);
+  if('categories'===$s['scope_mode']&&'selected'===$s['category_scope']){$ids=array_values(array_filter(array_map('absint',(array)$s['category_ids'])));$slugs=array();foreach($ids as $term_id){$term_id=function_exists('pll_get_term')?(pll_get_term($term_id,'en')?:$term_id):$term_id;$term=get_term($term_id,'product_cat');if($term&&!is_wp_error($term))$slugs[]=$term->slug;}if($slugs)$args['category']=$slugs;else $run=false;}if('sale'===$s['scope_mode']){$on_sale=function_exists('wc_get_product_ids_on_sale')?wc_get_product_ids_on_sale():array();if($on_sale)$args['include']=$on_sale;else $run=false;}
   $items=array();$skip_lang=0;$skip_sale=0;$this->invalid_gtin_count=0;$this->missing_identifier_count=0;
-  if($run)$this->each_product_batch($args,function($p)use(&$items,&$skip_lang,&$skip_sale,$s){if(!$p instanceof WC_Product||$p->is_type('variation'))return;if(function_exists('pll_get_post_language')){$lang=pll_get_post_language($p->get_id(),'slug');if($lang&&'uk'!==$lang){$skip_lang++;return;}}if('sale'===$s['scope_mode']&&!$p->is_on_sale()){$skip_sale++;return;}$item=$this->product_item($p);if($item)$items[]=$item;});
+  if($run)$this->each_product_batch($args,function($p)use(&$items,&$skip_lang,&$skip_sale,$s){if(!$p instanceof WC_Product||$p->is_type('variation'))return;if(function_exists('pll_get_post_language')){$lang=pll_get_post_language($p->get_id(),'slug');if($lang&&'en'!==$lang){$skip_lang++;return;}}if('sale'===$s['scope_mode']&&!$p->is_on_sale()){$skip_sale++;return;}$item=$this->product_item($p);if($item)$items[]=$item;});
   $path=$this->feed_path();if(!$path||false===file_put_contents($path,$this->render_xml($items),LOCK_EX))return false;
   update_option(self::STATS,array('generated_at'=>time(),'count'=>count($items),'skipped_language'=>$skip_lang,'skipped_sale'=>$skip_sale,'currency'=>get_woocommerce_currency(),'category_counts'=>$this->category_counts($items),'invalid_gtin'=>$this->invalid_gtin_count,'missing_identifiers'=>$this->missing_identifier_count),false);return true;
  }
  private function product_item($p){
   $id=$p->get_id();$image_id=$p->get_image_id();$image=$image_id?wp_get_attachment_image_url($image_id,'full'):'';if(!$image)return false;
   $title=$this->clean_text($p->get_name());$desc=$this->clean_text($p->get_description()?:$p->get_short_description());if(!$desc)$desc=$title;
-  $sku=trim((string)$p->get_sku());$currency=get_woocommerce_currency();$regular=$p->get_regular_price();$sale=$p->is_on_sale()?$p->get_sale_price():'';$shown=$sale!==''?$sale:$p->get_price();if($shown==='')return false;
+  $sku=trim((string)$p->get_sku());$currency='EUR';$regular=get_post_meta($id,'_europe-eur_regular_price',true);$sale=get_post_meta($id,'_europe-eur_sale_price',true);if($sale!==''&&((float)$sale<=0||(float)$sale>=(float)$regular))$sale='';$shown=$sale!==''?$sale:get_post_meta($id,'_europe-eur_price',true);if($shown==='')return false;
   $base=$sale!==''?$regular:$shown;$price=$this->format_price(wc_get_price_to_display($p,array('price'=>$base)),$currency);$sale_price=$sale!==''?$this->format_price(wc_get_price_to_display($p,array('price'=>$sale)),$currency):'';
   $raw='';if(method_exists($p,'get_global_unique_id'))$raw=(string)$p->get_global_unique_id();if(!$raw)$raw=(string)get_post_meta($id,'_global_unique_id',true);$gtin=preg_replace('/\D+/','',$raw);$valid=$gtin&&$this->valid_gtin($gtin);if($raw&&!$valid)$this->invalid_gtin_count++;
   $mpn=trim((string)get_post_meta($id,'_pilloway_gmc_mpn',true));$explicit_no='no'===get_post_meta($id,'_pilloway_gmc_identifier_exists',true);$identifier_exists='';if($valid||$mpn)$identifier_exists='yes';elseif($explicit_no)$identifier_exists='no';else $this->missing_identifier_count++;$category=absint(get_post_meta($id,'_pilloway_gmc_category_id',true));if(!$category)$category=$this->infer_category($p);
-  $item=array('id'=>$sku?$sku:'pilloway-'.$id,'title'=>$title,'description'=>$desc,'link'=>get_permalink($id),'image_link'=>esc_url_raw($image),'availability'=>$p->is_in_stock()?'in_stock':'out_of_stock','condition'=>'new','price'=>$price,'sale_price'=>$sale_price,'brand'=>$this->clean_text(get_post_meta($id,'_pilloway_gmc_brand',true)?:$this->brand($p)),'gtin'=>$valid?$gtin:'','mpn'=>$mpn,'identifier_exists'=>$identifier_exists,'google_product_category'=>(string)$category,'product_type'=>$this->product_type($p),'color'=>$this->attribute($p,array('pa_color','color','колір','цвет')),'material'=>$this->attribute($p,array('pa_material','material','матеріал','материал')));
+  $item=array('id'=>$sku?$sku:'pilloway-'.$id,'title'=>$title,'description'=>$desc,'link'=>add_query_arg('wcpbc-manual-country','DE',get_permalink($id)),'image_link'=>esc_url_raw($image),'availability'=>$p->is_in_stock()?'in_stock':'out_of_stock','condition'=>'new','price'=>$price,'sale_price'=>$sale_price,'brand'=>$this->clean_text(get_post_meta($id,'_pilloway_gmc_brand',true)?:$this->brand($p)),'gtin'=>$valid?$gtin:'','mpn'=>$mpn,'identifier_exists'=>$identifier_exists,'google_product_category'=>(string)$category,'product_type'=>$this->product_type($p),'color'=>$this->attribute($p,array('pa_color','color','колір','цвет')),'material'=>$this->attribute($p,array('pa_material','material','матеріал','материал')));
   $weight=$p->get_weight();if($weight!==''&&(float)$weight>0)$item['shipping_weight']=number_format((float)wc_get_weight((float)$weight,'kg',get_option('woocommerce_weight_unit','kg')),3,'.','').' kg';
   $images=array();foreach((array)$p->get_gallery_image_ids() as $gid){$u=wp_get_attachment_image_url($gid,'full');if($u&&$u!==$image)$images[]=esc_url_raw($u);if(count($images)>=10)break;}$item['additional_image_link']=$images;return $item;
  }

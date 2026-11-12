@@ -1,0 +1,31 @@
+{
+    "sale_ids_by_language": {
+        "uk": {
+            "count": 101,
+            "first_language": "uk"
+        },
+        "ru": {
+            "count": 101,
+            "first_language": "ru"
+        },
+        "en": {
+            "count": 101,
+            "first_language": "en"
+        },
+        "pl": {
+            "count": 101,
+            "first_language": "pl"
+        },
+        "fr": {
+            "count": 101,
+            "first_language": "fr"
+        },
+        "de": {
+            "count": 101,
+            "first_language": "de"
+        }
+    },
+    "sale_only": 101,
+    "translated_selected_category": 55,
+    "restored_all_products": 384
+}

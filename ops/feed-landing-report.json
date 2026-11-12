@@ -1,0 +1,7 @@
+{
+  "status": 200,
+  "landing_currencies": [
+    "EUR"
+  ],
+  "requested_country": "DE"
+}

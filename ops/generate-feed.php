@@ -1,0 +1,1 @@
+<?php if(PHP_SAPI!=='cli'){http_response_code(404);exit;}$_SERVER['HTTP_HOST']='127.0.0.1:8098';require '/var/www/html/wp-load.php';$ok=Pilloway_Google_Shopping_Feed::instance()->generate_feed();echo json_encode(['generated'=>$ok,'stats'=>get_option('pilloway_gmc_feed_stats')],JSON_PRETTY_PRINT).PHP_EOL;

@@ -1,0 +1,20 @@
+{
+    "generated": true,
+    "stats": {
+        "generated_at": 1794521108,
+        "count": 384,
+        "skipped_language": 0,
+        "skipped_sale": 0,
+        "currency": "EUR",
+        "category_counts": {
+            "1483": 10,
+            "2700": 168,
+            "2927": 127,
+            "4211": 29,
+            "4313": 5,
+            "7404": 45
+        },
+        "invalid_gtin": 0,
+        "missing_identifiers": 384
+    }
+}

@@ -49,3 +49,13 @@ add_action('wp_enqueue_scripts', function () {
     wp_register_style('pilloway-eu-address', false);wp_enqueue_style('pilloway-eu-address');
     wp_add_inline_style('pilloway-eu-address', '.pilloway-eu-ua-address #billing_address_1_field,.pilloway-eu-ua-address #billing_address_2_field,.pilloway-eu-ua-address #billing_city_field,.pilloway-eu-ua-address #billing_state_field,.pilloway-eu-ua-address #billing_postcode_field{display:none!important}');
 }, 100);
+
+/** WCPBC caches on-sale IDs by zone; map them to the active Polylang language. */
+function pilloway_eu_localize_sale_ids($ids) {
+    if (!is_array($ids) || !function_exists('pll_current_language')) return $ids;
+    $lang=pll_current_language();if(!$lang)return $ids;
+    $localized=array();foreach($ids as $id){$translated=pll_get_post($id,$lang);if($translated)$localized[]=(int)$translated;}
+    return array_values(array_unique($localized));
+}
+add_filter('pre_transient_wc_products_onsale','pilloway_eu_localize_sale_ids',30);
+add_filter('transient_wc_products_onsale','pilloway_eu_localize_sale_ids',30);
