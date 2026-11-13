@@ -1,0 +1,318 @@
+{
+    "phase": "apply",
+    "preflight": 13,
+    "results": [
+        {
+            "key": "shop",
+            "id": 2838,
+            "set_language": true,
+            "linked": {
+                "en": 404,
+                "uk": 8,
+                "ru": 403,
+                "pl": 405,
+                "fr": 2838
+            },
+            "status": "publish",
+            "slug": "boutique",
+            "lang": "fr",
+            "url": "http://localhost:8098/boutique/",
+            "template": "",
+            "group": {
+                "fr": 2838,
+                "en": 404,
+                "uk": 8,
+                "ru": 403,
+                "pl": 405
+            }
+        },
+        {
+            "key": "cart",
+            "id": 2839,
+            "set_language": true,
+            "linked": {
+                "uk": 9,
+                "ru": 406,
+                "en": 407,
+                "pl": 408,
+                "fr": 2839
+            },
+            "status": "publish",
+            "slug": "panier",
+            "lang": "fr",
+            "url": "http://localhost:8098/panier/",
+            "template": "",
+            "group": {
+                "fr": 2839,
+                "uk": 9,
+                "ru": 406,
+                "en": 407,
+                "pl": 408
+            }
+        },
+        {
+            "key": "checkout",
+            "id": 2840,
+            "set_language": true,
+            "linked": {
+                "uk": 10,
+                "ru": 409,
+                "en": 410,
+                "pl": 411,
+                "fr": 2840
+            },
+            "status": "publish",
+            "slug": "commande",
+            "lang": "fr",
+            "url": "http://localhost:8098/commande/",
+            "template": "",
+            "group": {
+                "fr": 2840,
+                "uk": 10,
+                "ru": 409,
+                "en": 410,
+                "pl": 411
+            }
+        },
+        {
+            "key": "account",
+            "id": 2841,
+            "set_language": true,
+            "linked": {
+                "uk": 11,
+                "ru": 412,
+                "en": 413,
+                "pl": 414,
+                "fr": 2841
+            },
+            "status": "publish",
+            "slug": "mon-compte",
+            "lang": "fr",
+            "url": "http://localhost:8098/mon-compte/",
+            "template": "",
+            "group": {
+                "fr": 2841,
+                "uk": 11,
+                "ru": 412,
+                "en": 413,
+                "pl": 414
+            }
+        },
+        {
+            "key": "beauty_balance",
+            "id": 2842,
+            "set_language": true,
+            "linked": {
+                "en": 1561,
+                "uk": 1560,
+                "pl": 1562,
+                "ru": 1563,
+                "fr": 2842
+            },
+            "status": "publish",
+            "slug": "oreiller-beauty-balance",
+            "lang": "fr",
+            "url": "http://localhost:8098/oreiller-beauty-balance/",
+            "template": "page-beauty-balance.php",
+            "group": {
+                "fr": 2842,
+                "en": 1561,
+                "uk": 1560,
+                "pl": 1562,
+                "ru": 1563
+            }
+        },
+        {
+            "key": "correct_shape",
+            "id": 2843,
+            "set_language": true,
+            "linked": {
+                "en": 1581,
+                "uk": 1580,
+                "pl": 1582,
+                "ru": 1583,
+                "fr": 2843
+            },
+            "status": "publish",
+            "slug": "correct-shape-fr",
+            "lang": "fr",
+            "url": "http://localhost:8098/correct-shape-fr/",
+            "template": "page-correct-shape.php",
+            "group": {
+                "fr": 2843,
+                "en": 1581,
+                "uk": 1580,
+                "pl": 1582,
+                "ru": 1583
+            }
+        },
+        {
+            "key": "family_dream",
+            "id": 2844,
+            "set_language": true,
+            "linked": {
+                "en": 1587,
+                "uk": 1586,
+                "pl": 1588,
+                "ru": 1589,
+                "fr": 2844
+            },
+            "status": "publish",
+            "slug": "family-dream-fr",
+            "lang": "fr",
+            "url": "http://localhost:8098/family-dream-fr/",
+            "template": "page-family-dream.php",
+            "group": {
+                "fr": 2844,
+                "en": 1587,
+                "uk": 1586,
+                "pl": 1588,
+                "ru": 1589
+            }
+        },
+        {
+            "key": "delivery",
+            "id": 2845,
+            "set_language": true,
+            "linked": {
+                "en": 1596,
+                "uk": 1595,
+                "pl": 1597,
+                "ru": 1598,
+                "fr": 2845
+            },
+            "status": "publish",
+            "slug": "livraison-paiement",
+            "lang": "fr",
+            "url": "http://localhost:8098/livraison-paiement/",
+            "template": "",
+            "group": {
+                "fr": 2845,
+                "en": 1596,
+                "uk": 1595,
+                "pl": 1597,
+                "ru": 1598
+            }
+        },
+        {
+            "key": "loyalty",
+            "id": 2846,
+            "set_language": true,
+            "linked": {
+                "en": 1600,
+                "uk": 1599,
+                "pl": 1601,
+                "ru": 1602,
+                "fr": 2846
+            },
+            "status": "publish",
+            "slug": "programme-fidelite",
+            "lang": "fr",
+            "url": "http://localhost:8098/programme-fidelite/",
+            "template": "",
+            "group": {
+                "fr": 2846,
+                "en": 1600,
+                "uk": 1599,
+                "pl": 1601,
+                "ru": 1602
+            }
+        },
+        {
+            "key": "contacts",
+            "id": 2847,
+            "set_language": true,
+            "linked": {
+                "en": 1604,
+                "uk": 1603,
+                "pl": 1605,
+                "ru": 1606,
+                "fr": 2847
+            },
+            "status": "publish",
+            "slug": "contact",
+            "lang": "fr",
+            "url": "http://localhost:8098/contact/",
+            "template": "",
+            "group": {
+                "fr": 2847,
+                "en": 1604,
+                "uk": 1603,
+                "pl": 1605,
+                "ru": 1606
+            }
+        },
+        {
+            "key": "patents",
+            "id": 2848,
+            "set_language": true,
+            "linked": {
+                "en": 1630,
+                "uk": 1629,
+                "pl": 1631,
+                "ru": 1632,
+                "fr": 2848
+            },
+            "status": "publish",
+            "slug": "certificats-documents",
+            "lang": "fr",
+            "url": "http://localhost:8098/certificats-documents/",
+            "template": "",
+            "group": {
+                "fr": 2848,
+                "en": 1630,
+                "uk": 1629,
+                "pl": 1631,
+                "ru": 1632
+            }
+        },
+        {
+            "key": "palette",
+            "id": 2849,
+            "set_language": true,
+            "linked": {
+                "en": 1648,
+                "uk": 1647,
+                "pl": 1649,
+                "ru": 1650,
+                "fr": 2849
+            },
+            "status": "publish",
+            "slug": "palette-couleurs-taies",
+            "lang": "fr",
+            "url": "http://localhost:8098/palette-couleurs-taies/",
+            "template": "",
+            "group": {
+                "fr": 2849,
+                "en": 1648,
+                "uk": 1647,
+                "pl": 1649,
+                "ru": 1650
+            }
+        },
+        {
+            "key": "blog",
+            "id": 2850,
+            "set_language": true,
+            "linked": {
+                "en": 1652,
+                "uk": 1651,
+                "pl": 1653,
+                "ru": 1654,
+                "fr": 2850
+            },
+            "status": "publish",
+            "slug": "conseils-pilloway",
+            "lang": "fr",
+            "url": "http://localhost:8098/conseils-pilloway/",
+            "template": "",
+            "group": {
+                "fr": 2850,
+                "en": 1652,
+                "uk": 1651,
+                "pl": 1653,
+                "ru": 1654
+            }
+        }
+    ]
+}
