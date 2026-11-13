@@ -1,0 +1,145 @@
+[14-Oct-2026 22:39:46 UTC] WordPress database error Table 'wordpress.wp_woocommerce_attribute_taxonomies' doesn't exist for query SELECT * FROM wp_woocommerce_attribute_taxonomies WHERE attribute_name != '' ORDER BY attribute_name ASC; made by activate_plugin, plugin_sandbox_scrape, include_once('/plugins/woocommerce/woocommerce.php'), WC, WooCommerce::instance, WooCommerce->__construct, WooCommerce->init_hooks, Automattic\WooCommerce\Internal\ProductAttributes\VisualAttributeTermAdmin->register, wc_get_attribute_taxonomies
+[14-Oct-2026 22:39:57 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>woocommerce</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6260
+[14-Oct-2026 23:07:17 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function wc_get_product_count() in Command line code:1
+Stack trace:
+#0 {main}
+  thrown in Command line code on line 1
+[14-Oct-2026 23:46:51 UTC] Automatic updates starting...
+[14-Oct-2026 23:46:51 UTC]   Automatic theme updates starting...
+[14-Oct-2026 23:46:51 UTC]   Automatic theme updates complete.
+[14-Oct-2026 23:46:51 UTC] Automatic updates complete.
+[18-Oct-2026 19:21:32 UTC] WordPress database error Table 'wordpress.wp_woocommerce_attribute_taxonomies' doesn't exist for query SELECT * FROM wp_woocommerce_attribute_taxonomies WHERE attribute_name != '' ORDER BY attribute_name ASC; made by activate_plugin, plugin_sandbox_scrape, include_once('/plugins/woocommerce/woocommerce.php'), WC, WooCommerce::instance, WooCommerce->__construct, WooCommerce->init_hooks, Automattic\WooCommerce\Internal\ProductAttributes\VisualAttributeTermAdmin->register, wc_get_attribute_taxonomies
+[18-Oct-2026 19:21:40 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>woocommerce</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6260
+[19-Oct-2026 19:22:33 UTC] PHP Warning:  plugins_api(): Сталася неочікувана помилка. Можливо, щось не так із сайтом WordPress.org або з налаштуваннями цього сервера. Якщо проблема залишиться, будь ласка, спробуйте скористатися <a href="https://uk.wordpress.org/support/forums/">форумами підтримки</a>. (Не вдалося встановити захищене з'єднання з WordPress.org. Будь ласка, зв'яжіться з адміністратором сервера.) in /var/www/html/wp-includes/functions.php on line 6260
+[19-Oct-2026 19:34:54 UTC] PHP Warning:  plugins_api(): Сталася неочікувана помилка. Можливо, щось не так із сайтом WordPress.org або з налаштуваннями цього сервера. Якщо проблема залишиться, будь ласка, спробуйте скористатися <a href="https://uk.wordpress.org/support/forums/">форумами підтримки</a>. (Не вдалося встановити захищене з'єднання з WordPress.org. Будь ласка, зв'яжіться з адміністратором сервера.) in /var/www/html/wp-includes/functions.php on line 6260
+[19-Oct-2026 22:00:27 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[19-Oct-2026 22:00:41 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[19-Oct-2026 22:00:44 UTC] PHP Warning:  Array to string conversion in /var/www/html/wp-includes/class-wp-list-util.php on line 168
+[19-Oct-2026 22:00:57 UTC] PHP Warning:  Array to string conversion in /var/www/html/wp-includes/class-wp-list-util.php on line 168
+[19-Oct-2026 22:01:53 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[19-Oct-2026 22:08:41 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[19-Oct-2026 22:08:57 UTC] PHP Warning:  Array to string conversion in /var/www/html/wp-includes/class-wp-list-util.php on line 168
+[19-Oct-2026 22:10:09 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[19-Oct-2026 22:10:29 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[19-Oct-2026 22:24:44 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[19-Oct-2026 22:25:28 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[19-Oct-2026 22:26:34 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[19-Oct-2026 22:30:12 UTC] PHP Fatal error:  Uncaught WC_Data_Exception: Хибний або продубльований артикул (SKU). in /var/www/html/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-data.php:1022
+Stack trace:
+#0 /var/www/html/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-product.php(871): WC_Data->error('product_invalid...', '\xD0\xA5\xD0\xB8\xD0\xB1\xD0\xBD\xD0\xB8\xD0\xB9 \xD0\xB0...', 400, Array)
+#1 /tmp/prom-woo-import.php(776): WC_Product->set_sku('CS-10011')
+#2 {main}
+  thrown in /var/www/html/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-data.php on line 1022
+[19-Oct-2026 22:30:35 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[19-Oct-2026 22:30:48 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[19-Oct-2026 22:31:33 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[19-Oct-2026 22:32:37 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[19-Oct-2026 22:33:07 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[19-Oct-2026 22:33:34 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[19-Oct-2026 22:35:03 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[19-Oct-2026 22:35:50 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[19-Oct-2026 22:37:07 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[19-Oct-2026 22:37:33 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[19-Oct-2026 22:48:33 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[19-Oct-2026 22:51:55 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[19-Oct-2026 22:52:20 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[19-Oct-2026 22:52:47 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[19-Oct-2026 22:53:30 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[19-Oct-2026 22:53:46 UTC] PHP Warning:  file_get_contents(/tmp/prom_catalog_export.json): Failed to open stream: No such file or directory in /tmp/prom-woo-import.php on line 25
+[19-Oct-2026 22:53:52 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[19-Oct-2026 22:58:23 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[19-Oct-2026 22:58:35 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[19-Oct-2026 23:00:15 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[19-Oct-2026 23:00:50 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[19-Oct-2026 23:52:06 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[19-Oct-2026 23:52:27 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[19-Oct-2026 23:52:40 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[19-Oct-2026 23:53:16 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[19-Oct-2026 23:54:16 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[19-Oct-2026 23:57:09 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[19-Oct-2026 23:57:09 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[19-Oct-2026 23:59:21 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[19-Oct-2026 23:59:54 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 00:16:49 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 00:22:27 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 00:37:52 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 00:39:23 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 00:42:13 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 00:53:59 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 00:54:26 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 00:55:00 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 00:55:47 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 00:57:24 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 00:58:22 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 00:59:04 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 00:59:45 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 01:01:26 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 01:11:14 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 01:16:00 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 01:16:42 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 01:17:00 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 13358688 bytes) in /tmp/audit-prom-import.php on line 254
+[20-Oct-2026 01:17:14 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 01:22:15 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 09:59:13 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 10:46:14 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 10:46:43 UTC] PHP Fatal error:  Uncaught WC_Data_Exception: Хибний або продубльований артикул (SKU). in /var/www/html/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-data.php:1022
+Stack trace:
+#0 /var/www/html/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-product.php(871): WC_Data->error('product_invalid...', '\xD0\xA5\xD0\xB8\xD0\xB1\xD0\xBD\xD0\xB8\xD0\xB9 \xD0\xB0...', 400, Array)
+#1 /tmp/prom-woo-import.php(1033): WC_Product->set_sku('CS-10011')
+#2 {main}
+  thrown in /var/www/html/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-data.php on line 1022
+[20-Oct-2026 10:47:22 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 10:49:19 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 10:54:52 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 10:57:17 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 10:57:49 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 10:59:26 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 10:59:40 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 10:59:54 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 11:00:20 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 11:09:54 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 11:11:59 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 11:16:26 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 11:18:12 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 11:19:04 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 11:23:24 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 11:24:57 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 11:25:27 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in /var/www/html/wp-includes/option.php on line 981
+[20-Oct-2026 11:25:27 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in /var/www/html/wp-includes/functions.php on line 655
+[20-Oct-2026 11:26:12 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 11:28:02 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 11:36:57 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 11:37:13 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 11:37:35 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 11:37:59 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 11:43:44 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 11:46:42 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 11:50:26 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 11:50:50 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 11:51:05 UTC] PHP Fatal error:  Uncaught RuntimeException: Prom filter membership manifest is missing or incomplete. in /tmp/apply-exact-prom-filters.php:12
+Stack trace:
+#0 {main}
+  thrown in /tmp/apply-exact-prom-filters.php on line 12
+[20-Oct-2026 11:53:52 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 12:14:21 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 12:15:12 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 12:15:35 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 12:16:15 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 12:19:49 UTC] PHP Warning:  Undefined array key "id" in /var/www/html/wp-content/plugins/nova-post-for-woocommerce/includes/Http/RequestBuilder/CalculationRequest.php on line 178
+[20-Oct-2026 12:19:49 UTC] PHP Warning:  Undefined array key "divisionCategory" in /var/www/html/wp-content/plugins/nova-post-for-woocommerce/includes/Http/RequestBuilder/CalculationRequest.php on line 179
+[20-Oct-2026 12:19:49 UTC] PHP Warning:  The magic method NovaPostForWoocommerce\Services\Cache\CachedExchangeRatesService::__wakeup() must have public visibility in /var/www/html/wp-content/plugins/nova-post-for-woocommerce/includes/Services/Cache/CachedExchangeRatesService.php on line 84
+[20-Oct-2026 12:26:01 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 12:26:43 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in /var/www/html/wp-includes/taxonomy.php on line 3923
+[20-Oct-2026 12:26:43 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in /var/www/html/wp-includes/class-wp-fatal-error-handler.php on line 76
+[20-Oct-2026 12:26:57 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 12:47:50 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 12:57:13 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 12:57:54 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 13:07:14 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 14:41:29 UTC] PHP Warning:  Undefined array key "id" in /var/www/html/wp-content/plugins/nova-post-for-woocommerce/includes/Http/RequestBuilder/CalculationRequest.php on line 178
+[20-Oct-2026 14:41:29 UTC] PHP Warning:  Undefined array key "divisionCategory" in /var/www/html/wp-content/plugins/nova-post-for-woocommerce/includes/Http/RequestBuilder/CalculationRequest.php on line 179
+[20-Oct-2026 20:52:30 UTC] Automatic updates starting...
+[20-Oct-2026 20:52:32 UTC] Automatic updates complete.
+[20-Oct-2026 21:02:16 UTC] PHP Notice:  $_SERVER['HTTP_HOST'] or $_SERVER['REQUEST_URI'] are required but not set. in /var/www/html/wp-content/plugins/polylang/src/functions.php on line 61
+[20-Oct-2026 21:47:59 UTC] Automatic updates starting...
+[20-Oct-2026 21:48:02 UTC] Automatic updates complete.

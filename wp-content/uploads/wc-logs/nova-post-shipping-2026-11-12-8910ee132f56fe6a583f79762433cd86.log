@@ -1,0 +1,2 @@
+2026-11-12T21:48:03+00:00 ERROR [error]: GA4 sendEvent error: cURL error 28: Resolving timed out after 3000 milliseconds (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for https://www.google-analytics.com/mp/collect?measurement_id=G-PMH31F9C1L&api_secret=-isUfMOdR9mzPiFUMtMolg []
+2026-11-12T21:48:04+00:00 ERROR [error]: GA4 sendEvent error: cURL error 28: Resolving timed out after 3001 milliseconds (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for https://www.google-analytics.com/mp/collect?measurement_id=G-PMH31F9C1L&api_secret=-isUfMOdR9mzPiFUMtMolg []

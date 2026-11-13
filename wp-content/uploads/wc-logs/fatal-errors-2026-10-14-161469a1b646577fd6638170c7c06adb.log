@@ -1,0 +1,1 @@
+2026-10-14T23:07:17+00:00 CRITICAL Uncaught Error: Call to undefined function wc_get_product_count() in Command line code:1 CONTEXT: {"error":{"type":1,"file":"Command line code","line":1},"remote-logging":true,"backtrace":["","#0 {main}","thrown"]}
