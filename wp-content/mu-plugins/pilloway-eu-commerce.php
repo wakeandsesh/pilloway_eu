@@ -4,7 +4,7 @@
  */
 defined('ABSPATH') || exit;
 
-// The native WooCommerce country selector updates WCPBC prices and shipping during
+// The native WooCommerce country selector updates shipping during
 // update_order_review, without a second selector or a reload that loses form data.
 add_filter('woocommerce_checkout_fields', function ($fields) {
     if (isset($fields['billing']['billing_country'])) {
@@ -20,7 +20,6 @@ add_filter('woocommerce_checkout_fields', function ($fields) {
         foreach (array('address_1','address_2','city','state','postcode') as $part) {
             if (isset($address['billing_'.$part])) {
                 $fields['billing']['billing_'.$part] = $address['billing_'.$part];
-                if ('UA' === $country) $fields['billing']['billing_'.$part]['required'] = false;
             }
         }
     }
@@ -29,12 +28,11 @@ add_filter('woocommerce_checkout_fields', function ($fields) {
 
 add_filter('woocommerce_available_payment_gateways', function ($gateways) {
     if (is_admin() && !wp_doing_ajax()) return $gateways;
-    $country = WC()->customer ? WC()->customer->get_billing_country() : '';
     $currency = get_woocommerce_currency();
-    if ('UA' !== $country || 'UAH' !== $currency) unset($gateways['liqpay']);
-    if ('UA' === $country || !in_array($currency, array('EUR','USD'), true)) unset($gateways['wayforpay']);
+    unset($gateways['liqpay']);
+    if ('EUR' !== $currency) unset($gateways['wayforpay']);
     // No EU bank beneficiary was supplied. Do not offer the copied UA account abroad.
-    if ('UA' !== $country) unset($gateways['isi_bank_transfer'], $gateways['bacs'], $gateways['cheque']);
+    unset($gateways['isi_bank_transfer'], $gateways['bacs'], $gateways['cheque']);
     if ('production' === wp_get_environment_type()) {
         foreach ($gateways as $id => $gateway) {
             if ('yes' === $gateway->get_option('testmode', 'no')) unset($gateways[$id]);
@@ -43,14 +41,7 @@ add_filter('woocommerce_available_payment_gateways', function ($gateways) {
     return $gateways;
 }, 100);
 
-add_action('wp_enqueue_scripts', function () {
-    if (!is_checkout() || is_order_received_page()) return;
-    wp_add_inline_script('wc-checkout', "jQuery(function($){function addressVisibility(){var ua=$('#billing_country').val()==='UA'; $('body').toggleClass('pilloway-eu-ua-address',ua);}$(document.body).on('change','#billing_country',addressVisibility).on('updated_checkout',addressVisibility);addressVisibility();});");
-    wp_register_style('pilloway-eu-address', false);wp_enqueue_style('pilloway-eu-address');
-    wp_add_inline_style('pilloway-eu-address', '.pilloway-eu-ua-address #billing_address_1_field,.pilloway-eu-ua-address #billing_address_2_field,.pilloway-eu-ua-address #billing_city_field,.pilloway-eu-ua-address #billing_state_field,.pilloway-eu-ua-address #billing_postcode_field{display:none!important}');
-}, 100);
-
-/** WCPBC caches on-sale IDs by zone; map them to the active Polylang language. */
+/** Map cached on-sale IDs to the active Polylang language. */
 function pilloway_eu_localize_sale_ids($ids) {
     if (!is_array($ids) || !function_exists('pll_current_language')) return $ids;
     $lang=pll_current_language();if(!$lang)return $ids;
@@ -59,3 +50,50 @@ function pilloway_eu_localize_sale_ids($ids) {
 }
 add_filter('pre_transient_wc_products_onsale','pilloway_eu_localize_sale_ids',30);
 add_filter('transient_wc_products_onsale','pilloway_eu_localize_sale_ids',30);
+
+/** EU never offers free shipping, including cached rates or free-shipping coupons. */
+add_filter('woocommerce_shipping_free_shipping_is_available', '__return_false', PHP_INT_MAX);
+add_filter('woocommerce_package_rates', function ($rates) {
+    foreach ($rates as $id => $rate) {
+        if ('free_shipping' === $rate->get_method_id()) unset($rates[$id]);
+    }
+    return $rates;
+}, PHP_INT_MAX);
+
+/** Only the 27 EU member states may be used for billing and delivery. */
+function pilloway_eu_member_states() {
+    return array('AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE');
+}
+function pilloway_eu_filter_countries($countries) {
+    return array_intersect_key($countries, array_flip(pilloway_eu_member_states()));
+}
+add_filter('woocommerce_countries_allowed_countries','pilloway_eu_filter_countries',PHP_INT_MAX);
+add_filter('woocommerce_countries_shipping_countries','pilloway_eu_filter_countries',PHP_INT_MAX);
+// Do not preselect an old non-EU country saved in the customer session.
+add_filter('woocommerce_checkout_get_value', function ($value,$input) {
+    if (!in_array($input,array('billing_country','shipping_country'),true)) return $value;
+    $country=$value;
+    if (null===$country && WC()->customer) {
+        $country='billing_country'===$input ? WC()->customer->get_billing_country() : WC()->customer->get_shipping_country();
+    }
+    return $country && !in_array($country,pilloway_eu_member_states(),true) ? '' : $value;
+},100,2);
+// Exclude stale cached rates for destinations outside the permitted shipping list.
+add_filter('woocommerce_package_rates',function($rates,$package) {
+    return in_array($package['destination']['country'] ?? '',pilloway_eu_member_states(),true) ? $rates : array();
+},PHP_INT_MAX,2);
+
+function pilloway_eu_validate_countries($data,$errors) {
+    foreach(array('billing_country','shipping_country') as $key) {
+        if('shipping_country'===$key && empty($data['ship_to_different_address'])) continue;
+        if(!empty($data[$key]) && !in_array($data[$key],pilloway_eu_member_states(),true)) {
+            $errors->add('pilloway_eu_'.$key,__('Please select a country / region.', 'woocommerce'),array('id'=>$key));
+        }
+    }
+}
+add_action('woocommerce_after_checkout_validation','pilloway_eu_validate_countries',100,2);
+add_action('woocommerce_store_api_cart_errors',function($errors) {
+    if(!WC()->customer)return;
+    $data=array('billing_country'=>WC()->customer->get_billing_country(),'shipping_country'=>WC()->customer->get_shipping_country(),'ship_to_different_address'=>true);
+    pilloway_eu_validate_countries($data,$errors);
+},100);

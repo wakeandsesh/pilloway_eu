@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Pilloway Shipping Display
  * Description: Shows Nova Post carrier-rate guidance in WooCommerce Cart and Checkout Blocks.
- * Version: 1.1.0
+ * Version: 1.2.0
  * Text Domain: pilloway-shipping-display
  * Domain Path: /languages
  * Requires Plugins: woocommerce
@@ -17,11 +17,9 @@ defined( 'ABSPATH' ) || exit;
  */
 final class Pilloway_Shipping_Display {
 
-	const VERSION             = '1.1.0';
-	const THRESHOLD_UAH       = 5000.0;
+	const VERSION             = '1.2.0';
 	const RATE_META_KEY       = 'pilloway_shipping_display_mode';
 	const CARRIER_RATES_MODE  = 'carrier_rates';
-	const INCLUDED_RATES_MODE = 'included_rates';
 
 	/**
 	 * Register plugin hooks.
@@ -130,60 +128,9 @@ final class Pilloway_Shipping_Display {
 		);
 	}
 
-	/**
-	 * Decide whether Nova Post is free for the current shipping destination.
-	 *
-	 * Free shipping applies only to Ukraine, in UAH, when the pre-discount cart subtotal
-	 * reaches ₴5000. All other destinations remain at carrier rates regardless of cart value.
-	 *
-	 * @return string|null Display mode, or null if the Ukrainian cart subtotal is unavailable.
-	 */
+	/** EU delivery always follows carrier tariffs; no order-value threshold. */
 	private static function get_display_mode() {
-		if ( 'UA' !== self::get_shipping_country() ) {
-			return self::CARRIER_RATES_MODE;
-		}
-
-		$currency = function_exists( 'get_woocommerce_currency' )
-			? get_woocommerce_currency()
-			: get_option( 'woocommerce_currency' );
-
-		// The threshold is denominated in UAH; other currencies are never converted to it.
-		if ( 'UAH' !== $currency ) {
-			return self::CARRIER_RATES_MODE;
-		}
-
-		if ( ! function_exists( 'WC' ) || ! WC()->cart || ! is_callable( array( WC()->cart, 'get_subtotal' ) ) ) {
-			return null;
-		}
-
-		$decimals = function_exists( 'wc_get_price_decimals' ) ? wc_get_price_decimals() : 2;
-		$subtotal = round( (float) WC()->cart->get_subtotal(), $decimals );
-
-		return $subtotal < self::THRESHOLD_UAH
-			? self::CARRIER_RATES_MODE
-			: self::INCLUDED_RATES_MODE;
-	}
-
-	/**
-	 * Get the customer shipping country, falling back to billing when shipping is not set.
-	 *
-	 * @return string ISO 3166-1 alpha-2 country code, or an empty string.
-	 */
-	private static function get_shipping_country() {
-		if ( ! function_exists( 'WC' ) || ! WC()->customer ) {
-			return '';
-		}
-
-		$customer = WC()->customer;
-		$country  = is_callable( array( $customer, 'get_shipping_country' ) )
-			? $customer->get_shipping_country()
-			: '';
-
-		if ( empty( $country ) && is_callable( array( $customer, 'get_billing_country' ) ) ) {
-			$country = $customer->get_billing_country();
-		}
-
-		return strtoupper( (string) $country );
+		return self::CARRIER_RATES_MODE;
 	}
 
 	/**

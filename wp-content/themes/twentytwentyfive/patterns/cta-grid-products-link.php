@@ -81,7 +81,7 @@
 			<!-- wp:cover {"dimRatio":0,"isDark":false,"style":{"dimensions":{"aspectRatio":"1"},"elements":{"link":{"color":{"text":"var:preset|color|contrast"}}}},"textColor":"contrast","fontSize":"medium"} -->
 			<div class="wp-block-cover is-light has-contrast-color has-text-color has-link-color has-medium-font-size"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-0 has-background-dim"></span><div class="wp-block-cover__inner-container">
 				<!-- wp:paragraph {"align":"center"} -->
-				<p class="has-text-align-center"><?php esc_html_e( 'Free shipping', 'twentytwentyfive' ); ?></p>
+				<p class="has-text-align-center"><?php esc_html_e( 'Delivery at carrier rates', 'twentytwentyfive' ); ?></p>
 				<!-- /wp:paragraph -->
 			</div></div>
 			<!-- /wp:cover -->

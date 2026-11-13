@@ -1,0 +1,7 @@
+.pilloway-cart-status{min-height:24px;display:flex;align-items:center;justify-content:center;gap:8px;font-size:13px;line-height:24px;color:inherit;order:-1}
+.pilloway-cart-status:empty{display:none}
+.pilloway-cart-updating .pilloway-cart-status:before{content:"";width:14px;height:14px;flex:0 0 14px;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:pilloway-cart-spin .7s linear infinite}
+.pilloway-cart-updating .wc-block-cart-item__total,.pilloway-cart-updating .wc-block-components-totals-item__value{opacity:.45}
+.pilloway-cart-updating .wc-block-mini-cart__footer a{opacity:.6;cursor:progress}
+@keyframes pilloway-cart-spin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.pilloway-cart-updating .pilloway-cart-status:before{animation:none}}

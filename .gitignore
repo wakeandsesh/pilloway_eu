@@ -70,3 +70,7 @@ node_modules/
 
 # Generated browser evidence and deployment archives.
 /output/
+
+# Deploy every bundled plugin file and dependency (vendor included).
+!/wp-content/plugins/
+!/wp-content/plugins/**

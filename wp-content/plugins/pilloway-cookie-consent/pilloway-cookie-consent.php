@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Pilloway Cookie Consent
  * Description: Discreet GDPR/CCPA cookie-consent notice. Remembers the visitor's choice in a first-party cookie and hides itself afterwards.
- * Version:     1.0.0
+ * Version:     1.2.0
  * Requires at least: 6.0
  * Requires PHP: 8.0
  * Text Domain: pilloway-cookie-consent
@@ -22,8 +22,8 @@ final class Pilloway_Cookie_Consent {
 
 	public function enqueue_assets() {
 		$asset_url = trailingslashit( plugin_dir_url( __FILE__ ) ) . 'assets/';
-		wp_enqueue_style( 'pilloway-cookie-consent', $asset_url . 'consent.css', array(), '1.0.0' );
-		wp_enqueue_script( 'pilloway-cookie-consent', $asset_url . 'consent.js', array(), '1.0.0', true );
+		wp_enqueue_style( 'pilloway-cookie-consent', $asset_url . 'consent.css', array(), '1.2.0' );
+		wp_enqueue_script( 'pilloway-cookie-consent', $asset_url . 'consent.js', array(), '1.2.0', true );
 
 	}
 

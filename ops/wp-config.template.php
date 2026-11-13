@@ -117,6 +117,10 @@ define('WP_MEMORY_LIMIT', '512M');
 define('WP_MAX_MEMORY_LIMIT', '512M');
 define( 'WP_DEBUG', !!getenv_docker('WORDPRESS_DEBUG', '') );
 
+if ( ! defined( 'WP_ENVIRONMENT_TYPE' ) ) {
+    define( 'WP_ENVIRONMENT_TYPE', getenv_docker( 'WP_ENVIRONMENT_TYPE', 'production' ) );
+}
+
 /* Add any custom values between this line and the "stop editing" line. */
 
 // Trust HTTPS only for the exact active ngrok host and its one-time proxy token.
@@ -170,7 +174,7 @@ $__wpLocalTunnelIsValid =
     && 'https' === $__wpLocalTunnelForwardedProto
 ;
 
-$__pillowayHome = rtrim((string) getenv_docker('PILLOWAY_HOME', ''), '/');
+$__pillowayHome = rtrim((string) getenv_docker('PILLOWAY_HOME', 'https://pilloway.eu'), '/');
 if ($__pillowayHome && PHP_SAPI !== 'cli' && !hash_equals((string) parse_url($__pillowayHome, PHP_URL_HOST), explode(':', $__wpNgrokPreviewRequestHost)[0])) {
     http_response_code(400); exit('Unknown Host header.');
 }
