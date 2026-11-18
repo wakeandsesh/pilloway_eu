@@ -369,7 +369,7 @@ body.bb-landing .bb-product-selector .bb-product-color-link:hover .bb-product-ca
 .bb-anti-age {
     box-sizing: border-box;
     width: calc(100% - 32px);
-    max-width: 760px;
+    max-width: calc(80rem - 32px);
     margin: 18px auto 24px;
     padding: clamp(18px, 5vw, 38px);
     border: 1px solid #f1dce3;
@@ -382,7 +382,7 @@ body.bb-landing .bb-product-selector .bb-product-color-link:hover .bb-product-ca
     overflow-wrap: anywhere;
 }
 .bb-anti-age :where(p, h1, h2, hr) { margin: 0; }
-.bb-anti-age p { font-size: 15px; line-height: 1.4; }
+.bb-anti-age p { font-size: clamp(17px, 1.5vw, 19px); line-height: 1.55; font-weight: 600; }
 .bb-anti-age .bb-anti-age__label {
     font-size: 11px;
     font-weight: 800;
@@ -399,7 +399,7 @@ body.bb-landing .bb-product-selector .bb-product-color-link:hover .bb-product-ca
 .bb-anti-age h1 em { display: block; font-style: normal; color: #ad345e; }
 .bb-anti-age h2 { font-size: clamp(19px, 5.5vw, 26px); line-height: 1.18; font-weight: 800; }
 .bb-anti-age hr { width: 100%; border: 0; border-top: 1px solid #edcbd7; }
-.bb-anti-age__closer { font-weight: 700; }
+.bb-anti-age p.bb-anti-age__closer { font-weight: 750; }
 .bb-anti-age a {
     display: inline-flex;
     align-self: flex-start;
