@@ -1,36 +1,21 @@
-# Pilloway WordPress deployment (EU)
-# "Code goes up; content goes down."
-# Track site code under wp-content. Keep the database and user-generated uploads
-# in Git; keep database exports outside Git.
-
-# WordPress core is baked into the local Docker image, not installed per-branch.
+# Pilloway deployment. Track the application, bundled plugin dependencies and site media.
+# Store environment configuration, database exports and runtime files outside Git.
 /license.txt
 /readme.html
-
-# Environment-specific settings and secrets.
 /wp-config.php
 /wp-config.php.*
 /wp-config-*.php
 /web.config
 /.user.ini
 /php.ini
-/.env
-/.env.*
+.env
+.env.*
 !/.env.example
-**/auth.json
-**/*.pem
-**/*.key
+auth.json
+*.pem
+*.key
 
-# WordPress runtime/content data. Plugins, themes, MU plugins and language packs
-# remain tracked; their bundled vendor dependencies are intentionally included.
-# Keep site media in Git; runtime logs are not site content.
-
-# Local preview-only MU plugin; do not deploy tunnel URL rewriting.
-
-# EU-specific local scratch files.
-/.pilloway-temp-*
-
-# Database exports, backups, and logs.
+# Database exports and local recovery files.
 *.sql
 *.sql.gz
 *.sql.bz2
@@ -42,7 +27,7 @@
 *.log
 error_log
 
-# Local development/editor artifacts.
+# Editor and build artifacts.
 .DS_Store
 Thumbs.db
 *.swp
@@ -50,17 +35,23 @@ Thumbs.db
 .phpunit.cache/
 node_modules/
 
+# Local tooling and generated output.
+/.pilloway-temp-*
+/.playwright-cli/
 /local-backups/
 /docs/
 /scripts/
 /tests/
-
-# Generated browser evidence and deployment archives.
 /output/
 
-# Deploy every bundled plugin file and dependency (vendor included).
-
-# Track all wp-content files, including bundled dependencies and media.
-!/wp-content/
-!/wp-content/**
-!/.htaccess
+# WordPress runtime state and local tunnel helper.
+/wp-content/uploads/wc-logs/
+/wp-content/cache/
+/wp-content/upgrade/
+/wp-content/upgrade-temp-backup/
+/wp-content/ai1wm-backups/
+/wp-content/updraft/
+/wp-content/backups/
+/wp-content/backup-db/
+/wp-content/wflogs/
+/wp-content/mu-plugins/quick-tunnel-preview.php
