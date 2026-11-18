@@ -161,6 +161,12 @@ function pilloway_catalog_render_collections_home(): string {
 
 		$desktop_file = $brand['key'] . '-desktop.webp';
 		$mobile_file  = $brand['key'] . '-mobile.webp';
+		// Mobile photography keeps faces and the family montage readable on phones.
+		if ( 'beauty-balance' === $brand['key'] ) {
+			$mobile_file = 'beauty-balance-lifestyle-mobile.webp';
+		} elseif ( 'family-dream' === $brand['key'] ) {
+			$mobile_file = $desktop_file;
+		}
 		if ( ! is_readable( $asset_directory . $desktop_file ) || ! is_readable( $asset_directory . $mobile_file ) ) {
 			return '';
 		}

@@ -490,6 +490,21 @@ body.woocommerce.archive .wp-block-woocommerce-product-collection > .pilloway-co
 		object-fit: contain;
 	}
 
+	.pilloway-collection-card[data-brand="family-dream"] .pilloway-collection-card__media {
+		aspect-ratio: 1.05 / 1;
+	}
+
+	/* Frame the existing lifestyle photos without cropping faces or family circles. */
+	.pilloway-collection-card[data-brand="beauty-balance"] .pilloway-collection-card__media img {
+		object-fit: cover;
+		object-position: 44% center;
+	}
+
+	.pilloway-collection-card[data-brand="family-dream"] .pilloway-collection-card__media img {
+		object-fit: cover;
+		object-position: left center;
+	}
+
 	.pilloway-collection-card__title-row {
 		width: 100%;
 		justify-content: space-between;

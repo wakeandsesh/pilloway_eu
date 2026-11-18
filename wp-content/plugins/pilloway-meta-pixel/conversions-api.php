@@ -14,17 +14,21 @@ function pilloway_meta_purchase_confirmed( $order ) {
 	) );
 }
 
+function pilloway_meta_purchase_event_id( $order ) {
+	return 'pilloway-purchase-' . substr( hash( 'sha256', home_url( '/' ) ), 0, 12 ) . '-' . $order->get_id();
+}
+
 function pilloway_meta_capi_token() {
 	return defined( 'PILLOWAY_META_CAPI_TOKEN' ) ? (string) PILLOWAY_META_CAPI_TOKEN : (string) getenv( 'PILLOWAY_META_CAPI_TOKEN' );
 }
 
 /** Queue work after a confirmed order; never delay checkout with an API call. */
 function pilloway_meta_queue_purchase( $order_id ) {
-	if ( ! get_option('pilloway_meta_pixel_id') || ! pilloway_meta_capi_token() || ! function_exists( 'as_enqueue_async_action' ) ) {
+	if ( ! pilloway_meta_pixel_id() || ! pilloway_meta_capi_token() || ! function_exists( 'as_enqueue_async_action' ) ) {
 		return;
 	}
 	$order = wc_get_order( $order_id );
-	if ( ! pilloway_meta_purchase_confirmed( $order ) || $order->get_meta( '_pilloway_meta_purchase_sent' ) ) {
+	if ( ! pilloway_meta_purchase_confirmed( $order ) || 'yes' !== $order->get_meta( '_pilloway_meta_marketing_consent' ) || $order->get_meta( '_pilloway_meta_purchase_sent' ) ) {
 		return;
 	}
 	as_enqueue_async_action( 'pilloway_meta_send_purchase', array( (int) $order_id, 0 ), 'pilloway-meta', true );
@@ -36,6 +40,10 @@ add_action( 'woocommerce_order_status_on-hold', 'pilloway_meta_queue_purchase', 
 
 /** Store the browser identifiers at checkout, for the later payment callback. */
 function pilloway_meta_capture_browser( $order ) {
+	if ( ! function_exists( 'pilloway_consent_choice' ) || 'all' !== pilloway_consent_choice() ) {
+		return;
+	}
+	$order->update_meta_data( '_pilloway_meta_marketing_consent', 'yes' );
 	foreach ( array( '_fbp', '_fbc' ) as $cookie ) {
 		if ( isset( $_COOKIE[ $cookie ] ) && is_string( $_COOKIE[ $cookie ] ) ) {
 			$value = sanitize_text_field( wp_unslash( $_COOKIE[ $cookie ] ) );
@@ -83,7 +91,7 @@ function pilloway_meta_purchase_payload( $order ) {
 	$date = $order->get_date_paid() ?: $order->get_date_created();
 	return array(
 		'event_name'       => 'Purchase',
-		'event_id'         => 'pilloway-purchase-' . $order->get_id(),
+		'event_id'         => pilloway_meta_purchase_event_id( $order ),
 		'event_time'       => $date ? $date->getTimestamp() : time(),
 		'action_source'    => 'website',
 		'event_source_url' => wc_get_checkout_url(),
@@ -111,11 +119,11 @@ function pilloway_meta_acquire_purchase_lock( $lock ) {
 
 /** Persist acknowledgement only after Meta confirms receipt; retry transient failures. */
 function pilloway_meta_send_purchase( $order_id, $attempt = 0 ) {
-	if ( ! get_option('pilloway_meta_pixel_id') || ! pilloway_meta_capi_token() ) {
+	if ( ! pilloway_meta_pixel_id() || ! pilloway_meta_capi_token() ) {
 		return;
 	}
 	$order = wc_get_order( $order_id );
-	if ( ! pilloway_meta_purchase_confirmed( $order ) || $order->get_meta( '_pilloway_meta_purchase_sent' ) ) {
+	if ( ! pilloway_meta_purchase_confirmed( $order ) || 'yes' !== $order->get_meta( '_pilloway_meta_marketing_consent' ) || $order->get_meta( '_pilloway_meta_purchase_sent' ) ) {
 		return;
 	}
 	// Atomic insert serializes jobs triggered by both payment and status hooks.
@@ -132,7 +140,7 @@ function pilloway_meta_send_purchase( $order_id, $attempt = 0 ) {
 			$payload['test_event_code'] = PILLOWAY_META_TEST_EVENT_CODE;
 		}
 		$response = wp_remote_post(
-			'https://graph.facebook.com/v25.0/' . rawurlencode((string) get_option('pilloway_meta_pixel_id', '')) . '/events',
+			'https://graph.facebook.com/v25.0/' . pilloway_meta_pixel_id() . '/events',
 			array(
 				'timeout' => 15,
 				'headers' => array(
@@ -173,3 +181,5 @@ function pilloway_meta_capi_notice() {
 	}
 }
 add_action( 'admin_notices', 'pilloway_meta_capi_notice' );
+
+

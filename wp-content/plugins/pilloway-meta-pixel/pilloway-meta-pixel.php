@@ -1,13 +1,18 @@
 <?php
 /**
  * Plugin Name: Pilloway Meta Pixel
- * Description: Adds the Meta Pixel base code to the Pilloway storefront.
+ * Description: Adds the Meta Pixel base code to the Ukrainian Pilloway storefront.
  * Version: 1.0.0
  * Requires at least: 6.9
  * Requires PHP: 8.1
  */
 
 defined( 'ABSPATH' ) || exit;
+
+function pilloway_meta_pixel_id() {
+	$id = defined( 'PILLOWAY_META_PIXEL_ID' ) ? PILLOWAY_META_PIXEL_ID : get_option( 'pilloway_meta_pixel_id', '' );
+	return preg_match( '/^[0-9]{5,20}$/D', (string) $id ) ? (string) $id : '';
+}
 
 require_once __DIR__ . '/conversions-api.php';
 
@@ -24,26 +29,49 @@ function pilloway_ua_meta_pixel_output() {
 	if ( is_admin() || wp_doing_ajax() || wp_doing_cron() || is_feed() ) {
 		return;
 	}
-	$pixel_id = preg_replace('/[^0-9]/', '', (string) get_option('pilloway_meta_pixel_id', ''));
-	if (!$pixel_id) return;
+	$pixel_id = pilloway_meta_pixel_id();
+	if ( ! $pixel_id ) {
+		return;
+	}
 	?>
-	<!-- Meta Pixel Code -->
 	<script>
-	!function(f,b,e,v,n,t,s)
-	{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-	n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-	if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-	n.queue=[];t=b.createElement(e);t.async=!0;
-	t.src=v;s=b.getElementsByTagName(e)[0];
-	s.parentNode.insertBefore(t,s)}(window, document,'script',
-	'https://connect.facebook.net/en_US/fbevents.js');
-	fbq('init', <?php echo wp_json_encode($pixel_id); ?>);
-	fbq('track', 'PageView');
+	(function () {
+		var id = <?php echo wp_json_encode( $pixel_id ); ?>;
+		var started = false;
+		function allowed() {
+			return /(?:^|;\s*)pilloway_consent=all(?:;|$)/.test(document.cookie);
+		}
+		function start() {
+			if (started || !allowed()) return;
+			started = true;
+			if (!window.fbq) {
+				var fbq = window.fbq = function () {
+					if (fbq.callMethod) fbq.callMethod.apply(fbq, arguments);
+					else fbq.queue.push(arguments);
+				};
+				window._fbq = fbq;
+				fbq.push = fbq;
+				fbq.loaded = true;
+				fbq.version = '2.0';
+				fbq.queue = [];
+				var script = document.createElement('script');
+				script.async = true;
+				script.src = 'https://connect.facebook.net/en_US/fbevents.js';
+				document.head.appendChild(script);
+			}
+			window.fbq('init', id);
+			window.fbq('trackSingle', id, 'PageView');
+			window.dispatchEvent(new Event('pilloway:meta-ready'));
+		}
+		window.pillowayMetaTrack = function (event, params, options) {
+			if (!started || !allowed()) return false;
+			window.fbq('trackSingle', id, event, params, options);
+			return true;
+		};
+		window.addEventListener('pilloway:consent', start);
+		start();
+	})();
 	</script>
-	<noscript><img height="1" width="1" style="display:none"
-	src="https://www.facebook.com/tr?id=<?php echo esc_attr($pixel_id); ?>&ev=PageView&noscript=1"
-	/></noscript>
-	<!-- End Meta Pixel Code -->
 	<?php
 }
 /**
@@ -52,7 +80,7 @@ function pilloway_ua_meta_pixel_output() {
  * @return void
  */
 function pilloway_ua_meta_pixel_ecommerce_events() {
-	if ( is_admin() || wp_doing_ajax() || wp_doing_cron() || ! function_exists( 'WC' ) || ! WC() ) {
+	if ( is_admin() || wp_doing_ajax() || wp_doing_cron() || ! pilloway_meta_pixel_id() || ! function_exists( 'WC' ) || ! WC() ) {
 		return;
 	}
 
@@ -103,7 +131,7 @@ function pilloway_ua_meta_pixel_ecommerce_events() {
 			}
 			$event = array(
 				'name'   => 'Purchase',
-				'id'     => 'pilloway-purchase-' . $order->get_id(),
+				'id'     => pilloway_meta_purchase_event_id( $order ),
 				'params' => array(
 					'content_ids'  => array_values( array_unique( $content_ids ) ),
 					'content_type' => 'product',
@@ -125,31 +153,36 @@ function pilloway_ua_meta_pixel_ecommerce_events() {
 	<script>
 	(function () {
 		var added = <?php echo wp_json_encode( $added_item ); ?>;
-		if (window.fbq && added) fbq('track', 'AddToCart', added);
 		var event = <?php echo wp_json_encode( $event ); ?>;
-		if (!window.fbq || !event) return;
-		if (event.name === 'Purchase') {
-			var key = 'pilloway-meta-' + event.id;
+		function trackPageEvents() {
+			var track = window.pillowayMetaTrack;
+			if (!track) return;
+			if (added && track('AddToCart', added)) added = null;
+			if (!event) return;
+			var store, key, options;
 			try {
-				if (localStorage.getItem(key)) return;
-				localStorage.setItem(key, '1');
+				if (event.name === 'Purchase') {
+					store = localStorage;
+					key = 'pilloway-meta-' + event.id;
+					options = {eventID: event.id};
+				} else if (event.name === 'InitiateCheckout') {
+					store = sessionStorage;
+					key = 'pilloway-meta-checkout-' + <?php echo wp_json_encode( WC()->cart ? WC()->cart->get_cart_hash() : '' ); ?>;
+				}
+				if (store && store.getItem(key)) return;
 			} catch (e) {}
-			fbq('track', event.name, event.params, {eventID: event.id});
-			return;
+			if (track(event.name, event.params, options)) {
+				try { if (store) store.setItem(key, '1'); } catch (e) {}
+				event = null;
+			}
 		}
-		if (event.name === 'InitiateCheckout') {
-			var checkoutKey = 'pilloway-meta-checkout-' + <?php echo wp_json_encode( WC()->cart ? WC()->cart->get_cart_hash() : '' ); ?>;
-			try {
-				if (sessionStorage.getItem(checkoutKey)) return;
-				sessionStorage.setItem(checkoutKey, '1');
-			} catch (e) {}
-		}
-		fbq('track', event.name, event.params);
+		window.addEventListener('pilloway:meta-ready', trackPageEvents);
+		trackPageEvents();
 	})();
 	if (window.jQuery) {
 		jQuery(document.body).on('added_to_cart', function (e, fragments, cartHash, button) {
 			var productId = button && button.data('product_id');
-			if (!productId || !window.fbq) return;
+			if (!productId || !window.pillowayMetaTrack) return;
 			var quantity = parseInt(button.data('quantity') || 1, 10);
 			var value = parseFloat(button.data('pilloway_value'));
 			var params = {
@@ -159,7 +192,7 @@ function pilloway_ua_meta_pixel_ecommerce_events() {
 				num_items: quantity
 			};
 			if (Number.isFinite(value)) params.value = value * quantity;
-			fbq('track', 'AddToCart', params);
+			window.pillowayMetaTrack('AddToCart', params);
 		});
 	}
 	</script>
@@ -207,3 +240,4 @@ function pilloway_ua_meta_pixel_loop_button_price( $args, $product ) {
 	return $args;
 }
 add_filter( 'woocommerce_loop_add_to_cart_args', 'pilloway_ua_meta_pixel_loop_button_price', 10, 2 );
+

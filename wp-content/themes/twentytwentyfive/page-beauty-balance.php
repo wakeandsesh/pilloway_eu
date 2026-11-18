@@ -366,6 +366,64 @@ body.bb-landing .bb-product-selector .bb-product-color-link:hover .bb-product-ca
         object-position: 50% 10%;
     }
 }
+.bb-anti-age {
+    box-sizing: border-box;
+    width: calc(100% - 32px);
+    max-width: 760px;
+    margin: 18px auto 24px;
+    padding: clamp(18px, 5vw, 38px);
+    border: 1px solid #f1dce3;
+    border-radius: 24px;
+    background: #fff6f8;
+    color: #2b1721;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    overflow-wrap: anywhere;
+}
+.bb-anti-age :where(p, h1, h2, hr) { margin: 0; }
+.bb-anti-age p { font-size: 15px; line-height: 1.4; }
+.bb-anti-age .bb-anti-age__label {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    color: #a42d56;
+}
+.bb-anti-age h1 {
+    font-size: clamp(25px, 7.4vw, 42px);
+    line-height: 1.12;
+    letter-spacing: -.035em;
+    font-weight: 800;
+}
+.bb-anti-age h1 em { display: block; font-style: normal; color: #ad345e; }
+.bb-anti-age h2 { font-size: clamp(19px, 5.5vw, 26px); line-height: 1.18; font-weight: 800; }
+.bb-anti-age hr { width: 100%; border: 0; border-top: 1px solid #edcbd7; }
+.bb-anti-age__closer { font-weight: 700; }
+.bb-anti-age a {
+    display: inline-flex;
+    align-self: flex-start;
+    align-items: center;
+    gap: .35em;
+    max-width: 100%;
+    border-radius: 999px;
+    font-weight: 750;
+    text-decoration: none;
+}
+.bb-anti-age a.bb-anti-age__cert {
+    margin-top: 7px;
+    padding: 5px 10px;
+    background: #e4f4e9;
+    color: #176346;
+    font-size: 13px;
+}
+.bb-anti-age a.bb-anti-age__cta {
+    padding: 12px 17px;
+    background: #b93663;
+    color: #fff;
+    font-size: 14px;
+}
+.bb-anti-age a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
 </style>
 </head>
 <body <?php body_class('bb-landing'); ?>>
@@ -415,6 +473,26 @@ if (function_exists('wc_get_product')) {
     }
 }
 
+$bb_catalog_pattern = '~<section\b[^>]*\bid="products-catalog"[^>]*>~i';
+if (preg_match($bb_catalog_pattern, $beauty_balance_content)) {
+    ob_start();
+    require __DIR__ . '/inc/beauty-balance-anti-age.php';
+    $bb_anti_age = ob_get_clean();
+    $beauty_balance_content = preg_replace(
+        '~<h1\b[^>]*\bbb-product-selector__title\b[^>]*>.*?</h1>\s*<p\b[^>]*\bbb-product-selector__lead\b[^>]*>.*?</p>~is',
+        '',
+        $beauty_balance_content,
+        1
+    );
+    $beauty_balance_content = preg_replace_callback(
+        $bb_catalog_pattern,
+        static function (array $match) use ($bb_anti_age): string {
+            return $bb_anti_age . $match[0];
+        },
+        $beauty_balance_content,
+        1
+    );
+}
 echo $beauty_balance_content;
 $beauty_balance_lash_modal_path = __DIR__ . '/inc/beauty-balance-lash-modal.php';
 if (is_readable($beauty_balance_lash_modal_path)) {
@@ -429,3 +507,4 @@ if (is_readable($beauty_balance_lash_modal_path)) {
 <?php wp_footer(); ?>
 </body>
 </html>
+
