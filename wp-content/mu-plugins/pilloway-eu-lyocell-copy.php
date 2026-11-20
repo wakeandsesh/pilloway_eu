@@ -30,3 +30,7 @@ add_filter( 'woocommerce_product_get_description', 'pilloway_eu_lyocell_copy', 1
 add_filter( 'woocommerce_product_get_short_description', 'pilloway_eu_lyocell_copy', 110 );
 add_filter( 'wpseo_title', 'pilloway_eu_lyocell_copy', 110 );
 add_filter( 'wpseo_metadesc', 'pilloway_eu_lyocell_copy', 110 );
+
+add_filter( 'document_title_parts', static function ( $parts ) {
+	return array_map( 'pilloway_eu_lyocell_copy', $parts );
+}, 110 );
