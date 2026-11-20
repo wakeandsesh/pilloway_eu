@@ -897,7 +897,7 @@ function pilloway_catalog_product_meta_description(): void {
 	if ( '' === $description ) {
 		return;
 	}
-	echo '<meta name="description" content="' . esc_attr( $description ) . '">' . "\n";
+	echo '<meta name="description" content="' . esc_attr( apply_filters( 'pilloway_catalog_meta_description', $description ) ) . '">' . "\n";
 }
 add_action( 'wp_head', 'pilloway_catalog_product_meta_description', 2 );
 

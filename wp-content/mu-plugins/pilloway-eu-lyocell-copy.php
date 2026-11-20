@@ -34,3 +34,5 @@ add_filter( 'wpseo_metadesc', 'pilloway_eu_lyocell_copy', 110 );
 add_filter( 'document_title_parts', static function ( $parts ) {
 	return array_map( 'pilloway_eu_lyocell_copy', $parts );
 }, 110 );
+add_filter( 'pre_get_document_title', 'pilloway_eu_lyocell_copy', 110 );
+add_filter( 'pilloway_catalog_meta_description', 'pilloway_eu_lyocell_copy', 110 );
