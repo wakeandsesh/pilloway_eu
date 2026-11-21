@@ -76,6 +76,16 @@
     };
     document.addEventListener('click', event => {
         if (!(event.target instanceof Element)) return;
+        const viewCart = event.target.closest('a.added_to_cart.wc_forward');
+        if (viewCart && !event.defaultPrevented && event.button === 0
+            && !event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey) {
+            const cartToggle = document.querySelector('header .wc-block-mini-cart__button');
+            if (cartToggle && !cartToggle.disabled) {
+                event.preventDefault();
+                cartToggle.click();
+                return;
+            }
+        }
         const link = event.target.closest('.wc-block-mini-cart__drawer a');
         if (link && (requests > 0 || pending.size > 0) && link.closest('.wc-block-mini-cart__footer')) {
             event.preventDefault();
