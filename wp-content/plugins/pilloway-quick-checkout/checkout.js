@@ -10,6 +10,25 @@
         return node;
     };
 
+    const reportedOrders = new Set();
+
+    function track(event, fields = {}) {
+        (window.dataLayer ||= []).push({ event, checkout_type: 'quick', ...fields });
+    }
+
+    function trackOrder(transactionId) {
+        if (typeof transactionId !== 'string' || !transactionId || reportedOrders.has(transactionId)) return;
+        reportedOrders.add(transactionId);
+        const key = 'pilloway-qc-reported:' + transactionId;
+        try {
+            if (sessionStorage.getItem(key)) return;
+            sessionStorage.setItem(key, '1');
+        } catch {
+            // The current page still prevents duplicates if storage is unavailable.
+        }
+        track('quick_checkout_submit', { transaction_id: transactionId });
+    }
+
     async function request(url, data) {
         const response = await fetch(url, {
             method: 'POST', credentials: 'same-origin', cache: 'no-store',
@@ -74,6 +93,7 @@
         cart.hidden = true;
         cart.after(panel);
         back.focus();
+        track('quick_checkout_open');
 
         let state;
         let sending = false;
@@ -138,6 +158,7 @@
                 const fields = Object.fromEntries(new FormData(form));
                 const result = await request(config.submit, { ...fields, lang: config.lang, token: state.token, proof: state.proof, cart: state.cart });
                 completed = true;
+                trackOrder(result.transaction_id);
                 form.hidden = submit.hidden = true;
                 status.textContent = labels.success + ' #' + result.number + '. ' + labels.info;
                 document.body.dispatchEvent(new CustomEvent('wc-blocks_removed_from_cart'));

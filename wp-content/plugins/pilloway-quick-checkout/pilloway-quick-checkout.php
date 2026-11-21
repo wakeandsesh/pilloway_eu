@@ -299,7 +299,10 @@ final class Pilloway_Quick_Checkout {
 			WC()->cart->empty_cart();
 			WC()->session->save_data();
 		}
-		return [ 'number' => $order->get_order_number() ];
+		return [
+			'number'         => $order->get_order_number(),
+			'transaction_id' => 'quick-' . $order->get_id(),
+		];
 	}
 
 	public static function admin( WC_Order $order ): void {
