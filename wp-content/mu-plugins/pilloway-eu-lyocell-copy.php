@@ -6,7 +6,7 @@
 defined( 'ABSPATH' ) || exit;
 
 function pilloway_eu_lyocell_copy( $text ) {
-	if ( ! is_string( $text ) || false === stripos( $text, 'tencel' ) ) {
+	if ( ! is_string( $text ) ) {
 		return $text;
 	}
 
@@ -16,7 +16,7 @@ function pilloway_eu_lyocell_copy( $text ) {
 
 	// Leave HTML attributes and existing permalink slugs intact.
 	for ( $index = 0; $index < count( $parts ); $index += 2 ) {
-		$parts[ $index ] = preg_replace( '/(?<![\p{L}\p{N}_\/-])tencel(?![\p{L}\p{N}_\/-])(?:\s*(?:[®™]|&(?:reg|trade);))?/iu', $label, $parts[ $index ] ) ?? $parts[ $index ];
+		$parts[ $index ] = preg_replace( '/(?<![\p{L}\p{N}_\/-])(?:tencel|[tт][eе]нс[eе]л[лъ]?)(?![\p{L}\p{N}_\/-])(?:\s*(?:[®™]|&(?:reg|trade);))?/iu', $label, $parts[ $index ] ) ?? $parts[ $index ];
 	}
 
 	return implode( '', $parts );
