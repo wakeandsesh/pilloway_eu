@@ -65,11 +65,11 @@ add_filter('woocommerce_package_rates', function ($rates) {
 }, PHP_INT_MAX);
 
 /** Only the 27 EU member states may be used for billing and delivery. */
-function pilloway_eu_member_states() {
-    return array('AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE');
+function pilloway_eu_pickup_countries() {
+    return array('AT','CZ','DE','EE','ES','FR','HU','IT','LT','LV','NL','PL','RO','SK');
 }
 function pilloway_eu_filter_countries($countries) {
-    return array_intersect_key($countries, array_flip(pilloway_eu_member_states()));
+    return array_intersect_key($countries, array_flip(pilloway_eu_pickup_countries()));
 }
 add_filter('woocommerce_countries_allowed_countries','pilloway_eu_filter_countries',PHP_INT_MAX);
 add_filter('woocommerce_countries_shipping_countries','pilloway_eu_filter_countries',PHP_INT_MAX);
@@ -80,7 +80,7 @@ add_filter('woocommerce_checkout_get_value', function ($value,$input) {
     if (null===$country && WC()->customer) {
         $country='billing_country'===$input ? WC()->customer->get_billing_country() : WC()->customer->get_shipping_country();
     }
-    return $country && !in_array($country,pilloway_eu_member_states(),true) ? '' : $value;
+    return $country && !in_array($country,pilloway_eu_pickup_countries(),true) ? '' : $value;
 },100,2);
 // Recalculate previously cached WooCommerce rates after switching to pickup-only delivery.
 add_filter('woocommerce_cart_shipping_packages', function ($packages) {
@@ -93,7 +93,7 @@ add_filter('woocommerce_cart_shipping_packages', function ($packages) {
 
 // Restrict rates to Nova Post pickup in supported destinations.
 add_filter('woocommerce_package_rates',function($rates,$package) {
-    if (!in_array($package['destination']['country'] ?? '', pilloway_eu_member_states(), true)) {
+    if (!in_array($package['destination']['country'] ?? '', pilloway_eu_pickup_countries(), true)) {
         return array();
     }
     return array_filter($rates, static function ($rate) {
@@ -104,7 +104,7 @@ add_filter('woocommerce_package_rates',function($rates,$package) {
 function pilloway_eu_validate_countries($data,$errors) {
     foreach(array('billing_country','shipping_country') as $key) {
         if('shipping_country'===$key && empty($data['ship_to_different_address'])) continue;
-        if(!empty($data[$key]) && !in_array($data[$key],pilloway_eu_member_states(),true)) {
+        if(!empty($data[$key]) && !in_array($data[$key],pilloway_eu_pickup_countries(),true)) {
             $errors->add('pilloway_eu_'.$key,__('Please select a country / region.', 'woocommerce'),array('id'=>$key));
         }
     }
