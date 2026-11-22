@@ -20,6 +20,9 @@
             const layer = (window.dataLayer ||= []);
             layer.push({ ecommerce: null });
             layer.push({ event: 'add_to_cart', ecommerce });
+            if (window.pillowayStartAnalytics?.()) {
+                window.gtag('event', 'add_to_cart', { ...ecommerce, send_to: 'G-X8MQ0SF2YQ' });
+            }
         }
     }
 
