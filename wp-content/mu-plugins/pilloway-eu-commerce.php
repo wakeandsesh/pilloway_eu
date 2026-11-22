@@ -23,14 +23,12 @@ add_filter('woocommerce_checkout_fields', function ($fields) {
     $fields['billing']['billing_country']['priority'] = 5;
     $fields['billing']['billing_country']['class'][] = 'update_totals_on_change';
     $fields['shipping'] = array();
-    $fields['order'] = array();
     return $fields;
 }, 100);
 
 add_filter('woocommerce_cart_needs_shipping_address', function ($needs_address) {
     return is_checkout() ? false : $needs_address;
 });
-add_filter('woocommerce_enable_order_notes_field', '__return_false');
 
 add_action('wp_loaded', function () {
     remove_action('woocommerce_after_checkout_validation', 'pilloway_checkout_flow_validate_shipping_email', 20);
