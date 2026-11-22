@@ -21,29 +21,29 @@ function attachUpdatedCheckoutHandler(handler) {
 export function ClassicCheckoutAdapter() {
     const { hydrateFromClassic, setLoading, setFetchError } = useCheckoutActions();
 
-  const refreshClassicState = useCallback(
-    async (event, data) => {
-      // Use state from WooCommerce update_order_review fragments if available
-      if (data?.fragments?.nova_post_state) {
-        hydrateFromClassic(data.fragments.nova_post_state);
-        setFetchError(null);
-        return;
-      }
+    const refreshClassicState = useCallback(
+        async (event, data) => {
+            // Use state from WooCommerce update_order_review fragments if available
+            if (data?.fragments?.nova_post_state) {
+                hydrateFromClassic(data.fragments.nova_post_state);
+                setFetchError(null);
+                return;
+            }
 
-      setLoading(true);
+            setLoading(true);
 
-      try {
-        const response = await getClassicCheckoutState();
-        hydrateFromClassic(response);
-        setFetchError(null);
-      } catch (error) {
-        setFetchError(error.message || 'Failed to load classic checkout state');
-      } finally {
-        setLoading(false);
-      }
-    },
-    [hydrateFromClassic, setFetchError, setLoading]
-  );
+            try {
+                const response = await getClassicCheckoutState();
+                hydrateFromClassic(response);
+                setFetchError(null);
+            } catch (error) {
+                setFetchError(error.message || 'Failed to load classic checkout state');
+            } finally {
+                setLoading(false);
+            }
+        },
+        [hydrateFromClassic, setFetchError, setLoading]
+    );
 
     useEffect(() => {
         void refreshClassicState();

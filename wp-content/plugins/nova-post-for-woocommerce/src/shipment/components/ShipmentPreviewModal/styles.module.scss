@@ -78,6 +78,30 @@
   padding-bottom: 8px;
 }
 
+.shipment-preview-modal__section--compact {
+  padding: 0;
+  border: 0;
+  margin: 12px 0;
+
+  .shipment-preview-modal__field {
+    flex-wrap: wrap;
+  }
+
+  .shipment-preview-modal__field-label {
+    min-width: 0;
+  }
+
+  .shipment-preview-modal__service {
+    padding: 0;
+    background: none;
+    border: 0;
+  }
+
+  .shipment-preview-modal__service-title {
+    color: inherit;
+  }
+}
+
 .shipment-preview-modal__section-content {
   display: grid;
   gap: 12px;

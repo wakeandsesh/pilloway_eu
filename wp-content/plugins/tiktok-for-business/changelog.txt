@@ -1,5 +1,10 @@
 *** Changelog ***
 == Changelog ==
+2026-10-30 - Version 1.4.3
+* Update - Raise the minimum PHP requirement to 7.4
+* Fix - Avoid deprecated callable usage in WooCommerce onboarding on newer PHP versions
+* Fix - Decode catalog HTML entities consistently across supported PHP versions
+
 2026-09-16 - Version 1.4.2
 * Fix - Restrict the TikTok OAuth callback to authorized admin requests and validate a state parameter before storing the access token
 * Fix - Stop writing app credentials and the OAuth auth_code to the WooCommerce log

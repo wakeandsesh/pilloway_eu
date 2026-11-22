@@ -150,6 +150,7 @@ abstract class NovaPostShippingMethodAbstract extends WC_Shipping_Method {
         if ( $this->is_free_delivery( (float) $package['contents_cost'] ) ) {
             $rate = $this->create_rate( 0 );
             $this->add_rate( $rate );
+            UserStorage::get_instance()->set( $this->get_error_key(), null );
             return;
         }
 
@@ -158,14 +159,20 @@ abstract class NovaPostShippingMethodAbstract extends WC_Shipping_Method {
                 (float) $this->np_settings->{$this->get_settings_prefix() . 'flat_rate_amount'}
             );
             $this->add_rate( $rate );
+            UserStorage::get_instance()->set( $this->get_error_key(), null );
             return;
         }
 
         $package['destination_type'] = $this->get_destination_type();
         $user_storage                = UserStorage::get_instance();
 
-        $calculation_request = new CalculationRequest( $package );
-        $calculation_params  = $calculation_request->build();
+        try {
+            $calculation_request = new CalculationRequest( $package );
+            $calculation_params  = $calculation_request->build();
+        } catch ( \Throwable $e ) {
+            $this->handle_calculation_error( $e );
+            return;
+        }
 
         $cached_rate = $this->rate_cache->get( $calculation_params );
         if ( false !== $cached_rate ) {
@@ -184,16 +191,49 @@ abstract class NovaPostShippingMethodAbstract extends WC_Shipping_Method {
                 $user_storage->set( $this->get_error_key(), true );
             }
         } catch ( \Throwable $e ) {
-            Logger::write_log( \WC_Log_Levels::ERROR, 'Calculate Shipping Error: ' . $e->getMessage(), array( 'exception' => $e ) );
-            $user_storage->set( $this->get_error_key(), true );
+            $this->handle_calculation_error( $e );
+        }
+    }
 
-            if ( function_exists( 'wc_add_notice' ) && function_exists( 'wc_has_notice' ) ) {
-                $notice_message = __( 'Exchange rate unavailable.', 'nova-post-for-woocommerce' );
-                if ( ! wc_has_notice( $notice_message, 'error' ) ) {
-                    wc_add_notice( $notice_message, 'error' );
-                }
+    /**
+     * Log a calculation failure, flag the method as unavailable and notify the user.
+     *
+     * @param \Throwable $e Exception.
+     * @return void
+     */
+    private function handle_calculation_error( \Throwable $e ): void {
+        Logger::write_log( \WC_Log_Levels::ERROR, 'Calculate Shipping Error: ' . $e->getMessage(), array( 'exception' => $e ) );
+        UserStorage::get_instance()->set( $this->get_error_key(), true );
+
+        if ( function_exists( 'wc_add_notice' ) && function_exists( 'wc_has_notice' ) ) {
+            $notice_message = __( 'Exchange rate unavailable.', 'nova-post-for-woocommerce' );
+            if ( ! wc_has_notice( $notice_message, 'error' ) ) {
+                wc_add_notice( $notice_message, 'error' );
             }
         }
+    }
+
+    /**
+     * Add a shipping rate, adjusting for recipient delivery payer if configured.
+     *
+     * @param array $rate Rate data.
+     * @return void
+     */
+    public function add_rate( $rate = array() ) {
+        $settings = NovaPostSettings::get_instance();
+        if ( 'Recipient' === ( $settings->delivery_payer ?? 'Sender' ) ) {
+            $rate['cost']  = 0;
+            $rate['taxes'] = false;
+
+            /* translators: %s: Shipping method name. */
+            $label_format = __( '%s (delivery paid on receipt)', 'nova-post-for-woocommerce' );
+            $explanation  = sprintf( $label_format, '' );
+            if ( ! empty( $rate['label'] ) && ! str_contains( $rate['label'], $explanation ) ) {
+                $rate['label'] = sprintf( $label_format, trim( $rate['label'] ) );
+            }
+        }
+
+        parent::add_rate( $rate );
     }
 
     /**

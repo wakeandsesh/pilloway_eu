@@ -25,8 +25,10 @@ $hidden_attr = $is_hidden ? ' hidden' : '';
         foreach ( $error_items as $field => $message ) :
             ?>
             <li class="npw-content__error-item">
-                <strong><?php echo esc_html( (string) $field ); ?>:</strong>
-                <span><?php echo esc_html( is_array( $message ) ? wp_json_encode( $message ) : (string) str_replace( array( '.', '_' ), ' ', $message ) ); ?></span>
+                <?php if ( ! is_numeric( $field ) ) : ?>
+                    <strong><?php echo esc_html( (string) $field ); ?>:</strong>
+                <?php endif; ?>
+                <span><?php echo esc_html( is_array( $message ) ? wp_json_encode( $message ) : (string) $message ); ?></span>
             </li>
         <?php endforeach; ?>
     </ul>

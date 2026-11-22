@@ -19,6 +19,24 @@ class ShipmentService {
     constructor(apiClient = apiService) {
         this.apiClient = apiClient;
     }
+
+    /**
+     * Read the shipment request saved on the order, never current settings.
+     *
+     * @param {number|string} orderId - WooCommerce order ID.
+     * @return {Promise<Object|null>} Saved Nova Post API request.
+     */
+    async getShipmentRequest(orderId) {
+        this._validateOrderId(orderId);
+        const order = await this.apiClient.get(`/orders/${orderId}`, {
+            basePath: '/wc/v3',
+            params: { _fields: 'meta_data' },
+        });
+        return (
+            order.meta_data?.find((meta) => meta.key === '_nova_post_shipment_api_request')
+                ?.value || null
+        );
+    }
     /**
      * Get shipment preview data before creation
      *
@@ -34,7 +52,13 @@ class ShipmentService {
             const response = await this.apiClient.get(path);
             return response;
         } catch (error) {
-            throw new Error(`Failed to get shipment preview: ${error.message}`);
+            throw new Error(
+                sprintf(
+                    /* translators: %s: error message */
+                    __('Failed to get shipment preview: %s', 'nova-post-for-woocommerce'),
+                    error.message
+                )
+            );
         }
     }
 
@@ -127,7 +151,7 @@ class ShipmentService {
     }
 
     /**
-     * Print customs declaration for the given order
+     * Print international marking for the given order
      *
      * @param {number} orderId - The WooCommerce order ID
      * @return {Promise<string>} - Base64 encoded PDF data
@@ -143,7 +167,7 @@ class ShipmentService {
             throw new Error(
                 sprintf(
                     /* translators: %s: error message */
-                    __('Failed to generate customs declaration: %s', 'nova-post-for-woocommerce'),
+                    __('Failed to generate international marking: %s', 'nova-post-for-woocommerce'),
                     error.message
                 )
             );
@@ -265,7 +289,7 @@ class ShipmentService {
                 payload.delay_ms = parseInt(delayMs, 10);
             }
 
-            const response = await this.apiClient.post(path, payload, true);
+            const response = await this.apiClient.post(path, payload);
             return response;
         } catch (error) {
             throw new Error(

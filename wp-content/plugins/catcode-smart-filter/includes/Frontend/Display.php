@@ -23,6 +23,8 @@ class Display {
 		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'assets' ) );
 		add_shortcode( 'catcode_filter', array( __CLASS__, 'shortcode' ) );
 
+		add_filter( 'woocommerce_redirect_single_search_result', array( __CLASS__, 'keep_filtered_search' ) );
+
 		add_filter( 'wp_robots', array( __CLASS__, 'robots' ) );
 		add_filter( 'get_canonical_url', array( __CLASS__, 'canonical' ), 20, 2 );
 		add_action( 'wp_head', array( __CLASS__, 'archive_canonical' ), 9 );
@@ -53,6 +55,23 @@ class Display {
 		wp_enqueue_script( 'catcode-smart-filter', CATCODE_SF_URL . 'assets/js/filter.js', array(), Settings::asset_version( 'assets/js/filter.js' ), true );
 	}
 
+	/**
+	 * WooCommerce jumps to the product when a search finds exactly one. On a
+	 * filtered search that took the shopper out of the listing, and the no-reload
+	 * swap received a product page instead of the results.
+	 *
+	 * @param bool $redirect Whether WooCommerce is about to redirect.
+	 */
+	public static function keep_filtered_search( $redirect ) {
+		if ( ! Settings::is_on( 'enabled' ) ) {
+			return $redirect;
+		}
+
+		Runtime::boot();
+
+		return Runtime::selection() ? false : $redirect;
+	}
+
 	public static function shortcode( $atts = array() ): string {
 		return Renderer::render();
 	}
@@ -68,26 +87,66 @@ class Display {
 			return $robots;
 		}
 
-		$robots['index']  = false !== strpos( $value, 'noindex' ) ? false : true;
-		$robots['follow'] = false !== strpos( $value, 'nofollow' ) ? false : true;
+		// Never lift a stricter directive set earlier (a closed site, a page
+		// marked noindex): the filter may only tighten the robots value.
+		$noindex  = ! empty( $robots['noindex'] ) || false !== strpos( $value, 'noindex' );
+		$nofollow = ! empty( $robots['nofollow'] ) || false !== strpos( $value, 'nofollow' );
 
-		if ( ! $robots['index'] ) {
-			unset( $robots['index'] );
+		unset( $robots['index'], $robots['noindex'], $robots['follow'], $robots['nofollow'] );
+
+		if ( $noindex ) {
 			$robots['noindex'] = true;
+			unset( $robots['max-image-preview'], $robots['max-snippet'], $robots['max-video-preview'] );
+		} else {
+			$robots['index'] = true;
 		}
 
-		if ( ! $robots['follow'] ) {
-			unset( $robots['follow'] );
+		if ( $nofollow ) {
 			$robots['nofollow'] = true;
+		} else {
+			$robots['follow'] = true;
 		}
 
 		return $robots;
 	}
 
+	/**
+	 * Yoast passes a comma-and-space separated string («index, follow,
+	 * max-snippet:-1 …») and splits the result on «, » again. Returning the raw
+	 * setting («noindex,follow») left one unknown token next to Yoast's own
+	 * index/follow pair: «noindex, nofollow, index,follow». Only the index and
+	 * follow tokens are replaced here, the rest of Yoast's value stays.
+	 *
+	 * @param string|bool $robots Yoast robots string.
+	 * @return string|bool
+	 */
 	public static function seo_robots( $robots ) {
 		$value = self::robots_value();
 
-		return '' === $value ? $robots : $value;
+		if ( '' === $value || ! is_string( $robots ) ) {
+			return $robots;
+		}
+
+		$tokens = array_filter( array_map( 'trim', explode( ',', $robots ) ), 'strlen' );
+
+		$noindex  = in_array( 'noindex', $tokens, true ) || false !== strpos( $value, 'noindex' );
+		$nofollow = in_array( 'nofollow', $tokens, true ) || false !== strpos( $value, 'nofollow' );
+
+		$rest = array();
+
+		foreach ( $tokens as $token ) {
+			if ( in_array( $token, array( 'index', 'noindex', 'follow', 'nofollow' ), true ) ) {
+				continue;
+			}
+			if ( $noindex && 0 === strpos( $token, 'max-' ) ) {
+				continue;
+			}
+			$rest[] = $token;
+		}
+
+		array_unshift( $rest, $noindex ? 'noindex' : 'index', $nofollow ? 'nofollow' : 'follow' );
+
+		return implode( ', ', $rest );
 	}
 
 	public static function seo_robots_array( $robots ) {

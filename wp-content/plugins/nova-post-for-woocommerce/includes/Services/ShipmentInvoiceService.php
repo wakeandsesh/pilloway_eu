@@ -33,14 +33,15 @@ class ShipmentInvoiceService {
             return null;
         }
 
-        $items = array();
+        $items    = array();
+        $add_pids = self::is_pid_required( $settings->sender_country, $order->get_shipping_country() );
 
         foreach ( $order->get_items() as $item ) {
             $product         = $item->get_product();
             $product_adapter = new ProductAdapter( $product );
             $unit_price      = (float) ( $item->get_total() / $item->get_quantity() );
 
-            $items[] = array(
+            $item_data = array(
                 'id'                => $item->get_id(),
                 'hsCode'            => ShipmentHsCodeService::get_product_hs_code( $product, $settings, $order ),
                 'name'              => $product->get_name(),
@@ -53,6 +54,12 @@ class ShipmentInvoiceService {
                 'materialEng'       => '',
                 'madeInCountryCode' => '',
             );
+
+            if ( $add_pids ) {
+                $item_data = array_merge( $item_data, self::get_product_pids( $product ) );
+            }
+
+            $items[] = $item_data;
         }
 
         return array(
@@ -86,6 +93,55 @@ class ShipmentInvoiceService {
         }
 
         return true;
+    }
+
+    /**
+     * Determines if product identifiers (mPid, nsPid, sPid) are required: non-EU sender to EU recipient.
+     *
+     * @param string $sender_country    The sender's country code.
+     * @param string $recipient_country The recipient's country code.
+     *
+     * @return bool
+     */
+    public static function is_pid_required( string $sender_country, string $recipient_country ): bool {
+        return ! CountriesHelper::is_eu_country( $sender_country ) && CountriesHelper::is_eu_country( $recipient_country );
+    }
+
+    /**
+     * Build product identifiers for the invoice item. Empty values are omitted.
+     *
+     * - mPid:  product SKU.
+     * - nsPid: manufacturer SKU/model code, falls back to the product SKU.
+     * - sPid:  barcode (GTIN, UPC, EAN or ISBN).
+     *
+     * @param \WC_Product $product Product object.
+     *
+     * @return array
+     */
+    private static function get_product_pids( $product ): array {
+        $sku     = trim( (string) $product->get_sku() );
+        $barcode = trim( (string) $product->get_global_unique_id() );
+        $ns_pid  = trim( (string) $product->get_meta( ProductPageService::MANUFACTURER_SKU_META_KEY ) );
+
+        if ( '' === $ns_pid && $product->is_type( 'variation' ) ) {
+            $parent = wc_get_product( $product->get_parent_id() );
+            $ns_pid = $parent ? trim( (string) $parent->get_meta( ProductPageService::MANUFACTURER_SKU_META_KEY ) ) : '';
+        }
+
+        if ( '' === $ns_pid ) {
+            $ns_pid = $sku;
+        }
+
+        return array_filter(
+            array(
+                'mPid'  => $sku,
+                'nsPid' => $ns_pid,
+                'sPid'  => $barcode,
+            ),
+            static function ( $value ) {
+                return '' !== $value;
+            }
+        );
     }
 
     /**

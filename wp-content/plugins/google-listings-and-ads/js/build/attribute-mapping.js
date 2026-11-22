@@ -1,6 +1,6 @@
 "use strict";(globalThis.webpackChunkgoogle_listings_and_ads||=[]).push([[456],{4580(e,t,a){a.r(t),a.d(t,{default:()=>ie});var s=a(7723),l=a(8242),i=a(790);const n=()=>(0,i.jsx)("p",{children:(0,s.__)("Create attribute rules to control what product data gets sent to Google and to manage product attributes in bulk.","google-listings-and-ads")});var o=a(8846),r=a(6427),d=a(6087),g=a(7892),c=a(2159),u=a(6494),p=a(9039),_=a(3905),h=a(9415);const m=(0,s._x)(", ","the separator for concatenating the categories where the Attribute mapping rule is applied.","google-listings-and-ads"),b=e=>({key:e.id,label:e.name,value:e.id}),x=(e=[])=>e.map(b),j=e=>e.slice(0,5).map(e=>e.label).join(m),v=(e=[])=>{const{data:t,hasFinishedResolution:a}=(0,h.A)("getStoreCategories");if(!a)return{hasFinishedResolution:a,categories:[],selected:[],names:""};const l=e.filter(e=>!t.find(t=>t.id.toString()===e)).map(e=>{return{id:e,name:(t=e,(0,s.sprintf)(
-// translators: %d: number of categories.
-// translators: %d: number of categories.
+// translators: %s: category ID.
+// translators: %s: category ID.
 (0,s.__)("Category ID %s (deleted)","google-listings-and-ads"),[t])),parent:0};var t}),i=[...t,...l],n=((e,t)=>e.map(e=>{const a=t.find(t=>t.id.toString()===e);return b(a)}))(e,i);return{hasFinishedResolution:a,selected:n,categories:x(i),names:j(n)}},y=({categories:e})=>(0,i.jsx)("div",{className:"gla-attribute-mapping__table-categories-help",children:(0,s.sprintf)(
 // translators: %d: number of categories.
 // translators: %d: number of categories.

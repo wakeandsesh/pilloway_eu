@@ -52,6 +52,8 @@ const DEFAULT_SETTINGS = {
     default_hs_tariff_code: '',
 
     // Cash on Delivery
+    delivery_payer: 'Sender',
+    cod_bank_account_currency: '',
     cod_bank_account_id: '',
     cod_bank_account_name: '',
     cod_fee_paid_seller: false,

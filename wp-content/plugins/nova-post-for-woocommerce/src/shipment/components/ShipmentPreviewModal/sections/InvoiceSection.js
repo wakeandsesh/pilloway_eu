@@ -56,6 +56,9 @@ export const InvoiceSection = ({ invoice }) => {
                                 {item.name || item.nameEng} (x{item.amount})
                             </h5>
                             {renderField(__('HS Code', 'nova-post-for-woocommerce'), item.hsCode)}
+                            {renderField('mPid', item.mPid)}
+                            {renderField('nsPid', item.nsPid)}
+                            {renderField('sPid', item.sPid)}
                             {renderField(
                                 __('Weight (g)', 'nova-post-for-woocommerce'),
                                 item.actualWeight

@@ -1,13 +1,43 @@
+# Copyright (C) 2026 CatCode
+# This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: CatCode Smart Filter for WooCommerce 1.0.0\n"
-"Report-Msgid-Bugs-To: https://catcode.com.ua/\n"
-"POT-Creation-Date: 2026-09-08T12:08:31+00:00\n"
+"Project-Id-Version: CatCode Smart Filter for WooCommerce 1.1.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/catcode-smart-filter\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language-Team: CatCode\n"
+"POT-Creation-Date: 2026-11-19T13:34:56+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: catcode-smart-filter\n"
+
+#. Plugin Name of the plugin
+#: catcode-smart-filter.php
+msgid "CatCode Smart Filter for WooCommerce"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: catcode-smart-filter.php
+msgid "https://catcode.com.ua/modules/smart-filter-woocommerce/"
+msgstr ""
+
+#. Description of the plugin
+#: catcode-smart-filter.php
+msgid "Faceted product filter that stays fast on a large catalogue: its own index table instead of attribute meta queries, honest counters, merging of duplicate values (\"12 V\" / \"12v\") and numeric sorting. Applies without a page reload, with a mobile drawer and a price slider."
+msgstr ""
+
+#. Author of the plugin
+#: catcode-smart-filter.php
+msgid "CatCode"
+msgstr ""
+
+#. Author URI of the plugin
+#: catcode-smart-filter.php
+msgid "https://catcode.com.ua"
+msgstr ""
 
 #: catcode-smart-filter.php:95
 msgid "CatCode Smart Filter needs WooCommerce to be active."
@@ -34,6 +64,11 @@ msgstr ""
 msgid "Done."
 msgstr ""
 
+#: includes/Admin/SettingsPage.php:65
+#: templates/admin.php:133
+msgid "Values"
+msgstr ""
+
 #: includes/Admin/SettingsPage.php:66
 msgid "Merge into…"
 msgstr ""
@@ -47,17 +82,17 @@ msgid "Delete all filter data?"
 msgstr ""
 
 #: includes/Admin/SettingsPage.php:70
-#: templates/admin.php:150
+#: templates/admin.php:151
 msgid "Rows in the index"
 msgstr ""
 
 #: includes/Admin/SettingsPage.php:71
-#: templates/admin.php:151
+#: templates/admin.php:152
 msgid "Products"
 msgstr ""
 
 #: includes/Admin/SettingsPage.php:72
-#: templates/admin.php:36
+#: templates/admin.php:37
 msgid "Facets"
 msgstr ""
 
@@ -70,7 +105,7 @@ msgid "Products missing from the index"
 msgstr ""
 
 #: includes/Admin/SettingsPage.php:75
-#: templates/admin.php:60
+#: templates/admin.php:61
 msgid "Values with no products"
 msgstr ""
 
@@ -98,31 +133,37 @@ msgstr ""
 msgid "Unknown action."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:159
+#: includes/Admin/SettingsPage.php:167
 msgid "Settings saved."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:260
+#. translators: %d: number of facets saved.
+#: includes/Admin/SettingsPage.php:268
+#, php-format
 msgid "Facets saved: %d."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:275
+#: includes/Admin/SettingsPage.php:283
 msgid "Facet deleted."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:285
+#: includes/Admin/SettingsPage.php:293
 msgid "Values merged."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:316
+#. translators: 1: number of sources, 2: number of values.
+#: includes/Admin/SettingsPage.php:324
+#, php-format
 msgid "Imported sources: %1$d, values: %2$d."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:364
+#. translators: %d: number of stale rows removed.
+#: includes/Admin/SettingsPage.php:378
+#, php-format
 msgid "Stale rows removed: %d."
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:429
+#: includes/Admin/SettingsPage.php:443
 msgid "Facets, values and the index have been deleted."
 msgstr ""
 
@@ -138,31 +179,33 @@ msgstr ""
 msgid "Title:"
 msgstr ""
 
-#: includes/Frontend/Renderer.php:93
+#: includes/Frontend/Renderer.php:94
 msgid "Filter"
 msgstr ""
 
-#: includes/Frontend/Renderer.php:223
+#: includes/Frontend/Renderer.php:224
 msgid "Price"
 msgstr ""
 
-#: includes/Frontend/Renderer.php:251
+#: includes/Frontend/Renderer.php:252
 msgid "In stock"
 msgstr ""
 
-#: includes/Frontend/Renderer.php:252
+#: includes/Frontend/Renderer.php:253
 msgid "Out of stock"
 msgstr ""
 
-#: includes/Frontend/Renderer.php:279
+#: includes/Frontend/Renderer.php:280
 msgid "Stock status"
 msgstr ""
 
-#: includes/Frontend/Renderer.php:314
+#. translators: %s: number of stars.
+#: includes/Frontend/Renderer.php:315
+#, php-format
 msgid "%s stars and up"
 msgstr ""
 
-#: includes/Frontend/Renderer.php:326
+#: includes/Frontend/Renderer.php:327
 msgid "Rating"
 msgstr ""
 
@@ -211,155 +254,164 @@ msgid "Reindex when a product is saved"
 msgstr ""
 
 #: templates/admin.php:24
-msgid "Cache the counters"
+msgid "Size and colour: only variations in stock"
 msgstr ""
 
 #: templates/admin.php:25
+msgid "Cache the counters"
+msgstr ""
+
+#: templates/admin.php:26
 msgid "Load the plugin stylesheet"
 msgstr ""
 
-#: templates/admin.php:30
+#: templates/admin.php:31
 msgid "CatCode — Smart Filter"
 msgstr ""
 
-#: templates/admin.php:35
+#: templates/admin.php:36
 msgid "Settings"
 msgstr ""
 
-#: templates/admin.php:37
+#: templates/admin.php:38
 msgid "Index"
 msgstr ""
 
-#: templates/admin.php:38
+#: templates/admin.php:39
 msgid "Diagnostics"
 msgstr ""
 
-#: templates/admin.php:56
+#: templates/admin.php:57
 msgid "Block heading"
 msgstr ""
 
-#: templates/admin.php:63
+#: templates/admin.php:64
 msgid "Hide"
 msgstr ""
 
-#: templates/admin.php:64
+#: templates/admin.php:65
 msgid "Show greyed out"
 msgstr ""
 
-#: templates/admin.php:69
+#: templates/admin.php:70
 msgid "Values before “show more”"
 msgstr ""
 
-#: templates/admin.php:73
+#: templates/admin.php:74
 msgid "Product grid selector"
 msgstr ""
 
-#: templates/admin.php:76
+#: templates/admin.php:77
 msgid "What AJAX swaps in place. In most themes this is ul.products."
 msgstr ""
 
-#: templates/admin.php:80
+#: templates/admin.php:81
 msgid "Also refresh"
 msgstr ""
 
-#: templates/admin.php:84
+#: templates/admin.php:85
 msgid "Canonical of a filtered page"
 msgstr ""
 
-#: templates/admin.php:87
+#: templates/admin.php:88
 msgid "The clean archive"
 msgstr ""
 
-#: templates/admin.php:88
+#: templates/admin.php:89
 msgid "The filtered page itself"
 msgstr ""
 
-#: templates/admin.php:93
+#: templates/admin.php:94
 msgid "Robots: one facet / several"
 msgstr ""
 
-#: templates/admin.php:100
+#: templates/admin.php:101
 msgid "Products per indexing pass"
 msgstr ""
 
-#: templates/admin.php:104
+#: templates/admin.php:105
 msgid "Counter cache lifetime, seconds"
 msgstr ""
 
-#: templates/admin.php:110
+#: templates/admin.php:111
 msgid "Save"
 msgstr ""
 
-#: templates/admin.php:111
+#: templates/admin.php:112
 msgid "Place the block: the “CatCode: Smart Filter” widget or the [catcode_filter] shortcode."
 msgstr ""
 
-#: templates/admin.php:118
+#: templates/admin.php:119
 msgid "Import from the catalogue"
 msgstr ""
 
-#: templates/admin.php:119
+#: templates/admin.php:120
 msgid "Save facets"
 msgstr ""
 
-#: templates/admin.php:127
+#: templates/admin.php:128
 msgid "Facet"
 msgstr ""
 
-#: templates/admin.php:128
+#: templates/admin.php:129
 msgid "Source"
 msgstr ""
 
-#: templates/admin.php:129
+#: templates/admin.php:130
 msgid "Widget"
 msgstr ""
 
-#: templates/admin.php:130
+#: templates/admin.php:131
 msgid "Logic"
 msgstr ""
 
-#: templates/admin.php:131
+#: templates/admin.php:132
 msgid "URL key"
 msgstr ""
 
-#: includes/Admin/SettingsPage.php:65
-#: templates/admin.php:132
-msgid "Values"
-msgstr ""
-
-#: templates/admin.php:133
+#: templates/admin.php:134
 msgid "Order"
 msgstr ""
 
-#: templates/admin.php:134
+#: templates/admin.php:135
 msgid "Status"
 msgstr ""
 
-#: templates/admin.php:146
+#: templates/admin.php:147
 msgid "The index is what the storefront reads. Build it once after importing facets; from then on every product save keeps it current."
 msgstr ""
 
-#: templates/admin.php:152
+#: templates/admin.php:153
 msgid "Last full build"
 msgstr ""
 
-#: templates/admin.php:152
+#: templates/admin.php:153
 msgid "never"
 msgstr ""
 
-#: templates/admin.php:158
+#: templates/admin.php:156
+msgid "Background index update"
+msgstr ""
+
+#. translators: %d: number of products still waiting.
+#: templates/admin.php:159
+#, php-format
+msgid "running, products left: %d"
+msgstr ""
+
+#: templates/admin.php:168
 msgid "Rebuild the index"
 msgstr ""
 
-#: templates/admin.php:159
+#: templates/admin.php:169
 msgid "Prune stale rows"
 msgstr ""
 
-#: templates/admin.php:164
+#: templates/admin.php:174
 msgid "Run the check"
 msgstr ""
 
-#: templates/admin.php:167
+#: templates/admin.php:177
 msgid "Delete all filter data"
 msgstr ""
 
@@ -367,7 +419,9 @@ msgstr ""
 msgid "Filters"
 msgstr ""
 
+#. translators: %s: number of products found.
 #: templates/filter.php:44
+#, php-format
 msgid "Found: %s"
 msgstr ""
 
@@ -405,12 +459,4 @@ msgstr ""
 
 #: templates/filter.php:169
 msgid "Show results"
-msgstr ""
-
-#: includes/Frontend/Renderer.php:344
-msgid "On sale"
-msgstr ""
-
-#: includes/Frontend/Renderer.php:355
-msgid "Products on sale"
 msgstr ""

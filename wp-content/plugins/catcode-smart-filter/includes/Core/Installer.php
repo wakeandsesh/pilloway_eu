@@ -53,6 +53,90 @@ class Installer {
 		add_action( 'created_term', array( Indexer::class, 'on_term_created' ), 20, 3 );
 		add_action( 'edit_terms', array( Indexer::class, 'before_term_edit' ), 20, 2 );
 		add_action( 'edited_term', array( Indexer::class, 'on_term_edited' ), 20, 3 );
+
+		// Stock moves without a product save: an order takes the last "L", a
+		// cancelled order or a refund puts it back, the owner edits one variation,
+		// a CSV import rewrites a hundred of them. Each of these lands here, and the
+		// product is re-indexed once at the end of the request.
+		add_action( 'woocommerce_variation_set_stock', array( __CLASS__, 'on_stock_object' ), 20 );
+		add_action( 'woocommerce_product_set_stock', array( __CLASS__, 'on_stock_object' ), 20 );
+		add_action( 'woocommerce_variation_set_stock_status', array( __CLASS__, 'on_stock_status' ), 20 );
+		add_action( 'woocommerce_product_set_stock_status', array( __CLASS__, 'on_stock_status' ), 20 );
+		add_action( 'woocommerce_new_product_variation', array( __CLASS__, 'on_stock_status' ), 20 );
+		add_action( 'woocommerce_update_product_variation', array( __CLASS__, 'on_stock_status' ), 20 );
+		add_action( 'added_post_meta', array( __CLASS__, 'on_meta' ), 20, 3 );
+		add_action( 'updated_post_meta', array( __CLASS__, 'on_meta' ), 20, 3 );
+		add_action( 'deleted_post_meta', array( __CLASS__, 'on_meta' ), 20, 3 );
+		add_action( 'transition_post_status', array( __CLASS__, 'on_status' ), 20, 3 );
+		add_action( 'deleted_post', array( __CLASS__, 'on_variation_gone' ), 20, 2 );
+		add_action( 'trashed_post', array( __CLASS__, 'on_variation_gone' ), 20 );
+		add_action( 'untrashed_post', array( __CLASS__, 'on_variation_gone' ), 20 );
+
+		add_action( Indexer::REBUILD_HOOK, array( Indexer::class, 'rebuild_tick' ) );
+
+		// Action Scheduler, which carries the background rebuild, is ready from init.
+		add_action( 'init', array( Repository::class, 'maybe_upgrade' ), 20 );
+	}
+
+	/**
+	 * @param \WC_Product $product
+	 */
+	public static function on_stock_object( $product ): void {
+		if ( is_object( $product ) && method_exists( $product, 'get_id' ) ) {
+			Indexer::queue_post( (int) $product->get_id() );
+		}
+	}
+
+	/**
+	 * @param int $product_id
+	 */
+	public static function on_stock_status( $product_id ): void {
+		Indexer::queue_post( (int) $product_id );
+	}
+
+	/**
+	 * Direct meta writes — bulk editors, sync plugins, a stock feed — never call
+	 * the WooCommerce actions above, but they all end in update_post_meta().
+	 *
+	 * @param int|array $meta_id
+	 * @param int       $object_id
+	 * @param string    $meta_key
+	 */
+	public static function on_meta( $meta_id, $object_id, $meta_key ): void {
+		$meta_key = (string) $meta_key;
+
+		if ( '_stock_status' !== $meta_key && '_price' !== $meta_key && 0 !== strpos( $meta_key, 'attribute_' ) ) {
+			return;
+		}
+
+		if ( 'product_variation' === get_post_type( (int) $object_id ) ) {
+			Indexer::queue_post( (int) $object_id );
+		}
+	}
+
+	/**
+	 * A variation switched on or off in the product editor.
+	 *
+	 * @param string   $new_status
+	 * @param string   $old_status
+	 * @param \WP_Post $post
+	 */
+	public static function on_status( $new_status, $old_status, $post ): void {
+		if ( $new_status !== $old_status && $post instanceof \WP_Post && 'product_variation' === $post->post_type ) {
+			Indexer::queue( (int) $post->post_parent );
+		}
+	}
+
+	/**
+	 * @param int           $post_id
+	 * @param \WP_Post|null $post
+	 */
+	public static function on_variation_gone( $post_id, $post = null ): void {
+		$post = $post instanceof \WP_Post ? $post : get_post( (int) $post_id );
+
+		if ( $post && 'product_variation' === $post->post_type ) {
+			Indexer::queue( (int) $post->post_parent );
+		}
 	}
 
 	/**

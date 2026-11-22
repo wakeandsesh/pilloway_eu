@@ -7,6 +7,7 @@ import { __ } from '@wordpress/i18n';
 /**
  * Internal dependencies
  */
+import InfoTooltip from '../InfoTooltip';
 import styles from './styles.module.scss';
 
 /**
@@ -17,6 +18,7 @@ import styles from './styles.module.scss';
  * @param {*}        props.children         - Content to render inside the section
  * @param {Function} [props.onSave]         - Save handler function
  * @param {string}   [props.title]          - Section title
+ * @param {*}        [props.tooltip]        - Section tooltip content
  * @param {boolean}  [props.isSaving]       - Whether save operation is in progress
  * @param {string}   [props.className]      - Additional CSS classes
  * @param {boolean}  [props.hideFooter]     - Whether to hide the footer with save button
@@ -27,6 +29,7 @@ const FormSection = ({
     children,
     onSave,
     title,
+    tooltip,
     isSaving = false,
     className = '',
     hideFooter = true,
@@ -44,7 +47,10 @@ const FormSection = ({
             <div className={styles.wrapper}>
                 {title && (
                     <CardHeader>
-                        <h2 className={styles.head}>{title}</h2>
+                        <div className="flex-center">
+                            <h2 className={styles.head}>{title}</h2>
+                            <InfoTooltip information={tooltip} />
+                        </div>
                     </CardHeader>
                 )}
 

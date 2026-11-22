@@ -21,6 +21,7 @@ $catcode_sf_switches = array(
 	'facet_stock'       => __( 'Stock facet', 'catcode-smart-filter' ),
 	'facet_rating'      => __( 'Rating facet', 'catcode-smart-filter' ),
 	'reindex_on_save'   => __( 'Reindex when a product is saved', 'catcode-smart-filter' ),
+	'variation_stock'   => __( 'Size and colour: only variations in stock', 'catcode-smart-filter' ),
 	'cache_counters'    => __( 'Cache the counters', 'catcode-smart-filter' ),
 	'load_css'          => __( 'Load the plugin stylesheet', 'catcode-smart-filter' ),
 );
@@ -150,6 +151,15 @@ $catcode_sf_switches = array(
 			<tr><th><?php esc_html_e( 'Rows in the index', 'catcode-smart-filter' ); ?></th><td id="ccf-stat-rows"><?php echo (int) $stats['rows']; ?></td></tr>
 			<tr><th><?php esc_html_e( 'Products', 'catcode-smart-filter' ); ?></th><td><?php echo (int) $stats['products']; ?></td></tr>
 			<tr><th><?php esc_html_e( 'Last full build', 'catcode-smart-filter' ); ?></th><td id="ccf-stat-built"><?php echo esc_html( $stats['built_at'] ? $stats['built_at'] : __( 'never', 'catcode-smart-filter' ) ); ?></td></tr>
+			<?php $catcode_sf_pending = \CatCode\SmartFilter\Core\Indexer::rebuild_pending(); ?>
+			<?php if ( null !== $catcode_sf_pending ) : ?>
+				<tr><th><?php esc_html_e( 'Background index update', 'catcode-smart-filter' ); ?></th><td>
+					<?php
+					/* translators: %d: number of products still waiting. */
+					echo esc_html( sprintf( __( 'running, products left: %d', 'catcode-smart-filter' ), $catcode_sf_pending ) );
+					?>
+				</td></tr>
+			<?php endif; ?>
 		</table>
 
 		<div id="ccf-progress" hidden><progress value="0" max="100"></progress> <span></span></div>

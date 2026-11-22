@@ -296,18 +296,25 @@ class AsyncShipmentApiService {
                 ),
             );
         } else {
-            $reason    = $response['reason'];
-            $error_msg = 'Unknown error';
+            $reason           = $response['reason'];
+            $error_msg        = 'Unknown error';
+            $formatted_errors = array();
 
             if ( $reason instanceof RequestException && $reason->hasResponse() ) {
                 $error_body = json_decode( $reason->getResponse()->getBody()->getContents(), true );
                 $error_msg  = implode( ', ', $error_body['errors'] ?? array( $error_msg ) );
+                $raw_errors = $error_body['errors'] ?? array();
+                if ( is_array( $raw_errors ) ) {
+                    $formatted_errors = ShipmentErrorFormatter::format_errors( $raw_errors );
+                    $error_msg        = ! empty( $formatted_errors ) ? implode( ', ', $formatted_errors ) : $error_msg;
+                }
             } elseif ( $reason instanceof \Exception ) {
-                $error_msg = $reason->getMessage();
+                $error_msg        = $reason->getMessage();
+                $formatted_errors = array( $error_msg );
             }
 
             $order->update_meta_data( '_nova_post_shipment_api_response', $error_body ?? null );
-            $order->update_meta_data( '_nova_post_shipment_errors', $error_msg ?? null );
+            $order->update_meta_data( '_nova_post_shipment_errors', ! empty( $formatted_errors ) ? $formatted_errors : array( $error_msg ) );
             $order->update_meta_data( '_nova_post_shipment_api_request', ShipmentApiService::prepare_shipment_data( $order ) );
 
             $order->save_meta_data();

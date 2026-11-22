@@ -20,7 +20,7 @@ $hidden_attr = $is_hidden ? ' hidden' : '';
     class="npw-button --icon" 
     data-npw-order-id="<?php echo esc_attr( $order_id ); ?>" 
     data-npw-action="print_customs" 
-    title="<?php echo esc_attr__( 'Customs declaration printing', 'nova-post-for-woocommerce' ); ?>"
+    title="<?php echo esc_attr__( 'International marking printing', 'nova-post-for-woocommerce' ); ?>"
 >
     <span class="material-icons-outlined">request_quote</span>
 </button>

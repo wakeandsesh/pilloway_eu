@@ -42,7 +42,7 @@ class ShipmentService {
             'shipment_id'         => $order->get_meta( '_nova_post_shipment_id' ),
             'last_status'         => $order->get_meta( '_nova_post_shipment_status' ),
             'last_status_code'    => $order->get_meta( '_nova_post_shipment_status_code' ),
-            'shipment_errors'     => $shipment_api_response['errors'] ?? $order->get_meta( '_nova_post_shipment_errors' ),
+            'shipment_errors'     => ! empty( $order->get_meta( '_nova_post_shipment_errors' ) ) ? $order->get_meta( '_nova_post_shipment_errors' ) : ( $shipment_api_response['errors'] ?? null ),
             'shipment_created_at' => $shipment_api_response['createdAt'] ?? null,
             'shipment_cost'       => (float) ( $shipment_api_response['cost'] ?? 0 ),
         );
@@ -99,7 +99,7 @@ class ShipmentService {
             'shipment_id'         => $shipment_id,
             'current_status'      => $current_status,
             'last_status'         => $order->get_meta( '_nova_post_shipment_status' ),
-            'shipment_errors'     => $shipment_api_response['errors'] ?? null,
+            'shipment_errors'     => ! empty( $order->get_meta( '_nova_post_shipment_errors' ) ) ? $order->get_meta( '_nova_post_shipment_errors' ) : ( $shipment_api_response['errors'] ?? null ),
             'shipment_created_at' => $shipment_api_response['createdAt'] ?? null,
         );
     }

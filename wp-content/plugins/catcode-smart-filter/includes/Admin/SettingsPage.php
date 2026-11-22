@@ -150,7 +150,15 @@ class SettingsPage {
 			$values[ $key ] = is_scalar( $value ) ? sanitize_text_field( (string) $value ) : $default;
 		}
 
+		$was_variation_stock = Settings::is_on( 'variation_stock' );
+
 		Settings::set( $values );
+
+		// Switching between product-level and variation-level values changes what
+		// every index row means.
+		if ( Settings::is_on( 'variation_stock' ) !== $was_variation_stock ) {
+			Indexer::schedule_rebuild();
+		}
 
 		// Settings decide what the counters mean, so cached answers cannot survive
 		// a save.

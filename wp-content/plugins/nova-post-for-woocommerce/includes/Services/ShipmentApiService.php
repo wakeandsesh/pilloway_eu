@@ -17,6 +17,7 @@ use NovaPostForWoocommerce\Exceptions\ShipmentException;
 use WC_Order;
 use NovaPostForWoocommerce\Helpers\ShipmentStatusHelper;
 use NovaPostForWoocommerce\Services\ShipmentService;
+use NovaPostForWoocommerce\Services\ShipmentErrorFormatter;
 
 /**
  * Handles all API interactions with Nova Post shipping service.
@@ -44,7 +45,7 @@ class ShipmentApiService {
      *     tracking_url: string,
      *     status: string,
      *     shipment_id: string
-     * } Shipment information.
+     * @throws ShipmentException If the shipment cannot be created.
      * @throws ShipmentException If the shipment cannot be created.
      */
     public static function create_shipment_from_order( $order_id, $note = '' ): array {
@@ -78,8 +79,10 @@ class ShipmentApiService {
         $order->update_meta_data( '_nova_post_shipment_api_response', $api_response );
         $order->delete_meta_data( '_nova_post_shipment_errors' );
 
-        if ( isset( $api_response['errors'] ) ) {
-            $order->update_meta_data( '_nova_post_shipment_errors', $api_response['errors'] );
+        $formatted_errors = null;
+        if ( isset( $api_response['errors'] ) && is_array( $api_response['errors'] ) ) {
+            $formatted_errors = ShipmentErrorFormatter::format_errors( $api_response['errors'] );
+            $order->update_meta_data( '_nova_post_shipment_errors', $formatted_errors );
         }
 
         $order->save_meta_data();
@@ -89,15 +92,15 @@ class ShipmentApiService {
             ShipmentService::shipment_created( $order );
             return ShipmentService::get_order_shipment_info( $order );
         } else {
-            $encoded_errors = wp_json_encode( $api_response['errors'] ?? null );
+            $error_message = ! empty( $formatted_errors ) ? reset( $formatted_errors ) : __( 'Shipment creation failed', 'nova-post-for-woocommerce' );
             throw new ShipmentException(
-                __( 'Shipment creation failed', 'nova-post-for-woocommerce' ),
+                $error_message,
                 400,
                 array(
-                    'message'      => $encoded_errors,
+                    'message'      => $error_message,
                     'api_request'  => $shipment_data,
                     'api_response' => $api_response,
-                    'api_errors'   => $api_response['errors'] ?? null,
+                    'api_errors'   => $formatted_errors ?? ( $api_response['errors'] ?? null ),
                 )
             );
         }
@@ -333,6 +336,18 @@ class ShipmentApiService {
             }
         }
 
+        if ( ! empty( $shipment_data['services'] ) && is_array( $shipment_data['services'] ) ) {
+            foreach ( $shipment_data['services'] as &$service ) {
+                if ( ! isset( $service['type'] ) && isset( $service['serviceCode'] ) ) {
+                    $service['type'] = $service['serviceCode'];
+                }
+                if ( ! isset( $service['currency'] ) && isset( $service['additionalParameters']['cod']['bankAccount']['currencyCode'] ) ) {
+                    $service['currency'] = $service['additionalParameters']['cod']['bankAccount']['currencyCode'];
+                }
+            }
+            unset( $service );
+        }
+
         return $shipment_data;
     }
 
@@ -363,14 +378,18 @@ class ShipmentApiService {
         $is_same_country       = ShipmentService::is_local_delivery( $order );
         $payer_contract_number = trim( (string) ( $is_same_country ? $settings->domestic_cn : $settings->international_cn ) );
 
+        $delivery_payer        = $settings->delivery_payer ?? 'Sender';
+        $payer_type            = 'Recipient' === $delivery_payer ? 'Recipient' : 'Sender';
+        $payer_contract_number = 'Recipient' === $payer_type ? null : ( empty( $payer_contract_number ) ? null : $payer_contract_number );
+
         $invoice_data = ShipmentInvoiceService::prepare_invoice_data( $order, $settings );
 
         $shipment_data = array(
             'status'              => ShipmentService::STATUS_READY_TO_SHIP,
             'clientOrder'         => $order->get_order_number(),
             'note'                => $note,
-            'payerType'           => 'Sender',
-            'payerContractNumber' => empty( $payer_contract_number ) ? null : $payer_contract_number,
+            'payerType'           => $payer_type,
+            'payerContractNumber' => $payer_contract_number,
             'invoice'             => $invoice_data,
             'services'            => array(),
             'parcels'             => array(),
@@ -398,7 +417,10 @@ class ShipmentApiService {
         }
 
         if ( $order->get_payment_method() === 'cod' && self::COUNTRY_UA !== $settings->sender_country ) {
-            $shipment_data['services'][] = ShipmentCodService::prepare_cod_data( $order, $settings );
+            $cod_data = ShipmentCodService::prepare_cod_data( $order, $settings );
+            if ( ! empty( $cod_data ) ) {
+                $shipment_data['services'][] = $cod_data;
+            }
         }
 
         $shipment_data['parcels'] = ShipmentParcelsService::prepare_parcels_data( $order, $settings );
@@ -446,6 +468,22 @@ class ShipmentApiService {
 
         if ( empty( $shipment_data['parcels'] ) ) {
             return __( 'At least one parcel is required', 'nova-post-for-woocommerce' );
+        }
+
+        foreach ( $shipment_data['services'] ?? array() as $service ) {
+            if ( ( $service['serviceCode'] ?? '' ) === 'COD' ) {
+                if ( ! empty( $service['exchange_rate_error'] ) ) {
+                    return __( 'The Nova Post exchange rate for converting the cash on delivery amount is not available. Try again later or select another currency in the COD settings.', 'nova-post-for-woocommerce' );
+                }
+
+                $bank_account = $service['additionalParameters']['cod']['bankAccount'] ?? array();
+                if ( empty( $bank_account['bankAccountId'] ) ) {
+                    return __( 'Bank Account Id (tax identification number) is required for cash on delivery. Fill it in the COD settings.', 'nova-post-for-woocommerce' );
+                }
+                if ( empty( $bank_account['bankAccountName'] ) ) {
+                    return __( 'IBAN is required for cash on delivery. Fill it in the COD settings.', 'nova-post-for-woocommerce' );
+                }
+            }
         }
 
         return null;

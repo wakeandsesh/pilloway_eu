@@ -1,7 +1,7 @@
 === Nova Post for WooCommerce ===
 Contributors: Nova Post
 Tags: woocommerce, shipping, nova post, parcel tracking, shipping rates
-Stable tag: 2.5.0
+Stable tag: 2.6.1
 Requires Plugins: woocommerce
 Requires PHP: 8.0
 Requires at least: 6.6
@@ -53,6 +53,14 @@ Yes, the plugin supports Nova Post deliveries across multiple European countries
 4. Printing Nova Post shipping labels and invoices
 
 == Changelog ==
+= 2.6.1 =
+Fixed: “Unsupported operand types” error when a product has no dimensions (length, width or height) set.
+
+= 2.6.0 =
+Added: Recipient Payment option, so the recipient can pay for Nova Post logistics services.
+Added: Support for PID fields required for EU customs clearance on Nova Post Cross-Border shipments from worldwide to the EU.
+Improved: Extended Cash on Delivery (COD) support in the Nova Post integration.
+
 = 2.5.0 =
 * Added: Support for International shipping for sellers located in Ukraine.
 * Improved: Replaced the checkout branch selector with the official Nova Post Widget.

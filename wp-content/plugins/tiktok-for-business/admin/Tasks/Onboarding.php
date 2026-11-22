@@ -96,7 +96,8 @@ class Tt4b_Onboarding extends Task {
 	 * @return string
 	 */
 	public function get_parent_id() {
-		if ( is_callable( 'parent::get_parent_id' ) ) {
+		// Avoid is_callable( 'parent::...' ), which is deprecated since PHP 8.2.
+		if ( method_exists( parent::class, 'get_parent_id' ) && ! ( new ReflectionMethod( parent::class, 'get_parent_id' ) )->isAbstract() ) {
 			return parent::get_parent_id();
 		}
 

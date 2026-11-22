@@ -3,8 +3,8 @@ Contributors: tiktokforbusiness, woocommerce, automattic
 Tags: tiktok
 Requires at least: 5.7.0
 Tested up to: 7.1
-Stable tag: 1.4.2
-Requires PHP: 7.0
+Stable tag: 1.4.3
+Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -159,6 +159,11 @@ Click [here](https://ads.tiktok.com/help/article?aid=9550) for a detailed overvi
 Please [open a support ticket](https://woo.com/contact-us/).
 
 == Changelog ==
+2026-10-30 - Version 1.4.3
+* Update - Raise the minimum PHP requirement to 7.4
+* Fix - Avoid deprecated callable usage in WooCommerce onboarding on newer PHP versions
+* Fix - Decode catalog HTML entities consistently across supported PHP versions
+
 2026-09-16 - Version 1.4.2
 * Fix - Restrict the TikTok OAuth callback to authorized admin requests and validate a state parameter before storing the access token
 * Fix - Stop writing app credentials and the OAuth auth_code to the WooCommerce log

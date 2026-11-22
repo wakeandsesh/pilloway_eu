@@ -10,12 +10,16 @@ namespace NovaPostForWoocommerce\Checkout;
 
 use Automattic\WooCommerce\StoreApi\Schemas\V1\CartSchema;
 use Automattic\WooCommerce\StoreApi\Exceptions\RouteException;
+use NovaPostForWoocommerce\Adapters\ProductAdapter;
+use NovaPostForWoocommerce\Helpers\MeasurementUnitConstants;
 use NovaPostForWoocommerce\Validation\CheckoutPageValidator;
 use NovaPostForWoocommerce\Widget\NovaPostWidgetIntegration;
 use NovaPostForWoocommerce\Services\OrderService;
 use NovaPostForWoocommerce\Models\UserStorage;
 use NovaPostForWoocommerce\Models\NovaPostSettings;
 use NovaPostForWoocommerce\Services\ClassicCheckoutStateService;
+use NovaPostForWoocommerce\Shipping\NovaPostShippingMethodAddress;
+use NovaPostForWoocommerce\Shipping\NovaPostShippingMethodDivision;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -24,10 +28,19 @@ defined( 'ABSPATH' ) || exit;
  */
 class CheckoutSetup {
     /**
+     * Maximum parcel longest side in millimeters.
+     */
+    private const MAX_LONGEST_SIDE_MM = 3000;
+
+    /**
+     * Maximum parcel secondary sides in millimeters.
+     */
+    private const MAX_SECONDARY_SIDE_MM = 1700;
+
+    /**
      * Construct.
      */
     public function __construct() {
-
         add_action( 'woocommerce_blocks_checkout_block_registration', array( $this, 'register_checkout_block' ) );
 
         /**
@@ -88,6 +101,10 @@ class CheckoutSetup {
          * Inject Nova Post state into classic checkout fragments.
          */
         add_filter( 'woocommerce_update_order_review_fragments', array( $this, 'inject_checkout_fragments' ), 99 );
+
+        add_filter( 'woocommerce_package_rates', array( $this, 'filter_package_rates' ), 100, 2 );
+
+        add_filter( 'woocommerce_cart_shipping_packages', array( $this, 'add_locale_to_shipping_packages' ) );
     }
 
     /**
@@ -173,8 +190,8 @@ class CheckoutSetup {
                 'type'        => array( 'boolean', 'null' ),
                 'readonly'    => true,
             ),
-            'error_calculation_warehouse'   => array(
-                'description' => 'Warehouse delivery calculation error',
+            'error_calculation_division'    => array(
+                'description' => 'Division delivery calculation error',
                 'type'        => array( 'boolean', 'null' ),
                 'readonly'    => true,
             ),
@@ -213,6 +230,35 @@ class CheckoutSetup {
         $fragments['nova_post_state'] = $service->get_state();
 
         return $fragments;
+    }
+
+    /**
+     * Filter WooCommerce package rates.
+     *
+     * @param array $rates   Shipping rates.
+     * @param array $package WooCommerce shipping package.
+     * @return array
+     */
+    public function filter_package_rates( $rates, $package ) {
+        if ( ! is_array( $rates ) || ! is_array( $package ) ) {
+            return $rates;
+        }
+
+        if ( ! $this->package_exceeds_limits( $package ) ) {
+            return $rates;
+        }
+
+        $user_storage = UserStorage::get_instance();
+        $user_storage->set( 'error_calculation_division', true );
+        $user_storage->set( 'error_calculation_address', true );
+
+        foreach ( $rates as $rate_key => $rate ) {
+            if ( $this->is_nova_post_rate( $rate, (string) $rate_key ) ) {
+                unset( $rates[ $rate_key ] );
+            }
+        }
+
+        return $rates;
     }
 
     /**
@@ -264,6 +310,91 @@ class CheckoutSetup {
 
         return CheckoutPageValidator::validate( $data );
     }
+
+    /**
+     * Check whether rate belongs to Nova Post shipping methods.
+     *
+     * @param mixed  $rate     WooCommerce shipping rate.
+     * @param string $rate_key Shipping rate array key.
+     * @return bool
+     */
+    private function is_nova_post_rate( $rate, string $rate_key ): bool {
+        $method_id = '';
+
+        if ( is_object( $rate ) && method_exists( $rate, 'get_method_id' ) ) {
+            $method_id = (string) $rate->get_method_id();
+        } elseif ( is_object( $rate ) && isset( $rate->method_id ) ) {
+            $method_id = (string) $rate->method_id;
+        } elseif ( is_array( $rate ) && isset( $rate['method_id'] ) ) {
+            $method_id = (string) $rate['method_id'];
+        }
+
+        return $this->is_nova_post_method_id( $method_id )
+            || str_starts_with( $rate_key, NovaPostShippingMethodDivision::METHOD_ID )
+            || str_starts_with( $rate_key, NovaPostShippingMethodAddress::METHOD_ID );
+    }
+
+    /**
+     * Check whether method ID belongs to Nova Post shipping methods.
+     *
+     * @param string|null $method_id Shipping method ID.
+     * @return bool
+     */
+    private function is_nova_post_method_id( ?string $method_id ): bool {
+        return in_array(
+            $method_id,
+            array(
+                NovaPostShippingMethodDivision::METHOD_ID,
+                NovaPostShippingMethodAddress::METHOD_ID,
+            ),
+            true
+        );
+    }
+
+    /**
+     * Check whether package exceeds currently supported Nova Post limits.
+     *
+     * @param array $package WooCommerce shipping package.
+     * @return bool
+     */
+    private function package_exceeds_limits( array $package ): bool {
+        foreach ( $package['contents'] ?? array() as $item ) {
+            $product = $item['data'] ?? null;
+
+            if ( ! $product instanceof \WC_Product ) {
+                continue;
+            }
+
+            if ( method_exists( $product, 'needs_shipping' ) && ! $product->needs_shipping() ) {
+                continue;
+            }
+
+            $adapter = new ProductAdapter( $product );
+
+            if ( $adapter->get_weight_in_grams() > MeasurementUnitConstants::UPPER_WEIGHT_LIMIT ) {
+                return true;
+            }
+
+            $dimensions = array(
+                (int) $adapter->get_length_in_mm(),
+                (int) $adapter->get_width_in_mm(),
+                (int) $adapter->get_height_in_mm(),
+            );
+
+            rsort( $dimensions, SORT_NUMERIC );
+
+            if (
+                $dimensions[0] > self::MAX_LONGEST_SIDE_MM
+                || $dimensions[1] > self::MAX_SECONDARY_SIDE_MM
+                || $dimensions[2] > self::MAX_SECONDARY_SIDE_MM
+            ) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     /**
      * Change checkout fields.
      *
@@ -280,6 +411,22 @@ class CheckoutSetup {
         }
 
         return $fields;
+    }
+
+    /**
+     * Add current locale to shipping packages to prevent cross-language shipping cache collisions.
+     *
+     * @param array $packages Cart shipping packages.
+     * @return array
+     */
+    public function add_locale_to_shipping_packages( array $packages ): array {
+        $locale = function_exists( 'determine_locale' ) ? determine_locale() : get_locale();
+
+        foreach ( $packages as $key => $package ) {
+            $packages[ $key ]['nova_post_locale'] = $locale;
+        }
+
+        return $packages;
     }
 
     /**

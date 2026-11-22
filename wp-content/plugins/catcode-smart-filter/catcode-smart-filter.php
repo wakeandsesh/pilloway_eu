@@ -3,7 +3,7 @@
  * Plugin Name: CatCode Smart Filter for WooCommerce
  * Plugin URI: https://catcode.com.ua/modules/smart-filter-woocommerce/
  * Description: Faceted product filter that stays fast on a large catalogue: its own index table instead of attribute meta queries, honest counters, merging of duplicate values ("12 V" / "12v") and numeric sorting. Applies without a page reload, with a mobile drawer and a price slider.
- * Version: 1.0.3
+ * Version: 1.1.1
  * Requires at least: 6.2
  * Requires PHP: 7.4
  * Requires Plugins: woocommerce
@@ -24,7 +24,7 @@ defined( 'ABSPATH' ) || exit;
 // Per-constant guards keep WP's activation sandbox-scrape (which includes this
 // file twice) from emitting "already defined" warnings — without ever skipping
 // the include/hook registration below.
-defined( 'CATCODE_SF_VERSION' ) || define( 'CATCODE_SF_VERSION', '1.0.3' );
+defined( 'CATCODE_SF_VERSION' ) || define( 'CATCODE_SF_VERSION', '1.1.1' );
 defined( 'CATCODE_SF_FILE' ) || define( 'CATCODE_SF_FILE', __FILE__ );
 defined( 'CATCODE_SF_DIR' ) || define( 'CATCODE_SF_DIR', plugin_dir_path( __FILE__ ) );
 defined( 'CATCODE_SF_URL' ) || define( 'CATCODE_SF_URL', plugin_dir_url( __FILE__ ) );

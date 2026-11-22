@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'nova-post/nova-post-for-woocommerce',
-        'pretty_version' => '2.5.0',
-        'version' => '2.5.0.0',
-        'reference' => '98159e904b1bb66ec87f44ab25f22e03648d6fc1',
+        'pretty_version' => '2.6.1',
+        'version' => '2.6.1.0',
+        'reference' => '96d075ec645b031f34cbcf98e26108568f1f6f1c',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -56,9 +56,9 @@
             'dev_requirement' => false,
         ),
         'nova-post/nova-post-for-woocommerce' => array(
-            'pretty_version' => '2.5.0',
-            'version' => '2.5.0.0',
-            'reference' => '98159e904b1bb66ec87f44ab25f22e03648d6fc1',
+            'pretty_version' => '2.6.1',
+            'version' => '2.6.1.0',
+            'reference' => '96d075ec645b031f34cbcf98e26108568f1f6f1c',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

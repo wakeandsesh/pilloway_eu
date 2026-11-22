@@ -23,23 +23,6 @@ defined( 'ABSPATH' ) || exit;
 
 class Query {
 
-	/** The language of the current archive, including Polylang directory URLs. */
-	public static function current_language(): string {
-		$available = function_exists( 'pll_languages_list' ) ? pll_languages_list( array( 'fields' => 'slug' ) ) : array();
-		$candidates = array( get_query_var( 'lang' ) );
-		if ( isset( $_GET['lang'] ) && is_string( $_GET['lang'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only language selector.
-			$candidates[] = sanitize_key( wp_unslash( $_GET['lang'] ) );
-		}
-		foreach ( $candidates as $candidate ) {
-			$candidate = is_string( $candidate ) ? sanitize_key( $candidate ) : '';
-			if ( '' !== $candidate && in_array( $candidate, (array) $available, true ) ) {
-				return $candidate;
-			}
-		}
-		$lang = function_exists( 'pll_current_language' ) ? pll_current_language( 'slug' ) : '';
-		return is_string( $lang ) ? $lang : '';
-	}
-
 	/**
 	 * @param array<string,array<int,string>> $selection
 	 */
@@ -48,7 +31,20 @@ class Query {
 
 		$parts = array();
 
+		// Size and colour picked together have to meet in one variation: a shirt
+		// sold in L/blue and M/red is not an "L, red" shirt. One attribute alone
+		// needs no pairing, so the plain condition below serves it.
+		$joint = self::joint_facets( $selection );
+
+		if ( count( $joint ) < 2 ) {
+			$joint = array();
+		}
+
 		foreach ( $selection as $key => $values ) {
+			if ( isset( $joint[ $key ] ) ) {
+				continue;
+			}
+
 			switch ( $key ) {
 				case 'p':
 					$condition = self::price_condition( (string) ( $values[0] ?? '' ) );
@@ -80,7 +76,194 @@ class Query {
 			}
 		}
 
+		if ( $joint ) {
+			$parts[] = self::joint_condition( $joint, $selection );
+		}
+
 		return $parts ? implode( ' AND ', $parts ) : '';
+	}
+
+	/** @var array<string,object|null> */
+	private static $facet_cache = array();
+
+	private static function facet( string $facet_key ): ?object {
+		if ( ! array_key_exists( $facet_key, self::$facet_cache ) ) {
+			self::$facet_cache[ $facet_key ] = Facets::by_key( $facet_key );
+		}
+
+		return self::$facet_cache[ $facet_key ];
+	}
+
+	/**
+	 * Selected facets whose values can belong to a single variation: attributes
+	 * with "any of" logic. An "all of" facet asks about the product as a whole,
+	 * and taxonomies never vary inside a product.
+	 *
+	 * @param array<string,array<int,string>> $selection
+	 * @return array<string,object>
+	 */
+	public static function joint_facets( array $selection, string $except = '' ): array {
+		if ( ! Settings::is_on( 'variation_stock' ) ) {
+			return array();
+		}
+
+		$out = array();
+
+		foreach ( $selection as $key => $values ) {
+			$key = (string) $key;
+
+			if ( $key === $except || in_array( $key, array( 'p', 's', 'r', 'o', 'c' ), true ) || ! $values ) {
+				continue;
+			}
+
+			$facet = self::facet( $key );
+
+			if ( $facet && Settings::SRC_ATTRIBUTE === $facet->source && 'and' !== $facet->logic ) {
+				$out[ $key ] = $facet;
+			}
+		}
+
+		return $out;
+	}
+
+	/**
+	 * The part of a facet condition that tests one index row, under the alias
+	 * given: its facet and either its value or its number.
+	 *
+	 * @param array<int,string> $values
+	 */
+	private static function row_predicate( object $facet, array $values, string $alias ): string {
+		global $wpdb;
+
+		$facet_id = (int) $facet->facet_id;
+		$first    = (string) ( $values[0] ?? '' );
+
+		if ( Params::is_range( $first ) ) {
+			$range = Params::range_parts( $first );
+
+			if ( ! $range ) {
+				return '1=0';
+			}
+
+			return $wpdb->prepare( "{$alias}.facet_id = %d AND {$alias}.num_value BETWEEN %f AND %f", $facet_id, $range['from'], $range['to'] );
+		}
+
+		$ids = self::value_ids( $facet_id, $values );
+
+		if ( ! $ids ) {
+			return '1=0';
+		}
+
+		return $wpdb->prepare( "{$alias}.facet_id = %d", $facet_id ) . " AND {$alias}.value_id IN (" . implode( ',', $ids ) . ')';
+	}
+
+	/** @var array<string,array<int,int>> */
+	private static $id_cache = array();
+
+	/**
+	 * @param array<int,string> $slugs
+	 * @return array<int,int>
+	 */
+	private static function value_ids( int $facet_id, array $slugs ): array {
+		global $wpdb;
+
+		$slugs = array_values( array_unique( array_map( 'strval', $slugs ) ) );
+		$key   = $facet_id . '|' . implode( ',', $slugs );
+
+		if ( isset( self::$id_cache[ $key ] ) ) {
+			return self::$id_cache[ $key ];
+		}
+
+		if ( ! $slugs ) {
+			return array();
+		}
+
+		$table        = Repository::values_table();
+		$placeholders = implode( ',', array_fill( 0, count( $slugs ), '%s' ) );
+
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery, WordPress.DB.PreparedSQL
+		$ids = (array) $wpdb->get_col( $wpdb->prepare( "SELECT value_id FROM {$table} WHERE facet_id = %d AND value_slug IN ({$placeholders})", array_merge( array( $facet_id ), $slugs ) ) );
+
+		self::$id_cache[ $key ] = array_map( 'intval', $ids );
+
+		return self::$id_cache[ $key ];
+	}
+
+	/**
+	 * One variation — or the product itself — has to satisfy every facet of the
+	 * group. A matching row of the first facet nominates the candidate: at a
+	 * variation it is that variation, and the other facets have to match it or
+	 * the product as a whole; at variation 0 the first facet holds for the whole
+	 * product, so the rest of the group is paired among itself.
+	 *
+	 * Nominating from the first facet's matching rows, not from every row of the
+	 * product, is what keeps this cheap: a handful of candidates per product
+	 * instead of one per variation and attribute.
+	 *
+	 * @param array<string,object>            $joint
+	 * @param array<string,array<int,string>> $selection
+	 */
+	private static function joint_condition( array $joint, array $selection, string $product = '', int &$n = 0 ): string {
+		global $wpdb;
+
+		$index   = Repository::index_table();
+		$product = '' !== $product ? $product : "{$wpdb->posts}.ID";
+		$key     = (string) key( $joint );
+		$first   = array_shift( $joint );
+		$alias   = 'cfj' . ( ++$n );
+		$match   = self::row_predicate( $first, (array) $selection[ $key ], $alias );
+
+		if ( ! $joint ) {
+			return "EXISTS (SELECT 1 FROM {$index} {$alias} WHERE {$alias}.product_id = {$product} AND {$match})";
+		}
+
+		$conds = array();
+
+		foreach ( $joint as $other_key => $facet ) {
+			$other = 'cfj' . ( ++$n );
+
+			$conds[] = "EXISTS (SELECT 1 FROM {$index} {$other}
+				WHERE {$other}.product_id = {$product}
+					AND " . self::row_predicate( $facet, (array) $selection[ $other_key ], $other ) . "
+					AND {$other}.variation_id IN (0, {$alias}.variation_id))";
+		}
+
+		$rest = self::joint_condition( $joint, $selection, $product, $n );
+
+		return "EXISTS (SELECT 1 FROM {$index} {$alias}
+			WHERE {$alias}.product_id = {$product} AND {$match}
+				AND ( ( {$alias}.variation_id <> 0 AND " . implode( ' AND ', $conds ) . " )
+					OR ( {$alias}.variation_id = 0 AND {$rest} ) ))";
+	}
+
+	/**
+	 * For a counter: an index row of a variation only counts when that same
+	 * variation also matches the other selected attributes. A product-level row
+	 * needs no check — the base set already holds only products that match.
+	 *
+	 * @param array<string,array<int,string>> $selection
+	 */
+	public static function joint_row_clause( array $selection, string $except, string $row ): string {
+		$joint = self::joint_facets( $selection, $except );
+
+		if ( ! $joint ) {
+			return '';
+		}
+
+		$index = Repository::index_table();
+		$conds = array();
+		$n     = 0;
+
+		foreach ( $joint as $key => $facet ) {
+			$alias = 'cfk' . ( ++$n );
+
+			$conds[] = "EXISTS (SELECT 1 FROM {$index} {$alias}
+				WHERE {$alias}.product_id = {$row}.product_id
+					AND " . self::row_predicate( $facet, (array) $selection[ $key ], $alias ) . "
+					AND {$alias}.variation_id IN (0, {$row}.variation_id))";
+		}
+
+		return "({$row}.variation_id = 0 OR (" . implode( ' AND ', $conds ) . '))';
 	}
 
 	/**
@@ -265,20 +448,6 @@ class Query {
 			"{$wpdb->posts}.post_status = 'publish'",
 		);
 
-		// The index contains every translation. Keep counter queries in the same
-		// Polylang language as the archive, just like Polylang keeps the product
-		// loop itself in that language.
-		$lang = self::current_language();
-		if ( is_string( $lang ) && '' !== $lang && taxonomy_exists( 'language' ) ) {
-			$where[] = $wpdb->prepare(
-				"EXISTS (SELECT 1 FROM {$wpdb->term_relationships} cflr
-					INNER JOIN {$wpdb->term_taxonomy} cflt ON cflt.term_taxonomy_id = cflr.term_taxonomy_id
-					INNER JOIN {$wpdb->terms} cfl ON cfl.term_id = cflt.term_id
-					WHERE cflr.object_id = {$wpdb->posts}.ID AND cflt.taxonomy = 'language' AND cfl.slug = %s)",
-				$lang
-			);
-		}
-
 		if ( ! empty( $scope['taxonomy'] ) && ! empty( $scope['term_id'] ) ) {
 			$where[] = self::scope_condition( (string) $scope['taxonomy'], (int) $scope['term_id'] );
 		}
@@ -291,6 +460,12 @@ class Query {
 		// Products hidden from the catalogue must not be counted — otherwise the
 		// sidebar promises items the listing will never show.
 		$where[] = self::visibility_condition();
+
+		$language = self::language_condition();
+
+		if ( '' !== $language ) {
+			$where[] = $language;
+		}
 
 		$filter = self::where( $selection );
 
@@ -321,6 +496,48 @@ class Query {
 				INNER JOIN {$wpdb->term_taxonomy} cfst ON cfst.term_taxonomy_id = cfsr.term_taxonomy_id
 				WHERE cfsr.object_id = {$wpdb->posts}.ID AND cfst.taxonomy = %s AND cfst.term_id IN ({$in}))",
 			$taxonomy
+		);
+	}
+
+	/**
+	 * Polylang keeps every language version of a product as a post of its own. Without
+	 * this the counters on a page in one language would count the products of all of
+	 * them, and the values of the other language's terms would show up as options.
+	 */
+	public static function current_language(): string {
+		if ( ! function_exists( 'pll_current_language' ) || ! function_exists( 'pll_is_translated_post_type' ) || ! pll_is_translated_post_type( 'product' ) ) {
+			return '';
+		}
+
+		$slug = (string) pll_current_language();
+
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only counter request.
+		if ( '' === $slug && wp_doing_ajax() && ! empty( $_GET['lang'] ) ) {
+			$slug = sanitize_key( wp_unslash( $_GET['lang'] ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		}
+
+		return function_exists( 'pll_languages_list' ) && in_array( $slug, (array) pll_languages_list(), true ) ? $slug : '';
+	}
+
+	private static function language_condition(): string {
+		global $wpdb;
+
+		$slug = self::current_language();
+
+		if ( '' === $slug ) {
+			return '';
+		}
+
+		$term = get_term_by( 'slug', $slug, 'language' );
+
+		if ( ! $term ) {
+			return '';
+		}
+
+		return $wpdb->prepare(
+			"EXISTS (SELECT 1 FROM {$wpdb->term_relationships} cflr
+				WHERE cflr.object_id = {$wpdb->posts}.ID AND cflr.term_taxonomy_id = %d)",
+			(int) $term->term_taxonomy_id
 		);
 	}
 

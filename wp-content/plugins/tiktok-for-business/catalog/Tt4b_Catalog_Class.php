@@ -1180,7 +1180,7 @@ class Tt4b_Catalog_Class {
 				$value = get_post_meta( $product->get_id(), $field, true );
 			}
 			if ( ! empty( $value ) ) {
-				$value = html_entity_decode( $value );
+				$value = html_entity_decode( $value, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401 );
 				if ( 'product_type' === $field ) {
 					// v1.3 API uses product_detail.product_category, not top-level product_type.
 					$dpa_product['product_detail']['product_category'] = $value;
@@ -1200,7 +1200,12 @@ class Tt4b_Catalog_Class {
 			}
 			$categories = wp_get_post_terms( $product_id, 'product_cat', array( 'fields' => 'names' ) );
 			if ( ! is_wp_error( $categories ) && ! empty( $categories ) ) {
-				$decoded = array_map( 'html_entity_decode', $categories );
+				$decoded = array_map(
+					function ( $category ) {
+						return html_entity_decode( $category, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401 );
+					},
+					$categories
+				);
 				$dpa_product['product_detail']['product_category'] = implode( ' > ', $decoded );
 			}
 		}

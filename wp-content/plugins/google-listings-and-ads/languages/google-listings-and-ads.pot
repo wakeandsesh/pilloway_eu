@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: Google for WooCommerce 3.9.6\n"
+"Project-Id-Version: Google for WooCommerce 3.10.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/google-listings-and-ads\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-12T15:39:40+00:00\n"
+"POT-Creation-Date: 2026-11-16T13:18:30+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: google-listings-and-ads\n"
@@ -274,7 +274,7 @@ msgstr ""
 msgid "Account must be accepted before completing setup."
 msgstr ""
 
-#: src/Ads/AccountService.php:356
+#: src/Ads/AccountService.php:358
 msgid "Billing setup must be completed."
 msgstr ""
 
@@ -406,60 +406,61 @@ msgid "Error retrieving asset groups assets by final url: %s"
 msgstr ""
 
 #. translators: %s Error message
-#: src/API/Google/AdsCampaign.php:187
+#: src/API/Google/AdsCampaign.php:188
+#: src/API/Google/AdsCampaign.php:199
 #, php-format
 msgid "Error retrieving campaigns: %s"
 msgstr ""
 
 #. translators: %s Error message
-#: src/API/Google/AdsCampaign.php:233
+#: src/API/Google/AdsCampaign.php:245
 #, php-format
 msgid "Error retrieving campaigns missing EU political declaration: %s"
 msgstr ""
 
 #. translators: %s Error message
-#: src/API/Google/AdsCampaign.php:279
+#: src/API/Google/AdsCampaign.php:291
 #, php-format
 msgid "Error retrieving campaign: %s"
 msgstr ""
 
 #. translators: %s Error message
-#: src/API/Google/AdsCampaign.php:383
+#: src/API/Google/AdsCampaign.php:395
 #, php-format
 msgid "Error creating campaign: %s"
 msgstr ""
 
-#: src/API/Google/AdsCampaign.php:386
+#: src/API/Google/AdsCampaign.php:398
 msgid "A campaign with this name already exists"
 msgstr ""
 
 #. translators: %s Error message
-#: src/API/Google/AdsCampaign.php:447
+#: src/API/Google/AdsCampaign.php:459
 #, php-format
 msgid "Error editing campaign: %s"
 msgstr ""
 
 #. translators: %s Error message
-#: src/API/Google/AdsCampaign.php:491
+#: src/API/Google/AdsCampaign.php:503
 #, php-format
 msgid "Error updating EU political advertising flag: %s"
 msgstr ""
 
 #. translators: %s Error message
-#: src/API/Google/AdsCampaign.php:553
+#: src/API/Google/AdsCampaign.php:565
 #, php-format
 msgid "Error deleting campaign: %s"
 msgstr ""
 
-#: src/API/Google/AdsCampaign.php:556
+#: src/API/Google/AdsCampaign.php:568
 msgid "This campaign has already been deleted"
 msgstr ""
 
-#: src/API/Google/AdsCampaign.php:934
+#: src/API/Google/AdsCampaign.php:946
 msgid "Invalid campaign ID"
 msgstr ""
 
-#: src/API/Google/AdsCampaign.php:1169
+#: src/API/Google/AdsCampaign.php:1181
 msgid "Invalid geo target location ID"
 msgstr ""
 
@@ -496,7 +497,7 @@ msgid "Error retrieving conversion action: %s"
 msgstr ""
 
 #. translators: %s Error message
-#: src/API/Google/AdsIncentives.php:208
+#: src/API/Google/AdsIncentives.php:300
 #, php-format
 msgid "Error applying incentive: %s"
 msgstr ""
@@ -526,28 +527,12 @@ msgstr ""
 msgid "An unknown error occurred in the Shopping Content Service."
 msgstr ""
 
-#: src/API/Google/Merchant.php:120
+#: src/API/Google/Merchant.php:103
 msgid "Website already claimed, use overwrite to complete the process."
 msgstr ""
 
-#: src/API/Google/Merchant.php:126
+#: src/API/Google/Merchant.php:109
 msgid "Unable to claim website."
-msgstr ""
-
-#. translators: %s Error message
-#: src/API/Google/Merchant.php:246
-#, php-format
-msgid "Unable to retrieve Merchant Center account: %s"
-msgstr ""
-
-#: src/API/Google/Merchant.php:298
-msgid "Unable to retrieve Merchant Center account status."
-msgstr ""
-
-#. translators: %s Error message
-#: src/API/Google/Merchant.php:321
-#, php-format
-msgid "Unable to update Merchant Center account: %s"
 msgstr ""
 
 #: src/API/Google/MerchantPriceBenchmarks.php:76
@@ -570,98 +555,78 @@ msgstr ""
 msgid "Unable to retrieve report data."
 msgstr ""
 
-#: src/API/Google/Middleware.php:79
+#: src/API/Google/Middleware.php:77
 msgid "Error retrieving accounts"
 msgstr ""
 
-#: src/API/Google/Middleware.php:96
-#: src/API/Google/Middleware.php:331
+#: src/API/Google/Middleware.php:94
+#: src/API/Google/Middleware.php:329
 msgid "Unable to log accepted TOS"
 msgstr ""
 
-#: src/API/Google/Middleware.php:101
+#: src/API/Google/Middleware.php:99
 #: src/API/Google/SiteVerification.php:60
-#: src/MerchantCenter/AccountService.php:472
+#: src/MerchantCenter/AccountService.php:452
 msgid "Invalid site URL."
 msgstr ""
 
-#: src/API/Google/Middleware.php:166
-#: src/API/Google/Middleware.php:371
+#: src/API/Google/Middleware.php:164
+#: src/API/Google/Middleware.php:369
 msgid "Invalid response when creating account"
 msgstr ""
 
-#: src/API/Google/Middleware.php:169
-#: src/API/Google/Middleware.php:377
+#: src/API/Google/Middleware.php:167
+#: src/API/Google/Middleware.php:375
 msgid "Error creating account"
 msgstr ""
 
-#: src/API/Google/Middleware.php:239
+#: src/API/Google/Middleware.php:237
 msgid "Invalid response when linking merchant to MCA"
 msgstr ""
 
-#: src/API/Google/Middleware.php:243
+#: src/API/Google/Middleware.php:241
 msgid "Error linking merchant to MCA"
 msgstr ""
 
-#: src/API/Google/Middleware.php:282
+#: src/API/Google/Middleware.php:280
 msgid "Invalid response when claiming website"
 msgstr ""
 
-#: src/API/Google/Middleware.php:293
-#: src/API/Google/Middleware.php:306
+#: src/API/Google/Middleware.php:291
+#: src/API/Google/Middleware.php:304
 msgid "Error claiming website"
 msgstr ""
 
-#: src/API/Google/Middleware.php:325
+#: src/API/Google/Middleware.php:323
 msgid "Store country is not supported"
 msgstr ""
 
-#: src/API/Google/Middleware.php:421
+#: src/API/Google/Middleware.php:419
 msgid "Invalid response when linking account"
 msgstr ""
 
-#: src/API/Google/Middleware.php:430
+#: src/API/Google/Middleware.php:428
 msgid "Error linking ads account"
 msgstr ""
 
-#: src/API/Google/Middleware.php:441
+#: src/API/Google/Middleware.php:439
 msgid "Error linking account"
 msgstr ""
 
-#: src/API/Google/Middleware.php:602
-msgid "Merchant ID must be set before updating in SDI."
-msgstr ""
-
-#: src/API/Google/Middleware.php:625
-msgid "Invalid response when updating merchant account in Google Partner APP."
-msgstr ""
-
-#: src/API/Google/Middleware.php:633
-msgid "Error updating merchant account in Google Partner APP."
-msgstr ""
-
-#: src/API/Google/Middleware.php:730
-msgid "Invalid response authenticating partner app."
-msgstr ""
-
-#: src/API/Google/Middleware.php:740
-msgid "Error authenticating Google Partner APP."
-msgstr ""
-
-#: src/API/Google/Middleware.php:775
+#: src/API/Google/Middleware.php:635
 msgid "Invalid response when fetching incentive credits."
 msgstr ""
 
-#: src/API/Google/Middleware.php:816
+#: src/API/Google/Middleware.php:676
 msgid "Error fetching incentive credits."
 msgstr ""
 
-#: src/API/Google/Middleware.php:837
-#: src/API/Google/Middleware.php:854
+#: src/API/Google/Middleware.php:697
+#: src/API/Google/Middleware.php:714
 msgid "Invalid response when retrieving MCA ID from WooCommerce Connect Server."
 msgstr ""
 
-#: src/API/Google/Middleware.php:864
+#: src/API/Google/Middleware.php:724
 msgid "Error retrieving MCA ID from WooCommerce Connect Server"
 msgstr ""
 
@@ -684,7 +649,7 @@ msgstr ""
 #: src/API/Site/Controllers/Ads/AccountController.php:161
 #: src/API/Site/Controllers/Google/AccountController.php:158
 #: src/API/Site/Controllers/Jetpack/AccountController.php:178
-#: src/API/Site/Controllers/YouTube/AccountController.php:120
+#: src/API/Site/Controllers/YouTube/AccountController.php:133
 msgid "Successfully disconnected."
 msgstr ""
 
@@ -1053,36 +1018,40 @@ msgstr ""
 msgid "Incentive credit amount."
 msgstr ""
 
-#: src/API/Site/Controllers/Ads/IncentivesController.php:160
+#: src/API/Site/Controllers/Ads/IncentivesController.php:169
 msgid "The incentive ID to apply."
 msgstr ""
 
-#: src/API/Site/Controllers/Ads/IncentivesController.php:177
+#: src/API/Site/Controllers/Ads/IncentivesController.php:186
 msgid "The offer type."
 msgstr ""
 
-#: src/API/Site/Controllers/Ads/IncentivesController.php:182
+#: src/API/Site/Controllers/Ads/IncentivesController.php:191
 msgid "The consolidated terms and conditions URL."
 msgstr ""
 
-#: src/API/Site/Controllers/Ads/IncentivesController.php:187
+#: src/API/Site/Controllers/Ads/IncentivesController.php:196
 msgid "The available incentive offers."
 msgstr ""
 
-#: src/API/Site/Controllers/Ads/IncentivesController.php:194
+#: src/API/Site/Controllers/Ads/IncentivesController.php:203
 msgid "The incentive ID."
 msgstr ""
 
-#: src/API/Site/Controllers/Ads/IncentivesController.php:198
+#: src/API/Site/Controllers/Ads/IncentivesController.php:207
 msgid "The incentive type."
 msgstr ""
 
-#: src/API/Site/Controllers/Ads/IncentivesController.php:203
+#: src/API/Site/Controllers/Ads/IncentivesController.php:212
 msgid "The offer level."
 msgstr ""
 
-#: src/API/Site/Controllers/Ads/IncentivesController.php:207
+#: src/API/Site/Controllers/Ads/IncentivesController.php:216
 msgid "The terms and conditions URL for this incentive."
+msgstr ""
+
+#: src/API/Site/Controllers/Ads/IncentivesController.php:255
+msgid "Whether an offer was already applied to the connected Google Ads account. Always false when no offers are returned."
 msgstr ""
 
 #: src/API/Site/Controllers/Ads/RecommendationsController.php:73
@@ -1260,30 +1229,10 @@ msgid "Token to retrieve the next page."
 msgstr ""
 
 #: src/API/Site/Controllers/BatchSchemaTrait.php:33
-#: src/API/Site/Controllers/MerchantCenter/MarketsController.php:433
+#: src/API/Site/Controllers/MerchantCenter/MarketsController.php:468
 #: src/API/Site/Controllers/MerchantCenter/ShippingRateSuggestionsController.php:64
 #: src/API/Site/Controllers/MerchantCenter/TargetAudienceController.php:333
 msgid "Array of country codes in ISO 3166-1 alpha-2 format."
-msgstr ""
-
-#: src/API/Site/Controllers/ConnectController.php:83
-msgid "Account connection triggered successfully."
-msgstr ""
-
-#: src/API/Site/Controllers/ConnectController.php:103
-msgid "Status of the connection request."
-msgstr ""
-
-#: src/API/Site/Controllers/ConnectController.php:109
-msgid "Message describing the connection result."
-msgstr ""
-
-#: src/API/Site/Controllers/ConnectController.php:115
-msgid "The Merchant Center ID that was connected."
-msgstr ""
-
-#: src/API/Site/Controllers/ConnectController.php:121
-msgid "The WordPress.com blog ID."
 msgstr ""
 
 #: src/API/Site/Controllers/CountryCodeTrait.php:72
@@ -1302,11 +1251,11 @@ msgstr ""
 msgid "The URL for making a connection to Google."
 msgstr ""
 
-#: src/API/Site/Controllers/GTINMigrationController.php:79
+#: src/API/Site/Controllers/GTINMigrationController.php:80
 msgid "GTIN Migration cannot be scheduled."
 msgstr ""
 
-#: src/API/Site/Controllers/GTINMigrationController.php:89
+#: src/API/Site/Controllers/GTINMigrationController.php:90
 msgid "GTIN Migration successfully started."
 msgstr ""
 
@@ -1451,82 +1400,70 @@ msgstr ""
 msgid "Page of data to retrieve."
 msgstr ""
 
-#: src/API/Site/Controllers/MerchantCenter/MarketsController.php:128
-#: src/API/Site/Controllers/MerchantCenter/MarketsController.php:255
-#: src/API/Site/Controllers/MerchantCenter/MarketsController.php:296
+#: src/API/Site/Controllers/MerchantCenter/MarketsController.php:129
+#: src/API/Site/Controllers/MerchantCenter/MarketsController.php:282
+#: src/API/Site/Controllers/MerchantCenter/MarketsController.php:323
 msgid "Market not found."
 msgstr ""
 
-#: src/API/Site/Controllers/MerchantCenter/MarketsController.php:191
+#: src/API/Site/Controllers/MerchantCenter/MarketsController.php:218
 msgid "Cannot create a market with a reserved ID."
 msgstr ""
 
-#: src/API/Site/Controllers/MerchantCenter/MarketsController.php:199
+#: src/API/Site/Controllers/MerchantCenter/MarketsController.php:226
 msgid "A market with this ID already exists."
 msgstr ""
 
-#: src/API/Site/Controllers/MerchantCenter/MarketsController.php:286
+#: src/API/Site/Controllers/MerchantCenter/MarketsController.php:313
 msgid "The primary market cannot be deleted."
 msgstr ""
 
-#: src/API/Site/Controllers/MerchantCenter/MarketsController.php:394
+#: src/API/Site/Controllers/MerchantCenter/MarketsController.php:411
+msgid "Whether Google Merchant Center supports the language."
+msgstr ""
+
+#: src/API/Site/Controllers/MerchantCenter/MarketsController.php:415
+msgid "Merchant Center content language the code resolves to, or null when unsupported."
+msgstr ""
+
+#: src/API/Site/Controllers/MerchantCenter/MarketsController.php:429
 msgid "Active language codes the currency is enabled for."
 msgstr ""
 
-#: src/API/Site/Controllers/MerchantCenter/MarketsController.php:419
+#: src/API/Site/Controllers/MerchantCenter/MarketsController.php:454
 msgid "Unique market identifier."
 msgstr ""
 
-#: src/API/Site/Controllers/MerchantCenter/MarketsController.php:426
+#: src/API/Site/Controllers/MerchantCenter/MarketsController.php:461
 msgid "Human-readable market label."
 msgstr ""
 
-#: src/API/Site/Controllers/MerchantCenter/MarketsController.php:440
+#: src/API/Site/Controllers/MerchantCenter/MarketsController.php:475
 msgid "Primary country code in ISO 3166-1 alpha-2 format. Null for the primary market."
 msgstr ""
 
-#: src/API/Site/Controllers/MerchantCenter/MarketsController.php:450
+#: src/API/Site/Controllers/MerchantCenter/MarketsController.php:485
 msgid "Language codes in ISO 639-1 format."
 msgstr ""
 
-#: src/API/Site/Controllers/MerchantCenter/MarketsController.php:457
+#: src/API/Site/Controllers/MerchantCenter/MarketsController.php:492
 msgid "Currency codes in ISO 4217 format."
 msgstr ""
 
-#: src/API/Site/Controllers/MerchantCenter/MarketsController.php:464
+#: src/API/Site/Controllers/MerchantCenter/MarketsController.php:499
 msgid "Fixed exchange rate applied to store prices for this market: units of market currency per unit of store currency. Lets a secondary market use a currency the site cannot otherwise produce. Ignored for the primary market."
 msgstr ""
 
-#: src/API/Site/Controllers/MerchantCenter/MarketsController.php:470
+#: src/API/Site/Controllers/MerchantCenter/MarketsController.php:505
 msgid "Shipping rate configuration type."
 msgstr ""
 
-#: src/API/Site/Controllers/MerchantCenter/MarketsController.php:477
+#: src/API/Site/Controllers/MerchantCenter/MarketsController.php:512
 msgid "Shipping time configuration type."
 msgstr ""
 
-#: src/API/Site/Controllers/MerchantCenter/MarketsController.php:484
+#: src/API/Site/Controllers/MerchantCenter/MarketsController.php:519
 msgid "Shipping configuration for this market: the global method types, and the flat values stored for the market's country. The flat values are reported whatever the types say, since rows are kept across mode switches."
-msgstr ""
-
-#: src/API/Site/Controllers/MerchantCenter/PhoneVerificationController.php:50
-msgid "Method used to verify the phone number."
-msgstr ""
-
-#: src/API/Site/Controllers/MerchantCenter/PhoneVerificationController.php:69
-msgid "Two-letter country code (ISO 3166-1 alpha-2) for the phone number."
-msgstr ""
-
-#: src/API/Site/Controllers/MerchantCenter/PhoneVerificationController.php:75
-msgid "The phone number to verify."
-msgstr ""
-
-#: src/API/Site/Controllers/MerchantCenter/PhoneVerificationController.php:95
-msgid "The verification ID returned by the /request call."
-msgstr ""
-
-#: src/API/Site/Controllers/MerchantCenter/PhoneVerificationController.php:101
-msgid "The verification code that was sent to the phone number for validation."
 msgstr ""
 
 #: src/API/Site/Controllers/MerchantCenter/PolicyComplianceCheckController.php:96
@@ -1789,27 +1726,35 @@ msgstr ""
 msgid "Error getting account review status."
 msgstr ""
 
-#: src/API/Site/Controllers/MerchantCenter/SettingsController.php:127
+#: src/API/Site/Controllers/MerchantCenter/SettingsController.php:162
 msgid "Merchant Center Settings successfully updated."
 msgstr ""
 
-#: src/API/Site/Controllers/MerchantCenter/SettingsController.php:142
+#: src/API/Site/Controllers/MerchantCenter/SettingsController.php:177
 msgid "Whether shipping rate is a simple flat rate or needs to be configured manually in the Merchant Center."
 msgstr ""
 
-#: src/API/Site/Controllers/MerchantCenter/SettingsController.php:156
+#: src/API/Site/Controllers/MerchantCenter/SettingsController.php:191
 msgid "Whether shipping time is a simple flat time or needs to be configured manually in the Merchant Center."
 msgstr ""
 
-#: src/API/Site/Controllers/MerchantCenter/SettingsController.php:169
-msgid "Whether tax rate is destination based or need to be configured manually in the Merchant Center."
-msgstr ""
-
-#: src/API/Site/Controllers/MerchantCenter/SettingsController.php:183
+#: src/API/Site/Controllers/MerchantCenter/SettingsController.php:204
 msgid "The number of shipping rates in WC ready to be used in the Merchant Center."
 msgstr ""
 
-#: src/API/Site/Controllers/MerchantCenter/SettingsSyncController.php:91
+#: src/API/Site/Controllers/MerchantCenter/SettingsController.php:214
+msgid "Whether to inject the Google Customer Reviews opt-in prompt on the order-confirmation page."
+msgstr ""
+
+#: src/API/Site/Controllers/MerchantCenter/SettingsController.php:224
+msgid "Whether the Google-verified ratings and reviews badge widget is enabled on the store."
+msgstr ""
+
+#: src/API/Site/Controllers/MerchantCenter/SettingsController.php:234
+msgid "The corner of the storefront in which to display the ratings and reviews badge widget."
+msgstr ""
+
+#: src/API/Site/Controllers/MerchantCenter/SettingsSyncController.php:89
 msgid "Successfully synchronized settings with Google."
 msgstr ""
 
@@ -1886,6 +1831,10 @@ msgstr ""
 msgid "Include continents data if set to true."
 msgstr ""
 
+#: src/API/Site/Controllers/MerchantCenter/SupportedProductsController.php:78
+msgid "Unable to save the supported products confirmation."
+msgstr ""
+
 #: src/API/Site/Controllers/MerchantCenter/SyncableProductsCountController.php:99
 msgid "Successfully scheduled a job to update the number of syncable products."
 msgstr ""
@@ -1950,23 +1899,6 @@ msgstr ""
 msgid "Indicates the ID of the referrer that initiated this connection, to preserve attribution across the OAuth redirect."
 msgstr ""
 
-#: src/API/Site/Controllers/RestAPI/AuthController.php:158
-msgid "Indicates the next page name mapped to the redirect URL when redirected back from Google WPCOM App authorization."
-msgstr ""
-
-#: src/API/Site/Controllers/RestAPI/AuthController.php:175
-#: src/API/Site/Controllers/RestAPI/AuthController.php:204
-msgid "The status of the merchant granting access to Google's WPCOM app"
-msgstr ""
-
-#: src/API/Site/Controllers/RestAPI/AuthController.php:182
-msgid "The nonce provided by Google in the URL query parameter when Google redirects back to merchant's site"
-msgstr ""
-
-#: src/API/Site/Controllers/RestAPI/AuthController.php:199
-msgid "The authorization URL for granting access to Google WPCOM App."
-msgstr ""
-
 #: src/API/Site/Controllers/ShippingRateSchemaTrait.php:28
 msgid "The shipping rate unique identification number."
 msgstr ""
@@ -2005,17 +1937,21 @@ msgstr ""
 msgid "Whether the tour was checked."
 msgstr ""
 
-#: src/API/Site/Controllers/YouTube/AccountController.php:200
+#: src/API/Site/Controllers/YouTube/AccountController.php:98
+msgid "A Merchant Center account must be connected before connecting YouTube."
+msgstr ""
+
+#: src/API/Site/Controllers/YouTube/AccountController.php:213
 msgid "Successfully completed YouTube setup."
 msgstr ""
 
-#: src/API/Site/Controllers/YouTube/AccountController.php:206
+#: src/API/Site/Controllers/YouTube/AccountController.php:219
 #: src/API/YouTube/Connection.php:192
 #: src/API/YouTube/Connection.php:199
 msgid "Unable to complete YouTube setup."
 msgstr ""
 
-#: src/API/Site/Controllers/YouTube/AccountController.php:226
+#: src/API/Site/Controllers/YouTube/AccountController.php:239
 msgid "The URL for making a connection to YouTube."
 msgstr ""
 
@@ -2126,30 +2062,6 @@ msgstr ""
 msgid "Google for WooCommerce requires a 64 bit version of PHP."
 msgstr ""
 
-#. translators: Name/image of the client requesting authorization
-#: src/Integration/JetpackWPCOM.php:193
-#, php-format
-msgid "%s wants to access your site’s data. Log in to authorize that access."
-msgstr ""
-
-#: src/Integration/JetpackWPCOM.php:213
-msgid "You must connect your Jetpack plugin to WordPress.com to use this feature."
-msgstr ""
-
-#: src/Integration/JetpackWPCOM.php:216
-msgid "Someone may be trying to trick you into giving them access to your site. Or it could be you just encountered a bug :).  Either way, please close this window."
-msgstr ""
-
-#. translators: %s is a URL
-#: src/Integration/JetpackWPCOM.php:226
-#, php-format
-msgid "Your site is incorrectly double-encoding redirects from http to https. This is preventing Jetpack from authenticating your connection. Please visit our <a href=\"%s\">support page</a> for details about how to resolve this."
-msgstr ""
-
-#: src/Integration/JetpackWPCOM.php:323
-msgid "The authorization process expired. Please go back and try again."
-msgstr ""
-
 #: src/Integration/YoastWooCommerceSeo.php:215
 msgid "- Yoast SEO -"
 msgstr ""
@@ -2230,46 +2142,34 @@ msgstr ""
 msgid "MC Setup Wizard"
 msgstr ""
 
-#: src/MerchantCenter/AccountService.php:196
+#: src/MerchantCenter/AccountService.php:194
 msgid "Attempting invalid URL switch."
 msgstr ""
 
-#: src/MerchantCenter/AccountService.php:219
+#: src/MerchantCenter/AccountService.php:217
 msgid "Attempting invalid claim overwrite."
 msgstr ""
 
 #. translators: 1: is a string representing an unknown step name
-#: src/MerchantCenter/AccountService.php:387
+#: src/MerchantCenter/AccountService.php:366
 #, php-format
 msgid "Unknown merchant account creation step %1$s"
 msgstr ""
 
-#: src/MerchantCenter/AccountService.php:419
+#: src/MerchantCenter/AccountService.php:398
 msgid "Unable to claim website URL with this Merchant Center Account."
 msgstr ""
 
 #. translators: 1: is a numeric account ID
-#: src/MerchantCenter/AccountService.php:451
+#: src/MerchantCenter/AccountService.php:430
 #, php-format
 msgid "Merchant Center account already connected: %d"
 msgstr ""
 
 #. translators: 1: is a website URL (without the protocol)
-#: src/MerchantCenter/AccountService.php:500
+#: src/MerchantCenter/AccountService.php:479
 #, php-format
 msgid "This Merchant Center account already has a verified and claimed URL, %1$s"
-msgstr ""
-
-#: src/MerchantCenter/AccountService.php:615
-msgid "No stored nonce found in the database, skip updating auth status."
-msgstr ""
-
-#: src/MerchantCenter/AccountService.php:621
-msgid "Nonce is not provided, skip updating auth status."
-msgstr ""
-
-#: src/MerchantCenter/AccountService.php:628
-msgid "Nonces mismatch, skip updating auth status."
 msgstr ""
 
 #: src/MerchantCenter/MarketService.php:519
@@ -2284,24 +2184,32 @@ msgstr ""
 msgid "Add store contact information"
 msgstr ""
 
-#: src/MerchantCenter/MerchantStatuses.php:149
+#: src/MerchantCenter/MerchantStatuses.php:189
 msgid "The scheduled job has been paused due to a high failure rate."
 msgstr ""
 
-#: src/MerchantCenter/MerchantStatuses.php:278
+#: src/MerchantCenter/MerchantStatuses.php:319
 msgid "Google account is not connected."
 msgstr ""
 
-#: src/MerchantCenter/MerchantStatuses.php:281
+#: src/MerchantCenter/MerchantStatuses.php:322
 msgid "Merchant Center account is not set up."
 msgstr ""
 
-#: src/MerchantCenter/MerchantStatuses.php:527
+#: src/MerchantCenter/MerchantStatuses.php:570
 msgid "All products"
 msgstr ""
 
-#: src/MerchantCenter/MerchantStatuses.php:744
+#: src/MerchantCenter/MerchantStatuses.php:787
 msgid "Update this attribute in your product data"
+msgstr ""
+
+#: src/MerchantCenter/MerchantStatuses.php:1423
+msgid "This data source isn't set up to sync online products; check your Merchant Center data sources"
+msgstr ""
+
+#: src/MerchantCenter/MerchantStatuses.php:1426
+msgid "This data source isn't set up to accept products from Google for WooCommerce; check your Merchant Center data sources"
 msgstr ""
 
 #: src/Notes/CompleteSetup.php:40
@@ -2364,7 +2272,7 @@ msgid "Launch ads to drive traffic and grow sales"
 msgstr ""
 
 #: src/Notes/SetupCampaign.php:50
-msgid "Your products are ready for Google Ads! Get your products shown on Google exactly when shoppers are searching for the products you offer. For new Google Ads accounts, get $500 in ad credit when you spend $500 within your first 60 days. T&Cs apply."
+msgid "Your products are ready for Google Ads! Get your products shown on Google exactly when shoppers are searching for the products you offer. Get $500 USD or more in Google Ads credit. T&Cs apply."
 msgstr ""
 
 #: src/Notes/SetupCampaign.php:57
@@ -2378,7 +2286,7 @@ msgid "Finish connecting your Google Ads account"
 msgstr ""
 
 #: src/Notes/SetupCampaign.php:65
-msgid "Your products are ready for Google Ads! Finish connecting your account, create your campaign, pick your budget, and easily measure the impact of your ads. Plus, Google will give you $500 USD in ad credit when you spend $500 for new accounts. T&Cs apply."
+msgid "Your products are ready for Google Ads! Finish connecting your account, create your campaign, pick your budget, and easily measure the impact of your ads. Get $500 USD or more in Google Ads credit. T&Cs apply."
 msgstr ""
 
 #: src/Notes/SetupCampaign.php:72
@@ -2387,7 +2295,6 @@ msgid "Complete Setup"
 msgstr ""
 
 #: src/Notes/SetupCampaign.php:81
-#: js/build/commons.js:10
 #: js/build/commons.js:14
 #: js/build/commons.js:17
 #: js/build/commons.js:20
@@ -2841,7 +2748,7 @@ msgctxt "the separator for concatenating the categories where the Attribute mapp
 msgid ", "
 msgstr ""
 
-#. translators: %d: number of categories.
+#. translators: %s: category ID.
 #: js/build/attribute-mapping.js:4
 #, js-format
 msgid "Category ID %s (deleted)"
@@ -2954,6 +2861,7 @@ msgstr ""
 #: js/build/onboarding.js:1
 #: js/build/onboarding.js:23
 #: js/build/product-feed.js:4
+#: js/build/settings.js:1
 #: js/build/settings.js:2
 msgid "Cancel"
 msgstr ""
@@ -3216,7 +3124,7 @@ msgid "Please add your store address"
 msgstr ""
 
 #: js/build/commons.js:10
-msgid "Google requires the store address for all stores using Google Merchant Center. "
+msgid "Google requires the store address for all stores using Google Merchant Center. <link>Learn more</link>"
 msgstr ""
 
 #: js/build/commons.js:10
@@ -3412,6 +3320,7 @@ msgstr ""
 #: js/build/commons.js:72
 #: js/build/onboarding.js:1
 #: js/build/onboarding.js:23
+#: js/build/settings.js:1
 #: js/build/settings.js:2
 msgid "Connect"
 msgstr ""
@@ -3930,7 +3839,7 @@ msgid "The minimum requirements:"
 msgstr ""
 
 #: js/build/commons.js:17
-msgid "3x Headlines "
+msgid "3x Headlines"
 msgstr ""
 
 #: js/build/commons.js:17
@@ -4557,7 +4466,7 @@ msgstr ""
 msgid "Add images that meet or can be cropped to the recommended sizes. Note: The maximum file size for any image is 5120 KB."
 msgstr ""
 
-#. translators: The shared maximum number of the grouped types of image assets.
+#. translators: %d: The shared maximum number of the grouped types of image assets.
 #: js/build/commons.js:32
 #: js/build/index.js:13
 #: js/build/notifications-system.js:13
@@ -4592,7 +4501,7 @@ msgstr ""
 msgid "Change budget"
 msgstr ""
 
-#. translators: The recommended amount in currency format.
+#. translators: %s: The recommended amount in currency format.
 #: js/build/commons.js:41
 #, js-format
 msgid "Increase your budget to %s and get it all back in FREE AD CREDIT*!"
@@ -4642,7 +4551,7 @@ msgstr ""
 msgid "Set custom budget"
 msgstr ""
 
-#. translators: %1$s: minimum daily budget
+#. translators: %s: minimum daily budget
 #: js/build/commons.js:42
 #, js-format
 msgid "Please make sure daily average cost is at least %s"
@@ -4660,7 +4569,7 @@ msgid_plural "Add at least %1$d %2$s images"
 msgstr[0] ""
 msgstr[1] ""
 
-#. translators: Asset field name.
+#. translators: %s: Asset field name.
 #: js/build/commons.js:48
 #, js-format
 msgid "The %s in the first field is required"
@@ -4678,7 +4587,7 @@ msgstr ""
 msgid "Add at least %2$d %1$s"
 msgstr ""
 
-#. translators: Asset field name.
+#. translators: %s: Asset field name.
 #: js/build/commons.js:57
 #, js-format
 msgid "%s are identical"
@@ -4694,13 +4603,13 @@ msgstr ""
 msgid "%1$s %2$d: Character limit exceeded"
 msgstr ""
 
-#. translators: Asset field name.
+#. translators: %s: Asset field name.
 #: js/build/commons.js:63
 #, js-format
 msgid "%s is incomplete"
 msgstr ""
 
-#. translators: Asset field name.
+#. translators: %s: Asset field name.
 #: js/build/commons.js:66
 #, js-format
 msgid "%s: Character limit exceeded"
@@ -4775,7 +4684,6 @@ msgstr ""
 
 #: js/build/commons.js:66
 #: js/build/onboarding.js:29
-#: js/build/settings.js:1
 #: js/build/settings.js:2
 msgid "Read more"
 msgstr ""
@@ -5247,6 +5155,10 @@ msgid "An unexpected error occurred."
 msgstr ""
 
 #: js/build/commons.js:72
+msgid "Your Ads credit offer is applied to your Google Ads account."
+msgstr ""
+
+#: js/build/commons.js:72
 msgid "Google Ads Creation Failed"
 msgstr ""
 
@@ -5457,11 +5369,13 @@ msgstr ""
 msgid "Budget recommendation"
 msgstr ""
 
-#. translators: %d: number of countries, with minimum value of 1.
+#. translators: 1: name of the first country, e.g. "United States (US)". 2: number of other countries, with minimum value of 1.
 #: js/build/dashboard.js:4
 #, js-format
-msgid " + %d more"
-msgstr ""
+msgid "%1$s + %2$d more"
+msgid_plural "%1$s + %2$d more"
+msgstr[0] ""
+msgstr[1] ""
 
 #: js/build/dashboard.js:4
 #: js/build/reports.js:4
@@ -5517,6 +5431,10 @@ msgstr ""
 
 #: js/build/dashboard.js:7
 msgid "Error in loading your ads campaign. Please try again later."
+msgstr ""
+
+#: js/build/dashboard.js:7
+msgid "Campaign created. Your Ads credit offer is applied to your Google Ads account."
 msgstr ""
 
 #: js/build/dashboard.js:7
@@ -5640,17 +5558,17 @@ msgstr ""
 
 #: js/build/dashboard.js:13
 #: js/build/product-feed.js:16
-msgid "Spend $500 to get $500 in Google Ads credits"
+msgid "Get $500 USD or more in Google Ads credit"
 msgstr ""
 
 #: js/build/dashboard.js:13
 #: js/build/product-feed.js:16
-msgid "New to Google Ads? Get $500 in ad credit when you spend $500 within your first 60 days* You can edit or cancel your campaign at any time."
+msgid "New to Google Ads? Choose an Ads credit offer when you create your campaign. You’ll get the credit once you meet the offer’s minimum spend in your first 60 days. You can edit or remove your campaign anytime."
 msgstr ""
 
 #: js/build/dashboard.js:13
 #: js/build/product-feed.js:16
-msgid "*Full terms and conditions <link>here</link>."
+msgid "Full terms and conditions <link>here</link>."
 msgstr ""
 
 #: js/build/dashboard.js:13
@@ -5791,7 +5709,7 @@ msgid "Can I sync my products and run Performance Max campaigns on Google for Wo
 msgstr ""
 
 #: js/build/get-started-page.js:1
-msgid "Yes, you can run both at the same time, and we recommend you do! Once you sync your store it’s automatically listed on Google, so you can choose to run a <linkPmax>Performance Max campaign</linkPmax> as soon as you’d like. In the US, advertisers who sync their products to Google and run Google Ads <linkPmax>Performance Max campaigns</linkPmax> have seen an average of over 50% increase in clicks and over 100% increase in impressions in both their product listings and their ads on the Shopping tab. "
+msgid "Yes, you can run both at the same time, and we recommend you do! Once you sync your store it’s automatically listed on Google, so you can choose to run a <linkPmax>Performance Max campaign</linkPmax> as soon as you’d like. In the US, advertisers who sync their products to Google and run Google Ads <linkPmax>Performance Max campaigns</linkPmax> have seen an average of over 50% increase in clicks and over 100% increase in impressions in both their product listings and their ads on the Shopping tab."
 msgstr ""
 
 #: js/build/get-started-page.js:1
@@ -5887,7 +5805,7 @@ msgid "Promote products and drive more sales with Google Ads"
 msgstr ""
 
 #: js/build/get-started-page.js:1
-msgid "Connect your Google Ads account, choose a budget, and Google will optimize your ads so they appear at the right time and place. "
+msgid "Connect your Google Ads account, choose a budget, and Google will optimize your ads so they appear at the right time and place."
 msgstr ""
 
 #: js/build/get-started-page.js:1
@@ -6074,7 +5992,7 @@ msgstr ""
 msgid "Please select at least one currency."
 msgstr ""
 
-#. translators: %s: comma-separated list of unsupported language codes.
+#. translators: %s: comma-separated list of unsupported language names.
 #: js/build/markets.js:4
 #, js-format
 msgid "The following languages are not supported by Google Merchant Center: %s"
@@ -6334,6 +6252,35 @@ msgstr ""
 
 #: js/build/notifications-system.js:19
 msgid "Turn on tracking"
+msgstr ""
+
+#: js/build/notifications-system.js:19
+msgid "There was an error updating the setting. Please try again."
+msgstr ""
+
+#: js/build/notifications-system.js:19
+msgid "Collect Google Reviews after purchase"
+msgstr ""
+
+#: js/build/notifications-system.js:19
+#: js/build/settings.js:2
+msgid "Google Reviews provide free social proof, increased organic visibility, and a boost to advertising performance."
+msgstr ""
+
+#: js/build/notifications-system.js:19
+msgid "Enable reviews collection"
+msgstr ""
+
+#: js/build/notifications-system.js:19
+msgid "Add your store rating widget"
+msgstr ""
+
+#: js/build/notifications-system.js:19
+msgid "Show Google-verified ratings and reviews on your site and boost shopper trust and conversions."
+msgstr ""
+
+#: js/build/notifications-system.js:19
+msgid "Add widget"
 msgstr ""
 
 #: js/build/notifications-system.js:19
@@ -6836,7 +6783,7 @@ msgid "Your product listings will look something like this."
 msgstr ""
 
 #: js/build/onboarding.js:29
-msgid "Your product details, estimated shipping info and tax details will be displayed across Google."
+msgid "Your product details and estimated shipping info will be displayed across Google."
 msgstr ""
 
 #: js/build/onboarding.js:29
@@ -7007,7 +6954,7 @@ msgid "Close"
 msgstr ""
 
 #: js/build/price-benchmark.js:4
-msgid "Product not found. "
+msgid "Product not found."
 msgstr ""
 
 #: js/build/price-benchmark.js:4
@@ -7205,7 +7152,7 @@ msgid "Request review"
 msgstr ""
 
 #: js/build/product-feed.js:4
-msgid "Products and stores must meet <link>Google Merchant Center’s requirements</link> in order to get approved. WooCommerce and Google automatically check your product feed to help you resolve any issues. "
+msgid "Products and stores must meet <link>Google Merchant Center’s requirements</link> in order to get approved. WooCommerce and Google automatically check your product feed to help you resolve any issues."
 msgstr ""
 
 #: js/build/product-feed.js:4
@@ -7277,7 +7224,7 @@ msgid "Don't sync and show"
 msgstr ""
 
 #: js/build/product-feed.js:10
-msgid "Your product feed is <strong>automatically synced</strong> from WooCommerce to Google, every 1-2 days. "
+msgid "Your product feed is <strong>automatically synced</strong> from WooCommerce to Google, every 1-2 days."
 msgstr ""
 
 #: js/build/product-feed.js:10
@@ -7316,7 +7263,7 @@ msgstr ""
 msgid "Automatically synced to Google"
 msgstr ""
 
-#. translators: %s: datetime of last update products sync status, and %d: number of synced products, with minimum value of 1.
+#. translators: 1: datetime of last update products sync status, 2: number of synced products, with minimum value of 1.
 #: js/build/product-feed.js:13
 #, js-format
 msgid "Last updated: %1$s, containing %2$d product"
@@ -7538,46 +7485,6 @@ msgid "Select one or more products to compare"
 msgstr ""
 
 #: js/build/settings.js:1
-msgid "Tax rate (required for U.S. only)"
-msgstr ""
-
-#: js/build/settings.js:1
-msgid "This tax rate will be shown to potential customers, together with the cost of your product."
-msgstr ""
-
-#: js/build/settings.js:1
-msgid "My store uses destination-based tax rates."
-msgstr ""
-
-#: js/build/settings.js:1
-msgid "Google’s estimated tax rates will automatically be applied to my product listings."
-msgstr ""
-
-#: js/build/settings.js:1
-msgid "My store does not use destination-based tax rates."
-msgstr ""
-
-#: js/build/settings.js:1
-msgid "I’ll set my tax rates up manually in <link>Google Merchant Center</link>. I understand that if I don’t set this up, my products will be disapproved."
-msgstr ""
-
-#: js/build/settings.js:1
-msgid "Please specify tax rate option."
-msgstr ""
-
-#: js/build/settings.js:1
-msgid "There was an error saving tax rate."
-msgstr ""
-
-#: js/build/settings.js:1
-msgid "There was an error synchronizing tax rate to Google Merchant Center."
-msgstr ""
-
-#: js/build/settings.js:1
-msgid "Your change to tax rate has been saved and will be synced to your Google Merchant Center."
-msgstr ""
-
-#: js/build/settings.js:1
 msgid "There was an error saving the shipping rate method."
 msgstr ""
 
@@ -7594,7 +7501,35 @@ msgid "The account you use to log in to Google products."
 msgstr ""
 
 #: js/build/settings.js:1
-msgid "Set up Merchant Center"
+msgid "Confirm supported product types"
+msgstr ""
+
+#: js/build/settings.js:1
+msgid "Unable to enable the Google Merchant Center connection. Please try again."
+msgstr ""
+
+#: js/build/settings.js:1
+msgid "Confirm"
+msgstr ""
+
+#: js/build/settings.js:1
+msgid "Only confirm if this matches what you sell. If products that don't meet Google's requirements are submitted, Google will disapprove them."
+msgstr ""
+
+#: js/build/settings.js:1
+msgid "Not sure? <link>See what Google supports</link> before continuing."
+msgstr ""
+
+#: js/build/settings.js:1
+msgid "The Google Merchant Center connection is not available, as your store sells services or digital products that Google does not support. <link>Read more</link> about unsupported product types."
+msgstr ""
+
+#: js/build/settings.js:1
+msgid "If the digital products you sell are supported by Google, confirm below to enable the Google Merchant Center connection."
+msgstr ""
+
+#: js/build/settings.js:1
+msgid "Confirm that I sell supported products"
 msgstr ""
 
 #: js/build/settings.js:1
@@ -7628,11 +7563,15 @@ msgid "List your products on YouTube and track sales from your videos."
 msgstr ""
 
 #: js/build/settings.js:2
-msgid "YouTube Merchant Terms"
+msgid "Connect a Google Merchant Center account before connecting YouTube."
 msgstr ""
 
 #: js/build/settings.js:2
 msgid "Unable to connect your YouTube account. Please try again later."
+msgstr ""
+
+#: js/build/settings.js:2
+msgid "YouTube Merchant Terms"
 msgstr ""
 
 #: js/build/settings.js:2
@@ -7785,6 +7724,54 @@ msgstr ""
 
 #: js/build/settings.js:2
 msgid "Enhanced Conversions status updated successfully."
+msgstr ""
+
+#: js/build/settings.js:2
+msgid "Right bottom"
+msgstr ""
+
+#: js/build/settings.js:2
+msgid "Left bottom"
+msgstr ""
+
+#: js/build/settings.js:2
+msgid "Shoppers rely heavily on reviews to navigate consumer skepticism; having a strong Google rating directly drives higher conversion rates and builds trust with new buyers."
+msgstr ""
+
+#: js/build/settings.js:2
+msgid "Google Customer Reviews"
+msgstr ""
+
+#: js/build/settings.js:2
+msgid "There was an error updating the setting."
+msgstr ""
+
+#: js/build/settings.js:2
+msgid "This setting will only take effect if you're enrolled in Google Customer Reviews in the Merchant Center."
+msgstr ""
+
+#: js/build/settings.js:2
+msgid "Learn how"
+msgstr ""
+
+#: js/build/settings.js:2
+msgid "Collect reviews after purchase"
+msgstr ""
+
+#: js/build/settings.js:2
+msgid "Google asks customers on the order confirmation page if they would like to review your store. Customers who opt in receive an email from Google once their order arrives."
+msgstr ""
+
+#: js/build/settings.js:2
+msgid "Google store widget"
+msgstr ""
+
+#: js/build/settings.js:2
+msgid "Enable the Google store widget to display your store ratings and reviews."
+msgstr ""
+
+#: js/build/settings.js:2
+msgid "Widget position"
 msgstr ""
 
 #: js/build/woo-marketing-notifications-slot.js:19

@@ -35,7 +35,7 @@ class OrderBulkActions {
     private const BULK_ACTION_PRINT_INVOICE = 'npforwc_print_invoice';
 
     /**
-     * The bulk action key for printing customs declaration.
+     * The bulk action key for printing international marking.
      */
     private const BULK_ACTION_PRINT_CUSTOMS = 'npforwc_print_customs';
 
@@ -77,7 +77,7 @@ class OrderBulkActions {
         $actions[ self::BULK_ACTION_PICKUP_REQUEST ]   = __( 'Nova Post: Create Pickup', 'nova-post-for-woocommerce' );
         $actions[ self::BULK_ACTION_PRINT_MARKINGS ]   = __( 'Nova Post: Print Markings (100х100)', 'nova-post-for-woocommerce' );
         $actions[ self::BULK_ACTION_PRINT_INVOICE ]    = __( 'Nova Post: Print Commercial Invoice', 'nova-post-for-woocommerce' );
-        $actions[ self::BULK_ACTION_PRINT_CUSTOMS ]    = __( 'Nova Post: Print Customs Declaration', 'nova-post-for-woocommerce' );
+        $actions[ self::BULK_ACTION_PRINT_CUSTOMS ]    = __( 'Nova Post: Print International Markings', 'nova-post-for-woocommerce' );
         return $actions;
     }
 

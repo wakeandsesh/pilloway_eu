@@ -40,6 +40,19 @@ class SettingsPageNormalizer {
     public static function normalize( array $data ): array {
         $data = self::normalize_standard_fields( $data );
 
+        $string_fields = array(
+            'delivery_payer',
+            'cod_bank_account_currency',
+            'cod_bank_account_id',
+            'cod_bank_account_name',
+        );
+
+        foreach ( $string_fields as $field ) {
+            if ( isset( $data[ $field ] ) ) {
+                $data[ $field ] = trim( (string) $data[ $field ] );
+            }
+        }
+
         return $data;
     }
 

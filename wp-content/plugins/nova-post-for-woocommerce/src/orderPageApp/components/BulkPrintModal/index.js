@@ -17,7 +17,7 @@ import './style.scss';
 const DOCUMENT_LABELS = {
     marking: __('Markings (100x100)', 'nova-post-for-woocommerce'),
     invoice: __('Commercial Invoice', 'nova-post-for-woocommerce'),
-    international: __('Customs Declaration', 'nova-post-for-woocommerce'),
+    international: __('International Marking', 'nova-post-for-woocommerce'),
 };
 
 /**
@@ -226,7 +226,7 @@ export function BulkPrintModal({ orderIds, documentType, onClose }) {
             default:
                 return sprintf(
                     /* translators: %s: document type */
-                    __('Print %s', 'nova-post-for-woocommerce'),
+                    __('Print: %s', 'nova-post-for-woocommerce'),
                     documentLabel
                 );
         }

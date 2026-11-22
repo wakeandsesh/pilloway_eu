@@ -69,6 +69,10 @@ class SettingsPageValidator {
             'sender_division_longitude'              => 'required_if:address_type,division|numeric|between:-180,180',
             'customs_fee_payer'                      => 'required|string|in:Sender,Recipient',
             'delivery_tariff'                        => 'required|string|in:standard,express',
+            'delivery_payer'                         => 'required|string|in:Sender,Recipient',
+            'cod_bank_account_currency'              => 'nullable|string|in:CAD,CZK,EUR,GBP,HUF,MDL,PLN,RON,UAH,USD',
+            'cod_bank_account_id'                    => 'nullable|string|max:50|regex:/^[a-zA-Z0-9 -]+$/',
+            'cod_bank_account_name'                  => 'nullable|string|max:50|regex:/^[a-zA-Z0-9 -]+$/',
 
             'shipping_division_flat_rate'            => 'nullable|boolean',
             'shipping_division_flat_rate_amount'     => 'required_if:shipping_division_flat_rate,true|numeric|min:0|regex:/^\d+(\.\d{1,2})?$/',
@@ -215,6 +219,17 @@ class SettingsPageValidator {
 
             'delivery_tariff.required'                     => __( 'Delivery tariff is required', 'nova-post-for-woocommerce' ),
             'delivery_tariff.in'                           => __( 'Delivery tariff must be standard or express', 'nova-post-for-woocommerce' ),
+
+            'delivery_payer.required'                      => __( 'Delivery payer is required', 'nova-post-for-woocommerce' ),
+            'delivery_payer.in'                            => __( 'Delivery payer must be Sender or Recipient', 'nova-post-for-woocommerce' ),
+
+            'cod_bank_account_currency.in'                 => __( 'Bank account currency must be one of: CAD, CZK, EUR, GBP, HUF, MDL, PLN, RON, UAH, USD', 'nova-post-for-woocommerce' ),
+
+            'cod_bank_account_id.max'                      => __( 'Bank Account Id must not exceed :max characters', 'nova-post-for-woocommerce' ),
+            'cod_bank_account_id.regex'                    => __( 'Bank Account Id may contain only Latin letters, digits, hyphens and spaces', 'nova-post-for-woocommerce' ),
+
+            'cod_bank_account_name.max'                    => __( 'IBAN must not exceed :max characters', 'nova-post-for-woocommerce' ),
+            'cod_bank_account_name.regex'                  => __( 'IBAN may contain only Latin letters, digits, hyphens and spaces', 'nova-post-for-woocommerce' ),
 
             'shipping_division_flat_rate_amount.required_if' => __( 'Shipping flat rate is required when free delivery for this division is enabled', 'nova-post-for-woocommerce' ),
             'shipping_division_flat_rate_amount.regex'     => __( 'Shipping flat rate must be a positive number with up to 2 decimal places', 'nova-post-for-woocommerce' ),

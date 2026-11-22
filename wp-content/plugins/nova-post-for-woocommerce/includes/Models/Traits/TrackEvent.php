@@ -144,7 +144,7 @@ trait TrackEvent {
             Ga4Constants::NP_SETTINGS_FAILED,
             array(
                 'departure_method' => $settings['address_type'] ?? 'address',
-                'cod'              => ! empty( $settings['cod_free_paid_seller'] ) ? 'on' : 'off',
+                'cod'              => ! empty( $settings['cod_fee_paid_seller'] ) ? 'on' : 'off',
                 'hs_code'          => $settings['default_hs_tariff_code'] ?? '',
                 'dimensions_mode'  => $settings['default_box_for'] ?? 'product',
                 'dimension_size'   => ( $settings['default_height'] ?? '' ) . 'x' .

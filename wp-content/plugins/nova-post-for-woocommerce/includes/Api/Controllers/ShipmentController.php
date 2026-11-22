@@ -10,6 +10,7 @@
 namespace NovaPostForWoocommerce\Api\Controllers;
 
 use Exception;
+use NovaDigital\NovaPost\Exception\ApiException;
 use NovaPostForWoocommerce\Exceptions\ShipmentException;
 use NovaPostForWoocommerce\Models\Traits\TrackEvent;
 use NovaPostForWoocommerce\Services\ShipmentApiService;
@@ -61,6 +62,15 @@ class ShipmentController {
             $this->track_shipment_failed( $order_id, $e->get_data() );
 
             return new WP_Error( 'shipment_creation_failed', $e->getMessage(), $e->get_data() );
+        } catch ( ApiException $e ) {
+            return new WP_Error(
+                'shipment_creation_failed',
+                $e->getMessage(),
+                array(
+                    'status'  => 502,
+                    'message' => $e->getMessage(),
+                )
+            );
         }
 
         return new WP_REST_Response( $response );

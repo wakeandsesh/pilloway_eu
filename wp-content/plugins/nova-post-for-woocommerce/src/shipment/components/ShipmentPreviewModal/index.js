@@ -16,7 +16,7 @@ import { __ } from '@wordpress/i18n';
  */
 import styles from './styles.module.scss';
 
-import { ValidationErrors } from './sections/ValidationErrors';
+import { ValidationErrors, getErrorMessages } from './sections/ValidationErrors';
 import { SenderSection } from './sections/SenderSection';
 import { RecipientSection } from './sections/RecipientSection';
 import { ParcelsSection } from './sections/ParcelsSection';
@@ -43,18 +43,18 @@ export const ShipmentPreviewModal = ({ previewData, onClose, onAction }) => {
     }, [creationError]);
 
     const handleCreate = async () => {
-        const errorMsg = (err) =>
-            err?.data?.api_errors ||
-            err?.message ||
-            __('Failed to create shipment', 'nova-post-for-woocommerce');
-
         setIsCreating(true);
         setCreationError(null);
 
         try {
             await onAction({ note });
         } catch (error) {
-            setCreationError(errorMsg(error));
+            const messages = getErrorMessages(error);
+            setCreationError(
+                messages.length
+                    ? messages
+                    : [__('Failed to create shipment', 'nova-post-for-woocommerce')]
+            );
             setIsCreating(false);
         }
     };
@@ -102,9 +102,10 @@ export const ShipmentPreviewModal = ({ previewData, onClose, onAction }) => {
                     <InvoiceSection invoice={shipmentData.invoice} />
                 )}
 
-                {shipmentData.services && shipmentData.services.length > 0 && (
-                    <ServicesSection services={shipmentData.services} />
-                )}
+                <ServicesSection
+                    payerType={shipmentData.payerType}
+                    services={shipmentData.services}
+                />
 
                 <NoteSection note={note} onChange={setNote} />
             </div>

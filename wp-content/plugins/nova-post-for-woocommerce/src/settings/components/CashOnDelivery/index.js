@@ -2,7 +2,11 @@
  * External dependencies
  */
 import { __ } from '@wordpress/i18n';
-import { __experimentalInputControl as InputControl, ToggleControl } from '@wordpress/components';
+import {
+    SelectControl,
+    ToggleControl,
+    __experimentalInputControl as InputControl,
+} from '@wordpress/components';
 
 /**
  * Internal dependencies
@@ -12,15 +16,28 @@ import { createGenericHandler } from '../../utils/fieldHandlers';
 import { useSettingsContext } from '../../contexts/SettingsContext';
 import { useFieldError } from '../../hooks/useFieldError';
 
+const COD_CURRENCIES = ['CZK', 'EUR', 'GBP', 'HUF', 'MDL', 'PLN', 'RON', 'UAH', 'USD', 'CAD'];
+
 const CashOnDelivery = () => {
     const { settings, isSaving, updateSetting, saveSettings } = useSettingsContext();
     const handleChange = createGenericHandler(updateSetting);
+    const bankAccountCurrencyError = useFieldError('cod_bank_account_currency');
     const bankAccountIdError = useFieldError('cod_bank_account_id');
     const bankAccountNameError = useFieldError('cod_bank_account_name');
 
     return (
         <FormSection
             title={__('Cash on Delivery', 'nova-post-for-woocommerce')}
+            tooltip={[
+                __(
+                    'Shipments with cash on delivery cannot be created to Pick Up Drop Off points, because they do not accept payments on behalf of Nova Post. If you use cash on delivery, uncheck Pick Up Drop Off in Divisions Filters. Prepaid orders to these points work without restrictions.',
+                    'nova-post-for-woocommerce'
+                ),
+                __(
+                    'Parcel lockers work with cash on delivery: the customer pays online through a link from Nova Post before collecting the parcel.',
+                    'nova-post-for-woocommerce'
+                ),
+            ].join('\n\n')}
             onSave={saveSettings}
             isSaving={isSaving}
         >
@@ -33,23 +50,10 @@ const CashOnDelivery = () => {
                             {__('COD fee is paid by the seller', 'nova-post-for-woocommerce')}
                         </span>
                         <InfoTooltip
-                            information={
-                                <>
-                                    <span>
-                                        {__(
-                                            'Choose who pays the commission for the cash on delivery service. If off, the commission will be added to the total amount the buyer has to pay. If on, the buyer will only pay for the goods and their delivery.',
-                                            'nova-post-for-woocommerce'
-                                        )}
-                                    </span>
-                                    <br />
-                                    <strong>
-                                        {__(
-                                            'This setting must be agreed at the contract level.',
-                                            'nova-post-for-woocommerce'
-                                        )}
-                                    </strong>
-                                </>
-                            }
+                            information={__(
+                                'Choose who pays the Nova Post commission for the cash on delivery service. The commission is charged in addition to the COD amount and shown to the payer separately. If off, the recipient pays the commission. If on, you pay it.',
+                                'nova-post-for-woocommerce'
+                            )}
                         />
                     </div>
                 }
@@ -65,7 +69,7 @@ const CashOnDelivery = () => {
                         <span>{__('Bank Account Id', 'nova-post-for-woocommerce')}</span>
                         <InfoTooltip
                             information={__(
-                                "Enter your bank account's unique identifier provided by your bank for crediting funds for cash on delivery.",
+                                'The tax identification number of your company registered with Nova Post.',
                                 'nova-post-for-woocommerce'
                             )}
                             example={'3449614907'}
@@ -84,10 +88,10 @@ const CashOnDelivery = () => {
                 name="cod_bank_account_name"
                 label={
                     <div className="flex-center">
-                        <span>{__('Bank Account Name or IBAN', 'nova-post-for-woocommerce')}</span>
+                        <span>{__('Bank Account Name (IBAN)', 'nova-post-for-woocommerce')}</span>
                         <InfoTooltip
                             information={__(
-                                'Enter your bank name or account number in IBAN format to transfer funds for cash on delivery.',
+                                'Your bank account number in IBAN format. It must be linked to your company profile at Nova Post, otherwise the shipment will not be created.',
                                 'nova-post-for-woocommerce'
                             )}
                             example={'PL54995871000006740000004282341'}
@@ -96,9 +100,33 @@ const CashOnDelivery = () => {
                 }
                 value={settings.cod_bank_account_name}
                 onChange={handleChange('cod_bank_account_name')}
-                placeholder={__('Enter your Bank Account Name', 'nova-post-for-woocommerce')}
+                placeholder={__('Enter your IBAN', 'nova-post-for-woocommerce')}
                 __next40pxDefaultSize
                 help={bankAccountNameError.help}
+            />
+
+            <SelectControl
+                className={bankAccountCurrencyError.wrapperClass}
+                name="cod_bank_account_currency"
+                label={
+                    <div className="flex-center">
+                        <span>{__('Bank Account Currency', 'nova-post-for-woocommerce')}</span>
+                        <InfoTooltip
+                            information={__(
+                                'Select the currency of the bank account (IBAN) specified in your cash on delivery contract with Nova Post. If your contract has several accounts, select the currency of the IBAN entered above. Nova Post does not check the currency against your contract when creating the shipment, so you are responsible for selecting the correct one. If the order currency is different, the cash on delivery amount is converted to this currency at the Nova Post exchange rate.',
+                                'nova-post-for-woocommerce'
+                            )}
+                        />
+                    </div>
+                }
+                value={settings.cod_bank_account_currency || ''}
+                options={[
+                    { label: __('Select currency', 'nova-post-for-woocommerce'), value: '' },
+                    ...COD_CURRENCIES.map((currency) => ({ label: currency, value: currency })),
+                ]}
+                onChange={handleChange('cod_bank_account_currency')}
+                __next40pxDefaultSize
+                help={bankAccountCurrencyError.help}
             />
         </FormSection>
     );

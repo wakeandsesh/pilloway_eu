@@ -183,7 +183,7 @@ class BulkPrintService {
         const typeMap = {
             marking: 'markings',
             invoice: 'invoices',
-            international: 'customs',
+            international: 'international-markings',
         };
 
         const typeName = typeMap[documentType] || documentType;

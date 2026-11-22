@@ -19,6 +19,8 @@ defined( 'ABSPATH' ) || exit;
 
 class Repository {
 
+	public const DB_VERSION = 2;
+
 	public static function facets_table(): string {
 		global $wpdb;
 
@@ -92,19 +94,69 @@ class Repository {
 
 		// The read path. The primary key makes a re-index idempotent; the two
 		// secondary keys are what let a facet be counted without ever touching
-		// wp_posts or the term tables.
+		// wp_posts or the term tables. variation_id is 0 for a value the whole
+		// product carries, and the variation's id for a size or colour that only
+		// one variation in stock offers.
+		self::upgrade_index();
+
 		dbDelta(
 			"CREATE TABLE {$index} (
 				product_id BIGINT UNSIGNED NOT NULL,
 				facet_id BIGINT UNSIGNED NOT NULL,
 				value_id BIGINT UNSIGNED NOT NULL,
+				variation_id BIGINT UNSIGNED NOT NULL DEFAULT 0,
 				num_value DECIMAL(15,4) NULL DEFAULT NULL,
-				PRIMARY KEY (product_id, facet_id, value_id),
-				KEY facet_value (facet_id, value_id),
-				KEY facet_num (facet_id, num_value),
-				KEY value_id (value_id)
+				PRIMARY KEY  (product_id,facet_id,value_id,variation_id),
+				KEY facet_value (facet_id,value_id),
+				KEY facet_num (facet_id,num_value),
+				KEY value_id (value_id),
+				KEY product_variation (product_id,variation_id)
 			) {$charset};"
 		);
+	}
+
+	/**
+	 * An index built before 1.1.0 has no variation column, and dbDelta cannot
+	 * widen a primary key. The column is added in place with 0 everywhere, which
+	 * is exactly what the old rows meant, so the filter keeps working while the
+	 * background rebuild fills in the variations.
+	 */
+	private static function upgrade_index(): void {
+		global $wpdb;
+
+		$index = self::index_table();
+
+		// phpcs:disable WordPress.DB.DirectDatabaseQuery, WordPress.DB.PreparedSQL, WordPress.DB.SchemaChange
+		if ( $wpdb->get_var( $wpdb->prepare( 'SHOW TABLES LIKE %s', $wpdb->esc_like( $index ) ) ) !== $index ) {
+			return;
+		}
+
+		if ( $wpdb->get_var( "SHOW COLUMNS FROM {$index} LIKE 'variation_id'" ) ) {
+			return;
+		}
+
+		$wpdb->query( "ALTER TABLE {$index} ADD COLUMN variation_id BIGINT UNSIGNED NOT NULL DEFAULT 0 AFTER value_id, DROP PRIMARY KEY, ADD PRIMARY KEY (product_id, facet_id, value_id, variation_id), ADD KEY product_variation (product_id, variation_id)" );
+		// phpcs:enable
+	}
+
+	/**
+	 * Schema changes of an update. WordPress does not run the activation hook when
+	 * a plugin is updated in place, so the version stored at activation is
+	 * compared on every load and the tables follow the code here.
+	 */
+	public static function maybe_upgrade(): void {
+		if ( (int) get_option( 'catcode_sf_db_version', 1 ) >= self::DB_VERSION ) {
+			return;
+		}
+
+		self::install();
+
+		update_option( 'catcode_sf_db_version', self::DB_VERSION, true );
+		update_option( 'catcode_sf_version', CATCODE_SF_VERSION, false );
+
+		// Rows written by the old version know nothing about variations. They stay
+		// valid until the background rebuild replaces them product by product.
+		Indexer::schedule_rebuild();
 	}
 
 	public static function drop(): void {

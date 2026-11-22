@@ -59,6 +59,16 @@ final class UserStorage {
     }
 
     /**
+     * Sets the single instance of the class (primarily for tests).
+     *
+     * @param UserStorage|null $instance The instance to set.
+     * @return void
+     */
+    public static function set_instance( ?UserStorage $instance ): void {
+        self::$instance = $instance;
+    }
+
+    /**
      * Get all Nova Post session data.
      *
      * @param array $default_params Default value to return if no data is found.

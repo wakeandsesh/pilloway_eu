@@ -39,6 +39,10 @@ class Logger extends AbstractLogger {
             return;
         }
 
+        if ( is_array( $context ) ) {
+            $context = \NovaPostForWoocommerce\Exceptions\ShipmentException::mask_sensitive_data( $context );
+        }
+
         $logger      = wc_get_logger();
         $handler     = array( 'source' => self::LOG_FILE_NAME );
         $context_str = wp_json_encode( $context );

@@ -1,5 +1,5 @@
 /**
- * Print customs declaration action handler.
+ * Print international marking action handler.
  *
  * @class PrintCustomsAction
  */
@@ -24,9 +24,9 @@ export class PrintCustomsAction extends BaseAction {
     }
 
     /**
-     * Execute customs declaration printing
+     * Execute international marking printing
      *
-     * @param {HTMLElement} button - The print customs button
+     * @param {HTMLElement} button - The print international marking button
      * @return {Promise<void>}
      */
     async execute(button) {
@@ -55,7 +55,7 @@ export class PrintCustomsAction extends BaseAction {
 
             noticeService.showSuccess(
                 __(
-                    'Customs declaration generated and printing initiated successfully!',
+                    'International marking generated and printing initiated successfully!',
                     'nova-post-for-woocommerce'
                 ),
                 { scrollToTop: false }
@@ -64,7 +64,7 @@ export class PrintCustomsAction extends BaseAction {
             noticeService.showError(
                 error.message ||
                     __(
-                        'Failed to generate customs declaration. Please try again.',
+                        'Failed to generate international marking. Please try again.',
                         'nova-post-for-woocommerce'
                     )
             );

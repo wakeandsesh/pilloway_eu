@@ -239,9 +239,6 @@ class Indexer {
 			array(
 				'taxonomy'   => (string) $facet->source_key,
 				'hide_empty' => false,
-				// A single facet index stores values for every Polylang term slug;
-				// the archive language chooses which translated product IDs are counted.
-				'lang'       => '',
 			)
 		);
 
@@ -616,7 +613,8 @@ class Indexer {
 		// phpcs:ignore WordPress.DB.DirectDatabaseQuery, WordPress.DB.PreparedSQL
 		$wpdb->query( "DELETE FROM {$index} WHERE product_id IN ({$id_list})" );
 
-		$rows = array();
+		$rows       = array();
+		$variations = self::variations( $product_ids );
 
 		foreach ( $facets as $facet ) {
 			if ( ! in_array( $facet->source, array( Settings::SRC_ATTRIBUTE, Settings::SRC_TAXONOMY ), true ) ) {
@@ -637,6 +635,9 @@ class Indexer {
 				)
 			);
 
+			$meta_key = 'attribute_' . $facet->source_key;
+			$per_item = array();
+
 			foreach ( $assigned as $row ) {
 				$slug = (string) $row->slug;
 
@@ -654,16 +655,278 @@ class Indexer {
 					continue;
 				}
 
-				$rows[] = array(
-					(int) $row->product_id,
-					(int) $facet->facet_id,
-					(int) $map[ $slug ]['value_id'],
-					$map[ $slug ]['num_value'],
-				);
+				$per_item[ (int) $row->product_id ][] = $slug;
+			}
+
+			foreach ( $per_item as $product_id => $slugs ) {
+				// A size or colour the variations are built from belongs to the
+				// variations, not to the product: "L" is only true for the product
+				// while a variation in L can be bought.
+				if ( Settings::SRC_ATTRIBUTE === $facet->source && isset( $variations['keys'][ $product_id ][ $meta_key ] ) ) {
+					foreach ( $variations['items'][ $product_id ] ?? array() as $variation_id => $attributes ) {
+						// An empty value is WooCommerce's "Any …": the variation sells
+						// every value the product carries.
+						$own = isset( $attributes[ $meta_key ] ) && '' !== $attributes[ $meta_key ] ? array( $attributes[ $meta_key ] ) : $slugs;
+
+						foreach ( $own as $slug ) {
+							if ( ! in_array( $slug, $slugs, true ) || ! isset( $map[ $slug ] ) ) {
+								continue;
+							}
+
+							$rows[] = array( $product_id, (int) $facet->facet_id, (int) $map[ $slug ]['value_id'], $map[ $slug ]['num_value'], (int) $variation_id );
+						}
+					}
+
+					continue;
+				}
+
+				foreach ( $slugs as $slug ) {
+					$rows[] = array( $product_id, (int) $facet->facet_id, (int) $map[ $slug ]['value_id'], $map[ $slug ]['num_value'], 0 );
+				}
 			}
 		}
 
 		return self::insert_rows( $rows );
+	}
+
+	/**
+	 * The variations of the given products that a shopper can actually buy, with
+	 * their attribute values, and per product the attributes its variations are
+	 * built from. A disabled variation still names its attributes (the product
+	 * is varied by size either way) but sells nothing.
+	 *
+	 * @param array<int,int> $product_ids
+	 * @return array{keys:array<int,array<string,bool>>,items:array<int,array<int,array<string,string>>>}
+	 */
+	private static function variations( array $product_ids ): array {
+		global $wpdb;
+
+		$out = array(
+			'keys'  => array(),
+			'items' => array(),
+		);
+
+		if ( ! $product_ids || ! Settings::is_on( 'variation_stock' ) ) {
+			return $out;
+		}
+
+		$id_list = implode( ',', array_map( 'intval', $product_ids ) );
+
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery, WordPress.DB.PreparedSQL
+		$posts = (array) $wpdb->get_results(
+			"SELECT ID, post_parent, post_status FROM {$wpdb->posts}
+				WHERE post_type = 'product_variation' AND post_parent IN ({$id_list}) AND post_status IN ('publish','private')"
+		);
+
+		if ( ! $posts ) {
+			return $out;
+		}
+
+		$parent = array();
+		$status = array();
+
+		foreach ( $posts as $post ) {
+			$parent[ (int) $post->ID ] = (int) $post->post_parent;
+			$status[ (int) $post->ID ] = (string) $post->post_status;
+		}
+
+		$meta = array();
+
+		foreach ( array_chunk( array_keys( $parent ), 1000 ) as $chunk ) {
+			$in = implode( ',', $chunk );
+
+			// phpcs:ignore WordPress.DB.DirectDatabaseQuery, WordPress.DB.PreparedSQL
+			$found = (array) $wpdb->get_results(
+				"SELECT post_id, meta_key, meta_value FROM {$wpdb->postmeta}
+					WHERE post_id IN ({$in}) AND ( meta_key LIKE 'attribute\\_%' OR meta_key IN ('_stock_status','_price') )"
+			);
+
+			foreach ( $found as $row ) {
+				$meta[ (int) $row->post_id ][ (string) $row->meta_key ] = (string) $row->meta_value;
+			}
+		}
+
+		$sellable = (array) apply_filters( 'catcode_sf_sellable_stock_statuses', array( 'instock', 'onbackorder' ) );
+
+		foreach ( $parent as $variation_id => $product_id ) {
+			$fields     = $meta[ $variation_id ] ?? array();
+			$attributes = array();
+
+			foreach ( $fields as $key => $value ) {
+				if ( 0 === strpos( $key, 'attribute_' ) ) {
+					$out['keys'][ $product_id ][ $key ] = true;
+					$attributes[ $key ]                 = $value;
+				}
+			}
+
+			$available = 'publish' === $status[ $variation_id ]
+				&& in_array( $fields['_stock_status'] ?? 'instock', $sellable, true )
+				&& '' !== ( $fields['_price'] ?? '' );
+
+			if ( apply_filters( 'catcode_sf_variation_available', $available, $variation_id, $product_id ) ) {
+				$out['items'][ $product_id ][ $variation_id ] = $attributes;
+			}
+		}
+
+		return $out;
+	}
+
+	// -----------------------------------------------------------------------
+	// Keeping up with stock
+	// -----------------------------------------------------------------------
+
+	/** @var array<int,bool> products whose variations changed in this request */
+	private static $queue = array();
+
+	/**
+	 * A variation sold out, came back from a cancelled order, was switched off or
+	 * re-priced. The parent is re-indexed once at the end of the request, so an
+	 * order with ten lines or an import of a hundred variations costs one pass
+	 * per product rather than one per change.
+	 */
+	public static function queue( int $product_id ): void {
+		if ( $product_id < 1 || ! Settings::is_on( 'reindex_on_save' ) ) {
+			return;
+		}
+
+		if ( ! self::$queue ) {
+			add_action( 'shutdown', array( __CLASS__, 'flush_queue' ), 5 );
+		}
+
+		self::$queue[ $product_id ] = true;
+	}
+
+	/** The product a stock change belongs to: the parent for a variation. */
+	public static function queue_post( int $post_id ): void {
+		$type = get_post_type( $post_id );
+
+		if ( 'product_variation' === $type ) {
+			self::queue( (int) wp_get_post_parent_id( $post_id ) );
+		} elseif ( 'product' === $type ) {
+			self::queue( $post_id );
+		}
+	}
+
+	public static function flush_queue(): void {
+		$ids         = array_keys( self::$queue );
+		self::$queue = array();
+
+		if ( ! $ids ) {
+			return;
+		}
+
+		try {
+			$live = array();
+
+			foreach ( $ids as $id ) {
+				if ( 'product' === get_post_type( $id ) && 'publish' === get_post_status( $id ) ) {
+					$live[] = (int) $id;
+				} else {
+					self::delete_product( (int) $id );
+				}
+			}
+
+			if ( $live ) {
+				self::index_products( $live );
+			}
+
+			Repository::bump_version();
+		} catch ( \Throwable $e ) {
+			self::log( 'stock sync failed: ' . $e->getMessage() );
+		}
+	}
+
+	// -----------------------------------------------------------------------
+	// Background rebuild
+	// -----------------------------------------------------------------------
+
+	public const REBUILD_HOOK = 'catcode_sf_rebuild_tick';
+
+	/**
+	 * Rebuild the whole index in the background, product by product over the
+	 * rows already there. Nothing is truncated: until a product's turn comes its
+	 * old rows keep answering, so the shop never shows an empty filter.
+	 */
+	public static function schedule_rebuild(): void {
+		update_option( 'catcode_sf_rebuild_cursor', 0, false );
+
+		self::enqueue_tick();
+	}
+
+	private static function enqueue_tick(): void {
+		if ( function_exists( 'as_enqueue_async_action' ) ) {
+			// Only a pending tick counts as "already queued": the tick that is running
+			// right now is in progress, and treating it as queued would end the chain
+			// after its first batch.
+			$pending = function_exists( 'as_get_scheduled_actions' ) ? as_get_scheduled_actions(
+				array(
+					'hook'     => self::REBUILD_HOOK,
+					'group'    => 'catcode-smart-filter',
+					'status'   => 'pending',
+					'per_page' => 1,
+				),
+				'ids'
+			) : array();
+
+			if ( ! $pending ) {
+				as_enqueue_async_action( self::REBUILD_HOOK, array(), 'catcode-smart-filter' );
+			}
+
+			return;
+		}
+
+		if ( ! wp_next_scheduled( self::REBUILD_HOOK ) ) {
+			wp_schedule_single_event( time(), self::REBUILD_HOOK );
+		}
+	}
+
+	public static function rebuild_tick(): void {
+		$cursor = get_option( 'catcode_sf_rebuild_cursor', false );
+
+		if ( false === $cursor ) {
+			return;
+		}
+
+		$result = self::build_batch( (int) $cursor, Settings::batch_size() );
+
+		Repository::bump_version();
+
+		if ( $result['done'] ) {
+			delete_option( 'catcode_sf_rebuild_cursor' );
+			self::prune_orphans();
+
+			Settings::set(
+				array(
+					'index_built_at' => current_time( 'mysql' ),
+					'index_rows'     => Repository::index_rows(),
+				)
+			);
+
+			return;
+		}
+
+		update_option( 'catcode_sf_rebuild_cursor', (int) $result['cursor'], false );
+
+		self::enqueue_tick();
+	}
+
+	/** Products still waiting for the background rebuild, or null when none runs. */
+	public static function rebuild_pending(): ?int {
+		global $wpdb;
+
+		$cursor = get_option( 'catcode_sf_rebuild_cursor', false );
+
+		if ( false === $cursor ) {
+			return null;
+		}
+
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery
+		return (int) $wpdb->get_var(
+			$wpdb->prepare(
+				"SELECT COUNT(*) FROM {$wpdb->posts} WHERE post_type = 'product' AND post_status = 'publish' AND ID > %d",
+				(int) $cursor
+			)
+		);
 	}
 
 	/**
@@ -724,18 +987,18 @@ class Indexer {
 			$values = array();
 
 			foreach ( $chunk as $row ) {
-				list( $product_id, $facet_id, $value_id, $num ) = $row;
+				list( $product_id, $facet_id, $value_id, $num, $variation_id ) = $row;
 
 				if ( null === $num ) {
-					$values[] = $wpdb->prepare( '(%d,%d,%d,NULL)', $product_id, $facet_id, $value_id );
+					$values[] = $wpdb->prepare( '(%d,%d,%d,%d,NULL)', $product_id, $facet_id, $value_id, $variation_id );
 				} else {
-					$values[] = $wpdb->prepare( '(%d,%d,%d,%f)', $product_id, $facet_id, $value_id, $num );
+					$values[] = $wpdb->prepare( '(%d,%d,%d,%d,%f)', $product_id, $facet_id, $value_id, $variation_id, $num );
 				}
 			}
 
 			// phpcs:disable WordPress.DB.DirectDatabaseQuery, WordPress.DB.PreparedSQL -- table name is ours, every row prepared above.
 			$wpdb->query(
-				"INSERT IGNORE INTO {$index} (product_id, facet_id, value_id, num_value) VALUES " . implode( ',', $values )
+				"INSERT IGNORE INTO {$index} (product_id, facet_id, value_id, variation_id, num_value) VALUES " . implode( ',', $values )
 			);
 			// phpcs:enable
 

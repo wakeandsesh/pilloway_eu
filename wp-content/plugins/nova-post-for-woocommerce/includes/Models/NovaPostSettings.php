@@ -29,6 +29,8 @@ class NovaPostSettings {
         'divisions_filter_pudo'         => true,
         'customs_fee_payer'             => 'Sender',
         'delivery_tariff'               => 'standard',
+        'delivery_payer'                => 'Sender',
+        'cod_bank_account_currency'     => '',
     );
 
     /**
@@ -81,11 +83,30 @@ class NovaPostSettings {
     }
 
     /**
+     * Magic isset for settings properties.
+     *
+     * @param string $name The name of the property to check.
+     * @return bool
+     */
+    public function __isset( $name ) {
+        return isset( $this->settings_data[ $name ] ) || isset( self::$default_settings[ $name ] );
+    }
+
+    /**
      * Save settings to the database.
      */
     public function save() {
         $old_settings = get_option( 'npforwc_shipping_settings', array() );
-        $settings     = array_merge( $old_settings, $this->settings_data );
+        $old_payer    = $old_settings['delivery_payer'] ?? self::$default_settings['delivery_payer'] ?? null;
+        $new_payer    = $this->settings_data['delivery_payer'] ?? null;
+
+        if ( null !== $new_payer && $old_payer !== $new_payer ) {
+            if ( class_exists( '\WC_Cache_Helper' ) ) {
+                \WC_Cache_Helper::get_transient_version( 'shipping', true );
+            }
+        }
+
+        $settings = array_merge( $old_settings, $this->settings_data );
         update_option( 'npforwc_shipping_settings', $settings );
     }
 
@@ -115,13 +136,32 @@ class NovaPostSettings {
     }
 
     /**
+     * Set the single instance of the class (primarily for tests).
+     *
+     * @param NovaPostSettings|null $instance The instance to set.
+     * @return void
+     */
+    public static function set_instance( ?self $instance ): void {
+        self::$instance = $instance;
+    }
+
+    /**
      * Update the settings in the database.
      *
      * @param array $settings The settings to update.
      */
     public static function update( $settings ) {
         $old_settings = get_option( 'npforwc_shipping_settings', array() );
-        $settings     = array_merge( $old_settings, $settings );
+        $old_payer    = $old_settings['delivery_payer'] ?? self::$default_settings['delivery_payer'] ?? null;
+        $new_payer    = $settings['delivery_payer'] ?? null;
+
+        if ( null !== $new_payer && $old_payer !== $new_payer ) {
+            if ( class_exists( '\WC_Cache_Helper' ) ) {
+                \WC_Cache_Helper::get_transient_version( 'shipping', true );
+            }
+        }
+
+        $settings = array_merge( $old_settings, $settings );
         update_option( 'npforwc_shipping_settings', $settings );
     }
 
@@ -131,7 +171,7 @@ class NovaPostSettings {
      * @return int Default width in millimeters.
      */
     public function get_default_width_in_mm() {
-        return round( $this->default_width * MeasurementUnitConstants::CM_TO_MM_MULTIPLIER );
+        return round( (float) $this->default_width * MeasurementUnitConstants::CM_TO_MM_MULTIPLIER );
     }
 
     /**
@@ -140,7 +180,7 @@ class NovaPostSettings {
      * @return int Default length in millimeters.
      */
     public function get_default_length_in_mm() {
-        return round( $this->default_length * MeasurementUnitConstants::CM_TO_MM_MULTIPLIER );
+        return round( (float) $this->default_length * MeasurementUnitConstants::CM_TO_MM_MULTIPLIER );
     }
 
     /**
@@ -149,7 +189,7 @@ class NovaPostSettings {
      * @return int Default height in millimeters.
      */
     public function get_default_height_in_mm() {
-        return round( $this->default_height * MeasurementUnitConstants::CM_TO_MM_MULTIPLIER );
+        return round( (float) $this->default_height * MeasurementUnitConstants::CM_TO_MM_MULTIPLIER );
     }
 
     /**
@@ -214,7 +254,7 @@ class NovaPostSettings {
      * @return int Default weight in grams.
      */
     public function get_default_weight_in_gr() {
-        return round( $this->default_weight * MeasurementUnitConstants::KG_TO_GR_MULTIPLIER );
+        return round( (float) $this->default_weight * MeasurementUnitConstants::KG_TO_GR_MULTIPLIER );
     }
 
     /**

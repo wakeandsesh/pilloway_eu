@@ -28,6 +28,7 @@ class Renderer {
 		if ( ! Settings::is_on( 'enabled' ) ) {
 			return '';
 		}
+
 		Runtime::boot();
 
 		$facets = Facets::active_with_values();
@@ -72,14 +73,6 @@ class Renderer {
 			}
 		}
 
-		if ( Settings::is_on( 'facet_onsale' ) ) {
-			$onsale = self::build_onsale( $counts, $selection, $hide_empty );
-
-			if ( $onsale && ( $onsale['values'] || $onsale['selected'] ) ) {
-				$blocks[] = $onsale;
-			}
-		}
-
 		if ( Settings::is_on( 'facet_rating' ) ) {
 			$rating = self::build_rating( $counts, $selection, $hide_empty );
 
@@ -87,9 +80,6 @@ class Renderer {
 				$blocks[] = $rating;
 			}
 		}
-
-		$blocks = apply_filters( 'catcode_sf_render_facet_blocks', $blocks );
-		$blocks = is_array( $blocks ) ? $blocks : array();
 
 		$has_selection = ! empty( $selection );
 
@@ -115,7 +105,7 @@ class Renderer {
 			'mobile_drawer'   => Settings::is_on( 'mobile_drawer' ),
 			'container'       => Settings::container(),
 			'container_extra' => implode( ',', Settings::extra_containers() ),
-			'count_url'       => self::count_url(),
+			'count_url'       => add_query_arg( array_filter( array( 'action' => 'catcode_sf_count', 'lang' => Query::current_language() ) ), admin_url( 'admin-ajax.php' ) ),
 		);
 
 		ob_start();
@@ -123,34 +113,6 @@ class Renderer {
 		include CATCODE_SF_DIR . 'templates/filter.php';
 
 		return (string) ob_get_clean();
-	}
-
-	/** Keep the read-only counter request in the same Polylang language. */
-	private static function count_url(): string {
-		$url  = add_query_arg( 'action', 'catcode_sf_count', admin_url( 'admin-ajax.php' ) );
-		$lang = Query::current_language();
-		return is_string( $lang ) && '' !== $lang ? add_query_arg( 'lang', $lang, $url ) : $url;
-	}
-
-	/** Resolve the attribute label saved in Ukrainian to the active store language. */
-	private static function facet_label( $facet ): string {
-		$taxonomy = (string) $facet->source_key;
-		$lang     = Query::current_language();
-		$labels   = get_option( 'pilloway_attribute_labels', array() );
-		$taxonomy_labels = get_option( 'pilloway_filter_taxonomy_labels', array() );
-		if ( isset( $taxonomy_labels[ $taxonomy ][ $lang ] ) ) {
-			return (string) $taxonomy_labels[ $taxonomy ][ $lang ];
-		}
-		if ( 'attribute' === $facet->source && isset( $labels[ $taxonomy ][ $lang ] ) ) {
-			return (string) $labels[ $taxonomy ][ $lang ];
-		}
-		if ( 'taxonomy' === $facet->source && isset( $taxonomy_labels[ $taxonomy ][ $lang ] ) ) {
-			return (string) $taxonomy_labels[ $taxonomy ][ $lang ];
-		}
-		if ( function_exists( 'pll_translate_string' ) && '' !== $lang ) {
-			return (string) pll_translate_string( (string) $facet->label, $lang );
-		}
-		return (string) $facet->label;
 	}
 
 	/**
@@ -199,7 +161,7 @@ class Renderer {
 
 		$block = array(
 			'key'           => $key,
-			'name'          => self::facet_label( $facet ),
+			'name'          => (string) $facet->label,
 			'hint'          => (string) $facet->hint,
 			'unit'          => (string) $facet->unit,
 			'widget'        => (string) $facet->widget,
@@ -327,43 +289,6 @@ class Renderer {
 			'range'         => array(),
 			'range_url'     => '',
 			'clear_url'     => Urls::remove( $selection, 's' ),
-		);
-	}
-
-	/** @return array<string,mixed> */
-	private static function build_onsale( array $counts, array $selection, bool $hide_empty ): array {
-		$count    = (int) ( $counts['values']['o']['1'] ?? 0 );
-		$selected = Params::is_selected( $selection, 'o', '1' );
-
-		if ( $count < 1 && ! $selected && $hide_empty ) {
-			return array();
-		}
-
-		return array(
-			'key'           => 'o',
-			'name'          => __( 'On sale', 'catcode-smart-filter' ),
-			'hint'          => '',
-			'unit'          => '',
-			'widget'        => 'checkbox',
-			'collapsed'     => false,
-			'visible_limit' => 0,
-			'search_box'    => false,
-			'selected'      => $selected,
-			'values'        => array(
-				array(
-					'value'    => '1',
-					'label'    => __( 'Products on sale', 'catcode-smart-filter' ),
-					'count'    => $count,
-					'selected' => $selected,
-					'disabled' => 0 === $count && ! $selected,
-					'url'      => Urls::toggle( $selection, 'o', '1' ),
-					'color'    => '',
-					'image'    => '',
-				),
-			),
-			'range'         => array(),
-			'range_url'     => '',
-			'clear_url'     => Urls::remove( $selection, 'o' ),
 		);
 	}
 

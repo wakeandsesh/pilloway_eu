@@ -22,14 +22,14 @@ class ApiService {
      * Execute a GET request returning JSON.
      *
      * @param {string}  path            - API endpoint path.
-     * @param {Object}  options         - Additional fetch options (params, headers, ...).
+     * @param {Object}  options         - Additional fetch options (basePath, params, headers, ...).
      * @param {boolean} fullErrorObject - Whether to reject with the full error object instead of a message.
      * @return {Promise<Object>} JSON-decoded response.
      */
     async get(path, options = {}, fullErrorObject = false) {
         try {
-            const { params = {}, ...fetchOptions } = options;
-            const requestPath = this._getFullPath(path);
+            const { params = {}, basePath = this.basePath, ...fetchOptions } = options;
+            const requestPath = this._getFullPath(path, basePath);
             const fullPath = addQueryArgs(requestPath, params);
 
             return await apiFetch({
@@ -151,11 +151,12 @@ class ApiService {
      * Build full API path including namespace base path.
      *
      * @private
-     * @param {string} path - Endpoint path relative to the base namespace.
+     * @param {string} path     - Endpoint path relative to the base namespace.
+     * @param {string} basePath - Base REST API namespace.
      * @return {string} - Normalized API path.
      */
-    _getFullPath(path = '') {
-        const normalizedBase = this.basePath.replace(/\/$/, '');
+    _getFullPath(path = '', basePath = this.basePath) {
+        const normalizedBase = basePath.replace(/\/$/, '');
 
         if (!path) {
             return normalizedBase;
@@ -202,14 +203,21 @@ class ApiService {
         let errorMessage = defaultMessage;
 
         if (error && typeof error === 'object') {
-            if (error.message) {
+            const apiMessages = Array.isArray(error.data?.api_errors)
+                ? error.data.api_errors.filter(
+                      (message) => typeof message === 'string' && message.trim()
+                  )
+                : [];
+            if (apiMessages.length) {
+                errorMessage = [...new Set(apiMessages)].join('\n');
+            } else if (error.data?.message) {
+                errorMessage = error.data.message;
+            } else if (error.message) {
                 errorMessage = error.message;
             } else if (error.api_errors && error.api_errors.errorMessage) {
                 errorMessage = error.api_errors.errorMessage;
             } else if (error.errors && Array.isArray(error.errors) && error.errors.length > 0) {
                 errorMessage = error.errors[0].message || error.errors[0];
-            } else if (error.data && error.data.message) {
-                errorMessage = error.data.message;
             } else if (error.code && error.data) {
                 errorMessage = `Error ${error.code}: ${error.data}`;
             }

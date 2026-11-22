@@ -4,7 +4,7 @@ Tags: woocommerce, product filter, faceted search, attribute filter, price filte
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.3
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,6 +20,7 @@ This plugin keeps its own flat index of "which product carries which value", reb
 
 * Facets from product attributes, from any product taxonomy (categories, tags, brands) and from a custom field.
 * Checkboxes, radio buttons, a select, a range slider or a toggle — per facet.
+* Variation-aware: a size or colour counts only while a variation in that size or colour can be bought, and two attributes picked together have to meet in one variation in stock. Orders, refunds, edits and CSV imports keep it current.
 * Price slider in the shop's display currency, an "in stock / out of stock" facet and a rating facet.
 * Honest counts next to every value: a count tells you what you will get, and the value you already picked keeps showing its siblings instead of collapsing to itself.
 * Values with no products are hidden — or shown greyed out, if you prefer the shopper to see the whole range.
@@ -79,6 +80,23 @@ No. A filtered view is `noindex,follow` with a canonical pointing at the clean a
 4. The index tab
 
 == Changelog ==
+
+= 1.1.1 =
+* Fix: a filtered page could carry a contradictory robots tag, such as "noindex, nofollow, index, follow" on a site closed to search engines, or "index, follow, noindex,follow" next to Yoast SEO. Now there is one consistent value, and the filter only ever makes it stricter: a noindex set by the site, the page or the SEO plugin stays in place.
+
+= 1.1.0 =
+* New: size, colour and any other attribute the variations are built from follow the stock of each variation. If size L of a T-shirt is sold out, the T-shirt no longer shows up under "L", and its count is not in the "L" counter.
+* New: two attributes picked together (L and red) only find products that have one variation in L and red in stock, and the counters next to every value are counted the same way.
+* New: the filter follows stock on its own: an order, a cancelled order, a refund back to stock, an edit of a variation and a CSV import update the product in the index without a rebuild.
+* New: after the update the index is rebuilt in the background; the filter keeps working while it runs. The setting "Size and colour: only variations in stock" switches the behaviour off.
+
+= 1.0.5 =
+* Fix: on search results a filter that left one product sent the shopper to that product; the filtered list now stays on screen.
+* Fix: filter links on search results repeated `s` and `post_type`, so one state had two URLs.
+* Fix: a search with an apostrophe or a quote lost the filter on the results page.
+
+= 1.0.4 =
+* Polylang: the counters, the price range and the list of values follow the language of the page. Each language version of a product is a post of its own, so before this a page in one language counted the products of every language and offered the attribute values of the other one.
 
 = 1.0.3 =
 * Fix: the facet screen labelled the column of value names and the value counts with the counting word ("values"), which also read as broken grammar in Ukrainian ("4 значень"). The column is now titled "Values", and counts read as "Values: 7" and "products: 39".

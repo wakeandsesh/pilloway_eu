@@ -18,7 +18,6 @@
 namespace CatCode\SmartFilter\Frontend;
 
 use CatCode\SmartFilter\Core\Params;
-use CatCode\SmartFilter\Core\Query;
 use CatCode\SmartFilter\Core\Runtime;
 use CatCode\SmartFilter\Core\Settings;
 
@@ -27,7 +26,7 @@ defined( 'ABSPATH' ) || exit;
 class Urls {
 
 	/** Query args that describe the listing and must survive a filter click. */
-	private const KEEP = array( 'orderby', 'order', 'per_page', 's', 'post_type', 'product_cat', 'product_tag', 'lang' );
+	private const KEEP = array( 'orderby', 'order', 'per_page', 's', 'post_type', 'product_cat', 'product_tag' );
 
 	/**
 	 * The archive URL without any filter state.
@@ -53,15 +52,6 @@ class Urls {
 			);
 		}
 
-		// In this local WordPress build the Woo shop page itself is a plain page;
-		// the reliable product loop is the product archive query. Keep filter links
-		// on that archive instead of combining a page path with post_type=product.
-		if ( function_exists( 'is_shop' ) && is_shop() ) {
-			$lang = Query::current_language();
-			$home = self::language_home( $lang );
-			return add_query_arg( 'post_type', 'product', $home );
-		}
-
 		if ( function_exists( 'wc_get_page_permalink' ) ) {
 			$shop = wc_get_page_permalink( 'shop' );
 
@@ -82,13 +72,16 @@ class Urls {
 
 		$args = array();
 
+		// A search base already carries s and post_type; repeating them from $_GET
+		// doubled both in every link and gave one state two URLs.
+		$in_base = array();
+		wp_parse_str( (string) wp_parse_url( $url, PHP_URL_QUERY ), $in_base );
+
 		foreach ( self::KEEP as $key ) {
-			if ( 'post_type' === $key && function_exists( 'is_shop' ) && is_shop() ) {
+			if ( isset( $in_base[ $key ] ) ) {
 				continue;
 			}
-			if ( 'lang' === $key && self::uses_language_directory() ) {
-				continue;
-			}
+
 			// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only listing state.
 			if ( isset( $_GET[ $key ] ) && '' !== $_GET[ $key ] ) {
 				// phpcs:ignore WordPress.Security.NonceVerification.Recommended
@@ -128,20 +121,6 @@ class Urls {
 		}
 
 		return $url . ( false === strpos( $url, '?' ) ? '?' : '&' ) . implode( '&', $query );
-	}
-
-	private static function uses_language_directory(): bool {
-		$options = get_option( 'polylang', array() );
-		return is_array( $options ) && ! empty( $options['rewrite'] ) && '' !== (string) get_option( 'permalink_structure' );
-	}
-
-	private static function language_home( string $lang ): string {
-		$options = get_option( 'polylang', array() );
-		$default = function_exists( 'pll_default_language' ) ? pll_default_language( 'slug' ) : '';
-		if ( self::uses_language_directory() && '' !== $lang && ( $lang !== $default || empty( $options['hide_default'] ) ) ) {
-			return trailingslashit( home_url( '/' . rawurlencode( $lang ) . '/' ) );
-		}
-		return function_exists( 'pll_home_url' ) && '' !== $lang ? pll_home_url( $lang ) : home_url( '/' );
 	}
 
 	/**

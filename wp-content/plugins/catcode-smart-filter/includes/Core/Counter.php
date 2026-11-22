@@ -63,8 +63,10 @@ class Counter {
 		}
 
 		if ( $untouched ) {
-			$base = Query::base_sql( $selection, $scope );
-			$in   = implode( ',', $untouched );
+			$base  = Query::base_sql( $selection, $scope );
+			$in    = implode( ',', $untouched );
+			$joint = Query::joint_row_clause( $selection, '', 'cfi' );
+			$joint = '' !== $joint ? ' AND ' . $joint : '';
 
 			// phpcs:ignore WordPress.DB.DirectDatabaseQuery, WordPress.DB.PreparedSQL
 			$rows = (array) $wpdb->get_results(
@@ -72,7 +74,7 @@ class Counter {
 					FROM {$index} cfi
 					INNER JOIN {$values_t} cfv ON cfv.value_id = cfi.value_id
 					INNER JOIN ({$base}) cfb ON cfb.product_id = cfi.product_id
-					WHERE cfi.facet_id IN ({$in})
+					WHERE cfi.facet_id IN ({$in}){$joint}
 					GROUP BY cfi.facet_id, cfv.value_slug"
 			);
 
@@ -100,7 +102,9 @@ class Counter {
 
 			unset( $released[ $facet->facet_key ] );
 
-			$base = Query::base_sql( $released, $scope );
+			$base  = Query::base_sql( $released, $scope );
+			$joint = Query::joint_row_clause( $selection, (string) $facet->facet_key, 'cfi' );
+			$joint = '' !== $joint ? ' AND ' . $joint : '';
 
 			// phpcs:ignore WordPress.DB.DirectDatabaseQuery, WordPress.DB.PreparedSQL
 			$rows = (array) $wpdb->get_results(
@@ -109,7 +113,7 @@ class Counter {
 						FROM {$index} cfi
 						INNER JOIN {$values_t} cfv ON cfv.value_id = cfi.value_id
 						INNER JOIN ({$base}) cfb ON cfb.product_id = cfi.product_id
-						WHERE cfi.facet_id = %d
+						WHERE cfi.facet_id = %d{$joint}
 						GROUP BY cfv.value_slug",
 					(int) $facet->facet_id
 				)
@@ -126,10 +130,6 @@ class Counter {
 
 		if ( Settings::is_on( 'facet_rating' ) ) {
 			$out['values']['r'] = self::rating_counts( $selection, $scope );
-		}
-
-		if ( Settings::is_on( 'facet_onsale' ) ) {
-			$out['values']['o'] = self::onsale_counts( $selection, $scope );
 		}
 
 		if ( '' !== $key ) {
@@ -215,27 +215,6 @@ class Counter {
 		return $out;
 	}
 
-	/** @return array<string,int> */
-	private static function onsale_counts( array $selection, array $scope ): array {
-		global $wpdb;
-
-		unset( $selection['o'] );
-		$base = Query::base_sql( $selection, $scope );
-		$ids  = function_exists( 'wc_get_product_ids_on_sale' ) ? wc_get_product_ids_on_sale() : array();
-		$ids  = array_values( array_unique( array_filter( array_map( 'intval', (array) $ids ) ) ) );
-
-		if ( ! $ids ) {
-			return array( '1' => 0 );
-		}
-
-		$in = implode( ',', $ids );
-
-		// phpcs:ignore WordPress.DB.DirectDatabaseQuery, WordPress.DB.PreparedSQL -- IDs are normalized to positive integers above.
-		$count = $wpdb->get_var( "SELECT COUNT(DISTINCT cfb.product_id) FROM ({$base}) cfb WHERE cfb.product_id IN ({$in})" );
-
-		return array( '1' => (int) $count );
-	}
-
 	/**
 	 * The cache key carries everything that can change an answer: the catalogue
 	 * version (bumped by any index write), the archive scope, the language and the
@@ -265,11 +244,8 @@ class Counter {
 		$parts = array(
 			'v' . Repository::version(),
 			'f' . implode( '.', $ids ),
-			'b' . implode( '.', array_map( static function ( $setting ) {
-				return Settings::is_on( $setting ) ? '1' : '0';
-			}, array( 'facet_price', 'facet_stock', 'facet_rating', 'facet_onsale', 'facet_category' ) ) ),
 			'sc' . wp_json_encode( $scope ),
-			'l' . Query::current_language(),
+			'l' . determine_locale() . Query::current_language(),
 			'c' . ( function_exists( 'get_woocommerce_currency' ) ? get_woocommerce_currency() : '' ),
 			Params::encode( $selection ),
 		);

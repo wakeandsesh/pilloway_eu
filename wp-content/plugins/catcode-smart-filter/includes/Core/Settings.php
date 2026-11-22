@@ -53,6 +53,7 @@ class Settings {
 
 			// --- index ------------------------------------------------------
 			'reindex_on_save'    => 'yes',
+			'variation_stock'    => 'yes',
 			'index_batch'        => 300,
 			'index_built_at'     => '',
 			'index_rows'         => 0,
@@ -67,8 +68,8 @@ class Settings {
 			'robots_multi'       => 'noindex,follow',
 
 			// --- markup -------------------------------------------------------
-			'container'          => '.wc-block-product-template, ul.products',
-			'container_extra'    => '.wp-block-woocommerce-product-results-count, .woocommerce-result-count, .wp-block-query-pagination, .woocommerce-pagination, .woocommerce-products-header__title',
+			'container'          => 'ul.products',
+			'container_extra'    => '.woocommerce-result-count, .woocommerce-pagination, .woocommerce-products-header__title',
 			'load_css'           => 'yes',
 			'heading'            => '',
 

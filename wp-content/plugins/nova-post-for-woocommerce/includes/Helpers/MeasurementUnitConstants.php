@@ -27,7 +27,7 @@ class MeasurementUnitConstants {
     public const UPPER_SIZE_LIMIT = 1200; // 120 cm
 
     public const LOWER_WEIGHT_LIMIT = 1000; // 1 kg
-    public const UPPER_WEIGHT_LIMIT = 30000; // 30 kg
+    public const UPPER_WEIGHT_LIMIT = 1000000; // 1000 kg
 
     public const VOLUMETRIC_WEIGHT_MULTIPLIER = 4000;
 }

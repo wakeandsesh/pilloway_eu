@@ -16,6 +16,14 @@ delete_option( \CatCode\SmartFilter\Core\Settings::OPTION );
 delete_option( 'catcode_sf_index_version' );
 delete_option( 'catcode_sf_version' );
 delete_option( 'catcode_sf_value_aliases' );
+delete_option( 'catcode_sf_db_version' );
+delete_option( 'catcode_sf_rebuild_cursor' );
+
+if ( function_exists( 'as_unschedule_all_actions' ) ) {
+	as_unschedule_all_actions( 'catcode_sf_rebuild_tick', array(), 'catcode-smart-filter' );
+}
+
+wp_clear_scheduled_hook( 'catcode_sf_rebuild_tick' );
 
 // Counter answers live in transients keyed by the catalogue version; they expire
 // on their own, but leaving a few thousand rows behind after an uninstall is

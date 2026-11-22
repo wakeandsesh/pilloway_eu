@@ -69,7 +69,7 @@ const CarrierShippingCalculation = () => {
                                                 </span>
                                                 <InfoTooltip
                                                     information={__(
-                                                        'Enter a fixed cost that will be displayed to the buyer. The actual shipping costs will be calculated via the API and charged to your account.',
+                                                        'Enter a fixed shipping cost shown to the customer at checkout. If delivery is paid by the sender, the actual Nova Post shipping costs are charged to your account.',
                                                         'nova-post-for-woocommerce'
                                                     )}
                                                 />
@@ -122,7 +122,7 @@ const CarrierShippingCalculation = () => {
                                         </span>
                                         <InfoTooltip
                                             information={__(
-                                                'Specify the order amount above which shipping will be free for the buyer. The actual shipping costs will be charged to your account',
+                                                'Specify the order amount above which shipping is free for the customer. If delivery is paid by the sender, the actual Nova Post shipping costs are charged to your account.',
                                                 'nova-post-for-woocommerce'
                                             )}
                                         />
@@ -182,7 +182,7 @@ const CarrierShippingCalculation = () => {
                                                 </span>
                                                 <InfoTooltip
                                                     information={__(
-                                                        'Enter a fixed cost that will be displayed to the buyer. The actual shipping costs will be calculated via the API and charged to your account.',
+                                                        'Enter a fixed shipping cost shown to the customer at checkout. If delivery is paid by the sender, the actual Nova Post shipping costs are charged to your account.',
                                                         'nova-post-for-woocommerce'
                                                     )}
                                                 />
@@ -235,7 +235,7 @@ const CarrierShippingCalculation = () => {
                                         </span>
                                         <InfoTooltip
                                             information={__(
-                                                'Specify the order amount above which shipping will be free for the buyer. The actual shipping costs will be charged to your account',
+                                                'Specify the order amount above which shipping is free for the customer. If delivery is paid by the sender, the actual Nova Post shipping costs are charged to your account.',
                                                 'nova-post-for-woocommerce'
                                             )}
                                         />

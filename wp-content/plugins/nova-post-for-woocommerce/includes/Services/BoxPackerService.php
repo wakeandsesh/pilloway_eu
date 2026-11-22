@@ -34,6 +34,12 @@ class BoxPackerService {
     private const MAX_BOX_WEIGHT = 1000000;
 
     /**
+     * Maximum allowed length for parcel description in API payload.
+     * Nova Post API limits cargo description to 90 characters, validated after Cyrillic transliteration.
+     */
+    private const MAX_PARCEL_DESCRIPTION_LENGTH = 75;
+
+    /**
      * Default divisor used to calculate volumetric weight.
      * Ignore for now. In future will be implemented, value 4000.
      */
@@ -841,7 +847,7 @@ class BoxPackerService {
      * Generates a comma-separated description of parcel contents.
      *
      * @param array $box Packed box data.
-     * @return string Formatted description limited to 255 characters.
+     * @return string Formatted description limited to 75 characters.
      */
     private static function generate_parcel_description( array $box ): string {
         $items = $box['items'] ?? null;
@@ -861,9 +867,9 @@ class BoxPackerService {
         $unique_names = array_filter( array_unique( $names ) );
 
         // Join unique names into a comma-separated string - limited length by API.
-        $desc = empty( $unique_names ) ? 'Parcel' : implode( ', ', array_unique( $names ) );
+        $desc = empty( $unique_names ) ? 'Parcel' : implode( ', ', $unique_names );
 
-        return substr( $desc, 0, 255 );
+        return mb_strimwidth( $desc, 0, self::MAX_PARCEL_DESCRIPTION_LENGTH, '...', 'UTF-8' );
     }
 
     /**

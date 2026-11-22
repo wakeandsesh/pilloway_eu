@@ -27,19 +27,19 @@ return array(
 		'path'    => array( $vendorDir . '/psr/container/src' )
 	),
 	'NovaPostForWoocommerce\\Rakit\\Validation\\' => array(
-		'version' => '2.5.0.0',
+		'version' => '2.6.1.0',
 		'path'    => array( $baseDir . '/lib/validator' )
 	),
 	'NovaPostForWoocommerce\\' => array(
-		'version' => '2.5.0.0',
+		'version' => '2.6.1.0',
 		'path'    => array( $baseDir . '/includes' )
 	),
 	'NovaPostForWoocommerceTest\\' => array(
-		'version' => '2.5.0.0',
+		'version' => '2.6.1.0',
 		'path'    => array( $baseDir . '/tests' )
 	),
 	'NovaPostForWoocommerceDev\\' => array(
-		'version' => '2.5.0.0',
+		'version' => '2.6.1.0',
 		'path'    => array( $baseDir . '/includes_dev' )
 	),
 	'NovaDigital\\NovaPost\\' => array(

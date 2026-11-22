@@ -298,9 +298,9 @@ class ProductAdapter {
         return array_map(
             function ( $box ) use ( $multiplier ) {
                 return array(
-                    'width'  => (int) ( ( $box['width'] ?? 0 ) * $multiplier ),
-                    'length' => (int) ( ( $box['length'] ?? 0 ) * $multiplier ),
-                    'height' => (int) ( ( $box['height'] ?? 0 ) * $multiplier ),
+                    'width'  => (int) ( (float) ( $box['width'] ?? 0 ) * $multiplier ),
+                    'length' => (int) ( (float) ( $box['length'] ?? 0 ) * $multiplier ),
+                    'height' => (int) ( (float) ( $box['height'] ?? 0 ) * $multiplier ),
                 );
             },
             $custom_boxes

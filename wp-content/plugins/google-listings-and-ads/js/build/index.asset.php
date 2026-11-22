@@ -1,1 +1,33 @@
-<?php return array('dependencies' => array('lodash', 'react', 'react-dom', 'react-jsx-runtime', 'wc-components', 'wc-currency', 'wc-customer-effort-score', 'wc-date', 'wc-navigation', 'wc-number', 'wc-settings', 'wc-store-data', 'wc-tracks', 'wp-api-fetch', 'wp-components', 'wp-compose', 'wp-data', 'wp-data-controls', 'wp-date', 'wp-dom', 'wp-element', 'wp-hooks', 'wp-html-entities', 'wp-i18n', 'wp-preferences', 'wp-primitives', 'wp-url', 'wp-viewport'), 'version' => 'db5b405696d29780c2bd');
+<?php return array(
+	'dependencies' => array(
+		'lodash',
+		'react',
+		'react-dom',
+		'react-jsx-runtime',
+		'wc-components',
+		'wc-currency',
+		'wc-customer-effort-score',
+		'wc-date',
+		'wc-navigation',
+		'wc-number',
+		'wc-settings',
+		'wc-store-data',
+		'wc-tracks',
+		'wp-api-fetch',
+		'wp-components',
+		'wp-compose',
+		'wp-data',
+		'wp-data-controls',
+		'wp-date',
+		'wp-dom',
+		'wp-element',
+		'wp-hooks',
+		'wp-html-entities',
+		'wp-i18n',
+		'wp-preferences',
+		'wp-primitives',
+		'wp-url',
+		'wp-viewport'
+	),
+	'version' => '9d9375fa2da4499c45bd'
+);

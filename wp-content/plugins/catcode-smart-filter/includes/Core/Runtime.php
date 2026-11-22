@@ -53,7 +53,7 @@ class Runtime {
 		$scope = array();
 
 		if ( is_search() ) {
-			$scope['search'] = get_search_query();
+			$scope['search'] = get_search_query( false );
 
 			return $scope;
 		}

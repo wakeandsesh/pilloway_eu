@@ -10,6 +10,7 @@
 namespace NovaPostForWoocommerce\Api\Controllers;
 
 use NovaPostForWoocommerce\Helpers\CountriesHelper;
+use NovaPostForWoocommerce\Models\JwtTokenRepository;
 use NovaPostForWoocommerce\Models\NovaPostSettings;
 use NovaPostForWoocommerce\Models\Traits\TrackEvent;
 use NovaPostForWoocommerce\Normalization\SettingsPageNormalizer;
@@ -77,6 +78,8 @@ class AdminSettingsController {
             ARRAY_FILTER_USE_KEY
         );
 
+        $credentials_changed = $this->credentials_changed( $settings );
+
         if ( isset( $settings['api_key'] ) ) {
             $settings['api_key'] = Openssl::encrypt( $settings['api_key'] );
         }
@@ -87,6 +90,11 @@ class AdminSettingsController {
         update_option( 'npforwc_shipping_api_key', $settings['api_key'] );
         update_option( 'npforwc_shipping_stage_api_key', $settings['stage_api_key'] );
         update_option( 'npforwc_shipping_debug', $settings['debug'] );
+
+        if ( $credentials_changed ) {
+            // The stored JWT belongs to the previous key/environment and must not be reused.
+            ( new JwtTokenRepository() )->delete();
+        }
 
         $all_settings     = NovaPostSettings::all();
         $updated_settings = array_merge( $all_settings, $settings );
@@ -205,5 +213,21 @@ class AdminSettingsController {
                 'show_no_shipping_zone_warning'     => ! SettingsPageService::check_nova_post_methods_in_zones(),
             )
         );
+    }
+
+    /**
+     * Check whether API keys or the Testing API mode differ from the stored ones.
+     *
+     * @param array $settings Submitted settings (plain-text keys).
+     * @return bool
+     */
+    private function credentials_changed( array $settings ): bool {
+        $old_api_key   = (string) Openssl::decrypt( get_option( 'npforwc_shipping_api_key' ) );
+        $old_stage_key = (string) Openssl::decrypt( get_option( 'npforwc_shipping_stage_api_key' ) );
+        $old_debug     = (bool) get_option( 'npforwc_shipping_debug' );
+
+        return (string) ( $settings['api_key'] ?? '' ) !== $old_api_key
+            || (string) ( $settings['stage_api_key'] ?? '' ) !== $old_stage_key
+            || (bool) ( $settings['debug'] ?? false ) !== $old_debug;
     }
 }

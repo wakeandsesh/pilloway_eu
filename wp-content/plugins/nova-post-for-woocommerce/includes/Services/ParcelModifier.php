@@ -32,7 +32,7 @@ class ParcelModifier {
     }
 
     /**
-     * Add shipping total to the insurance cost of the first parcel for COD orders with flat rate.
+     * Set insurance cost of parcels to match the total COD amount for COD orders.
      *
      * @param array            $parcels  Array of API-ready parcels.
      * @param WC_Order         $order    WooCommerce order.
@@ -44,10 +44,19 @@ class ParcelModifier {
             return $parcels;
         }
 
-        if ( 'cod' === $order->get_payment_method() && ShipmentCodService::is_flat_rate_order( $order, $settings ) ) {
-            $shipping_total = (float) $order->get_shipping_total();
-            if ( $shipping_total > 0 ) {
-                $parcels[0]['insuranceCost'] += $shipping_total;
+        if ( 'cod' === $order->get_payment_method() && ShipmentApiService::COUNTRY_UA !== $settings->sender_country ) {
+            $cod_amount = ShipmentCodService::calculate_order_cod_amount( $order );
+            if ( $cod_amount > 0 ) {
+                if ( 1 === count( $parcels ) ) {
+                    $parcels[0]['insuranceCost'] = $cod_amount;
+                } else {
+                    $current_insurance = 0.0;
+                    foreach ( $parcels as $parcel ) {
+                        $current_insurance += (float) ( $parcel['insuranceCost'] ?? 0 );
+                    }
+                    $diff                        = $cod_amount - $current_insurance;
+                    $parcels[0]['insuranceCost'] = max( 1.0, round( ( (float) $parcels[0]['insuranceCost'] ) + $diff, 2 ) );
+                }
             }
         }
 

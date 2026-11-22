@@ -3,7 +3,7 @@
  * Plugin Name: Nova Post for WooCommerce
  * Requires Plugins: woocommerce
  * Description: Nova Post shipping integration for WooCommerce
- * Version: 2.5.0
+ * Version: 2.6.1
  * Author: Nova Post
  * Author URI: https://novapost.com/
  * Text Domain: nova-post-for-woocommerce
@@ -18,7 +18,7 @@
 defined( 'ABSPATH' ) || exit;
 
 if ( ! defined( 'NPFORWC_PLUGIN_VERSION' ) ) {
-    define( 'NPFORWC_PLUGIN_VERSION', '2.5.0' );
+    define( 'NPFORWC_PLUGIN_VERSION', '2.6.1' );
 }
 
 if ( ! defined( 'NPFORWC_PLUGIN_PATH' ) ) {

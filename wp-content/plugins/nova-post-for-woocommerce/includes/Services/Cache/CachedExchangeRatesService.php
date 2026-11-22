@@ -107,10 +107,12 @@ class CachedExchangeRatesService {
 
         $rate = $this->get_rate( $country, $from, $to );
 
-        return round(
+        $converted = round(
             $amount * $rate,
             ExchangeRateConstants::RESULT_DECIMAL_COUNT
         );
+
+        return $converted;
     }
 
     /**
@@ -198,11 +200,15 @@ class CachedExchangeRatesService {
      *
      * @throws \RuntimeException|\InvalidArgumentException When exchange rate is unavailable or API returns invalid rate.
      */
-    private function get_rate(
+    public function get_rate(
         string $country,
         string $from,
         string $to
     ): float {
+        if ( $from === $to ) {
+            return 1.0;
+        }
+
         $cache_key   = $this->build_cache_key( $country, $from, $to );
         $cached_rate = $this->get_cached_rate( $cache_key );
 
@@ -212,10 +218,7 @@ class CachedExchangeRatesService {
 
         $api_rate = $this->get_api_rate( $country, $from, $to );
 
-        $rate = round(
-            $api_rate / ExchangeRateConstants::SCALE_INDEX,
-            ExchangeRateConstants::RATE_DECIMAL_COUNT
-        );
+        $rate = (float) ( $api_rate / ExchangeRateConstants::SCALE_INDEX );
 
         $this->set_cached_data( $cache_key, array( 'rate' => $rate ) );
 

@@ -14,6 +14,7 @@ import SenderData from '../SenderData';
 import CarrierShippingCalculation from '../CarrierShippingCalculation';
 import ProductInformation from '../ProductInformation';
 import PackagingSettings from '../PackagingSettings';
+import DeliveryPayment from '../DeliveryPayment';
 import CashOnDelivery from '../CashOnDelivery';
 import OrderWorkflow from '../OrderWorkflow';
 import DivisionsFilters from '../DivisionsFilters';
@@ -79,9 +80,11 @@ const NovaPostSettingsPage = () => {
 
                     <CarrierShippingCalculation />
 
-                    <CashOnDelivery />
+                    <DeliveryPayment />
 
                     <OrderWorkflow />
+
+                    <CashOnDelivery />
 
                     <DivisionsFilters />
                 </>
