@@ -109,6 +109,55 @@ function pilloway_catalog_order_filter_blocks( array $blocks ): array {
 }
 add_filter( 'catcode_sf_render_facet_blocks', 'pilloway_catalog_order_filter_blocks', 20 );
 
+/** Translate indexed facets without changing the slugs that filter product IDs. */
+function pilloway_catalog_localize_filter_blocks( array $blocks ): array {
+	$lang = pilloway_catalog_current_language();
+	$headings = array(
+		'en' => array( 'pillow_support' => 'Support pillows', 'filler' => 'Filling', 'firmness' => 'Firmness', 'cover_material' => 'Pillowcase fabric', 'pregnancy_use' => 'Pregnancy', 'age_group' => 'For children', 'pillow_set' => 'Pillow sets', 'material' => 'Material', 'color' => 'Colour' ),
+		'pl' => array( 'pillow_support' => 'Poduszki wspierające', 'filler' => 'Wypełnienie', 'firmness' => 'Twardość', 'cover_material' => 'Tkanina poszewki', 'pregnancy_use' => 'Dla kobiet w ciąży', 'age_group' => 'Dla dzieci', 'pillow_set' => 'Zestawy poduszek', 'material' => 'Materiał', 'color' => 'Kolor' ),
+		'fr' => array( 'pillow_support' => 'Coussins de soutien', 'filler' => 'Garnissage', 'firmness' => 'Fermeté', 'cover_material' => 'Tissu de la taie', 'pregnancy_use' => 'Grossesse', 'age_group' => 'Pour les enfants', 'pillow_set' => 'Lots de coussins', 'material' => 'Matière', 'color' => 'Couleur' ),
+		'de' => array( 'pillow_support' => 'Stützkissen', 'filler' => 'Füllung', 'firmness' => 'Härtegrad', 'cover_material' => 'Material des Kissenbezugs', 'pregnancy_use' => 'Schwangerschaft', 'age_group' => 'Für Kinder', 'pillow_set' => 'Kissensets', 'material' => 'Material', 'color' => 'Farbe' ),
+	);
+	$configured = (array) get_option( 'pilloway_filter_taxonomy_labels', array() );
+
+	foreach ( $blocks as &$block ) {
+		$key = (string) ( $block['key'] ?? '' );
+		if ( 0 !== strpos( $key, 'pa_' ) ) {
+			continue;
+		}
+		$block['name'] = $configured[ $key ][ $lang ] ?? $headings[ $lang ][ substr( $key, 3 ) ] ?? $block['name'];
+		foreach ( $block['values'] as &$value ) {
+			if ( function_exists( 'pll_get_term' ) && '' !== $lang && taxonomy_exists( $key ) ) {
+				$slug = (string) $value['value'];
+				$slugs = array( $slug );
+				// Legacy facet aliases append the language to the original attribute slug.
+				if ( substr( $slug, -strlen( $lang ) - 1 ) === '-' . $lang ) {
+					$slugs[] = substr( $slug, 0, -strlen( $lang ) - 1 );
+				}
+				$terms = get_terms( array( 'taxonomy' => $key, 'slug' => $slugs, 'lang' => '', 'hide_empty' => false, 'number' => 1 ) );
+				$term = is_array( $terms ) ? ( $terms[0] ?? false ) : false;
+				$translated_id = $term ? pll_get_term( $term->term_id, $lang ) : false;
+				$translated = $translated_id ? get_term( $translated_id, $key ) : $term;
+				if ( $translated instanceof WP_Term ) {
+					$value['label'] = $translated->name;
+				}
+				if ( ! $translated_id && 'pa_cover_material' === $key && in_array( 'satyn-100-bavovna-uk', $slugs, true ) ) {
+					$satin = array( 'en' => 'Satin (100% cotton)', 'pl' => 'Satyna (100% bawełna)', 'fr' => 'Satin (100 % coton)', 'de' => 'Satin (100 % Baumwolle)' );
+					$value['label'] = $satin[ $lang ] ?? $value['label'];
+				}
+			}
+			if ( function_exists( 'pilloway_eu_lyocell_copy' ) ) {
+				$value['label'] = pilloway_eu_lyocell_copy( $value['label'] );
+			}
+		}
+		unset( $value );
+	}
+	unset( $block );
+
+	return $blocks;
+}
+add_filter( 'catcode_sf_render_facet_blocks', 'pilloway_catalog_localize_filter_blocks', 15 );
+
 /** Add the real CatCode filter above the primary WooCommerce loop. */
 function pilloway_catalog_render_filter(): void {
 	if ( ! function_exists( 'is_shop' ) || ! shortcode_exists( 'catcode_filter' ) ) {

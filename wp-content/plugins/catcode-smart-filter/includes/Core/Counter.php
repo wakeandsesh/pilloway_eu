@@ -132,6 +132,10 @@ class Counter {
 			$out['values']['r'] = self::rating_counts( $selection, $scope );
 		}
 
+		if ( Settings::is_on( 'facet_onsale' ) ) {
+			$out['values']['o'] = self::onsale_counts( $selection, $scope );
+		}
+
 		if ( '' !== $key ) {
 			set_transient( $key, $out, Settings::cache_ttl() );
 		}
@@ -215,6 +219,28 @@ class Counter {
 		return $out;
 	}
 
+	/** @return array<string,int> */
+	private static function onsale_counts( array $selection, array $scope ): array {
+		global $wpdb;
+
+		unset( $selection['o'] );
+		$base = Query::base_sql( $selection, $scope );
+		$ids  = function_exists( 'wc_get_product_ids_on_sale' ) ? wc_get_product_ids_on_sale() : array();
+		$ids  = array_values( array_unique( array_filter( array_map( 'intval', (array) $ids ) ) ) );
+
+		if ( ! $ids ) {
+			return array( '1' => 0 );
+		}
+
+		$in = implode( ',', $ids );
+
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery, WordPress.DB.PreparedSQL -- IDs are normalized to positive integers above.
+		$count = $wpdb->get_var( "SELECT COUNT(DISTINCT cfb.product_id) FROM ({$base}) cfb WHERE cfb.product_id IN ({$in})" );
+
+		return array( '1' => (int) $count );
+	}
+
+
 	/**
 	 * The cache key carries everything that can change an answer: the catalogue
 	 * version (bumped by any index write), the archive scope, the language and the
@@ -244,6 +270,7 @@ class Counter {
 		$parts = array(
 			'v' . Repository::version(),
 			'f' . implode( '.', $ids ),
+			'b' . (int) Settings::is_on( 'facet_onsale' ),
 			'sc' . wp_json_encode( $scope ),
 			'l' . determine_locale() . Query::current_language(),
 			'c' . ( function_exists( 'get_woocommerce_currency' ) ? get_woocommerce_currency() : '' ),
