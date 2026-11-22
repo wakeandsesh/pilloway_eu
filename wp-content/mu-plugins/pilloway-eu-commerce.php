@@ -64,16 +64,18 @@ add_filter('woocommerce_package_rates', function ($rates) {
     return $rates;
 }, PHP_INT_MAX);
 
-/** Only the 27 EU member states may be used for billing and delivery. */
+/** Billing and delivery markets with confirmed Nova Post pickup points. */
 function pilloway_eu_pickup_countries() {
-    return array('AT','CZ','DE','EE','ES','FR','HU','IT','LT','LV','NL','PL','RO','SK');
+    $eu = array('AT','CZ','DE','EE','ES','FR','HU','IT','LT','LV','NL','PL','RO','SK');
+    $non_eu_markets = array('GB', 'MD');
+    return array_merge($eu, $non_eu_markets);
 }
 function pilloway_eu_filter_countries($countries) {
     return array_intersect_key($countries, array_flip(pilloway_eu_pickup_countries()));
 }
 add_filter('woocommerce_countries_allowed_countries','pilloway_eu_filter_countries',PHP_INT_MAX);
 add_filter('woocommerce_countries_shipping_countries','pilloway_eu_filter_countries',PHP_INT_MAX);
-// Do not preselect an old non-EU country saved in the customer session.
+// Do not preselect a destination outside the supported markets saved in the customer session.
 add_filter('woocommerce_checkout_get_value', function ($value,$input) {
     if (!in_array($input,array('billing_country','shipping_country'),true)) return $value;
     $country=$value;
