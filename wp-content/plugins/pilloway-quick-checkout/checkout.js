@@ -27,6 +27,14 @@
             // The current page still prevents duplicates if storage is unavailable.
         }
         track('quick_checkout_submit', { transaction_id: transactionId });
+        if (['pilloway.eu', 'www.pilloway.eu'].includes(window.location.hostname)
+            && /(?:^|;\s*)pilloway_consent=all(?:;|$)/.test(document.cookie)
+            && typeof window.gtag === 'function') {
+            window.gtag('event', 'conversion', {
+                send_to: 'AW-18585303888/ihXcCKSqkL0dEND2lJ5F',
+                transaction_id: transactionId,
+            });
+        }
     }
 
     async function request(url, data) {
