@@ -4,35 +4,41 @@
  */
 defined('ABSPATH') || exit;
 
-// The native WooCommerce country selector updates shipping during
-// update_order_review, without a second selector or a reload that loses form data.
+// Nova Post collects the delivery details for the selected shipping method.
 add_filter('woocommerce_checkout_fields', function ($fields) {
-    if (isset($fields['billing']['billing_country'])) {
-        $fields['billing']['billing_country']['priority'] = 5;
-        $fields['billing']['billing_country']['required'] = true;
-        $fields['billing']['billing_country']['class'][] = 'update_totals_on_change';
+    $billing = array(
+        'billing_country'    => true,
+        'billing_first_name' => true,
+        'billing_last_name'  => true,
+        'billing_phone'      => true,
+        'billing_email'      => false,
+    );
+
+    $fields['billing'] = array_intersect_key($fields['billing'], $billing);
+    foreach ($fields['billing'] as $key => &$field) {
+        $field['required'] = $billing[$key];
     }
-    // International billing details are needed by the payment provider. The UA
-    // checkout plugin removes them to avoid duplicating Nova Post's address.
-    $country = WC()->customer ? WC()->customer->get_billing_country() : '';
-    {
-        $address = WC()->countries->get_address_fields($country, 'billing_');
-        foreach (array('address_1','address_2','city','state','postcode') as $part) {
-            if (isset($address['billing_'.$part])) {
-                $fields['billing']['billing_'.$part] = $address['billing_'.$part];
-            }
-        }
-    }
+    unset($field);
+
+    $fields['billing']['billing_country']['priority'] = 5;
+    $fields['billing']['billing_country']['class'][] = 'update_totals_on_change';
+    $fields['shipping'] = array();
+    $fields['order'] = array();
     return $fields;
-}, 40);
+}, 100);
+
+add_filter('woocommerce_cart_needs_shipping_address', function ($needs_address) {
+    return is_checkout() ? false : $needs_address;
+});
+add_filter('woocommerce_enable_order_notes_field', '__return_false');
+
+add_action('wp_loaded', function () {
+    remove_action('woocommerce_after_checkout_validation', 'pilloway_checkout_flow_validate_shipping_email', 20);
+});
 
 add_filter('woocommerce_available_payment_gateways', function ($gateways) {
     if (is_admin() && !wp_doing_ajax()) return $gateways;
-    $currency = get_woocommerce_currency();
-    unset($gateways['liqpay']);
-    if ('EUR' !== $currency) unset($gateways['wayforpay']);
-    // No EU bank beneficiary was supplied. Do not offer the copied UA account abroad.
-    unset($gateways['isi_bank_transfer'], $gateways['bacs'], $gateways['cheque']);
+    $gateways = array_intersect_key($gateways, array('liqpay' => true, 'isi_bank_transfer' => true));
     if ('production' === wp_get_environment_type()) {
         foreach ($gateways as $id => $gateway) {
             if ('yes' === $gateway->get_option('testmode', 'no')) unset($gateways[$id]);
@@ -78,9 +84,23 @@ add_filter('woocommerce_checkout_get_value', function ($value,$input) {
     }
     return $country && !in_array($country,pilloway_eu_member_states(),true) ? '' : $value;
 },100,2);
-// Exclude stale cached rates for destinations outside the permitted shipping list.
+// Recalculate previously cached WooCommerce rates after switching to pickup-only delivery.
+add_filter('woocommerce_cart_shipping_packages', function ($packages) {
+    foreach ($packages as &$package) {
+        $package['pilloway_nova_pickup_only'] = true;
+    }
+    unset($package);
+    return $packages;
+});
+
+// Restrict rates to Nova Post pickup in supported destinations.
 add_filter('woocommerce_package_rates',function($rates,$package) {
-    return in_array($package['destination']['country'] ?? '',pilloway_eu_member_states(),true) ? $rates : array();
+    if (!in_array($package['destination']['country'] ?? '', pilloway_eu_member_states(), true)) {
+        return array();
+    }
+    return array_filter($rates, static function ($rate) {
+        return 'nova_post_division' === $rate->get_method_id();
+    });
 },PHP_INT_MAX,2);
 
 function pilloway_eu_validate_countries($data,$errors) {
