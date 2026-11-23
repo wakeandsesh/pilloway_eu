@@ -94,7 +94,8 @@
         const info = element('p', 'pilloway-qc-note', labels.info);
         const privacy = config.privacy ? element('a', 'pilloway-qc-note', labels.privacy) : element('p', 'pilloway-qc-note', labels.privacy);
         if (config.privacy) privacy.href = config.privacy;
-        form.append(trap, summary, info, privacy);
+        const attribution = element('wc-order-attribution-inputs');
+        form.append(trap, summary, info, privacy, attribution);
         content.append(form);
         actions.append(status, submit);
         panel.append(top, content, actions);
@@ -163,6 +164,7 @@
             submit.textContent = labels.loading;
             status.textContent = '';
             try {
+                attribution.values = window.wc_order_attribution?.getAttributionData?.() ?? {};
                 const fields = Object.fromEntries(new FormData(form));
                 const result = await request(config.submit, { ...fields, lang: config.lang, token: state.token, proof: state.proof, cart: state.cart });
                 completed = true;

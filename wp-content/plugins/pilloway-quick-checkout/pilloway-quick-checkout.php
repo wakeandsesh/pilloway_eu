@@ -281,6 +281,17 @@ final class Pilloway_Quick_Checkout {
 		$order->set_total( self::subtotal() );
 		$order->update_taxes();
 		$order->save();
+		if ( has_action( 'woocommerce_order_save_attribution_data' ) ) {
+			$controller = wc_get_container()->get( \Automattic\WooCommerce\Internal\Orders\OrderAttributionController::class );
+			$attribution = [];
+			foreach ( $controller->get_field_names() as $field ) {
+				$value = $_POST[ $controller->get_prefix() . $field ] ?? '';
+				$attribution[ $field ] = is_string( $value ) ? $value : '';
+			}
+			if ( '' !== ( $attribution['source_type'] ?? '' ) ) {
+				do_action( 'woocommerce_order_save_attribution_data', $order, $attribution );
+			}
+		}
 		try {
 			wc_reserve_stock_for_order( $order );
 		} catch ( \Automattic\WooCommerce\Checkout\Helpers\ReserveStockException $exception ) {
