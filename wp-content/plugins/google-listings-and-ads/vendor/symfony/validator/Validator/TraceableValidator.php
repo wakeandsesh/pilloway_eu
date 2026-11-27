@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator\Validator;
+namespace Automattic\WooCommerce\GoogleListingsAndAds\Vendor\Symfony\Component\Validator\Validator;
 
-use Symfony\Component\Validator\Context\ExecutionContextInterface;
+use Automattic\WooCommerce\GoogleListingsAndAds\Vendor\Symfony\Component\Validator\Context\ExecutionContextInterface;
 use Symfony\Contracts\Service\ResetInterface;
 
 /**

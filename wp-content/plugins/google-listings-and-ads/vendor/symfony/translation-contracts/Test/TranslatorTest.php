@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Contracts\Translation\Test;
+namespace Automattic\WooCommerce\GoogleListingsAndAds\Vendor\Symfony\Contracts\Translation\Test;
 
 use PHPUnit\Framework\TestCase;
-use Symfony\Contracts\Translation\TranslatorInterface;
-use Symfony\Contracts\Translation\TranslatorTrait;
+use Automattic\WooCommerce\GoogleListingsAndAds\Vendor\Symfony\Contracts\Translation\TranslatorInterface;
+use Automattic\WooCommerce\GoogleListingsAndAds\Vendor\Symfony\Contracts\Translation\TranslatorTrait;
 
 /**
  * Test should cover all languages mentioned on http://translate.sourceforge.net/wiki/l10n/pluralforms

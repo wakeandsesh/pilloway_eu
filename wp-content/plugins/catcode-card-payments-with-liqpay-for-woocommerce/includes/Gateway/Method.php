@@ -240,7 +240,7 @@ class Method extends \WC_Payment_Gateway {
 					array(
 						'wc-api'               => self::ID,
 						'catcode_liqpay_order' => $order->get_id(),
-						'key'                 => $order->get_order_key(),
+						'catcode_liqpay_key'   => $order->get_order_key(),
 					),
 					home_url( '/' )
 				),
@@ -279,7 +279,9 @@ class Method extends \WC_Payment_Gateway {
 	public function handle_return() {
 		$order_id = isset( $_GET['catcode_liqpay_order'] ) ? absint( wp_unslash( $_GET['catcode_liqpay_order'] ) ) : 0; // phpcs:ignore WordPress.Security.NonceVerification
 		$order    = $order_id ? wc_get_order( $order_id ) : null;
-		$key = isset( $_GET['key'] ) && is_string( $_GET['key'] ) ? wc_clean( wp_unslash( $_GET['key'] ) ) : '';
+		// Accept return links issued before the upgrade as well.
+		$return_key = $_GET['catcode_liqpay_key'] ?? $_GET['key'] ?? '';
+		$key        = is_string( $return_key ) ? wc_clean( wp_unslash( $return_key ) ) : '';
 		if ( $order && ! self::can_access_return( $order, $key ) ) {
 			$order = null;
 		}

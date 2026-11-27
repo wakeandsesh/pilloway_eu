@@ -52,15 +52,20 @@ class Handler {
 		if ( ! is_array( $data ) || empty( $data['orderReference'] ) ) {
 			return new \WP_REST_Response( array( 'error' => 'bad payload' ), 400 );
 		}
-		$gateway->log( 'webhook in: ' . wp_json_encode( $data ) );
-
 		if ( ! $gateway->client()->verify_response( $data ) ) {
 			$gateway->log( 'webhook signature INVALID' );
 			return new \WP_REST_Response( array( 'error' => 'invalid signature' ), 400 );
 		}
+		// Log the payload only after the signature verified — an unsigned call
+		// must not write card pan / phone into the shop log.
+		$gateway->log( 'webhook in: ' . wp_json_encode( $data ) );
 
 		$order = $this->resolve_order( (string) $data['orderReference'] );
-		if ( $order && $order->get_payment_method() === Method::ID ) {
+		// The signature is verified, but a forged call could still name a bare
+		// order id: require the full stored orderReference (id + key tail) to match.
+		$stored = $order ? (string) $order->get_meta( '_catcode_wayforpay_order_ref' ) : '';
+		if ( $order && $order->get_payment_method() === Method::ID
+			&& '' !== $stored && hash_equals( $stored, (string) $data['orderReference'] ) ) {
 			$gateway->apply_status( $order, $data );
 		}
 

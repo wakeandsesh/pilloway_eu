@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator;
+namespace Automattic\WooCommerce\GoogleListingsAndAds\Vendor\Symfony\Component\Validator;
 
-use Symfony\Component\Validator\Context\ExecutionContextInterface;
+use Automattic\WooCommerce\GoogleListingsAndAds\Vendor\Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 /**
  * @author Bernhard Schussek <bschussek@gmail.com>

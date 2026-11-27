@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator\Mapping;
+namespace Automattic\WooCommerce\GoogleListingsAndAds\Vendor\Symfony\Component\Validator\Mapping;
 
-use Symfony\Component\Validator\Constraint;
-use Symfony\Component\Validator\Constraints\Composite;
-use Symfony\Component\Validator\Exception\ConstraintDefinitionException;
+use Automattic\WooCommerce\GoogleListingsAndAds\Vendor\Symfony\Component\Validator\Constraint;
+use Automattic\WooCommerce\GoogleListingsAndAds\Vendor\Symfony\Component\Validator\Constraints\Composite;
+use Automattic\WooCommerce\GoogleListingsAndAds\Vendor\Symfony\Component\Validator\Exception\ConstraintDefinitionException;
 
 /**
  * Stores all metadata needed for validating a class property.

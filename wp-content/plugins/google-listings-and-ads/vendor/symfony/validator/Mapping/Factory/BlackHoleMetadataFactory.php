@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator\Mapping\Factory;
+namespace Automattic\WooCommerce\GoogleListingsAndAds\Vendor\Symfony\Component\Validator\Mapping\Factory;
 
-use Symfony\Component\Validator\Exception\LogicException;
+use Automattic\WooCommerce\GoogleListingsAndAds\Vendor\Symfony\Component\Validator\Exception\LogicException;
 
 /**
  * Metadata factory that does not store metadata.

@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Contracts\Translation;
+namespace Automattic\WooCommerce\GoogleListingsAndAds\Vendor\Symfony\Contracts\Translation;
 
 /**
  * @author Fabien Potencier <fabien@symfony.com>

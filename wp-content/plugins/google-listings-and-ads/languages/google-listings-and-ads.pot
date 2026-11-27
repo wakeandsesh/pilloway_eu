@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: Google for WooCommerce 3.10.1\n"
+"Project-Id-Version: Google for WooCommerce 3.11.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/google-listings-and-ads\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-16T13:18:30+00:00\n"
+"POT-Creation-Date: 2026-11-25T17:10:09+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: google-listings-and-ads\n"
@@ -95,20 +95,6 @@ msgstr ""
 #: src/Admin/Input/SelectWithTextInput.php:106
 #: src/Admin/Input/SelectWithTextInput.php:165
 msgid "Enter a custom value"
-msgstr ""
-
-#. translators: 1: opening strong tag 2: closing strong tag 3: opening strong tag 4: closing strong tag
-#: src/Admin/MerchantApiMigrationNotice.php:152
-#, php-format
-msgid "%1$sCritical Update:%2$s Your Google for WooCommerce connection will stop working after %3$sAugust 18, 2026%4$s due to mandatory Google API changes. Update your plugin today to keep your product sync and ads running smoothly."
-msgstr ""
-
-#: src/Admin/MerchantApiMigrationNotice.php:163
-msgid "Update Plugin Now"
-msgstr ""
-
-#: src/Admin/MerchantApiMigrationNotice.php:165
-msgid "Read Migration Details"
 msgstr ""
 
 #: src/Admin/MetaBox/ChannelVisibilityMetaBox.php:98
@@ -278,32 +264,40 @@ msgstr ""
 msgid "Billing setup must be completed."
 msgstr ""
 
-#: src/Ads/AdsAssetGenerationService.php:115
-#: src/Ads/AdsAssetGenerationService.php:181
+#: src/Ads/AdsAssetGenerationService.php:129
+#: src/Ads/AdsAssetGenerationService.php:197
 msgid "Ads account ID is required."
 msgstr ""
 
 #. translators: %s Error message
-#: src/Ads/AdsAssetGenerationService.php:158
+#: src/Ads/AdsAssetGenerationService.php:172
 #, php-format
 msgid "Unable to generate text assets: %s"
 msgstr ""
 
 #. translators: %s Error message
-#: src/Ads/AdsAssetGenerationService.php:227
+#: src/Ads/AdsAssetGenerationService.php:239
 #, php-format
 msgid "Unable to generate image assets: %s"
 msgstr ""
 
+#: src/Ads/AdsAssetGenerationService.php:305
+msgid "Source image exceeds the maximum allowed size."
+msgstr ""
+
+#: src/Ads/AdsAssetGenerationService.php:308
+msgid "Could not fetch the source image."
+msgstr ""
+
 #: src/Ads/AdsRecommendationsService.php:254
 #: src/API/Google/BudgetRecommendations.php:174
-#: js/build/commons.js:41
+#: js/build/commons.js:44
 #: js/build/price-benchmark.js:1
 msgid "Low"
 msgstr ""
 
 #: src/Ads/AdsRecommendationsService.php:257
-#: js/build/commons.js:41
+#: js/build/commons.js:44
 msgid "Current"
 msgstr ""
 
@@ -311,13 +305,13 @@ msgstr ""
 #: src/API/Google/BudgetRecommendations.php:168
 #: src/API/Site/Controllers/Ads/BudgetRecommendationController.php:200
 #: js/build/commons.js:11
-#: js/build/commons.js:41
+#: js/build/commons.js:44
 msgid "Recommended"
 msgstr ""
 
 #: src/Ads/AdsRecommendationsService.php:261
 #: src/API/Google/BudgetRecommendations.php:171
-#: js/build/commons.js:41
+#: js/build/commons.js:44
 #: js/build/price-benchmark.js:1
 msgid "High"
 msgstr ""
@@ -425,42 +419,42 @@ msgid "Error retrieving campaign: %s"
 msgstr ""
 
 #. translators: %s Error message
-#: src/API/Google/AdsCampaign.php:395
+#: src/API/Google/AdsCampaign.php:399
 #, php-format
 msgid "Error creating campaign: %s"
 msgstr ""
 
-#: src/API/Google/AdsCampaign.php:398
+#: src/API/Google/AdsCampaign.php:402
 msgid "A campaign with this name already exists"
 msgstr ""
 
 #. translators: %s Error message
-#: src/API/Google/AdsCampaign.php:459
+#: src/API/Google/AdsCampaign.php:463
 #, php-format
 msgid "Error editing campaign: %s"
 msgstr ""
 
 #. translators: %s Error message
-#: src/API/Google/AdsCampaign.php:503
+#: src/API/Google/AdsCampaign.php:507
 #, php-format
 msgid "Error updating EU political advertising flag: %s"
 msgstr ""
 
 #. translators: %s Error message
-#: src/API/Google/AdsCampaign.php:565
+#: src/API/Google/AdsCampaign.php:569
 #, php-format
 msgid "Error deleting campaign: %s"
 msgstr ""
 
-#: src/API/Google/AdsCampaign.php:568
+#: src/API/Google/AdsCampaign.php:572
 msgid "This campaign has already been deleted"
 msgstr ""
 
-#: src/API/Google/AdsCampaign.php:946
+#: src/API/Google/AdsCampaign.php:951
 msgid "Invalid campaign ID"
 msgstr ""
 
-#: src/API/Google/AdsCampaign.php:1181
+#: src/API/Google/AdsCampaign.php:1205
 msgid "Invalid geo target location ID"
 msgstr ""
 
@@ -566,7 +560,7 @@ msgstr ""
 
 #: src/API/Google/Middleware.php:99
 #: src/API/Google/SiteVerification.php:60
-#: src/MerchantCenter/AccountService.php:452
+#: src/MerchantCenter/AccountService.php:454
 msgid "Invalid site URL."
 msgstr ""
 
@@ -678,91 +672,109 @@ msgstr ""
 msgid "Whether the merchant has an unclaimed incentive that can still be applied."
 msgstr ""
 
-#: src/API/Site/Controllers/Ads/AssetGenerationController.php:82
-#: src/API/Site/Controllers/Ads/AssetGenerationController.php:112
+#: src/API/Site/Controllers/Ads/AssetGenerationController.php:90
+#: src/API/Site/Controllers/Ads/AssetGenerationController.php:120
 msgid "The final URL for asset generation"
 msgstr ""
 
-#: src/API/Site/Controllers/Ads/AssetGenerationController.php:89
-#: src/API/Site/Controllers/Ads/AssetGenerationController.php:119
+#: src/API/Site/Controllers/Ads/AssetGenerationController.php:97
+#: src/API/Site/Controllers/Ads/AssetGenerationController.php:143
 msgid "Asset types to generate"
 msgstr ""
 
-#: src/API/Site/Controllers/Ads/AssetGenerationController.php:205
+#: src/API/Site/Controllers/Ads/AssetGenerationController.php:127
+msgid "The prompt to use for freeform or recontext image generation"
+msgstr ""
+
+#: src/API/Site/Controllers/Ads/AssetGenerationController.php:136
+msgid "The source image URL to use for recontext image generation"
+msgstr ""
+
+#: src/API/Site/Controllers/Ads/AssetGenerationController.php:186
+msgid "The prompt contains no valid text."
+msgstr ""
+
+#. translators: %d: maximum number of characters allowed in the prompt.
+#: src/API/Site/Controllers/Ads/AssetGenerationController.php:244
+#, php-format
+msgid "Prompt must be %d characters or fewer."
+msgstr ""
+
+#: src/API/Site/Controllers/Ads/AssetGenerationController.php:281
 msgid "The final URL used for generation"
 msgstr ""
 
-#: src/API/Site/Controllers/Ads/AssetGenerationController.php:211
+#: src/API/Site/Controllers/Ads/AssetGenerationController.php:287
 msgid "Generated assets"
 msgstr ""
 
-#: src/API/Site/Controllers/Ads/AssetGroupController.php:86
+#: src/API/Site/Controllers/Ads/AssetGroupController.php:87
 msgid "Final URL."
 msgstr ""
 
-#: src/API/Site/Controllers/Ads/AssetGroupController.php:90
+#: src/API/Site/Controllers/Ads/AssetGroupController.php:91
 msgid "Asset Group path 1."
 msgstr ""
 
-#: src/API/Site/Controllers/Ads/AssetGroupController.php:94
+#: src/API/Site/Controllers/Ads/AssetGroupController.php:95
 msgid "Asset Group path 2."
 msgstr ""
 
-#: src/API/Site/Controllers/Ads/AssetGroupController.php:108
+#: src/API/Site/Controllers/Ads/AssetGroupController.php:109
 msgid "Asset Group ID."
 msgstr ""
 
-#: src/API/Site/Controllers/Ads/AssetGroupController.php:114
+#: src/API/Site/Controllers/Ads/AssetGroupController.php:115
 msgid "List of asset to be edited."
 msgstr ""
 
-#: src/API/Site/Controllers/Ads/AssetGroupController.php:131
+#: src/API/Site/Controllers/Ads/AssetGroupController.php:133
 msgid "Campaign ID."
 msgstr ""
 
-#: src/API/Site/Controllers/Ads/AssetGroupController.php:174
+#: src/API/Site/Controllers/Ads/AssetGroupController.php:176
 msgid "Successfully created asset group."
 msgstr ""
 
-#: src/API/Site/Controllers/Ads/AssetGroupController.php:197
+#: src/API/Site/Controllers/Ads/AssetGroupController.php:199
 msgid "No asset group fields to update."
 msgstr ""
 
-#: src/API/Site/Controllers/Ads/AssetGroupController.php:203
+#: src/API/Site/Controllers/Ads/AssetGroupController.php:205
 msgid "Successfully edited asset group."
 msgstr ""
 
-#: src/API/Site/Controllers/Ads/AssetGroupController.php:221
+#: src/API/Site/Controllers/Ads/AssetGroupController.php:223
 msgid "Asset Group ID"
 msgstr ""
 
-#: src/API/Site/Controllers/Ads/AssetGroupController.php:226
-#: src/API/Site/Controllers/Ads/CampaignController.php:494
+#: src/API/Site/Controllers/Ads/AssetGroupController.php:228
+#: src/API/Site/Controllers/Ads/CampaignController.php:495
 #: js/build/commons.js:1
 msgid "Final URL"
 msgstr ""
 
-#: src/API/Site/Controllers/Ads/AssetGroupController.php:232
+#: src/API/Site/Controllers/Ads/AssetGroupController.php:234
 msgid "Text that may appear appended to the url displayed in the ad."
 msgstr ""
 
-#: src/API/Site/Controllers/Ads/AssetGroupController.php:237
-#: src/API/Site/Controllers/Ads/CampaignController.php:500
+#: src/API/Site/Controllers/Ads/AssetGroupController.php:239
+#: src/API/Site/Controllers/Ads/CampaignController.php:501
 msgid "Asset is a part of an ad which can be shared across multiple ads. It can be an image, headlines, descriptions, etc."
 msgstr ""
 
-#: src/API/Site/Controllers/Ads/AssetGroupController.php:282
-#: src/API/Site/Controllers/Ads/CampaignController.php:546
+#: src/API/Site/Controllers/Ads/AssetGroupController.php:284
+#: src/API/Site/Controllers/Ads/CampaignController.php:548
 msgid "Asset ID"
 msgstr ""
 
-#: src/API/Site/Controllers/Ads/AssetGroupController.php:286
-#: src/API/Site/Controllers/Ads/CampaignController.php:550
+#: src/API/Site/Controllers/Ads/AssetGroupController.php:288
+#: src/API/Site/Controllers/Ads/CampaignController.php:552
 msgid "Asset content"
 msgstr ""
 
-#: src/API/Site/Controllers/Ads/AssetGroupController.php:290
-#: src/API/Site/Controllers/Ads/CampaignController.php:554
+#: src/API/Site/Controllers/Ads/AssetGroupController.php:292
+#: src/API/Site/Controllers/Ads/CampaignController.php:556
 msgid "Asset field type"
 msgstr ""
 
@@ -924,77 +936,77 @@ msgid "Data source of the budget recommendations, either from Google Ads API or 
 msgstr ""
 
 #. translators: %s: current date time.
-#: src/API/Site/Controllers/Ads/CampaignController.php:164
+#: src/API/Site/Controllers/Ads/CampaignController.php:165
 #, php-format
 msgid "Campaign %s"
 msgstr ""
 
-#: src/API/Site/Controllers/Ads/CampaignController.php:227
+#: src/API/Site/Controllers/Ads/CampaignController.php:228
 msgid "Campaign is not available."
 msgstr ""
 
-#: src/API/Site/Controllers/Ads/CampaignController.php:254
+#: src/API/Site/Controllers/Ads/CampaignController.php:255
 msgid "Invalid edit data."
 msgstr ""
 
-#: src/API/Site/Controllers/Ads/CampaignController.php:287
+#: src/API/Site/Controllers/Ads/CampaignController.php:288
 msgid "Successfully edited campaign."
 msgstr ""
 
-#: src/API/Site/Controllers/Ads/CampaignController.php:325
+#: src/API/Site/Controllers/Ads/CampaignController.php:326
 msgid "Successfully deleted campaign."
 msgstr ""
 
-#: src/API/Site/Controllers/Ads/CampaignController.php:392
+#: src/API/Site/Controllers/Ads/CampaignController.php:393
 msgid "Exclude removed campaigns."
 msgstr ""
 
-#: src/API/Site/Controllers/Ads/CampaignController.php:398
+#: src/API/Site/Controllers/Ads/CampaignController.php:399
 #: src/API/Site/Controllers/BaseReportsController.php:79
 #: src/API/Site/Controllers/MerchantCenter/IssuesController.php:208
 #: src/API/Site/Controllers/MerchantCenter/ProductFeedController.php:169
 msgid "Maximum number of rows to be returned in result data."
 msgstr ""
 
-#: src/API/Site/Controllers/Ads/CampaignController.php:417
+#: src/API/Site/Controllers/Ads/CampaignController.php:418
 #: src/API/Site/Controllers/Ads/ReportsController.php:207
 msgid "ID number."
 msgstr ""
 
-#: src/API/Site/Controllers/Ads/CampaignController.php:423
+#: src/API/Site/Controllers/Ads/CampaignController.php:424
 msgid "Descriptive campaign name."
 msgstr ""
 
-#: src/API/Site/Controllers/Ads/CampaignController.php:431
+#: src/API/Site/Controllers/Ads/CampaignController.php:432
 #: src/API/Site/Controllers/Ads/ReportsController.php:218
 msgid "Campaign status."
 msgstr ""
 
-#: src/API/Site/Controllers/Ads/CampaignController.php:438
+#: src/API/Site/Controllers/Ads/CampaignController.php:439
 msgid "Campaign type."
 msgstr ""
 
-#: src/API/Site/Controllers/Ads/CampaignController.php:444
+#: src/API/Site/Controllers/Ads/CampaignController.php:445
 msgid "Daily budget amount in the local currency."
 msgstr ""
 
-#: src/API/Site/Controllers/Ads/CampaignController.php:451
+#: src/API/Site/Controllers/Ads/CampaignController.php:452
 msgid "Country code of sale country in ISO 3166-1 alpha-2 format."
 msgstr ""
 
-#: src/API/Site/Controllers/Ads/CampaignController.php:459
+#: src/API/Site/Controllers/Ads/CampaignController.php:460
 msgid "Campaign start date in YYYY-MM-DD format."
 msgstr ""
 
-#: src/API/Site/Controllers/Ads/CampaignController.php:466
+#: src/API/Site/Controllers/Ads/CampaignController.php:467
 msgid "The locations that an Ads campaign is targeting in ISO 3166-1 alpha-2 format."
 msgstr ""
 
-#: src/API/Site/Controllers/Ads/CampaignController.php:478
+#: src/API/Site/Controllers/Ads/CampaignController.php:479
 msgid "The name of the label to assign to the campaign."
 msgstr ""
 
-#: src/API/Site/Controllers/Ads/CampaignController.php:486
+#: src/API/Site/Controllers/Ads/CampaignController.php:487
 msgid "Whether the Campaign has political content as defined by Google's EU political content policy."
 msgstr ""
 
@@ -2151,23 +2163,23 @@ msgid "Attempting invalid claim overwrite."
 msgstr ""
 
 #. translators: 1: is a string representing an unknown step name
-#: src/MerchantCenter/AccountService.php:366
+#: src/MerchantCenter/AccountService.php:368
 #, php-format
 msgid "Unknown merchant account creation step %1$s"
 msgstr ""
 
-#: src/MerchantCenter/AccountService.php:398
+#: src/MerchantCenter/AccountService.php:400
 msgid "Unable to claim website URL with this Merchant Center Account."
 msgstr ""
 
 #. translators: 1: is a numeric account ID
-#: src/MerchantCenter/AccountService.php:430
+#: src/MerchantCenter/AccountService.php:432
 #, php-format
 msgid "Merchant Center account already connected: %d"
 msgstr ""
 
 #. translators: 1: is a website URL (without the protocol)
-#: src/MerchantCenter/AccountService.php:479
+#: src/MerchantCenter/AccountService.php:481
 #, php-format
 msgid "This Merchant Center account already has a verified and claimed URL, %1$s"
 msgstr ""
@@ -2176,11 +2188,11 @@ msgstr ""
 msgid "Primary Market"
 msgstr ""
 
-#: src/MerchantCenter/MerchantCenterService.php:324
+#: src/MerchantCenter/MerchantCenterService.php:371
 msgid "No contact information."
 msgstr ""
 
-#: src/MerchantCenter/MerchantCenterService.php:325
+#: src/MerchantCenter/MerchantCenterService.php:372
 msgid "Add store contact information"
 msgstr ""
 
@@ -2297,7 +2309,7 @@ msgstr ""
 #: src/Notes/SetupCampaign.php:81
 #: js/build/commons.js:14
 #: js/build/commons.js:17
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/markets.js:1
 #: js/build/product-feed.js:1
 #: js/build/settings.js:2
@@ -2680,7 +2692,7 @@ msgid "Create your campaign"
 msgstr ""
 
 #: js/build/ads-onboarding.js:1
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/dashboard.js:7
 #: js/build/dashboard.js:13
 #: js/build/google-ads-promo.js:1
@@ -2763,14 +2775,14 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: js/build/attribute-mapping.js:7
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 msgid "All"
 msgstr ""
 
 #. translators: %d: The number of categories.
 #. translators: %d: The number of extra tags to show
 #: js/build/attribute-mapping.js:10
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #, js-format
 msgid "+ %d more"
 msgstr ""
@@ -2853,7 +2865,8 @@ msgid "Create attribute rule"
 msgstr ""
 
 #: js/build/attribute-mapping.js:10
-#: js/build/commons.js:38
+#: js/build/commons.js:23
+#: js/build/commons.js:41
 #: js/build/dashboard.js:13
 #: js/build/markets.js:7
 #: js/build/markets.js:16
@@ -2966,7 +2979,7 @@ msgstr ""
 
 #: js/build/channel-visibility-google-ads-promo.js:1
 #: js/build/commons.js:1
-#: js/build/commons.js:66
+#: js/build/commons.js:69
 #: js/build/dashboard.js:13
 #: js/build/google-ads-promo.js:1
 #: js/build/notifications-system.js:19
@@ -3017,7 +3030,7 @@ msgid "WordPress.com Logo"
 msgstr ""
 
 #: js/build/commons.js:1
-#: js/build/commons.js:66
+#: js/build/commons.js:69
 msgid "YouTube Logo"
 msgstr ""
 
@@ -3065,7 +3078,9 @@ msgid "%1$s (%2$s)"
 msgstr ""
 
 #. translators: 1: number of character count. 2: the maximum number of character count.
+#. translators: %1$d: current character count, %2$d: maximum allowed characters.
 #: js/build/commons.js:7
+#: js/build/commons.js:23
 #, js-format
 msgid "%1$d/%2$d characters"
 msgstr ""
@@ -3144,7 +3159,7 @@ msgid "Same Day"
 msgstr ""
 
 #: js/build/commons.js:10
-#: js/build/commons.js:41
+#: js/build/commons.js:44
 #: js/build/markets.js:16
 msgid "day"
 msgid_plural "days"
@@ -3264,7 +3279,7 @@ msgid "Can’t find a country? Only supported countries can be selected."
 msgstr ""
 
 #: js/build/commons.js:11
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 msgid "All countries"
 msgstr ""
 
@@ -3317,7 +3332,7 @@ msgid "You will be prompted to give WooCommerce access to your Google account. P
 msgstr ""
 
 #: js/build/commons.js:11
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/onboarding.js:1
 #: js/build/onboarding.js:23
 #: js/build/settings.js:1
@@ -3769,11 +3784,11 @@ msgid "Google's Gen AI illustration"
 msgstr ""
 
 #: js/build/commons.js:14
-msgid "Skip"
+msgid "Generating assets"
 msgstr ""
 
 #: js/build/commons.js:14
-msgid "Generating assets"
+msgid "Skip"
 msgstr ""
 
 #: js/build/commons.js:14
@@ -3834,7 +3849,7 @@ msgid "Text"
 msgstr ""
 
 #: js/build/commons.js:17
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 msgid "The minimum requirements:"
 msgstr ""
 
@@ -3885,6 +3900,7 @@ msgid "Selected file type is not supported"
 msgstr ""
 
 #: js/build/commons.js:20
+#: js/build/commons.js:23
 msgid "Replace image"
 msgstr ""
 
@@ -3901,116 +3917,180 @@ msgid "Remove media"
 msgstr ""
 
 #: js/build/commons.js:20
+msgid "Prompt"
+msgstr ""
+
+#: js/build/commons.js:23
+msgid "Edit image"
+msgstr ""
+
+#: js/build/commons.js:23
+msgid "Generating asset"
+msgstr ""
+
+#: js/build/commons.js:23
+msgid "Generate"
+msgstr ""
+
+#: js/build/commons.js:23
+msgid "Describe your edits. You can change the background, environment, or angle, not the product itself."
+msgstr ""
+
+#: js/build/commons.js:23
+msgid "Something went wrong while editing the image. Please try again."
+msgstr ""
+
+#: js/build/commons.js:23
+msgid "Example: Make the background blue"
+msgstr ""
+
+#: js/build/commons.js:23
+msgid "Replace this image?"
+msgstr ""
+
+#: js/build/commons.js:23
+msgid "The edited image will replace the original in your AI-generated images. This can't be undone."
+msgstr ""
+
+#: js/build/commons.js:23
 msgid "AI-generated images"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 msgid "Select to add these images to this set for your product."
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 msgid "Select this image"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
+msgid "Edit this image"
+msgstr ""
+
+#: js/build/commons.js:23
 msgid "Add selected images"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
+msgid "Generate a new image"
+msgstr ""
+
+#: js/build/commons.js:23
+msgid "Describe the direction and style you'd like to generate."
+msgstr ""
+
+#: js/build/commons.js:23
+msgid "Something went wrong while generating the image. Please try again."
+msgstr ""
+
+#: js/build/commons.js:23
+msgid "Image generation prompt"
+msgstr ""
+
+#: js/build/commons.js:23
+msgid "Example: Generate an image of light grey canvas sneakers with soft studio lighting on an off-white background. Photorealistic, centred composition, matte texture."
+msgstr ""
+
+#: js/build/commons.js:23
 msgid "Add image"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
+msgid "Generate more"
+msgstr ""
+
+#: js/build/commons.js:23
 msgid "Something went wrong while generating images. Please try again."
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 msgid "Images"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 msgid "1x marketing image"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 msgid "1x square marketing image"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 msgid "1x logo"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 msgid "We've used your final URL to auto-populate images…"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 msgid "Select YouTube video URL"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 msgid "Invalid YouTube URL"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 msgid "Failed to get the video ID from the URL."
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 msgid "Add Video"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 msgid "Add YouTube video"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 msgid "Videos"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 msgid "Recommended but optional"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 msgid "For best results, we recommend adding 1 video."
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 msgid "You can add up to a maximum of 5 YouTube video assets."
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 msgid "Only valid YouTube URLs are accepted, such as:"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 msgid "Clicking a video thumbnail will open a preview in a new browser tab."
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 msgid "To remove a video, hover over the thumbnail and click the \"X\" icon."
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/dashboard.js:1
 #: js/build/dashboard.js:7
 msgid "Optimize your campaign"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 msgid "Drive greater performance by adding text, image, and video assets to create more personalized and engaging ads."
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 msgid "Skip this step"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 msgid "Save changes"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
@@ -4018,7 +4098,7 @@ msgctxt "Capitalized asset field name as the start of an error message"
 msgid "The first display URL path"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
@@ -4026,7 +4106,7 @@ msgctxt "Capitalized asset field name as the start of an error message"
 msgid "The second display URL path"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
@@ -4034,14 +4114,14 @@ msgctxt "Plural asset field name as the heading"
 msgid "Landscape images"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
 msgid "We recommend adding at least 4 landscape images. A single image is required."
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
@@ -4049,7 +4129,7 @@ msgctxt "Asset field name with its aspect ratio as the subheading within a help 
 msgid "Landscape image (1.91:1)"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
@@ -4057,14 +4137,35 @@ msgctxt "Lowercase asset field name"
 msgid "landscape"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
 msgid "Generate landscape images"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
+#: js/build/index.js:1
+#: js/build/notifications-system.js:1
+#: js/build/woo-marketing-notifications-slot.js:1
+msgid "Generate more landscape images"
+msgstr ""
+
+#: js/build/commons.js:23
+#: js/build/index.js:1
+#: js/build/notifications-system.js:1
+#: js/build/woo-marketing-notifications-slot.js:1
+msgid "Generate with prompt"
+msgstr ""
+
+#: js/build/commons.js:23
+#: js/build/index.js:1
+#: js/build/notifications-system.js:1
+#: js/build/woo-marketing-notifications-slot.js:1
+msgid "Generate a landscape image with prompt"
+msgstr ""
+
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
@@ -4072,14 +4173,14 @@ msgctxt "Plural asset field name as the heading"
 msgid "Square images"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
 msgid "We recommend adding at least 4 square images. A single image is required."
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
@@ -4087,7 +4188,7 @@ msgctxt "Asset field name with its aspect ratio as the subheading within a help 
 msgid "Square image (1:1)"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
@@ -4095,14 +4196,28 @@ msgctxt "Lowercase asset field name"
 msgid "square"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
 msgid "Generate square images"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
+#: js/build/index.js:1
+#: js/build/notifications-system.js:1
+#: js/build/woo-marketing-notifications-slot.js:1
+msgid "Generate more square images"
+msgstr ""
+
+#: js/build/commons.js:23
+#: js/build/index.js:1
+#: js/build/notifications-system.js:1
+#: js/build/woo-marketing-notifications-slot.js:1
+msgid "Generate a square image with prompt"
+msgstr ""
+
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
@@ -4110,14 +4225,14 @@ msgctxt "Plural asset field name as the heading"
 msgid "Portrait images"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
 msgid "Improve campaign performance with at least 2 portrait images."
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
@@ -4125,7 +4240,7 @@ msgctxt "Asset field name with its aspect ratio as the subheading within a help 
 msgid "Portrait image (4:5)"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
@@ -4133,14 +4248,28 @@ msgctxt "Lowercase asset field name"
 msgid "portrait"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
 msgid "Generate portrait images"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
+#: js/build/index.js:1
+#: js/build/notifications-system.js:1
+#: js/build/woo-marketing-notifications-slot.js:1
+msgid "Generate more portrait images"
+msgstr ""
+
+#: js/build/commons.js:23
+#: js/build/index.js:1
+#: js/build/notifications-system.js:1
+#: js/build/woo-marketing-notifications-slot.js:1
+msgid "Generate a portrait image with prompt"
+msgstr ""
+
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
@@ -4148,14 +4277,14 @@ msgctxt "Plural asset field name as the heading"
 msgid "Logo"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
 msgid "At least 1 version of your logo is required."
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
@@ -4163,7 +4292,7 @@ msgctxt "Asset field name with its aspect ratio as the subheading within a help 
 msgid "Logo (1:1)"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
@@ -4171,7 +4300,7 @@ msgctxt "Lowercase asset field name"
 msgid "logo"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
@@ -4179,7 +4308,7 @@ msgctxt "Plural asset field name as the heading"
 msgid "Business name"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
@@ -4187,7 +4316,7 @@ msgctxt "Capitalized asset field name as the placeholder or the start of an erro
 msgid "Business name"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
@@ -4195,14 +4324,14 @@ msgctxt "Singular and lowercase asset field name"
 msgid "business name"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
 msgid "The business name is the name of your business or brand. In certain layouts, it may appear in the text of your ad."
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
@@ -4210,28 +4339,28 @@ msgctxt "Plural asset field name as the heading"
 msgid "Headlines"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
 msgid "For the best results, add at least 5 headlines. A minimum of 3 are required."
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
 msgid "Learn how to write effective ads"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
 msgid "Add headline"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
@@ -4239,7 +4368,7 @@ msgctxt "Capitalized asset field name as the placeholder or the start of an erro
 msgid "Headline"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
@@ -4247,7 +4376,7 @@ msgctxt "Singular and lowercase asset field name"
 msgid "headline"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
@@ -4255,28 +4384,28 @@ msgctxt "Plural and lowercase asset field name"
 msgid "headlines"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
 msgid "The headline is the first line of your ad and is most likely the first thing people notice, so consider including words that people may have entered in their Google search."
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
 msgid "Generate headlines"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
 msgid "Generate headline"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
@@ -4284,21 +4413,21 @@ msgctxt "Plural asset field name as the heading"
 msgid "Long headlines"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
 msgid "We recommend using 5 long headlines. A single long headline is required."
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
 msgid "Add long headline"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
@@ -4306,7 +4435,7 @@ msgctxt "Capitalized asset field name as the placeholder or the start of an erro
 msgid "Long headline"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
@@ -4314,7 +4443,7 @@ msgctxt "Singular and lowercase asset field name"
 msgid "long headline"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
@@ -4322,35 +4451,35 @@ msgctxt "Plural and lowercase asset field name"
 msgid "long headlines"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
 msgid "The long headline is the first line of your ad, and appears instead of your short headline in larger ads. Long headlines can be up to 90 characters, and may appear with or without your description."
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
 msgid "The length of the rendered headline will depend on the site it appears on. If shortened, it will end with an ellipsis(…)."
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
 msgid "Generate long headlines"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
 msgid "Generate long headline"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
@@ -4358,21 +4487,21 @@ msgctxt "Plural asset field name as the heading"
 msgid "Descriptions"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
 msgid "We recommend adding at least 5 different descriptions. At least 2 are required."
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
 msgid "Add description"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
@@ -4380,7 +4509,7 @@ msgctxt "Capitalized asset field name as the placeholder or the start of an erro
 msgid "Description"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
@@ -4388,7 +4517,7 @@ msgctxt "Singular and lowercase asset field name"
 msgid "description"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
@@ -4396,35 +4525,35 @@ msgctxt "Plural and lowercase asset field name"
 msgid "descriptions"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
 msgid "The description adds to the headline and provides additional context or details. It can be up to 90 characters, and may appear after the headline."
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
 msgid "The length of the rendered description will depend on the site it appears on. If it's shortened, it will end with an ellipsis(…). The description doesn't show in all sizes and formats."
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
 msgid "Generate descriptions"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
 msgid "Generate description"
 msgstr ""
 
-#: js/build/commons.js:20
+#: js/build/commons.js:23
 #: js/build/index.js:1
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
@@ -4433,7 +4562,7 @@ msgid ", "
 msgstr ""
 
 #. translators: 1: Concatenated text for the types of assets except for the last one. 2: The last type of assets.
-#: js/build/commons.js:23
+#: js/build/commons.js:26
 #: js/build/index.js:4
 #: js/build/notifications-system.js:4
 #: js/build/woo-marketing-notifications-slot.js:4
@@ -4442,7 +4571,7 @@ msgid "%1$s and %2$s"
 msgstr ""
 
 #. translators: 1: Recommended width. 2: Recommended height. 3: Minimal width. 4: Minimal height.
-#: js/build/commons.js:26
+#: js/build/commons.js:29
 #: js/build/index.js:7
 #: js/build/notifications-system.js:7
 #: js/build/woo-marketing-notifications-slot.js:7
@@ -4451,7 +4580,7 @@ msgid "<listItem>Recommended size: %1$d x %2$d</listItem><listItem>Min. size: %3
 msgstr ""
 
 #. translators: 1: The maximum number of this image assets. 2: Text for the types of image assets.
-#: js/build/commons.js:29
+#: js/build/commons.js:32
 #: js/build/index.js:10
 #: js/build/notifications-system.js:10
 #: js/build/woo-marketing-notifications-slot.js:10
@@ -4459,7 +4588,7 @@ msgstr ""
 msgid "You can add up to a maximum of %1$d image assets, which can be a combination of %2$s images."
 msgstr ""
 
-#: js/build/commons.js:29
+#: js/build/commons.js:32
 #: js/build/index.js:10
 #: js/build/notifications-system.js:10
 #: js/build/woo-marketing-notifications-slot.js:10
@@ -4467,7 +4596,7 @@ msgid "Add images that meet or can be cropped to the recommended sizes. Note: Th
 msgstr ""
 
 #. translators: %d: The shared maximum number of the grouped types of image assets.
-#: js/build/commons.js:32
+#: js/build/commons.js:35
 #: js/build/index.js:13
 #: js/build/notifications-system.js:13
 #: js/build/woo-marketing-notifications-slot.js:13
@@ -4476,7 +4605,7 @@ msgid "The maximum number of images that can be uploaded is %d."
 msgstr ""
 
 #. translators: 1: The minimum number of this asset field. 2: Asset field name.
-#: js/build/commons.js:35
+#: js/build/commons.js:38
 #: js/build/index.js:16
 #: js/build/notifications-system.js:16
 #: js/build/woo-marketing-notifications-slot.js:16
@@ -4485,7 +4614,7 @@ msgid "%1$d %2$s"
 msgstr ""
 
 #. translators: 1: The shared maximum number of the grouped types of image assets. 2: Text for the minimum number and type of each image asset.
-#: js/build/commons.js:38
+#: js/build/commons.js:41
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
@@ -4493,76 +4622,76 @@ msgstr ""
 msgid "Maximum %1$d images can be uploaded, with a minimum of %2$s image."
 msgstr ""
 
-#: js/build/commons.js:38
+#: js/build/commons.js:41
 msgid "This offer won’t last long!"
 msgstr ""
 
-#: js/build/commons.js:38
+#: js/build/commons.js:41
 msgid "Change budget"
 msgstr ""
 
 #. translators: %s: The recommended amount in currency format.
-#: js/build/commons.js:41
+#: js/build/commons.js:44
 #, js-format
 msgid "Increase your budget to %s and get it all back in FREE AD CREDIT*!"
 msgstr ""
 
-#: js/build/commons.js:41
+#: js/build/commons.js:44
 msgid "You have 60 days."
 msgstr ""
 
-#: js/build/commons.js:41
+#: js/build/commons.js:44
 msgid "Terms and Conditions"
 msgstr ""
 
-#: js/build/commons.js:41
+#: js/build/commons.js:44
 msgid "Weekly conversions"
 msgstr ""
 
-#: js/build/commons.js:41
+#: js/build/commons.js:44
 msgid "The estimated number of conversions (unit sales) for a typical week. This number may vary based on change in your weekly spend."
 msgstr ""
 
-#: js/build/commons.js:41
+#: js/build/commons.js:44
 msgid "Weekly conv. value"
 msgstr ""
 
-#: js/build/commons.js:41
+#: js/build/commons.js:44
 msgid "The estimated total value of all the conversions (sales volume) your campaign will generate in a week."
 msgstr ""
 
-#: js/build/commons.js:41
+#: js/build/commons.js:44
 msgid "Learn more."
 msgstr ""
 
-#: js/build/commons.js:41
+#: js/build/commons.js:44
 msgid "Weekly cost"
 msgstr ""
 
-#: js/build/commons.js:41
+#: js/build/commons.js:44
 msgid "This is the estimated average amount you'll spend weekly during the month. Some weeks you may spend less than this amount or up to 2 times this amount."
 msgstr ""
 
-#: js/build/commons.js:41
+#: js/build/commons.js:44
 msgid "Your budget is lower than other advertisers' budgets, which may affect performance. For best results, we recommend at least <amount /> per day."
 msgstr ""
 
-#: js/build/commons.js:41
+#: js/build/commons.js:44
 msgid "Set custom budget"
 msgstr ""
 
 #. translators: %s: minimum daily budget
-#: js/build/commons.js:42
+#: js/build/commons.js:45
 #, js-format
 msgid "Please make sure daily average cost is at least %s"
 msgstr ""
 
-#: js/build/commons.js:42
+#: js/build/commons.js:45
 msgid "Please make sure daily average cost is greater than 0."
 msgstr ""
 
 #. translators: 1: The minimal number of this item. 2: Asset field name.
-#: js/build/commons.js:45
+#: js/build/commons.js:48
 #, js-format
 msgid "Add at least %1$d %2$s image"
 msgid_plural "Add at least %1$d %2$s images"
@@ -4570,622 +4699,622 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %s: Asset field name.
-#: js/build/commons.js:48
+#: js/build/commons.js:51
 #, js-format
 msgid "The %s in the first field is required"
 msgstr ""
 
 #. translators: 1: Asset field name.
-#: js/build/commons.js:51
+#: js/build/commons.js:54
 #, js-format
 msgid "The %1$s is required"
 msgstr ""
 
 #. translators: 1: Asset field name. 2: The minimal number of this item.
-#: js/build/commons.js:54
+#: js/build/commons.js:57
 #, js-format
 msgid "Add at least %2$d %1$s"
 msgstr ""
 
 #. translators: %s: Asset field name.
-#: js/build/commons.js:57
+#: js/build/commons.js:60
 #, js-format
 msgid "%s are identical"
 msgstr ""
 
-#: js/build/commons.js:57
+#: js/build/commons.js:60
 msgid "Character limit exceeded"
 msgstr ""
 
 #. translators: 1: Asset field name. 2: The sequential number of the asset field.
-#: js/build/commons.js:60
+#: js/build/commons.js:63
 #, js-format
 msgid "%1$s %2$d: Character limit exceeded"
 msgstr ""
 
 #. translators: %s: Asset field name.
-#: js/build/commons.js:63
+#: js/build/commons.js:66
 #, js-format
 msgid "%s is incomplete"
 msgstr ""
 
 #. translators: %s: Asset field name.
-#: js/build/commons.js:66
+#: js/build/commons.js:69
 #, js-format
 msgid "%s: Character limit exceeded"
 msgstr ""
 
-#: js/build/commons.js:66
+#: js/build/commons.js:69
 msgid "Unable to generate AI suggested assets."
 msgstr ""
 
-#: js/build/commons.js:66
+#: js/build/commons.js:69
 msgid "Unable to load assets data."
 msgstr ""
 
-#: js/build/commons.js:66
+#: js/build/commons.js:69
 msgid "Google Shopping Logo"
 msgstr ""
 
-#: js/build/commons.js:66
+#: js/build/commons.js:69
 msgid "LEARN MORE"
 msgstr ""
 
-#: js/build/commons.js:66
+#: js/build/commons.js:69
 msgid "Gmail Logo"
 msgstr ""
 
-#: js/build/commons.js:66
+#: js/build/commons.js:69
 msgid "Simulated the info and close buttons at the corner of a Google ad"
 msgstr ""
 
-#: js/build/commons.js:66
+#: js/build/commons.js:69
 msgctxt "A sample product title for demonstrating the paid ads shown on Google services."
 msgid "White tee"
 msgstr ""
 
-#: js/build/commons.js:66
+#: js/build/commons.js:69
 msgctxt "A sample product price for demonstrating the paid ads shown on Google services."
 msgid "$10.00"
 msgstr ""
 
-#: js/build/commons.js:66
+#: js/build/commons.js:69
 msgctxt "A sample name of an online shop for demonstrating the paid ads shown on Google services."
 msgid "Colleen's Tee Store"
 msgstr ""
 
-#: js/build/commons.js:66
+#: js/build/commons.js:69
 msgid "Preview product ad"
 msgstr ""
 
-#: js/build/commons.js:66
+#: js/build/commons.js:69
 msgid "Each of your product variants will have its own ad. Previews shown here are examples and don't include all possible formats."
 msgstr ""
 
-#: js/build/commons.js:66
+#: js/build/commons.js:69
 msgid "Ad Preview"
 msgstr ""
 
-#: js/build/commons.js:66
+#: js/build/commons.js:69
 msgid "Previews shown here are examples and don't include all possible formats."
 msgstr ""
 
-#: js/build/commons.js:66
+#: js/build/commons.js:69
 msgid "Free shipping for all orders"
 msgstr ""
 
-#: js/build/commons.js:66
+#: js/build/commons.js:69
 msgid "Shipping rates"
 msgstr ""
 
-#: js/build/commons.js:66
+#: js/build/commons.js:69
 msgid "Your estimated shipping rates and times will be shown to potential customers on Google."
 msgstr ""
 
-#: js/build/commons.js:66
+#: js/build/commons.js:69
 #: js/build/onboarding.js:29
 #: js/build/settings.js:2
 msgid "Read more"
 msgstr ""
 
-#: js/build/commons.js:66
+#: js/build/commons.js:69
 msgid "Automatically sync my store’s shipping settings to Google."
 msgstr ""
 
-#: js/build/commons.js:66
+#: js/build/commons.js:69
 msgid "My current settings and any future changes to my store’s shipping rates and classes will be automatically synced to Google Merchant Center."
 msgstr ""
 
-#: js/build/commons.js:66
+#: js/build/commons.js:69
 msgid "My shipping settings are simple. I can manually estimate flat shipping rates."
 msgstr ""
 
-#: js/build/commons.js:66
+#: js/build/commons.js:69
 msgid "My shipping settings are complex. I will enter my shipping rates and times manually in Google Merchant Center."
 msgstr ""
 
-#: js/build/commons.js:66
+#: js/build/commons.js:69
 msgid "I understand that if I don’t set this up manually in <link>Google Merchant Center</link>, my products will be disapproved by Google."
 msgstr ""
 
 #. translators: 1: Tag Label, 2: Current Tag index, 3: Total amount of tags.
-#: js/build/commons.js:69
+#: js/build/commons.js:72
 #, js-format
 msgid "%1$s (%2$d of %3$d)"
 msgstr ""
 
-#: js/build/commons.js:69
+#: js/build/commons.js:72
 #: js/build/product-feed.js:1
 msgid "Show less"
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 msgid "Start typing to filter countries…"
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 msgid "Required to connect with Google"
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 msgid "Unable to connect your WordPress.com account. Please try again later."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error loading shipping rates."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error loading shipping times."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error loading merchant center settings."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error completing onboarding."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error loading Jetpack account info."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error loading Google account info."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error loading Google Merchant Center account info."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error getting your Google Merchant Center accounts."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error loading Google Ads account info."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "Unable to disconnect your Google account."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "Unable to disconnect your Google Ads account."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "Unable to disconnect all your accounts."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error getting the billing status of your Google Ads account."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error getting your Google Ads accounts."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "Unable to update your Google Merchant Center contact information."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error loading target audience."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error updating the enhanced conversions status."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error creating the assets of the campaign."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error updating the assets of the campaign."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error loading your merchant center setup status."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "Unable to update the channel visibility of products."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error creating the rule."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error updating the rule."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error deleting the rule."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error updating the tour."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error getting the status of your Google Ads account."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error loading YouTube account info."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "Unable to disconnect your YouTube account."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error dismissing the notification."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error loading Google account access info."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error loading Google Merchant Center contact information."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error loading supported country details."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error loading ads campaigns."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error loading campaigns missing EU political declaration."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error loading the assets of the campaign."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error loading your merchant center product statistics."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error loading your merchant center product review request status."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error loading issues to resolve."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error loading product feed."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error loading report."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error loading report statistics."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error loading the mapping attributes."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error loading the mapping sources for the selected attribute."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error loading the mapping rules."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error getting the store categories."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error getting the tours."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error getting the budget recommendation."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error getting the budget metrics."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error getting the GTIN Migration Status."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error getting the enhanced conversions status."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error getting the ads settings."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error getting the price benchmark summary."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error getting the price benchmark suggestions."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error getting the Ads recommendations."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error getting the CYO incentives."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error loading supported languages and currencies."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:19
 #: js/build/woo-marketing-notifications-slot.js:19
 msgid "There was an error loading notifications."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 msgid "Unable to complete your ads setup. Please try again later."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 msgid "The language on your ad's landing page isn't supported for AI-generated assets."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 msgid "Google AI isn't able to generate text assets for this page."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 msgid "Google AI isn't able to generate media assets for this page."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 msgid "Google AI isn't able to generate assets for this page."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 msgid "An unexpected error occurred."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 msgid "Your Ads credit offer is applied to your Google Ads account."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 msgid "Google Ads Creation Failed"
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 msgid "An unknown error occurred."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 msgid "An unrecognised error response was received."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 msgid "Error parsing response."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 msgid "Successfully connected through Jetpack"
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
 msgid "Unknown error occurred."
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 #: js/build/notifications-system.js:1
 #: js/build/woo-marketing-notifications-slot.js:1
@@ -5193,7 +5322,7 @@ msgctxt "The spacing between sentences. It's a space in English. Please use an e
 msgid " "
 msgstr ""
 
-#: js/build/commons.js:72
+#: js/build/commons.js:75
 #: js/build/index.js:19
 msgid "Unknown Error"
 msgstr ""
@@ -6349,6 +6478,30 @@ msgstr ""
 
 #: js/build/notifications-system.js:19
 msgid "Launch a campaign today"
+msgstr ""
+
+#: js/build/notifications-system.js:19
+msgid "How did your Google Ads sign-up offer work for you?"
+msgstr ""
+
+#: js/build/notifications-system.js:19
+msgid "You may have claimed an introductory offer when launching your campaigns. Take a quick 4-minute survey to help WooCommerce and Google improve future merchant incentives."
+msgstr ""
+
+#: js/build/notifications-system.js:19
+msgid "Share your thoughts"
+msgstr ""
+
+#: js/build/notifications-system.js:19
+msgid "Tell us about your Google Ads sign-up offer"
+msgstr ""
+
+#: js/build/notifications-system.js:19
+msgid "Even if you haven’t started running ads yet, your feedback matters. Take a quick 2-minute survey to help us improve the setup and offer experience for store owners."
+msgstr ""
+
+#: js/build/notifications-system.js:19
+msgid "Give quick feedback"
 msgstr ""
 
 #: js/build/notifications-system.js:19

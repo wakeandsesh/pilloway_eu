@@ -148,6 +148,11 @@ class Client {
 		if ( '' === $sig ) {
 			return false;
 		}
+		// The callback must name OUR merchant account, not just carry a signature
+		// that happens to verify for some other (e.g. the public test) account.
+		if ( '' === $this->account || ! hash_equals( $this->account, (string) ( $d['merchantAccount'] ?? '' ) ) ) {
+			return false;
+		}
 		$calc = $this->sign(
 			array(
 				(string) ( $d['merchantAccount'] ?? '' ),

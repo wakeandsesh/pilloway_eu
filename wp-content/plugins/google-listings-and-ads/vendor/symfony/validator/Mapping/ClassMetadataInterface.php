@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator\Mapping;
+namespace Automattic\WooCommerce\GoogleListingsAndAds\Vendor\Symfony\Component\Validator\Mapping;
 
-use Symfony\Component\Validator\Constraints\GroupSequence;
-use Symfony\Component\Validator\GroupSequenceProviderInterface;
+use Automattic\WooCommerce\GoogleListingsAndAds\Vendor\Symfony\Component\Validator\Constraints\GroupSequence;
+use Automattic\WooCommerce\GoogleListingsAndAds\Vendor\Symfony\Component\Validator\GroupSequenceProviderInterface;
 
 /**
  * Stores all metadata needed for validating objects of specific class.

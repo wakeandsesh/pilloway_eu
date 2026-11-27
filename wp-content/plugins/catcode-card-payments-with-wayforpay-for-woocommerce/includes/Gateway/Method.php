@@ -118,6 +118,13 @@ class Method extends \WC_Payment_Gateway {
 		if ( ! in_array( get_woocommerce_currency(), self::CCY, true ) ) {
 			return false;
 		}
+		// Test mode runs on the PUBLIC WayForPay test merchant, whose secret is
+		// common knowledge, so a signed callback cannot be trusted as money.
+		// Keep the method out of real buyers' checkout — only a shop manager
+		// may place a test order.
+		if ( $this->is_test() && ! current_user_can( 'manage_woocommerce' ) ) {
+			return false;
+		}
 		return parent::is_available();
 	}
 
@@ -567,6 +574,14 @@ class Method extends \WC_Payment_Gateway {
 					$order->save();
 					return false;
 				}
+				// Test mode is the public test merchant: never auto-fulfil, hold for review.
+				if ( $this->is_test() ) {
+					if ( ! $order->has_status( 'on-hold' ) ) {
+						$order->update_status( 'on-hold', __( 'WayForPay test mode: simulated payment, not real money — review before fulfilling.', 'catcode-card-payments-with-wayforpay-for-woocommerce' ) );
+					}
+					$order->save();
+					return true;
+				}
 				// Guard against tampering: paid amount must cover the order total,
 				// and the currency must match — a cheaper currency is not payment.
 				$paid = (float) ( $data['amount'] ?? 0 );
@@ -586,6 +601,11 @@ class Method extends \WC_Payment_Gateway {
 				return true;
 
 			case 'WaitingAuthComplete':
+				// A late hold callback must not drag an already-paid order back to on-hold.
+				if ( $order->is_paid() ) {
+					$order->save();
+					return false;
+				}
 				if ( ! $order->has_status( 'on-hold' ) ) {
 					$order->update_status( 'on-hold', __( 'WayForPay: funds are held, awaiting confirmation.', 'catcode-card-payments-with-wayforpay-for-woocommerce' ) );
 				}

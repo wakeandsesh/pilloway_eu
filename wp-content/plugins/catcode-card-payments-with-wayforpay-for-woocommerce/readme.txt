@@ -2,9 +2,9 @@
 Contributors: catcodestudio
 Tags: WayForPay, оплата карткою, еквайринг, платіжний модуль, інтернет-магазин
 Requires at least: 5.6
-Tested up to: 7.1
+Tested up to: 7.2
 Requires PHP: 7.4
-Stable tag: 1.0.5
+Stable tag: 1.0.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -89,11 +89,10 @@ Entirely on the WayForPay side. The customer is redirected to WayForPay's own pa
 
 The interface is in English and ships with a complete Ukrainian translation.
 
-== Screenshots ==
-
-1. WayForPay gateway settings in WooCommerce.
-
 == Changelog ==
+
+= 1.0.6 =
+* Security & reliability: hardened verification of payment-provider callbacks (amount, currency, order reference and merchant checks), order-key validation on the customer return, and safer handling of repeated/late status notifications.
 
 = 1.0.5 =
 * Fixed: after a declined card or "Cancel payment" on the WayForPay page the buyer now sees why on the "Pay for order" page ("The bank declined the card payment…" / "The payment was cancelled…"). The notice used to be lost because WayForPay sends the buyer back with a cross-site request that carries no shop session.

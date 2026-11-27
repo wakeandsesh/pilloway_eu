@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Validator\Exception;
+namespace Automattic\WooCommerce\GoogleListingsAndAds\Vendor\Symfony\Component\Validator\Exception;
 
-use Symfony\Component\Validator\ConstraintViolationListInterface;
+use Automattic\WooCommerce\GoogleListingsAndAds\Vendor\Symfony\Component\Validator\ConstraintViolationListInterface;
 
 /**
  * @author Jan Vernieuwe <jan.vernieuwe@phpro.be>
