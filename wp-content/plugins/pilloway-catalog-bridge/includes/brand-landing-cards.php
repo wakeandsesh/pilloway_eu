@@ -69,19 +69,23 @@ function pilloway_catalog_render_collections_seo_tags(): void {
 	}
 
 	$canonical   = pilloway_catalog_collections_canonical_url();
-	$title       = pilloway_catalog_current_front_page_meta( '_pilloway_seo_title' );
+	$title       = match ( pilloway_catalog_collections_language() ) {
+		'en' => 'Pilloway orthopaedic pillows for adults and children',
+		'de' => 'Orthopädische Pilloway-Kissen für Erwachsene und Kinder',
+		'fr' => 'Oreillers orthopédiques Pilloway pour adultes et enfants',
+		'pl' => 'Poduszki ortopedyczne Pilloway dla dorosłych i dzieci',
+		'ru' => 'Ортопедические подушки Pilloway для взрослых и детей',
+		default => 'Ортопедичні подушки Pilloway для дорослих та дітей',
+	};
 	$description = pilloway_catalog_current_front_page_meta( '_pilloway_seo_description' );
-	$image_alt   = pilloway_catalog_current_front_page_meta( '_pilloway_home_og_alt' );
-	if ( '' === $title ) {
-		$title = wp_get_document_title();
-	}
+	$image_alt   = 'Family Dream — Pilloway';
 	$uploads = wp_upload_dir();
 	$image   = '';
 
 	if ( ! empty( $uploads['baseurl'] ) && ! empty( $uploads['basedir'] ) ) {
-		$image_path = trailingslashit( $uploads['basedir'] ) . 'pilloway-brand-collections/beauty-balance-desktop.webp';
+		$image_path = trailingslashit( $uploads['basedir'] ) . 'family-dream/FD_037.jpg';
 		if ( is_readable( $image_path ) ) {
-			$image = trailingslashit( $uploads['baseurl'] ) . 'pilloway-brand-collections/beauty-balance-desktop.webp';
+			$image = trailingslashit( $uploads['baseurl'] ) . 'family-dream/FD_037.jpg';
 		}
 	}
 
